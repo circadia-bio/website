@@ -131,7 +131,7 @@ window.Quarto = {
 </script>
 
 <meta property="og:title" content="Projects – Home">
-<meta property="og:image" content="images/breno-assis-r3WAWU5Fi5Q-unsplash.jpg">
+<meta property="og:image" content="https://circadia-bio.github.io/website/projects/images/breno-assis-r3WAWU5Fi5Q-unsplash.jpg">
 <meta property="og:site_name" content="Home">
 </head>
 
@@ -542,7 +542,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/circadia-bio\.github\.io\/website\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
