@@ -1,0 +1,23 @@
+---
+title: "Malcolm von Schantz"
+sortby: 3
+subtitle: "Member"
+image: malcolm.jpg
+toc: false
+about:
+  id: person-profile
+  template: jolla
+  links:
+    - icon: link
+      text: website
+      href: about:blank
+---
+
+
+:::{#person-profile}
+
+## Biography
+
+{{< lipsum 2 >}}
+
+:::

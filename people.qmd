@@ -1,0 +1,24 @@
+---
+pagetitle: "People"
+toc: false
+listing:
+  - id: research-staff
+    contents: "people/staff/*.qmd"
+    type: grid
+    image-height: 200px
+    grid-columns: 3
+    fields: [image, title, subtitle]
+    grid-item-align: center
+    sort: sortby
+    field-display-names: 
+      started: "Started"
+format:
+  html:
+    css: styles.scss
+---
+
+
+## Research Staff
+
+:::{#research-staff}
+:::

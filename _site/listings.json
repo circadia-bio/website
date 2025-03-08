@@ -1,0 +1,14 @@
+[
+  {
+    "listing": "/projects/index.html",
+    "items": []
+  },
+  {
+    "listing": "/people.html",
+    "items": [
+      "/people/staff/lucas_franca.html",
+      "/people/staff/mario_miguel.html",
+      "/people/staff/malcolm_schantz.html"
+    ]
+  }
+]
