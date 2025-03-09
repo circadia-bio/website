@@ -27,7 +27,7 @@ website:
 format:
   html:
     theme:
-      light: [cosmo, styles.scss]
-      dark: [cosmo, stylesd.scss]
+      light: [simplex, styles.scss]
+      dark: [simplex, stylesd.scss]
     page-layout: full
   
