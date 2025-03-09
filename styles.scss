@@ -21,7 +21,17 @@ $font-size-root: 22px;
     object-fit: cover; /* Ensures the image fills the circular frame */
 }
 
-.quarto-grid-item img:hover {
+#research-staff .quarto-grid-item img:hover {
+    transform: scale(1.2);
+    transition: transform 0.5s;
+}
+
+#students .quarto-grid-item img:hover {
+    transform: scale(1.2);
+    transition: transform 0.5s;
+}
+
+#collaborators .quarto-grid-item img:hover {
     transform: scale(1.2);
     transition: transform 0.5s;
 }
@@ -60,4 +70,14 @@ $font-size-root: 22px;
   background: rgba(255, 236, 212, 0.7) !important; /* Adjust alpha for translucency */
   backdrop-filter: blur(5px); /* Applies blur effect */
   -webkit-backdrop-filter: blur(5px); /* For Safari compatibility */
+}
+
+#blog .card {
+  border-style: none;
+  border: none;
+}
+
+#publications .card {
+  border-style: none;
+  border: none;
 }

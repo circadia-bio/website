@@ -1,7 +1,26 @@
 [
   {
-    "listing": "/projects/index.html",
-    "items": []
+    "listing": "/blog.html",
+    "items": [
+      "/blog/third-post/index.html",
+      "/blog/second-post/index.html",
+      "/blog/first-post/index.html"
+    ]
+  },
+  {
+    "listing": "/publications.html",
+    "items": [
+      "/publications/ferre2024/index.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/blog/third-post/index.html",
+      "/blog/second-post/index.html",
+      "/blog/first-post/index.html",
+      "/publications/ferre2024/index.html"
+    ]
   },
   {
     "listing": "/people.html",
@@ -19,9 +38,7 @@
     ]
   },
   {
-    "listing": "/publications.html",
-    "items": [
-      "/publications/ferre2024/index.html"
-    ]
+    "listing": "/projects/index.html",
+    "items": []
   }
 ]
