@@ -21,7 +21,7 @@ jobs:
         run: quarto render --output-dir _site  # Force output to _site/
 
       - name: Ensure CNAME is added
-        run: echo "ARCADIA.BIO" > _site/CNAME  # Add CNAME inside _site/
+        run: echo "CIRCADIA.BIO" > _site/CNAME  # Add CNAME inside _site/
       
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
