@@ -53,3 +53,10 @@ $font-size-root: 22px;
   border-style: none;
   border: none;
 }
+
+.navbar {
+  border-style: none !important;
+  background: rgba(1, 67, 112, 0.7) !important; /* Adjust alpha for translucency */
+  backdrop-filter: blur(5px); /* Applies blur effect */
+  -webkit-backdrop-filter: blur(5px); /* For Safari compatibility */
+}
