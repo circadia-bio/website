@@ -18,7 +18,7 @@ about:
     - icon: github
       text: Github
       href: https://www.github.com/lucasfr
-    - text: "{{< fa brands bluesky >}} Bluesky"
+    - text: "{{< fa brands square-bluesky >}} Bluesky"
       href: https://bsky.app/profile/lfranca.uk
 ---
 
