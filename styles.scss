@@ -21,6 +21,11 @@ $font-size-root: 22px;
     object-fit: cover; /* Ensures the image fills the circular frame */
 }
 
+.quarto-grid-item img:hover {
+    transform: scale(1.2);
+    transition: transform 0.5s;
+}
+
 #research-staff .card {
   border-style: none;
   border: none;
