@@ -23,3 +23,9 @@ jobs:
           target: gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+         # Ensure CNAME file is preserved
+      - name: Restore CNAME
+        run: |
+          echo "ARCADIA.BIO" > _publish/CNAME
+        shell: bash
