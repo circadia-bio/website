@@ -4,11 +4,15 @@ project:
 website:
   title: "Home"
   open-graph: true # https://quarto.org/docs/websites/website-tools.html#open-graph
-  page-footer: "Made with ❤️ and Quarto"
+  page-footer: "Made with ❤️ and Quarto. © 2025. This work is openly licensed via CC BY 4.0"
   navbar:
     left:
       - text: People
+        icon: people-fill
         href: people.qmd
+      - text: Publications
+        icon: newspaper
+        href: publications.qmd
       
 format:
   html:

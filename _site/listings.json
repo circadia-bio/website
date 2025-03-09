@@ -17,5 +17,11 @@
       "/people/collaborators/matthew_walker.html",
       "/people/collaborators/yujiang_wang.html"
     ]
+  },
+  {
+    "listing": "/publications.html",
+    "items": [
+      "/publications/ferre2024/index.html"
+    ]
   }
 ]

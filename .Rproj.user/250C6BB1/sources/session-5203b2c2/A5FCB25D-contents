@@ -1,16 +1,17 @@
 ---
-title: "Mario Miguel"
+title: "Dr Mario Miguel"
 sortby: 2
 subtitle: "Co Lead"
 image: mario.jpg
 toc: false
 about:
   id: person-profile
-  template: jolla
+  template: trestles
+  image-width: 20em
   links:
-    - icon: link
-      text: website
-      href: about:blank
+    - icon: mortarboard
+      text: Scholar
+      href: https://scholar.google.com/citations?hl=en&user=2TlAx6cAAAAJ
 ---
 
 

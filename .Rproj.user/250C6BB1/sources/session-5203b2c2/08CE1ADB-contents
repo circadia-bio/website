@@ -1,23 +1,23 @@
 ---
-title: "Malcolm von Schantz"
+title: "Prof. Malcolm von Schantz"
 sortby: 3
 subtitle: "Member"
 image: malcolm.jpg
 toc: false
 about:
   id: person-profile
-  template: jolla
+  template: trestles
+  image-width: 20em
   links:
-    - icon: link
-      text: website
-      href: about:blank
+    - icon: mortarboard
+      text: Scholar
+      href: https://scholar.google.com/citations?user=ww4dEJgAAAAJ
 ---
-
 
 :::{#person-profile}
 
 ## Biography
 
-{{< lipsum 2 >}}
+Malcolm von Schantz is an internationally recognised researcher and an experienced educator, who received his training in Sweden, the United States, and the UK. He has recently joined Northumbria from the University of Surrey, where he also served in leaderships positions as Associate Dean (International) and acting Pro-Vice Chancellor (International Relations). He is also an Honorary Professor at the Univeristy of the Witwatersrand, South Africa. He has received over £6.4 million in research funding from public and private sources including MRC, Wellcome Trust, British Heart Foundation, and US Air Force Office of Scientific Research. He currently holds research funding from the Academy of Medical Sciences (Newton Fund) and the National Institutes of Health (NIH). His research has been published in high-impact international journals and presented both at major scientific conferences and in broadcast, print, and web-based media worldwide.
 
 :::

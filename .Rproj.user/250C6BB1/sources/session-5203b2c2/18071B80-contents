@@ -1,31 +1,31 @@
 ---
-title: "Lucas França"
+title: "Dr Lucas França"
 sortby: 1
 subtitle: "Co Lead"
 image: lucas.jpg
 toc: false
 about:
   id: person-profile
-  template: jolla
+  template: trestles
+  image-width: 20em
   links:
     - icon: link
-      text: website
+      text: Website
       href: https://www.lfranca.uk
     - icon: mortarboard
-      text: scholar
-      href: https://scholar.google.com/citations?user=N2UcZ84AAAAJ
+      text: Scholar
+      href: https://scholar.google.com/citations?user=O6ML_xwAAAAJ
     - icon: github
-      text: github
+      text: Github
       href: https://www.github.com/lucasfr
-    - icon: "{{< fa brands bluesky >}}"
-      text: bsky
+    - text: "{{< fa brands bluesky >}} Bluesky"
       href: https://bsky.app/profile/lfranca.uk
 ---
 
 :::{#person-profile}
-:::
-
 
 ## Biography
 
-{{< lipsum 2 >}}
+{{< lipsum 1 >}}
+
+:::

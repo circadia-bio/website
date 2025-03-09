@@ -2,7 +2,7 @@
 title: "Prof. John Araújo"
 sortby: "Araújo, John"
 subtitle: "Federal University of Rio Grande do Norte"
-image: no.jpg
+image: john.jpg
 toc: false
 about:
   id: person-profile
