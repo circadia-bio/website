@@ -22,13 +22,8 @@ categories:
   - cortical activity
   - EEG
 description: 'Cortical complexity'
-links:
-- icon: file-richtext-fill
-  name: Publication
-  url: https://doi.org/10.1371/journal.pone.0298703
-- icon: github
-  name: Repository
-  url: https://github.com/AlgosL/cycling-entropy
+doi: 10.1371/journal.pone.0298703
+materials: https://github.com/AlgosL/cycling-entropy
 ---
 
 ## Abstract
