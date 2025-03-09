@@ -1,8 +1,8 @@
 ---
-title: "Dr Mario Miguel"
-sortby: 2
-subtitle: "Co Lead"
-image: mario.jpg
+title: "Prof. Matthew Walker"
+sortby: "Walker, Matthew"
+subtitle: "University College London"
+image: matthew.png
 toc: false
 about:
   id: person-profile

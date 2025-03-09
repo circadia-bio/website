@@ -25,3 +25,27 @@ $font-size-root: 22px;
   border-style: none;
   border: none;
 }
+
+#students .quarto-grid-item img {
+    border-radius: 50%;
+    width: 200px; /* Adjust size as needed */
+    height: 200px; /* Keep it square for perfect circles */
+    object-fit: cover; /* Ensures the image fills the circular frame */
+}
+
+#students .card {
+  border-style: none;
+  border: none;
+}
+
+#collaborators .quarto-grid-item img {
+    border-radius: 50%;
+    width: 200px; /* Adjust size as needed */
+    height: 200px; /* Keep it square for perfect circles */
+    object-fit: cover; /* Ensures the image fills the circular frame */
+}
+
+#collaborators .card {
+  border-style: none;
+  border: none;
+}

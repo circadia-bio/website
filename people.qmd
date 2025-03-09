@@ -12,6 +12,26 @@ listing:
     sort: sortby
     field-display-names: 
       started: "Started"
+  - id: students
+    contents: "people/students/*.qmd"
+    type: grid
+    image-height: 200px
+    grid-columns: 3
+    fields: [image, title, subtitle]
+    grid-item-align: center
+    sort: sortby
+    field-display-names: 
+      started: "Started"
+  - id: collaborators
+    contents: "people/collaborators/*.qmd"
+    type: grid
+    image-height: 200px
+    grid-columns: 3
+    fields: [image, title, subtitle]
+    grid-item-align: center
+    sort: sortby
+    field-display-names: 
+      started: "Started"
 format:
   html:
     css: styles.scss
@@ -21,4 +41,14 @@ format:
 ## Research Staff
 
 :::{#research-staff}
+:::
+
+## Students
+
+:::{#students}
+:::
+
+## Collaborators
+
+:::{#collaborators}
 :::

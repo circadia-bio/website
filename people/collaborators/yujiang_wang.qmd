@@ -1,8 +1,8 @@
 ---
-title: "Dr Mario Miguel"
-sortby: 2
-subtitle: "Co Lead"
-image: mario.jpg
+title: "Dr Yujiang Wang"
+sortby: "Wang, Yujiang"
+subtitle: "Newcastle University"
+image: yujiang.jpg
 toc: false
 about:
   id: person-profile

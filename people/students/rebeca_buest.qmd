@@ -1,0 +1,31 @@
+---
+title: "Rebeca Buest"
+sortby: "Buest, Rebeca"
+subtitle: "Visiting PhD Student"
+image: no.jpg
+toc: false
+started: "Summer 2024"
+ended: "Current"
+about:
+  id: person-profile
+  template: trestles
+  image-width: 20em
+  links:
+    - icon: file-earmark-text
+      text: vitae
+      href: about:blank
+---
+
+:::{#person-profile}
+
+## Biography
+
+{{< lipsum 1 >}}
+
+## Education
+
+- [Nortumbria University]{.fw-bold} | Newcastle upon Tyne, UK<br />
+  PhD Student (Computer Science), 2024–Current
+  
+
+:::
