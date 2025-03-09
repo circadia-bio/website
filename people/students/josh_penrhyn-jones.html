@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 
 <meta property="og:title" content="Josh Penrhyn-Jones – Home">
 <meta property="og:description" content="PhD Student">
-<meta property="og:image" content="https://circadia-bio.github.io/website/people/students/no.jpg">
+<meta property="og:image" content="no.jpg">
 <meta property="og:site_name" content="Home">
 </head>
 
@@ -143,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="about-contents"><div id="person-profile">
 <section id="biography" class="level2">
 <h2 data-anchor-id="biography">Biography</h2>
-<p>Nullam dapibus cursus dolor sit amet consequat. Nulla facilisi. Curabitur vel nulla non magna lacinia tincidunt. Duis porttitor quam leo, et blandit velit efficitur ut. Etiam auctor tincidunt porttitor. Phasellus sed accumsan mi. Fusce ut erat dui. Suspendisse eu augue eget turpis condimentum finibus eu non lorem. Donec finibus eros eu ante condimentum, sed pharetra sapien sagittis. Phasellus non dolor ac ante mollis auctor nec et sapien. Pellentesque vulputate at nisi eu tincidunt. Vestibulum at dolor aliquam, hendrerit purus eu, eleifend massa. Morbi consectetur eros id tincidunt gravida. Fusce ut enim quis orci hendrerit lacinia sed vitae enim.</p>
+<p>Etiam quis tortor luctus, pellentesque ante a, finibus dolor. Phasellus in nibh et magna pulvinar malesuada. Ut nisl ex, sagittis at sollicitudin et, sollicitudin id nunc. In id porta urna. Proin porta dolor dolor, vel dapibus nisi lacinia in. Pellentesque ante mauris, ornare non euismod a, fermentum ut sapien. Proin sed vehicula enim. Aliquam tortor odio, vestibulum vitae odio in, tempor molestie justo. Praesent maximus lacus nec leo maximus blandit.</p>
 </section>
 <section id="education" class="level2">
 <h2 data-anchor-id="education">Education</h2>
@@ -386,7 +386,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/circadia-bio\.github\.io\/website\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
