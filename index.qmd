@@ -12,3 +12,5 @@ about: # https://quarto.org/docs/websites/website-about.html
 We are an interdisciplinary group spanning the [Department of Computer and Information Sciences](https://www.northumbria.ac.uk/about-us/academic-departments/computer-and-information-sciences/) and the [Department of Psychology](https://www.northumbria.ac.uk/about-us/academic-departments/psychology/) at the [Northumbria University](https://www.northumbria.ac.uk). Our research focuses on the intersection of physics, computer science, and physiology. We are particularly interested in sleep, rhythmicity, and medical signals of various modalities.
 
 The word *"Circadia"* derives from the Latin *"circa diem"* meaning "around the day", a reference to the circadian rhythms that govern our lives and the focus of our research. It also rhymes with *"arcadia"* - a place for exploration, discovery and learning.
+
+---
