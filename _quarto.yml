@@ -14,6 +14,9 @@ website:
       - text: Publications
         icon: newspaper
         href: publications.qmd
+      - text: Blog
+        icon: file-earmark-richtext
+        href: blog.qmd
     tools:
       - icon: github
         href: https://github.com/circadia-bio/website
