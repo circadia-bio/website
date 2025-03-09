@@ -57,7 +57,7 @@ $font-size-root: 22px;
 
 .navbar {
   border-style: none !important;
-  background: rgba(255, 236, 212, 0.7); /* Adjust alpha for translucency */
+  background: rgba(255, 236, 212, 0.7) !important; /* Adjust alpha for translucency */
   backdrop-filter: blur(5px); /* Applies blur effect */
   -webkit-backdrop-filter: blur(5px); /* For Safari compatibility */
 }
