@@ -21,7 +21,6 @@ categories:
   - entropy 
   - cortical activity
   - EEG
-description: 'Cortical complexity'
 doi: 10.1371/journal.pone.0298703
 materials: https://github.com/AlgosL/cycling-entropy
 ---
