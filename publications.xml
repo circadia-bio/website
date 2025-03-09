@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Home</title>
+<link>https://circadia.bio/publications.html</link>
+<atom:link href="https://circadia.bio/publications.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<generator>quarto-1.6.42</generator>
+<lastBuildDate>Wed, 02 Oct 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Cycling reduces the entropy of neuronal activity in the human adult cortex</title>
+  <dc:creator>Iara Beatriz Silva Ferré</dc:creator>
+  <dc:creator>Gilberto Corso</dc:creator>
+  <dc:creator>Gustavo Zampier dos Santos Lima</dc:creator>
+  <dc:creator>Sergio Roberto Lopes</dc:creator>
+  <dc:creator>Mario André Leocadio-Miguel</dc:creator>
+  <dc:creator>Lucas G. S. França</dc:creator>
+  <dc:creator>Thiago de Lima Prado</dc:creator>
+  <dc:creator>John Fontenele Araújo</dc:creator>
+  <link>https://circadia.bio/publications/ferre2024/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>Brain Complexity (BC) have successfully been applied to study the brain electroencephalographic signal (EEG) in health and disease. In this study, we employed recurrence entropy to quantify BC associated with the neurophysiology of movement by comparing BC in both resting state and cycling movement. We measured EEG in 24 healthy adults and placed the electrodes on occipital, parietal, temporal and frontal sites on both the right and left sides of the brain. We computed the recurrence entropy from EEG measurements during cycling and resting states. Entropy is higher in the resting state than in the cycling state for all brain regions analysed. This reduction in complexity is a result of the repetitive movements that occur during cycling. These movements lead to continuous sensorial feedback, resulting in reduced entropy and sensorimotor processing.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Article</category>
+  <category>entropy</category>
+  <category>cortical activity</category>
+  <category>EEG</category>
+  <guid>https://circadia.bio/publications/ferre2024/</guid>
+  <pubDate>Wed, 02 Oct 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://circadia.bio/publications/ferre2024/featured.png" medium="image" type="image/png" height="167" width="144"/>
+</item>
+</channel>
+</rss>
