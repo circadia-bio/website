@@ -18,16 +18,14 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Render site
-        run: quarto render  # Generates the _publish/ directory
+        run: quarto render --output-dir _site  # Force output to _site/
 
-      - name: Restore CNAME
-        run: |
-          echo "ARCADIA.BIO" > _publish/CNAME
-        shell: bash
-
+      - name: Ensure CNAME is added
+        run: echo "ARCADIA.BIO" > _site/CNAME  # Add CNAME inside _site/
+      
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: _publish
+          publish_dir: _site  # Deploy _site instead of _publish
           publish_branch: gh-pages
