@@ -18,7 +18,7 @@ about:
     - icon: github
       text: Github
       href: https://www.github.com/lucasfr
-    - text: "{{< fa brands square-bluesky >}} Bluesky"
+    - text: "{{< fa brands bluesky >}} Bluesky"
       href: https://bsky.app/profile/lfranca.uk
 ---
 
@@ -26,6 +26,22 @@ about:
 
 ## Biography
 
-{{< lipsum 1 >}}
+I like to describe myself as a physicist by choice, a neuroscientist by fate, and a computer scientist by accident. I am an Assistant Professor in Computer and Information Sciences at Northumbria University. My research interests include Complex Systems and Computational Neuroscience.
+
+## Education
+
+{{< fa graduation-cap >}} PhD in Computational Neuroscience - University College London (London, UK - 2020)
+
+{{< fa graduation-cap >}} MSc in (Statistical) Physics - Federal University of Bahia (Salvador, BR - 2015)
+
+{{< fa graduation-cap >}} BSc in Physics - Federal University of Bahia (Salvador, BR - 2013)
+
+## Experience
+
+{{< fa vial >}} Assistant Professor in Computer and Information Sciences - Northumbria University (Newcastle upon Tyne, UK \| 2023 - Current)
+
+{{< fa vial >}} Research Associate - King's College London (London, UK \| 2020 - 2023)
+
+{{< fa vial >}} Research Assistant - King's College London (London, UK \| 2020 - 2020)
 
 :::
