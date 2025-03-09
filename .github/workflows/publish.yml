@@ -27,6 +27,6 @@ jobs:
          # Ensure CNAME file is preserved
       - name: Restore CNAME
         run: |
-          echo _publish/CNAME
-          echo "ARCADIA.BIO" >> _publish/CNAME
+          mkdir -p _publish  # Ensure the _publish directory exists
+          echo "ARCADIA.BIO" > _publish/CNAME
         shell: bash
