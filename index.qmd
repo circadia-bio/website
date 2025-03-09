@@ -4,8 +4,38 @@ title: "Circadia"
 image: profile.jpg
 about: # https://quarto.org/docs/websites/website-about.html
   template: trestles
+  id: main
   image-width: 20em
+listing: 
+- id: blog
+  contents: 
+    - "blog/*/index.qmd"
+    - "/blog/*/index.ipynb"
+  sort: date desc
+  type: grid
+  grid-columns: 1
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  fields: [title, subtitle, image]
+  max-items: 1
+  image-height: "200"
+- id: publication
+  contents: 
+    - "publications/*/index.qmd"
+  sort: date desc
+  type: grid
+  grid-columns: 1
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  fields: [title, image]
+  max-items: 1
+  image-height: "200"
+  image-placeholder: ../publication/featured.jpg
 ---
+
+:::{#main}
 
 ## About us
 
@@ -13,4 +43,25 @@ We are an interdisciplinary group spanning the [Department of Computer and Infor
 
 The word *"Circadia"* derives from the Latin *"circa diem"* meaning "around the day", a reference to the circadian rhythms that govern our lives and the focus of our research. It also rhymes with *"arcadia"* - a place for exploration, discovery and learning.
 
----
+::: 
+
+## News
+
+:::: {.grid}
+
+
+::: {.g-col-6}
+### Blog
+::: {#blog}
+:::
+[See all &rarr;](blog.html){.about-links .subtitle}
+:::
+
+::: {.g-col-6}
+### Publications
+::: {#publication}
+:::
+[See all &rarr;](publications.html){.about-links .subtitle}
+:::
+
+::::
