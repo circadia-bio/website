@@ -3,6 +3,7 @@ title: "Publications"
 listing: 
   contents: 
     - "publications/**/index.qmd"
+  feed: true
   sort: "date desc"
   type: default
   categories: false
@@ -12,6 +13,7 @@ listing:
   image-align: left
   image-height: 10em
   # page-size: 5
+  
 
 format: 
   html: 
