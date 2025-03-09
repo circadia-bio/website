@@ -11,7 +11,7 @@ about:
   links:
     - icon: mortarboard
       text: Scholar
-      href: https://scholar.google.com/citations?hl=en&user=2TlAx6cAAAAJ
+      href: https://scholar.google.com/citations?user=lbyz4b8AAAAJ
 ---
 
 
