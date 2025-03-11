@@ -6,6 +6,7 @@ author:
     orcid: "0000-0002-7248-3529"
 date: "2025-03-11"
 image: "cover.jpg"
+execute.freeze: true
 toc: true
 categories:
   - Sleep
