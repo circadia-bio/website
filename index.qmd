@@ -10,6 +10,7 @@ listing:
 - id: blog
   contents: 
     - "blog/*/index.qmd"
+    - "blog/*/index.md"
     - "/blog/*/index.ipynb"
   sort: date desc
   type: grid

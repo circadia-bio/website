@@ -3,6 +3,7 @@ title: "Tutorials"
 listing: 
   contents: 
     - "blog/*/index.qmd"
+    - "blog/*/index.md"
     - "blog/*/index.ipynb"
   sort: "date desc"
   type: default
