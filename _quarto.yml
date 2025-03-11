@@ -2,20 +2,23 @@ project:
   type: website
 
 website:
-  title: "Home"
+  title: "Circadia"
   site-url: "https://circadia.bio"
   twitter-card: true
   open-graph: true # https://quarto.org/docs/websites/website-tools.html#open-graph
   page-footer: "Made with ❤️ and Quarto. © 2025. This work is openly licensed via CC BY 4.0"
   navbar:
     left:
+      - text: Home
+        icon: house-fill
+        href: index.qmd
       - text: People
         icon: people-fill
         href: people.qmd
       - text: Publications
         icon: newspaper
         href: publications.qmd
-      - text: Blog
+      - text: Tutorials
         icon: file-earmark-richtext
         href: blog.qmd
     tools:
@@ -26,7 +29,7 @@ website:
             - text: Publications
               href: publications.xml
             - text: Posts
-              href: publications.xml
+              href: blog.xml
       
 format:
   html:

@@ -13,6 +13,7 @@ author:
   orcid: 0000-0003-0853-1319
 - Thiago de Lima Prado
 - John Fontenele Araújo
+description: "Brain Complexity (BC) have successfully been applied to study the brain electroencephalographic signal (EEG) in health and disease. In this study, we employed recurrence entropy to quantify BC associated with the neurophysiology of movement by comparing BC in both resting state and cycling movement. We measured EEG in 24 healthy adults and placed the electrodes on occipital, parietal, temporal and frontal sites on both the right and left sides of the brain. We computed the recurrence entropy from EEG measurements during cycling and resting states. Entropy is higher in the resting state than in the cycling state for all brain regions analysed. This reduction in complexity is a result of the repetitive movements that occur during cycling. These movements lead to continuous sensorial feedback, resulting in reduced entropy and sensorimotor processing."
 date: '2024-10-02'
 slug: cycling-entropy
 image: featured.png

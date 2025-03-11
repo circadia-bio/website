@@ -10,6 +10,7 @@ listing:
 - id: blog
   contents: 
     - "blog/*/index.qmd"
+    - "blog/*/index.md"
     - "/blog/*/index.ipynb"
   sort: date desc
   type: grid
@@ -17,7 +18,7 @@ listing:
   categories: false
   sort-ui: false
   filter-ui: false
-  fields: [title, subtitle, image]
+  fields: [title, subtitle, image, description]
   max-items: 1
   image-height: "200"
 - id: publication
@@ -29,7 +30,7 @@ listing:
   categories: false
   sort-ui: false
   filter-ui: false
-  fields: [title, image]
+  fields: [title, image, description]
   max-items: 1
   image-height: "200"
   image-placeholder: ../publication/featured.jpg
@@ -51,7 +52,7 @@ The word *"Circadia"* derives from the Latin *"circa diem"* meaning "around the 
 
 
 ::: {.g-col-6}
-### Blog
+### Tutorials
 ::: {#blog}
 :::
 [See all &rarr;](blog.html){.about-links .subtitle}

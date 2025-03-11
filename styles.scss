@@ -6,13 +6,23 @@
 /* Colors */
 $body-bg: #ffecd4;
 $body-color: #1b6799;
-$link-color: #52bfd9;
+$link-color: #fc544a;
 $navbar-bg: #ffecd4;
 
 
 /* Fonts */
-$font-family-sans-serif: "Source Sans Pro", -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $font-size-root: 22px;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap');
+
+h1, h2, h3 {
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+}
+
+body {
+    font-family: "Alice", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
 
 #research-staff .quarto-grid-item img {
     border-radius: 50%;
@@ -72,7 +82,7 @@ $font-size-root: 22px;
   -webkit-backdrop-filter: blur(5px); /* For Safari compatibility */
 }
 
-#blog .card {
+#tutorials .card {
   border-style: none;
   border: none;
 }
@@ -80,4 +90,24 @@ $font-size-root: 22px;
 #publications .card {
   border-style: none;
   border: none;
+}
+
+#tutorials .quarto-grid-item img {
+    border-radius: 30px;
+    padding: 20px;
+}
+
+#publications .quarto-grid-item img {
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.figure-img {
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.thumbnail-image {
+    border-radius: 30px;
+    padding: 20px;
 }
