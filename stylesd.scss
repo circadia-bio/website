@@ -72,3 +72,23 @@ body {
   backdrop-filter: blur(5px); /* Applies blur effect */
   -webkit-backdrop-filter: blur(5px); /* For Safari compatibility */
 }
+
+#tutorials .quarto-grid-item img {
+    border-radius: 30px;
+    padding: 20px;
+}
+
+#publications .quarto-grid-item img {
+    border-radius: 30px;
+    padding: 20px;
+}
+
+#blog .quarto-grid-item img {
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.figure-img {
+    border-radius: 30px;
+    padding: 20px;
+}
