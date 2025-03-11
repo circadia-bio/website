@@ -3,6 +3,7 @@ title: "Dr Yujiang Wang"
 sortby: "Wang, Yujiang"
 subtitle: "Newcastle University"
 image: yujiang.jpg
+image-alt: "Photo of Yujiang Wang"
 toc: false
 about:
   id: person-profile

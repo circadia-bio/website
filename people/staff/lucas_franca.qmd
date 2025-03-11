@@ -3,6 +3,7 @@ title: "Dr Lucas França"
 sortby: 1
 subtitle: "Co Lead"
 image: lucas.jpg
+image-alt: "Photo of Lucas França"
 toc: false
 about:
   id: person-profile

@@ -3,6 +3,7 @@ title: "Dr Mario Miguel"
 sortby: 2
 subtitle: "Co Lead"
 image: mario.jpg
+image-alt: "Photo of Dr Mario Miguel"
 toc: false
 about:
   id: person-profile

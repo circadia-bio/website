@@ -2,6 +2,7 @@
 title: "Circadia"
 # `profile.jpg` photo by Jan Tinneberg on https://unsplash.com
 image: profile.jpg
+image-alt: "Illustrative image of a clock on a plate with a fork and knife"
 about: # https://quarto.org/docs/websites/website-about.html
   template: trestles
   id: main
