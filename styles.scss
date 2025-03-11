@@ -91,3 +91,23 @@ body {
   border-style: none;
   border: none;
 }
+
+#tutorials .quarto-grid-item img {
+    border-radius: 30px;
+    padding: 20px;
+}
+
+#publications .quarto-grid-item img {
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.figure-img {
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.thumbnail-image {
+    border-radius: 30px;
+    padding: 20px;
+}
