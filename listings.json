@@ -1,11 +1,20 @@
 [
   {
     "listing": "/blog.html",
-    "items": []
+    "items": [
+      "/blog/sleep_PSG/index.html"
+    ]
   },
   {
     "listing": "/publications.html",
     "items": [
+      "/publications/ferre2024/index.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/blog/sleep_PSG/index.html",
       "/publications/ferre2024/index.html"
     ]
   },
@@ -22,12 +31,6 @@
       "/people/collaborators/john_araujo.html",
       "/people/collaborators/matthew_walker.html",
       "/people/collaborators/yujiang_wang.html"
-    ]
-  },
-  {
-    "listing": "/index.html",
-    "items": [
-      "/publications/ferre2024/index.html"
     ]
   },
   {

@@ -10,6 +10,3295 @@
 <atom:link href="https://circadia.bio/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.42</generator>
-<lastBuildDate>Tue, 11 Mar 2025 12:11:25 GMT</lastBuildDate>
+<lastBuildDate>Tue, 11 Mar 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Sleep PSG validation</title>
+  <dc:creator>Mario Miguel</dc:creator>
+  <link>https://circadia.bio/blog/sleep_PSG/</link>
+  <description><![CDATA[ 
+
+
+
+
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<p><link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet"></p>
+<section id="load-necessary-libraries" class="level4">
+<h4 class="anchored" data-anchor-id="load-necessary-libraries">Load necessary libraries</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(dplyr)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggplot2)</span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(knitr)</span>
+<span id="cb1-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(irr) </span>
+<span id="cb1-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(caret)</span>
+<span id="cb1-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(pROC)</span>
+<span id="cb1-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(blandr)</span>
+<span id="cb1-8"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(kableExtra)</span>
+<span id="cb1-9"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(knitr)</span></code></pre></div>
+</div>
+</section>
+<section id="add-seeds-for-reproductibility---used-when-generating-synthetic-data-only" class="level4">
+<h4 class="anchored" data-anchor-id="add-seeds-for-reproductibility---used-when-generating-synthetic-data-only">Add seeds for reproductibility - used when generating synthetic data only</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">set.seed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># For the PSG dataset</span></span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">set.seed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># For the Headband dataset</span></span></code></pre></div>
+</div>
+</section>
+<section id="define-parameters-need-to-run-this-code-before-generating-synthetic-data-and-before-opening-real-data-because-of-sleep_stages" class="level4">
+<h4 class="anchored" data-anchor-id="define-parameters-need-to-run-this-code-before-generating-synthetic-data-and-before-opening-real-data-because-of-sleep_stages">Define parameters (need to run this code before generating synthetic data and before opening real data, because of sleep_stages)</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">num_subjects <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span></span>
+<span id="cb3-2">epochs_per_night <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 8 hours, 30 seconds per epoch </span></span>
+<span id="cb3-3">sleep_stages <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"W"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"N1"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"N2"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"N3"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"R"</span>)</span></code></pre></div>
+</div>
+</section>
+<section id="generate-synthetic-data---psg-ground-truth" class="level4">
+<h4 class="anchored" data-anchor-id="generate-synthetic-data---psg-ground-truth">Generate synthetic data - PSG ground truth</h4>
+<div>
+<blockquote class="blockquote">
+<p><strong>Warning!</strong></p>
+<p>Do not run this if you are using real data.</p>
+<p><strong>Note:</strong> Instead of using the synthetic data, you can use the real data from the ground truth device and the device you want to validate. To do so, you can load the data using the <code>read.csv()</code> function and then proceed with the analysis. Please mind the structure of the data and adjust the code accordingly (Subject ID, Epoch, Time, Sleep Stage).</p>
+</blockquote>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">generate_sleep_data_with_cycles <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(subject_id, total_epochs, cycles) {</span>
+<span id="cb4-2">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Define time variables</span></span>
+<span id="cb4-3">  epoch_duration <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># seconds</span></span>
+<span id="cb4-4">  cycle_duration <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">90</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> epoch_duration  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Approximate 90-minute cycle in epochs</span></span>
+<span id="cb4-5">  </span>
+<span id="cb4-6">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Define stage probabilities per cycle</span></span>
+<span id="cb4-7">  cycle_probs <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>(</span>
+<span id="cb4-8">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">W =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N1 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N2 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N3 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.55</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">R =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>),  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Cycle 1: more N3</span></span>
+<span id="cb4-9">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">W =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N1 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N2 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.3</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N3 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.45</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">R =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>),  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Cycle 2: slightly more N2</span></span>
+<span id="cb4-10">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">W =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N1 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.15</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N2 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.4</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N3 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">R =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span>),  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Cycle 3: less N3, more REM</span></span>
+<span id="cb4-11">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">W =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N1 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N2 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.35</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N3 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">R =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.3</span>),  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Cycle 4: mostly REM</span></span>
+<span id="cb4-12">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">W =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N1 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.25</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N2 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.35</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N3 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">R =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.3</span>)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Cycle 5: mainly REM with N2</span></span>
+<span id="cb4-13">  )</span>
+<span id="cb4-14"></span>
+<span id="cb4-15">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Initialize data frame for each subject</span></span>
+<span id="cb4-16">  sleep_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(</span>
+<span id="cb4-17">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Subject_ID =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">integer</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Epoch =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">integer</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>),</span>
+<span id="cb4-18">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Time =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.POSIXct</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">character</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Sleep_Stage =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">character</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)</span>
+<span id="cb4-19">  )</span>
+<span id="cb4-20"></span>
+<span id="cb4-21">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Generate epochs for each cycle with specified probabilities</span></span>
+<span id="cb4-22">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> (cycle <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span>cycles) {</span>
+<span id="cb4-23">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Define epochs for current cycle</span></span>
+<span id="cb4-24">    cycle_epochs <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ifelse</span>(cycle <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> cycles, cycle_duration, total_epochs <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(sleep_data))</span>
+<span id="cb4-25">    </span>
+<span id="cb4-26">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Generate data for this cycle</span></span>
+<span id="cb4-27">    cycle_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(</span>
+<span id="cb4-28">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Subject_ID =</span> subject_id,</span>
+<span id="cb4-29">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Epoch =</span> (<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(sleep_data) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(sleep_data) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> cycle_epochs),</span>
+<span id="cb4-30">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Time =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq.POSIXt</span>(</span>
+<span id="cb4-31">        <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">from =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.POSIXct</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"2024-01-01 22:00:00"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> ((cycle <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">90</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span>),</span>
+<span id="cb4-32">        <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">by =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"30 secs"</span>,</span>
+<span id="cb4-33">        <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">length.out =</span> cycle_epochs</span>
+<span id="cb4-34">      ),</span>
+<span id="cb4-35">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Sleep_Stage =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sample</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">names</span>(cycle_probs[[cycle]]), cycle_epochs, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">replace =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">prob =</span> cycle_probs[[cycle]])</span>
+<span id="cb4-36">    )</span>
+<span id="cb4-37">    </span>
+<span id="cb4-38">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Append to overall data</span></span>
+<span id="cb4-39">    sleep_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rbind</span>(sleep_data, cycle_data)</span>
+<span id="cb4-40">  }</span>
+<span id="cb4-41">  </span>
+<span id="cb4-42">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(sleep_data)</span>
+<span id="cb4-43">}</span>
+<span id="cb4-44"></span>
+<span id="cb4-45"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Generate PSG dataset with cycles for each subject</span></span>
+<span id="cb4-46">num_cycles <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Approximate number of cycles per night</span></span>
+<span id="cb4-47">PSG <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">do.call</span>(rbind, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lapply</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span>num_subjects, generate_sleep_data_with_cycles, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">total_epochs =</span> epochs_per_night, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cycles =</span> num_cycles))</span>
+<span id="cb4-48"></span>
+<span id="cb4-49"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Save the dataset as a CSV file</span></span>
+<span id="cb4-50"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#write.csv(PSG, "PSG_data.csv", row.names = FALSE)</span></span></code></pre></div>
+</div>
+</section>
+<section id="generate-synthetic-data---headband" class="level4">
+<h4 class="anchored" data-anchor-id="generate-synthetic-data---headband">Generate synthetic data - Headband</h4>
+<div>
+<blockquote class="blockquote">
+<p><strong>Warning!</strong></p>
+<p>Do not run this if you are using real data.</p>
+</blockquote>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">generate_sleep_data_with_cycles <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(subject_id, total_epochs, cycles) {</span>
+<span id="cb5-2">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Define time variables</span></span>
+<span id="cb5-3">  epoch_duration <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># seconds</span></span>
+<span id="cb5-4">  cycle_duration <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">90</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> epoch_duration  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Approximate 90-minute cycle in epochs</span></span>
+<span id="cb5-5">  </span>
+<span id="cb5-6">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Define stage probabilities per cycle</span></span>
+<span id="cb5-7">  cycle_probs <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>(</span>
+<span id="cb5-8">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">W =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N1 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N2 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N3 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.55</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">R =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>),  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Cycle 1: more N3</span></span>
+<span id="cb5-9">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">W =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N1 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N2 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.3</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N3 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.45</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">R =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>),  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Cycle 2: slightly more N2</span></span>
+<span id="cb5-10">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">W =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N1 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.15</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N2 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.4</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N3 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">R =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span>),  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Cycle 3: less N3, more REM</span></span>
+<span id="cb5-11">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">W =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N1 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N2 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.35</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N3 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.1</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">R =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.3</span>),  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Cycle 4: mostly REM</span></span>
+<span id="cb5-12">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">W =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N1 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.25</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N2 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.35</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">N3 =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">R =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.3</span>)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Cycle 5: mainly REM with N2</span></span>
+<span id="cb5-13">  )</span>
+<span id="cb5-14"></span>
+<span id="cb5-15">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Initialize data frame for each subject</span></span>
+<span id="cb5-16">  sleep_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(</span>
+<span id="cb5-17">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Subject_ID =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">integer</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Epoch =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">integer</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>),</span>
+<span id="cb5-18">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Time =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.POSIXct</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">character</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Sleep_Stage =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">character</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)</span>
+<span id="cb5-19">  )</span>
+<span id="cb5-20"></span>
+<span id="cb5-21">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Generate epochs for each cycle with specified probabilities</span></span>
+<span id="cb5-22">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> (cycle <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span>cycles) {</span>
+<span id="cb5-23">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Define epochs for current cycle</span></span>
+<span id="cb5-24">    cycle_epochs <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ifelse</span>(cycle <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> cycles, cycle_duration, total_epochs <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(sleep_data))</span>
+<span id="cb5-25">    </span>
+<span id="cb5-26">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Generate data for this cycle</span></span>
+<span id="cb5-27">    cycle_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(</span>
+<span id="cb5-28">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Subject_ID =</span> subject_id,</span>
+<span id="cb5-29">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Epoch =</span> (<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(sleep_data) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(sleep_data) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> cycle_epochs),</span>
+<span id="cb5-30">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Time =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq.POSIXt</span>(</span>
+<span id="cb5-31">        <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">from =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.POSIXct</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"2024-01-01 22:00:00"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> ((cycle <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">90</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span>),</span>
+<span id="cb5-32">        <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">by =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"30 secs"</span>,</span>
+<span id="cb5-33">        <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">length.out =</span> cycle_epochs</span>
+<span id="cb5-34">      ),</span>
+<span id="cb5-35">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Sleep_Stage =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sample</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">names</span>(cycle_probs[[cycle]]), cycle_epochs, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">replace =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">prob =</span> cycle_probs[[cycle]])</span>
+<span id="cb5-36">    )</span>
+<span id="cb5-37">    </span>
+<span id="cb5-38">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Append to overall data</span></span>
+<span id="cb5-39">    sleep_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rbind</span>(sleep_data, cycle_data)</span>
+<span id="cb5-40">  }</span>
+<span id="cb5-41">  </span>
+<span id="cb5-42">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(sleep_data)</span>
+<span id="cb5-43">}</span>
+<span id="cb5-44"></span>
+<span id="cb5-45"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Generate PSG dataset with cycles for each subject</span></span>
+<span id="cb5-46">num_cycles <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Approximate number of cycles per night</span></span>
+<span id="cb5-47">Headband <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">do.call</span>(rbind, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lapply</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span>num_subjects, generate_sleep_data_with_cycles, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">total_epochs =</span> epochs_per_night, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cycles =</span> num_cycles))</span>
+<span id="cb5-48"></span>
+<span id="cb5-49"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Save the dataset as a CSV file</span></span>
+<span id="cb5-50"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#write.csv(Headband, "Headband.csv", row.names = FALSE)</span></span></code></pre></div>
+</div>
+</section>
+<section id="calculate-the-percentage-of-time-spent-in-each-sleep-stage" class="level4">
+<h4 class="anchored" data-anchor-id="calculate-the-percentage-of-time-spent-in-each-sleep-stage">Calculate the percentage of time spent in each sleep stage</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Calculate the percentage of time spent in each sleep stage for the PSG dataset</span></span>
+<span id="cb6-2">PSG_percentage <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> PSG <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(Subject_ID, Sleep_Stage) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summarise</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Epoch_Count =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">n</span>(), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.groups =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'drop'</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Percentage =</span> (Epoch_Count <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Total epochs = 8 hours * 60 mins * 2 (30 sec epochs)</span></span>
+<span id="cb6-6"></span>
+<span id="cb6-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Calculate the percentage of time spent in each sleep stage for the Headband dataset</span></span>
+<span id="cb6-8">Headband_percentage <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> Headband <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(Subject_ID, Sleep_Stage) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-10">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summarise</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Epoch_Count =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">n</span>(), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.groups =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'drop'</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-11">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Percentage =</span> (Epoch_Count <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Total epochs = 8 hours * 60 mins * 2 (30 sec epochs)</span></span>
+<span id="cb6-12"></span>
+<span id="cb6-13"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Merge the percentages for both datasets</span></span>
+<span id="cb6-14">merged_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">full_join</span>(PSG_percentage, Headband_percentage, </span>
+<span id="cb6-15">                         <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">by =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Subject_ID"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Sleep_Stage"</span>), </span>
+<span id="cb6-16">                         <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">suffix =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"_PSG"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"_Headband"</span>))</span></code></pre></div>
+</div>
+</section>
+<section id="plot-the-percentage-of-time-spent-in-each-sleep-stage-for-psg-and-headband" class="level4">
+<h4 class="anchored" data-anchor-id="plot-the-percentage-of-time-spent-in-each-sleep-stage-for-psg-and-headband">Plot the percentage of time spent in each sleep stage for PSG and Headband</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">difference_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> merged_data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb7-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Difference =</span> (Percentage_PSG <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> Percentage_Headband)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb7-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(Sleep_Stage) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb7-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summarise</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Average_Difference =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(Difference, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.groups =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'drop'</span>)</span>
+<span id="cb7-5"></span>
+<span id="cb7-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Plot the differences for each sleep stage</span></span>
+<span id="cb7-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(difference_data, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> Sleep_Stage, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> Average_Difference, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> Sleep_Stage)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb7-8">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_bar</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">stat =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"identity"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">position =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">position_dodge</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">width =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.8</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">width =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.7</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb7-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Difference in Time Spent per Sleep Stage between PSG and Headband"</span>,</span>
+<span id="cb7-10">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Sleep Stage"</span>,</span>
+<span id="cb7-11">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Average Difference in Percentage (%)"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb7-12">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">scale_fill_brewer</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">palette =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Set3"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb7-13">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb7-14">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">legend.position =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"none"</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-7-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="calculate-mean-differences-and-confidence-intervals-for-each-sleep-stage---bias" class="level4">
+<h4 class="anchored" data-anchor-id="calculate-mean-differences-and-confidence-intervals-for-each-sleep-stage---bias">Calculate mean differences and confidence intervals for each sleep stage - Bias</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Calculate mean differences and confidence intervals for each sleep stage</span></span>
+<span id="cb8-2">mean_diff_results <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> merged_data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb8-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(Sleep_Stage) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb8-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summarise</span>(</span>
+<span id="cb8-5">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Mean_Difference =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(Percentage_PSG <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> Percentage_Headband, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>),</span>
+<span id="cb8-6">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">SD_Difference =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sd</span>(Percentage_PSG <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> Percentage_Headband, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>),</span>
+<span id="cb8-7">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Count =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">n</span>(),</span>
+<span id="cb8-8">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">SE_Difference =</span> SD_Difference <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(Count),</span>
+<span id="cb8-9">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">CI_Lower =</span> Mean_Difference <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">qt</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.975</span>, Count <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> SE_Difference,  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 95% CI</span></span>
+<span id="cb8-10">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">CI_Upper =</span> Mean_Difference <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">qt</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.975</span>, Count <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> SE_Difference,</span>
+<span id="cb8-11">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.groups =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'drop'</span></span>
+<span id="cb8-12">  )</span>
+<span id="cb8-13"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Plot the mean difference with error bars</span></span>
+<span id="cb8-14"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggplot2)</span>
+<span id="cb8-15"></span>
+<span id="cb8-16"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(mean_diff_results, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> Sleep_Stage, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> Mean_Difference)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-17">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_bar</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">stat =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"identity"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"lightblue"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"black"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-18">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_errorbar</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ymin =</span> CI_Lower, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ymax =</span> CI_Upper), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">width =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"darkblue"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-19">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_hline</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">yintercept =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">linetype =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dashed"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"red"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Line at zero for reference</span></span>
+<span id="cb8-20">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Mean Difference in Time Spent in Each Sleep Stage"</span>,</span>
+<span id="cb8-21">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Sleep Stage"</span>,</span>
+<span id="cb8-22">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Mean Difference (PSG - Headband) [%]"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-23">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_minimal</span>()</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-8-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="bland-altman-statistics" class="level4">
+<h4 class="anchored" data-anchor-id="bland-altman-statistics">Bland-Altman Statistics</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># List of unique sleep stages</span></span>
+<span id="cb9-2">sleep_stages <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">unique</span>(merged_data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Sleep_Stage)</span>
+<span id="cb9-3"></span>
+<span id="cb9-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Initialize an empty list to store results</span></span>
+<span id="cb9-5">ba_results <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>()</span>
+<span id="cb9-6"></span>
+<span id="cb9-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Loop through each sleep stage and calculate Bland-Altman statistics</span></span>
+<span id="cb9-8"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> (stage <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> sleep_stages) {</span>
+<span id="cb9-9">  stage_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> merged_data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(Sleep_Stage <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> stage)</span>
+<span id="cb9-10">  ba_stats <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">blandr.statistics</span>(stage_data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Percentage_PSG, stage_data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Percentage_Headband)</span>
+<span id="cb9-11">  </span>
+<span id="cb9-12">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Append the Bland-Altman statistics object to the list with the stage name</span></span>
+<span id="cb9-13">  ba_results[[stage]] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ba_stats</span>
+<span id="cb9-14">}</span>
+<span id="cb9-15"></span>
+<span id="cb9-16"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Print the results for each sleep stage</span></span>
+<span id="cb9-17"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> (stage <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">names</span>(ba_results)) {</span>
+<span id="cb9-18">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cat</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">Results for Sleep Stage:"</span>, stage, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span>
+<span id="cb9-19">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print</span>(ba_results[[stage]])</span>
+<span id="cb9-20">}</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Results for Sleep Stage: N1 
+Bland-Altman Statistics
+=======================
+t = -1.3072, df = 19, p-value = 0.2067
+alternative hypothesis: true bias is not equal to 0
+
+=======================
+Number of comparisons:  20 
+Maximum value for average measures:  17.8125 
+Minimum value for average measures:  15.05208 
+Maximum value for difference in measures:  5 
+Minimum value for difference in measures:  -3.541667 
+
+Bias:  -0.515625 
+Standard deviation of bias:  1.76404 
+
+Standard error of bias:  0.3944513 
+Standard error for limits of agreement:  0.6856898 
+
+Bias:  -0.515625 
+Bias- upper 95% CI:  0.309971 
+Bias- lower 95% CI:  -1.341221 
+
+Upper limit of agreement:  2.941893 
+Upper LOA- upper 95% CI:  4.377058 
+Upper LOA- lower 95% CI:  1.506728 
+
+Lower limit of agreement:  -3.973143 
+Lower LOA- upper 95% CI:  -2.537978 
+Lower LOA- lower 95% CI:  -5.408308 
+
+=======================
+Derived measures:  
+Mean of differences/means:  -3.040415 
+Point estimate of bias as proportion of lowest average:  -3.425606 
+Point estimate of bias as proportion of highest average -2.894737 
+Spread of data between lower and upper LoAs:  6.915036 
+Bias as proportion of LoA spread:  -7.456577 
+
+=======================
+Bias: 
+ -0.515625  ( -1.341221  to  0.309971 ) 
+ULoA: 
+ 2.941893  ( 1.506728  to  4.377058 ) 
+LLoA: 
+ -3.973143  ( -5.408308  to  -2.537978 ) 
+
+
+
+Results for Sleep Stage: N2 
+Bland-Altman Statistics
+=======================
+t = -0.86936, df = 19, p-value = 0.3955
+alternative hypothesis: true bias is not equal to 0
+
+=======================
+Number of comparisons:  20 
+Maximum value for average measures:  33.85417 
+Minimum value for average measures:  29.89583 
+Maximum value for difference in measures:  4.895833 
+Minimum value for difference in measures:  -4.583333 
+
+Bias:  -0.421875 
+Standard deviation of bias:  2.170194 
+
+Standard error of bias:  0.4852702 
+Standard error for limits of agreement:  0.8435639 
+
+Bias:  -0.421875 
+Bias- upper 95% CI:  0.5938073 
+Bias- lower 95% CI:  -1.437557 
+
+Upper limit of agreement:  3.831706 
+Upper LOA- upper 95% CI:  5.597306 
+Upper LOA- lower 95% CI:  2.066107 
+
+Lower limit of agreement:  -4.675456 
+Lower LOA- upper 95% CI:  -2.909857 
+Lower LOA- lower 95% CI:  -6.441056 
+
+=======================
+Derived measures:  
+Mean of differences/means:  -1.323016 
+Point estimate of bias as proportion of lowest average:  -1.41115 
+Point estimate of bias as proportion of highest average -1.246154 
+Spread of data between lower and upper LoAs:  8.507162 
+Bias as proportion of LoA spread:  -4.959057 
+
+=======================
+Bias: 
+ -0.421875  ( -1.437557  to  0.5938073 ) 
+ULoA: 
+ 3.831706  ( 2.066107  to  5.597306 ) 
+LLoA: 
+ -4.675456  ( -6.441056  to  -2.909857 ) 
+
+
+
+Results for Sleep Stage: N3 
+Bland-Altman Statistics
+=======================
+t = 2.3468, df = 19, p-value = 0.02993
+alternative hypothesis: true bias is not equal to 0
+
+=======================
+Number of comparisons:  20 
+Maximum value for average measures:  27.44792 
+Minimum value for average measures:  24.79167 
+Maximum value for difference in measures:  3.333333 
+Minimum value for difference in measures:  -1.979167 
+
+Bias:  0.78125 
+Standard deviation of bias:  1.488757 
+
+Standard error of bias:  0.3328962 
+Standard error for limits of agreement:  0.5786862 
+
+Bias:  0.78125 
+Bias- upper 95% CI:  1.47801 
+Bias- lower 95% CI:  0.08449032 
+
+Upper limit of agreement:  3.699214 
+Upper LOA- upper 95% CI:  4.910418 
+Upper LOA- lower 95% CI:  2.488009 
+
+Lower limit of agreement:  -2.136714 
+Lower LOA- upper 95% CI:  -0.9255094 
+Lower LOA- lower 95% CI:  -3.347918 
+
+=======================
+Derived measures:  
+Mean of differences/means:  3.090366 
+Point estimate of bias as proportion of lowest average:  3.151261 
+Point estimate of bias as proportion of highest average 2.8463 
+Spread of data between lower and upper LoAs:  5.835927 
+Bias as proportion of LoA spread:  13.3869 
+
+=======================
+Bias: 
+ 0.78125  ( 0.08449032  to  1.47801 ) 
+ULoA: 
+ 3.699214  ( 2.488009  to  4.910418 ) 
+LLoA: 
+ -2.136714  ( -3.347918  to  -0.9255094 ) 
+
+
+
+Results for Sleep Stage: R 
+Bland-Altman Statistics
+=======================
+t = -0.028155, df = 19, p-value = 0.9778
+alternative hypothesis: true bias is not equal to 0
+
+=======================
+Number of comparisons:  20 
+Maximum value for average measures:  23.22917 
+Minimum value for average measures:  19.53125 
+Maximum value for difference in measures:  2.291667 
+Minimum value for difference in measures:  -3.333333 
+
+Bias:  -0.01041667 
+Standard deviation of bias:  1.654596 
+
+Standard error of bias:  0.3699789 
+Standard error for limits of agreement:  0.6431485 
+
+Bias:  -0.01041667 
+Bias- upper 95% CI:  0.763958 
+Bias- lower 95% CI:  -0.7847913 
+
+Upper limit of agreement:  3.232591 
+Upper LOA- upper 95% CI:  4.578716 
+Upper LOA- lower 95% CI:  1.886466 
+
+Lower limit of agreement:  -3.253424 
+Lower LOA- upper 95% CI:  -1.907299 
+Lower LOA- lower 95% CI:  -4.59955 
+
+=======================
+Derived measures:  
+Mean of differences/means:  -0.0266 
+Point estimate of bias as proportion of lowest average:  -0.05333333 
+Point estimate of bias as proportion of highest average -0.04484305 
+Spread of data between lower and upper LoAs:  6.486016 
+Bias as proportion of LoA spread:  -0.1606019 
+
+=======================
+Bias: 
+ -0.01041667  ( -0.7847913  to  0.763958 ) 
+ULoA: 
+ 3.232591  ( 1.886466  to  4.578716 ) 
+LLoA: 
+ -3.253424  ( -4.59955  to  -1.907299 ) 
+
+
+
+Results for Sleep Stage: W 
+Bland-Altman Statistics
+=======================
+t = 0.73662, df = 19, p-value = 0.4703
+alternative hypothesis: true bias is not equal to 0
+
+=======================
+Number of comparisons:  20 
+Maximum value for average measures:  5.885417 
+Minimum value for average measures:  4.0625 
+Maximum value for difference in measures:  2.083333 
+Minimum value for difference in measures:  -1.458333 
+
+Bias:  0.1666667 
+Standard deviation of bias:  1.011854 
+
+Standard error of bias:  0.2262575 
+Standard error for limits of agreement:  0.393312 
+
+Bias:  0.1666667 
+Bias- upper 95% CI:  0.640229 
+Bias- lower 95% CI:  -0.3068956 
+
+Upper limit of agreement:  2.149901 
+Upper LOA- upper 95% CI:  2.973112 
+Upper LOA- lower 95% CI:  1.326689 
+
+Lower limit of agreement:  -1.816567 
+Lower LOA- upper 95% CI:  -0.9933558 
+Lower LOA- lower 95% CI:  -2.639779 
+
+=======================
+Derived measures:  
+Mean of differences/means:  3.584975 
+Point estimate of bias as proportion of lowest average:  4.102564 
+Point estimate of bias as proportion of highest average 2.831858 
+Spread of data between lower and upper LoAs:  3.966468 
+Bias as proportion of LoA spread:  4.201891 
+
+=======================
+Bias: 
+ 0.1666667  ( -0.3068956  to  0.640229 ) 
+ULoA: 
+ 2.149901  ( 1.326689  to  2.973112 ) 
+LLoA: 
+ -1.816567  ( -2.639779  to  -0.9933558 ) </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># List of unique sleep stages</span></span>
+<span id="cb11-2">sleep_stages <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">unique</span>(merged_data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Sleep_Stage)</span>
+<span id="cb11-3"></span>
+<span id="cb11-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Initialize an empty list to store results</span></span>
+<span id="cb11-5">ba_results <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>()</span>
+<span id="cb11-6"></span>
+<span id="cb11-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Loop through each sleep stage and calculate Bland-Altman statistics</span></span>
+<span id="cb11-8"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> (stage <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> sleep_stages) {</span>
+<span id="cb11-9">  stage_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> merged_data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(Sleep_Stage <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> stage)</span>
+<span id="cb11-10">  </span>
+<span id="cb11-11">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Calculate Bland-Altman statistics</span></span>
+<span id="cb11-12">  ba_stats <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">blandr.statistics</span>(stage_data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Percentage_PSG, stage_data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Percentage_Headband)</span>
+<span id="cb11-13">  </span>
+<span id="cb11-14">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Append the Bland-Altman statistics object to the list with the stage name</span></span>
+<span id="cb11-15">  ba_results[[stage]] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ba_stats</span>
+<span id="cb11-16">  </span>
+<span id="cb11-17">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Generate the Bland-Altman plot using blandr.draw</span></span>
+<span id="cb11-18">  plot_title <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Bland-Altman plot for'</span>, stage)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Concatenate the plot title properly</span></span>
+<span id="cb11-19">  ba_plot <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">blandr.draw</span>(stage_data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Percentage_PSG, stage_data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Percentage_Headband, </span>
+<span id="cb11-20">                         <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plotTitle =</span> plot_title, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ciDisplay =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ciShading =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span>
+<span id="cb11-21">  </span>
+<span id="cb11-22">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Print each plot</span></span>
+<span id="cb11-23">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print</span>(ba_plot)</span>
+<span id="cb11-24">}</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `plot.data$x.axis` is discouraged.
+ℹ Use `x.axis` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `plot.data$y.axis` is discouraged.
+ℹ Use `y.axis` instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-10-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `plot.data$x.axis` is discouraged.
+ℹ Use `x.axis` instead.
+Use of `plot.data$y.axis` is discouraged.
+ℹ Use `y.axis` instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-10-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `plot.data$x.axis` is discouraged.
+ℹ Use `x.axis` instead.
+Use of `plot.data$y.axis` is discouraged.
+ℹ Use `y.axis` instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-10-3.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `plot.data$x.axis` is discouraged.
+ℹ Use `x.axis` instead.
+Use of `plot.data$y.axis` is discouraged.
+ℹ Use `y.axis` instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-10-4.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `plot.data$x.axis` is discouraged.
+ℹ Use `x.axis` instead.
+Use of `plot.data$y.axis` is discouraged.
+ℹ Use `y.axis` instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-10-5.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="bland-altman-plots-basic-plots-wo-the-blandr-package" class="level4">
+<h4 class="anchored" data-anchor-id="bland-altman-plots-basic-plots-wo-the-blandr-package">Bland-Altman plots (basic plots, w/o the blandr package)</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Calculate mean and difference for each sleep stage</span></span>
+<span id="cb18-2">bland_altman_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> merged_data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb18-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Mean =</span> (Percentage_PSG <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> Percentage_Headband) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,</span>
+<span id="cb18-4">         <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Difference =</span> Percentage_PSG <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> Percentage_Headband)</span>
+<span id="cb18-5"></span>
+<span id="cb18-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Create separate Bland-Altman plots for each sleep stage</span></span>
+<span id="cb18-7">unique_stages <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">unique</span>(bland_altman_data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Sleep_Stage)</span>
+<span id="cb18-8"></span>
+<span id="cb18-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Loop through each sleep stage and create a Bland-Altman plot</span></span>
+<span id="cb18-10"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span>(stage <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> unique_stages) {</span>
+<span id="cb18-11">  stage_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> bland_altman_data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(Sleep_Stage <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> stage)</span>
+<span id="cb18-12">  </span>
+<span id="cb18-13">  p <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(stage_data, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> Mean, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> Difference)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb18-14">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">alpha =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.6</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb18-15">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_hline</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">yintercept =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">linetype =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dashed"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"blue"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb18-16">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_hline</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">yintercept =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(Difference)), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">linetype =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dotted"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"red"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb18-17">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_hline</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">yintercept =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(Difference) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.96</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sd</span>(Difference)), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">linetype =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dotted"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"red"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb18-18">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_hline</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">yintercept =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(Difference) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.96</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sd</span>(Difference)), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">linetype =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dotted"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"red"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb18-19">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Bland-Altman Plot for"</span>, stage),</span>
+<span id="cb18-20">         <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Mean Percentage of Time"</span>,</span>
+<span id="cb18-21">         <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Difference in Percentage (PSG - Headband)"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb18-22">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_minimal</span>()</span>
+<span id="cb18-23">  </span>
+<span id="cb18-24">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Print each plot</span></span>
+<span id="cb18-25">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print</span>(p)</span>
+<span id="cb18-26">}</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-11-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-11-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-11-3.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-11-4.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-11-5.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="calculate-pearson-correlation-for-each-sleep-stage-and-each-instrument" class="level4">
+<h4 class="anchored" data-anchor-id="calculate-pearson-correlation-for-each-sleep-stage-and-each-instrument">Calculate Pearson correlation for each sleep stage and each instrument</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Calculate Pearson correlation for each sleep stage</span></span>
+<span id="cb19-2">correlation_results <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> merged_data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb19-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(Sleep_Stage) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb19-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summarise</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Pearson_Correlation =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cor</span>(Percentage_PSG, Percentage_Headband, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">use =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"complete.obs"</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.groups =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'drop'</span>)</span>
+<span id="cb19-5"></span>
+<span id="cb19-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Display the correlation results</span></span>
+<span id="cb19-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Display the correlation results in a table with a caption and a light blue background</span></span>
+<span id="cb19-8"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(correlation_results, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">caption =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Pearson Correlation for Each Sleep Stage"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">digits =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb19-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable_styling</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">bootstrap_options =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"striped"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hover"</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb19-10">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">row_spec</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">background =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"lightblue"</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Pearson Correlation for Each Sleep Stage</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sleep_Stage</th>
+<th style="text-align: right;">Pearson_Correlation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">N1</td>
+<td style="text-align: right;">-0.192</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">N2</td>
+<td style="text-align: right;">0.023</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N3</td>
+<td style="text-align: right;">-0.085</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R</td>
+<td style="text-align: right;">0.217</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">W</td>
+<td style="text-align: right;">-0.026</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="calculate-cohens-kappa-for-each-sleep-stage" class="level4">
+<h4 class="anchored" data-anchor-id="calculate-cohens-kappa-for-each-sleep-stage">Calculate Cohen’s Kappa for each sleep stage</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Merge PSG and Headband data by Subject_ID and Epoch to align epochs</span></span>
+<span id="cb20-2">merged_epochs <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> PSG <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb20-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(Subject_ID, Epoch, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Sleep_Stage_PSG =</span> Sleep_Stage) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb20-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">inner_join</span>(Headband <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(Subject_ID, Epoch, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Sleep_Stage_Headband =</span> Sleep_Stage),</span>
+<span id="cb20-5">             <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">by =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Subject_ID"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Epoch"</span>))</span>
+<span id="cb20-6"></span>
+<span id="cb20-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Calculate Cohen's Kappa for each sleep stage</span></span>
+<span id="cb20-8">kappa_results <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lapply</span>(sleep_stages, <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(stage) {</span>
+<span id="cb20-9">  stage_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> merged_epochs <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb20-10">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(Sleep_Stage_PSG <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> stage <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|</span> Sleep_Stage_Headband <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> stage) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb20-11">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Sleep_Stage_PSG =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ifelse</span>(Sleep_Stage_PSG <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> stage, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>),</span>
+<span id="cb20-12">           <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Sleep_Stage_Headband =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ifelse</span>(Sleep_Stage_Headband <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> stage, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>))</span>
+<span id="cb20-13">  </span>
+<span id="cb20-14">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Calculate Cohen's Kappa for the current stage</span></span>
+<span id="cb20-15">  kappa_value <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kappa2</span>(stage_data[, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Sleep_Stage_PSG"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Sleep_Stage_Headband"</span>)], </span>
+<span id="cb20-16">                        <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">weight =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"unweighted"</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>value</span>
+<span id="cb20-17">  </span>
+<span id="cb20-18">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Sleep_Stage =</span> stage, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Cohen_Kappa =</span> kappa_value)</span>
+<span id="cb20-19">})</span>
+<span id="cb20-20"></span>
+<span id="cb20-21"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Combine results into a single data frame</span></span>
+<span id="cb20-22">kappa_results <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">do.call</span>(rbind, kappa_results)</span>
+<span id="cb20-23"></span>
+<span id="cb20-24"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Display the Cohen's Kappa results</span></span>
+<span id="cb20-25"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(kappa_results, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">caption =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Cohen's Kappa for Each Sleep Stage"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">digits =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb20-26">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable_styling</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">bootstrap_options =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"striped"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hover"</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb20-27">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">row_spec</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">background =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"lightblue"</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Cohen's Kappa for Each Sleep Stage</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sleep_Stage</th>
+<th style="text-align: right;">Cohen_Kappa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">N1</td>
+<td style="text-align: right;">-0.814</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">N2</td>
+<td style="text-align: right;">-0.657</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N3</td>
+<td style="text-align: right;">-0.590</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R</td>
+<td style="text-align: right;">-0.762</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">W</td>
+<td style="text-align: right;">-0.956</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="calculate-intraclass-correlation-coefficient-icc-for-each-sleep-stage" class="level4">
+<h4 class="anchored" data-anchor-id="calculate-intraclass-correlation-coefficient-icc-for-each-sleep-stage">Calculate Intraclass Correlation Coefficient (ICC) for each sleep stage</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Calculate ICC for each sleep stage by using the percentage of time spent in each stage</span></span>
+<span id="cb21-2">icc_results <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lapply</span>(sleep_stages, <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(stage) {</span>
+<span id="cb21-3">  stage_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> merged_data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb21-4">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(Sleep_Stage <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> stage) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb21-5">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(Percentage_PSG, Percentage_Headband)</span>
+<span id="cb21-6">  </span>
+<span id="cb21-7">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Calculate ICC (2,1) for absolute agreement</span></span>
+<span id="cb21-8">  icc_value <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">icc</span>(stage_data, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">model =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"twoway"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">type =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"agreement"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">unit =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"single"</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>value</span>
+<span id="cb21-9">  </span>
+<span id="cb21-10">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Sleep_Stage =</span> stage, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ICC =</span> icc_value)</span>
+<span id="cb21-11">})</span>
+<span id="cb21-12"></span>
+<span id="cb21-13"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Combine results into a single data frame</span></span>
+<span id="cb21-14">icc_results <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">do.call</span>(rbind, icc_results)</span>
+<span id="cb21-15"></span>
+<span id="cb21-16"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Display the ICC results</span></span>
+<span id="cb21-17"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(icc_results, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">caption =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Intraclass Correlation Coefficient (ICC) for Each Sleep Stage"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">digits =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb21-18">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable_styling</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">bootstrap_options =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"striped"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hover"</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb21-19">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">row_spec</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">background =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"lightblue"</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Intraclass Correlation Coefficient (ICC) for Each Sleep Stage</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sleep_Stage</th>
+<th style="text-align: right;">ICC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">N1</td>
+<td style="text-align: right;">-0.180</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">N2</td>
+<td style="text-align: right;">0.023</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N3</td>
+<td style="text-align: right;">-0.065</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R</td>
+<td style="text-align: right;">0.226</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">W</td>
+<td style="text-align: right;">-0.026</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="calculate-mean-absolute-percentage-error-mape-for-each-sleep-stage" class="level4">
+<h4 class="anchored" data-anchor-id="calculate-mean-absolute-percentage-error-mape-for-each-sleep-stage">Calculate Mean Absolute Percentage Error (MAPE) for each sleep stage</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1">mape_results <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> merged_data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb22-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">APE =</span> ((Percentage_PSG <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> Percentage_Headband) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> Percentage_PSG) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb22-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(Sleep_Stage) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb22-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summarise</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">MAPE =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(APE, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.groups =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'drop'</span>)</span>
+<span id="cb22-5"></span>
+<span id="cb22-6">mape_results <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> mape_results <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb22-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">MAPE =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste0</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(MAPE, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"%"</span>))</span>
+<span id="cb22-8"></span>
+<span id="cb22-9"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(mape_results, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">caption =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Mean Absolute Percentage Error (MAPE) for Each Sleep Stage"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">digits =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb22-10">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable_styling</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">bootstrap_options =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"striped"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hover"</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb22-11">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">row_spec</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">background =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"lightblue"</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Mean Absolute Percentage Error (MAPE) for Each Sleep Stage</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sleep_Stage</th>
+<th style="text-align: left;">MAPE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">N1</td>
+<td style="text-align: left;">-3.65%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">N2</td>
+<td style="text-align: left;">-1.56%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N3</td>
+<td style="text-align: left;">2.89%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">-0.33%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">W</td>
+<td style="text-align: left;">1.42%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="calculate-concordance-correlation-coefficient-ccc-for-each-sleep-stage" class="level4">
+<h4 class="anchored" data-anchor-id="calculate-concordance-correlation-coefficient-ccc-for-each-sleep-stage">Calculate Concordance Correlation Coefficient (CCC) for each sleep stage</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(DescTools)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Attaching package: 'DescTools'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:caret':
+
+    MAE, RMSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Calculate CCC for each sleep stage</span></span>
+<span id="cb26-2">ccc_results <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lapply</span>(sleep_stages, <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(stage) {</span>
+<span id="cb26-3">  stage_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> merged_data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb26-4">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(Sleep_Stage <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> stage) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb26-5">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(Percentage_PSG, Percentage_Headband)</span>
+<span id="cb26-6">  </span>
+<span id="cb26-7">  ccc_value <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">CCC</span>(stage_data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Percentage_PSG, stage_data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Percentage_Headband)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>rho.c</span>
+<span id="cb26-8">  </span>
+<span id="cb26-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Sleep_Stage =</span> stage, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">CCC =</span> ccc_value)</span>
+<span id="cb26-10">})</span>
+<span id="cb26-11"></span>
+<span id="cb26-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Combine results into a single data frame</span></span>
+<span id="cb26-13">ccc_results <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">do.call</span>(rbind, ccc_results)</span>
+<span id="cb26-14"></span>
+<span id="cb26-15"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Display the CCC results</span></span>
+<span id="cb26-16"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(ccc_results, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">caption =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Concordance Correlation Coefficient (CCC) for Each Sleep Stage"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb26-17">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable_styling</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">bootstrap_options =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"striped"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hover"</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb26-18">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">row_spec</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">background =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"lightblue"</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Concordance Correlation Coefficient (CCC) for Each Sleep Stage</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sleep_Stage</th>
+<th style="text-align: right;">CCC.est</th>
+<th style="text-align: right;">CCC.lwr.ci</th>
+<th style="text-align: right;">CCC.upr.ci</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">N1</td>
+<td style="text-align: right;">-0.1693247</td>
+<td style="text-align: right;">-0.5219840</td>
+<td style="text-align: right;">0.2327739</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">N2</td>
+<td style="text-align: right;">0.0217664</td>
+<td style="text-align: right;">-0.3993760</td>
+<td style="text-align: right;">0.4353233</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N3</td>
+<td style="text-align: right;">-0.0617404</td>
+<td style="text-align: right;">-0.3779477</td>
+<td style="text-align: right;">0.2673661</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R</td>
+<td style="text-align: right;">0.2169865</td>
+<td style="text-align: right;">-0.2361479</td>
+<td style="text-align: right;">0.5926064</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">W</td>
+<td style="text-align: right;">-0.0249000</td>
+<td style="text-align: right;">-0.4385490</td>
+<td style="text-align: right;">0.3974549</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="calculate-sensitivity-for-each-sleep-stage" class="level4">
+<h4 class="anchored" data-anchor-id="calculate-sensitivity-for-each-sleep-stage">Calculate Sensitivity for each sleep stage</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Calculate classification metrics for each sleep stage</span></span>
+<span id="cb27-2">sensitivity_results <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> merged_epochs <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb27-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Agree =</span> (Sleep_Stage_PSG <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> Sleep_Stage_Headband)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb27-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(Sleep_Stage_PSG) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb27-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summarise</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Sensitivity =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(Agree), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.groups =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'drop'</span>)</span>
+<span id="cb27-6"></span>
+<span id="cb27-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(sensitivity_results, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">caption =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Sensitivity for Each Sleep Stage"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb27-8">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable_styling</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">bootstrap_options =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"striped"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hover"</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb27-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">row_spec</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">background =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"lightblue"</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Sensitivity for Each Sleep Stage</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sleep_Stage_PSG</th>
+<th style="text-align: right;">Sensitivity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">N1</td>
+<td style="text-align: right;">0.1887035</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">N2</td>
+<td style="text-align: right;">0.3449574</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N3</td>
+<td style="text-align: right;">0.4030806</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R</td>
+<td style="text-align: right;">0.2380714</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">W</td>
+<td style="text-align: right;">0.0431211</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="compare-the-confusion-matrix-between-psg-ground-truth-and-headband" class="level4">
+<h4 class="anchored" data-anchor-id="compare-the-confusion-matrix-between-psg-ground-truth-and-headband">Compare the confusion matrix between PSG (ground truth) and Headband</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1">confusion_results <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> merged_epochs <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb28-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Sleep_Stage_PSG =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">factor</span>(Sleep_Stage_PSG, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">levels =</span> sleep_stages),</span>
+<span id="cb28-3">         <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Sleep_Stage_Headband =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">factor</span>(Sleep_Stage_Headband, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">levels =</span> sleep_stages))</span>
+<span id="cb28-4"></span>
+<span id="cb28-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Generate the confusion matrix</span></span>
+<span id="cb28-6">conf_matrix <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">confusionMatrix</span>(confusion_results<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Sleep_Stage_Headband, confusion_results<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Sleep_Stage_PSG)</span>
+<span id="cb28-7"></span>
+<span id="cb28-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Convert confusion matrix table to a data frame for manipulation</span></span>
+<span id="cb28-9">conf_matrix_df <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.data.frame</span>(conf_matrix<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>table)</span>
+<span id="cb28-10"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">colnames</span>(conf_matrix_df) <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"True_Sleep_Stage"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Predicted_Sleep_Stage"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Frequency"</span>)</span>
+<span id="cb28-11"></span>
+<span id="cb28-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Calculate percentages for each row in the confusion matrix</span></span>
+<span id="cb28-13">conf_matrix_df <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> conf_matrix_df <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb28-14">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(True_Sleep_Stage) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb28-15">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Percentage =</span> Frequency <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sum</span>(Frequency) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Calculate percentages</span></span>
+<span id="cb28-16"></span>
+<span id="cb28-17"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Display overall statistics and per-class performance metrics</span></span>
+<span id="cb28-18">conf_matrix<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>overall</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull 
+    0.29713542     0.07340406     0.29067635     0.30365597     0.31812500 
+AccuracyPValue  McnemarPValue 
+    1.00000000     0.34012087 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1">conf_matrix<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>byClass</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Sensitivity Specificity Pos Pred Value Neg Pred Value  Precision
+Class: N1  0.18870347   0.8366700     0.18289269      0.8418517 0.18289269
+Class: N2  0.34495743   0.6882065     0.34044272      0.6924910 0.34044272
+Class: N3  0.40308062   0.8004366     0.41554960      0.7920702 0.41554960
+Class: R   0.23807145   0.7991709     0.23795256      0.7992761 0.23795256
+Class: W   0.04312115   0.9506200     0.04458599      0.9489539 0.04458599
+              Recall         F1 Prevalence Detection Rate Detection Prevalence
+Class: N1 0.18870347 0.18575265 0.16229167     0.03062500            0.1674479
+Class: N2 0.34495743 0.34268521 0.31812500     0.10973958            0.3223437
+Class: N3 0.40308062 0.40922015 0.26036458     0.10494792            0.2525521
+Class: R  0.23807145 0.23801199 0.20848958     0.04963542            0.2085937
+Class: W  0.04312115 0.04384134 0.05072917     0.00218750            0.0490625
+          Balanced Accuracy
+Class: N1         0.5126867
+Class: N2         0.5165820
+Class: N3         0.6017586
+Class: R          0.5186212
+Class: W          0.4968706</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Plot the confusion matrix with counts and percentages</span></span>
+<span id="cb32-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(conf_matrix_df, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> True_Sleep_Stage, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> Predicted_Sleep_Stage, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> Frequency)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb32-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_tile</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb32-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_text</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">label =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste</span>(Frequency, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">("</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(Percentage, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"%)"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sep =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span>)), </span>
+<span id="cb32-5">            <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"white"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb32-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">scale_fill_gradient</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">low =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"lightblue"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">high =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"blue"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb32-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Confusion Matrix for PSG (Ground Truth) vs Headband"</span>,</span>
+<span id="cb32-8">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"True Sleep Stage (PSG)"</span>,</span>
+<span id="cb32-9">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Predicted Sleep Stage (Headband)"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb32-10">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_minimal</span>()</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-18-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="roc-curves-for-each-sleep-stage" class="level4">
+<h4 class="anchored" data-anchor-id="roc-curves-for-each-sleep-stage">ROC Curves for each sleep stage</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Prepare data for ROC analysis</span></span>
+<span id="cb33-2">roc_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> merged_epochs <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb33-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Sleep_Stage_PSG =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">factor</span>(Sleep_Stage_PSG, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">levels =</span> sleep_stages),</span>
+<span id="cb33-4">         <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Sleep_Stage_Headband =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">factor</span>(Sleep_Stage_Headband, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">levels =</span> sleep_stages))</span>
+<span id="cb33-5"></span>
+<span id="cb33-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Create a list to hold ROC objects for each sleep stage</span></span>
+<span id="cb33-7">roc_list <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>()</span>
+<span id="cb33-8"></span>
+<span id="cb33-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Loop through each sleep stage to compute ROC</span></span>
+<span id="cb33-10"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span>(stage <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> sleep_stages) {</span>
+<span id="cb33-11">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Create binary outcomes for the true sleep stage</span></span>
+<span id="cb33-12">  roc_data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>True_Class <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ifelse</span>(roc_data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Sleep_Stage_PSG <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> stage, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)</span>
+<span id="cb33-13">  roc_data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Predicted_Prob <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.numeric</span>(roc_data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Sleep_Stage_Headband <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> stage)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Assuming you want to predict each stage</span></span>
+<span id="cb33-14">  </span>
+<span id="cb33-15">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Calculate ROC curve</span></span>
+<span id="cb33-16">  roc_curve <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">roc</span>(roc_data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>True_Class, roc_data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Predicted_Prob, </span>
+<span id="cb33-17">                   <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">levels =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">direction =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&lt;"</span>)</span>
+<span id="cb33-18">  </span>
+<span id="cb33-19">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Store the ROC object in the list</span></span>
+<span id="cb33-20">  roc_list[[stage]] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> roc_curve</span>
+<span id="cb33-21">}</span>
+<span id="cb33-22"></span>
+<span id="cb33-23"></span>
+<span id="cb33-24"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Plot ROC curves for each sleep stage</span></span>
+<span id="cb33-25"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">par</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mfrow=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>))  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Adjust layout to fit all plots (change as needed)</span></span>
+<span id="cb33-26"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span>(stage <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> sleep_stages) {</span>
+<span id="cb33-27">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot</span>(roc_list[[stage]], </span>
+<span id="cb33-28">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rainbow</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(sleep_stages))[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">which</span>(sleep_stages <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> stage)], </span>
+<span id="cb33-29">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">main =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ROC Curve for"</span>, stage), </span>
+<span id="cb33-30">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">print.auc =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Print AUC on the plot</span></span>
+<span id="cb33-31">}</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-19-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <category>Sleep</category>
+  <category>PSD</category>
+  <guid>https://circadia.bio/blog/sleep_PSG/</guid>
+  <pubDate>Tue, 11 Mar 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://circadia.bio/blog/sleep_PSG/cover.jpg" medium="image" type="image/jpeg"/>
+</item>
 </channel>
 </rss>

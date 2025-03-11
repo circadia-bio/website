@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-title','listing-author','listing-categories','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -131,6 +131,7 @@ window.Quarto = {
 </script>
 
 <link rel="alternate" type="application/rss+xml" title="Circadia" href="blog.xml" data-external="1"><meta property="og:title" content="Tutorials – Circadia">
+<meta property="og:image" content="https://circadia.bio/blog/sleep_PSG/cover.jpg">
 <meta property="og:site_name" content="Circadia">
 </head>
 
@@ -228,7 +229,42 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-
+<div class="quarto-post image-right" data-index="0" data-categories="U2xlZXAlMkNQU0Q=" data-listing-date-sort="1741651200000" data-listing-file-modified-sort="1741699856553" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="32" data-listing-word-count-sort="6288">
+<div class="thumbnail">
+<p><a href="./blog/sleep_PSG/index.html" class="no-external"></a></p><a href="./blog/sleep_PSG/index.html" class="no-external">
+<p><img loading="lazy" src="./blog/sleep_PSG/cover.jpg" class="thumbnail-image"></p>
+</a><p><a href="./blog/sleep_PSG/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./blog/sleep_PSG/index.html" class="no-external">Sleep PSG validation</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./blog/sleep_PSG/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('U2xlZXA='); return false;">
+Sleep
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('UFNE'); return false;">
+PSD
+</div>
+</div>
+<div class="listing-description">
+<a href="./blog/sleep_PSG/index.html" class="no-external">This post presents an analysis of sleep stage classification validation using polysomnography (PSG) as the ground truth and a headband-based device as the test instrument. The workflow includes generating synthetic sleep data, loading real-world datasets, and comparing sleep stage distributions between the two devices. The validation process includes Bland-Altman analysis, Pearson correlation, Cohen’s Kappa, and statistical measures of agreement. The results provide insight into the accuracy and bias of wearable sleep-tracking devices in sleep stage classification.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./blog/sleep_PSG/index.html" class="no-external">
+<div class="listing-date">
+Mar 11, 2025
+</div>
+<div class="listing-author">
+Mario Miguel
+</div>
+</a>
+</div>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items

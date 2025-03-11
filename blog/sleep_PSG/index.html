@@ -1,0 +1,1927 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Mario Miguel">
+<meta name="dcterms.date" content="2025-03-11">
+<meta name="description" content="This post presents an analysis of sleep stage classification validation using polysomnography (PSG) as the ground truth and a headband-based device as the test instrument. The workflow includes generating synthetic sleep data, loading real-world datasets, and comparing sleep stage distributions between the two devices. The validation process includes Bland-Altman analysis, Pearson correlation, Cohen’s Kappa, and statistical measures of agreement. The results provide insight into the accuracy and bias of wearable sleep-tracking devices in sleep stage classification.">
+
+<title>Sleep PSG validation – Circadia</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-e85703fa18e82a11c514e03fca707000.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-f7cf302967490379244479200afd2458.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+<meta property="og:title" content="Sleep PSG validation – Circadia">
+<meta property="og:description" content="This post presents an analysis of sleep stage classification validation using polysomnography (PSG) as the ground truth and a headband-based device as the test instrument. The workflow includes generating synthetic sleep data, loading real-world datasets, and comparing sleep stage distributions between the two devices. The validation process includes Bland-Altman analysis, Pearson correlation, Cohen’s Kappa, and statistical measures of agreement. The results provide insight into the accuracy and bias of wearable sleep-tracking devices in sleep stage classification.">
+<meta property="og:image" content="https://circadia.bio/blog/sleep_PSG/cover.jpg">
+<meta property="og:site_name" content="Circadia">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Circadia</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> <i class="bi bi-house-fill" role="img">
+</i> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../people.html"> <i class="bi bi-people-fill" role="img">
+</i> 
+<span class="menu-text">People</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications.html"> <i class="bi bi-newspaper" role="img">
+</i> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"> <i class="bi bi-file-earmark-richtext" role="img">
+</i> 
+<span class="menu-text">Tutorials</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://github.com/circadia-bio/website" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-rss"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="../../publications.xml">
+            Publications
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="../../blog.xml">
+            Posts
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Sleep PSG validation</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Sleep</div>
+    <div class="quarto-category">PSD</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    This post presents an analysis of sleep stage classification validation using polysomnography (PSG) as the ground truth and a headband-based device as the test instrument. The workflow includes generating synthetic sleep data, loading real-world datasets, and comparing sleep stage distributions between the two devices. The validation process includes Bland-Altman analysis, Pearson correlation, Cohen’s Kappa, and statistical measures of agreement. The results provide insight into the accuracy and bias of wearable sleep-tracking devices in sleep stage classification.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta column-page">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Mario Miguel <a href="https://orcid.org/0000-0002-7248-3529" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 11, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<p><link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet"></p>
+<section id="load-necessary-libraries" class="level4">
+<h4 class="anchored" data-anchor-id="load-necessary-libraries">Load necessary libraries</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(irr) </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pROC)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(blandr)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="add-seeds-for-reproductibility---used-when-generating-synthetic-data-only" class="level4">
+<h4 class="anchored" data-anchor-id="add-seeds-for-reproductibility---used-when-generating-synthetic-data-only">Add seeds for reproductibility - used when generating synthetic data only</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)  <span class="co"># For the PSG dataset</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)  <span class="co"># For the Headband dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="define-parameters-need-to-run-this-code-before-generating-synthetic-data-and-before-opening-real-data-because-of-sleep_stages" class="level4">
+<h4 class="anchored" data-anchor-id="define-parameters-need-to-run-this-code-before-generating-synthetic-data-and-before-opening-real-data-because-of-sleep_stages">Define parameters (need to run this code before generating synthetic data and before opening real data, because of sleep_stages)</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>num_subjects <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>epochs_per_night <span class="ot">&lt;-</span> <span class="dv">8</span> <span class="sc">*</span> <span class="dv">60</span> <span class="sc">*</span> <span class="dv">2</span> <span class="co"># 8 hours, 30 seconds per epoch </span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sleep_stages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"W"</span>, <span class="st">"N1"</span>, <span class="st">"N2"</span>, <span class="st">"N3"</span>, <span class="st">"R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="generate-synthetic-data---psg-ground-truth" class="level4">
+<h4 class="anchored" data-anchor-id="generate-synthetic-data---psg-ground-truth">Generate synthetic data - PSG ground truth</h4>
+<div>
+<blockquote class="blockquote">
+<p><strong>Warning!</strong></p>
+<p>Do not run this if you are using real data.</p>
+<p><strong>Note:</strong> Instead of using the synthetic data, you can use the real data from the ground truth device and the device you want to validate. To do so, you can load the data using the <code>read.csv()</code> function and then proceed with the analysis. Please mind the structure of the data and adjust the code accordingly (Subject ID, Epoch, Time, Sleep Stage).</p>
+</blockquote>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>generate_sleep_data_with_cycles <span class="ot">&lt;-</span> <span class="cf">function</span>(subject_id, total_epochs, cycles) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Define time variables</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  epoch_duration <span class="ot">&lt;-</span> <span class="dv">30</span>  <span class="co"># seconds</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  cycle_duration <span class="ot">&lt;-</span> <span class="dv">90</span> <span class="sc">*</span> <span class="dv">60</span> <span class="sc">/</span> epoch_duration  <span class="co"># Approximate 90-minute cycle in epochs</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Define stage probabilities per cycle</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  cycle_probs <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="at">W =</span> <span class="fl">0.05</span>, <span class="at">N1 =</span> <span class="fl">0.1</span>, <span class="at">N2 =</span> <span class="fl">0.2</span>, <span class="at">N3 =</span> <span class="fl">0.55</span>, <span class="at">R =</span> <span class="fl">0.1</span>),  <span class="co"># Cycle 1: more N3</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="at">W =</span> <span class="fl">0.05</span>, <span class="at">N1 =</span> <span class="fl">0.1</span>, <span class="at">N2 =</span> <span class="fl">0.3</span>, <span class="at">N3 =</span> <span class="fl">0.45</span>, <span class="at">R =</span> <span class="fl">0.1</span>),  <span class="co"># Cycle 2: slightly more N2</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="at">W =</span> <span class="fl">0.05</span>, <span class="at">N1 =</span> <span class="fl">0.15</span>, <span class="at">N2 =</span> <span class="fl">0.4</span>, <span class="at">N3 =</span> <span class="fl">0.2</span>, <span class="at">R =</span> <span class="fl">0.2</span>),  <span class="co"># Cycle 3: less N3, more REM</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="at">W =</span> <span class="fl">0.05</span>, <span class="at">N1 =</span> <span class="fl">0.2</span>, <span class="at">N2 =</span> <span class="fl">0.35</span>, <span class="at">N3 =</span> <span class="fl">0.1</span>, <span class="at">R =</span> <span class="fl">0.3</span>),  <span class="co"># Cycle 4: mostly REM</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="at">W =</span> <span class="fl">0.05</span>, <span class="at">N1 =</span> <span class="fl">0.25</span>, <span class="at">N2 =</span> <span class="fl">0.35</span>, <span class="at">N3 =</span> <span class="fl">0.05</span>, <span class="at">R =</span> <span class="fl">0.3</span>)  <span class="co"># Cycle 5: mainly REM with N2</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Initialize data frame for each subject</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  sleep_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">Subject_ID =</span> <span class="fu">integer</span>(<span class="dv">0</span>), <span class="at">Epoch =</span> <span class="fu">integer</span>(<span class="dv">0</span>),</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">Time =</span> <span class="fu">as.POSIXct</span>(<span class="fu">character</span>(<span class="dv">0</span>)), <span class="at">Sleep_Stage =</span> <span class="fu">character</span>(<span class="dv">0</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Generate epochs for each cycle with specified probabilities</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (cycle <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>cycles) {</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define epochs for current cycle</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    cycle_epochs <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(cycle <span class="sc">&lt;</span> cycles, cycle_duration, total_epochs <span class="sc">-</span> <span class="fu">nrow</span>(sleep_data))</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Generate data for this cycle</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    cycle_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">Subject_ID =</span> subject_id,</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">Epoch =</span> (<span class="fu">nrow</span>(sleep_data) <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">:</span>(<span class="fu">nrow</span>(sleep_data) <span class="sc">+</span> cycle_epochs),</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">Time =</span> <span class="fu">seq.POSIXt</span>(</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">from =</span> <span class="fu">as.POSIXct</span>(<span class="st">"2024-01-01 22:00:00"</span>) <span class="sc">+</span> ((cycle <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="dv">90</span> <span class="sc">*</span> <span class="dv">60</span>),</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>        <span class="at">by =</span> <span class="st">"30 secs"</span>,</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        <span class="at">length.out =</span> cycle_epochs</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>      <span class="at">Sleep_Stage =</span> <span class="fu">sample</span>(<span class="fu">names</span>(cycle_probs[[cycle]]), cycle_epochs, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> cycle_probs[[cycle]])</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Append to overall data</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    sleep_data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(sleep_data, cycle_data)</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(sleep_data)</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate PSG dataset with cycles for each subject</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>num_cycles <span class="ot">&lt;-</span> <span class="dv">5</span>  <span class="co"># Approximate number of cycles per night</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>PSG <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span>num_subjects, generate_sleep_data_with_cycles, <span class="at">total_epochs =</span> epochs_per_night, <span class="at">cycles =</span> num_cycles))</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the dataset as a CSV file</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="co">#write.csv(PSG, "PSG_data.csv", row.names = FALSE)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="generate-synthetic-data---headband" class="level4">
+<h4 class="anchored" data-anchor-id="generate-synthetic-data---headband">Generate synthetic data - Headband</h4>
+<div>
+<blockquote class="blockquote">
+<p><strong>Warning!</strong></p>
+<p>Do not run this if you are using real data.</p>
+</blockquote>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>generate_sleep_data_with_cycles <span class="ot">&lt;-</span> <span class="cf">function</span>(subject_id, total_epochs, cycles) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Define time variables</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  epoch_duration <span class="ot">&lt;-</span> <span class="dv">30</span>  <span class="co"># seconds</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  cycle_duration <span class="ot">&lt;-</span> <span class="dv">90</span> <span class="sc">*</span> <span class="dv">60</span> <span class="sc">/</span> epoch_duration  <span class="co"># Approximate 90-minute cycle in epochs</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Define stage probabilities per cycle</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  cycle_probs <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="at">W =</span> <span class="fl">0.05</span>, <span class="at">N1 =</span> <span class="fl">0.1</span>, <span class="at">N2 =</span> <span class="fl">0.2</span>, <span class="at">N3 =</span> <span class="fl">0.55</span>, <span class="at">R =</span> <span class="fl">0.1</span>),  <span class="co"># Cycle 1: more N3</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="at">W =</span> <span class="fl">0.05</span>, <span class="at">N1 =</span> <span class="fl">0.1</span>, <span class="at">N2 =</span> <span class="fl">0.3</span>, <span class="at">N3 =</span> <span class="fl">0.45</span>, <span class="at">R =</span> <span class="fl">0.1</span>),  <span class="co"># Cycle 2: slightly more N2</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="at">W =</span> <span class="fl">0.05</span>, <span class="at">N1 =</span> <span class="fl">0.15</span>, <span class="at">N2 =</span> <span class="fl">0.4</span>, <span class="at">N3 =</span> <span class="fl">0.2</span>, <span class="at">R =</span> <span class="fl">0.2</span>),  <span class="co"># Cycle 3: less N3, more REM</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="at">W =</span> <span class="fl">0.05</span>, <span class="at">N1 =</span> <span class="fl">0.2</span>, <span class="at">N2 =</span> <span class="fl">0.35</span>, <span class="at">N3 =</span> <span class="fl">0.1</span>, <span class="at">R =</span> <span class="fl">0.3</span>),  <span class="co"># Cycle 4: mostly REM</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="at">W =</span> <span class="fl">0.05</span>, <span class="at">N1 =</span> <span class="fl">0.25</span>, <span class="at">N2 =</span> <span class="fl">0.35</span>, <span class="at">N3 =</span> <span class="fl">0.05</span>, <span class="at">R =</span> <span class="fl">0.3</span>)  <span class="co"># Cycle 5: mainly REM with N2</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Initialize data frame for each subject</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  sleep_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">Subject_ID =</span> <span class="fu">integer</span>(<span class="dv">0</span>), <span class="at">Epoch =</span> <span class="fu">integer</span>(<span class="dv">0</span>),</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">Time =</span> <span class="fu">as.POSIXct</span>(<span class="fu">character</span>(<span class="dv">0</span>)), <span class="at">Sleep_Stage =</span> <span class="fu">character</span>(<span class="dv">0</span>)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Generate epochs for each cycle with specified probabilities</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (cycle <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>cycles) {</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define epochs for current cycle</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    cycle_epochs <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(cycle <span class="sc">&lt;</span> cycles, cycle_duration, total_epochs <span class="sc">-</span> <span class="fu">nrow</span>(sleep_data))</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Generate data for this cycle</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    cycle_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">Subject_ID =</span> subject_id,</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">Epoch =</span> (<span class="fu">nrow</span>(sleep_data) <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">:</span>(<span class="fu">nrow</span>(sleep_data) <span class="sc">+</span> cycle_epochs),</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">Time =</span> <span class="fu">seq.POSIXt</span>(</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">from =</span> <span class="fu">as.POSIXct</span>(<span class="st">"2024-01-01 22:00:00"</span>) <span class="sc">+</span> ((cycle <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="dv">90</span> <span class="sc">*</span> <span class="dv">60</span>),</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>        <span class="at">by =</span> <span class="st">"30 secs"</span>,</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>        <span class="at">length.out =</span> cycle_epochs</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>      <span class="at">Sleep_Stage =</span> <span class="fu">sample</span>(<span class="fu">names</span>(cycle_probs[[cycle]]), cycle_epochs, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> cycle_probs[[cycle]])</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Append to overall data</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    sleep_data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(sleep_data, cycle_data)</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(sleep_data)</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate PSG dataset with cycles for each subject</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>num_cycles <span class="ot">&lt;-</span> <span class="dv">5</span>  <span class="co"># Approximate number of cycles per night</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>Headband <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span>num_subjects, generate_sleep_data_with_cycles, <span class="at">total_epochs =</span> epochs_per_night, <span class="at">cycles =</span> num_cycles))</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the dataset as a CSV file</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="co">#write.csv(Headband, "Headband.csv", row.names = FALSE)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="calculate-the-percentage-of-time-spent-in-each-sleep-stage" class="level4">
+<h4 class="anchored" data-anchor-id="calculate-the-percentage-of-time-spent-in-each-sleep-stage">Calculate the percentage of time spent in each sleep stage</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the percentage of time spent in each sleep stage for the PSG dataset</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>PSG_percentage <span class="ot">&lt;-</span> PSG <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Subject_ID, Sleep_Stage) <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Epoch_Count =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">'drop'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Percentage =</span> (Epoch_Count <span class="sc">/</span> (<span class="dv">8</span> <span class="sc">*</span> <span class="dv">60</span> <span class="sc">*</span> <span class="dv">2</span>)) <span class="sc">*</span> <span class="dv">100</span>)  <span class="co"># Total epochs = 8 hours * 60 mins * 2 (30 sec epochs)</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the percentage of time spent in each sleep stage for the Headband dataset</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>Headband_percentage <span class="ot">&lt;-</span> Headband <span class="sc">%&gt;%</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Subject_ID, Sleep_Stage) <span class="sc">%&gt;%</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Epoch_Count =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">'drop'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Percentage =</span> (Epoch_Count <span class="sc">/</span> (<span class="dv">8</span> <span class="sc">*</span> <span class="dv">60</span> <span class="sc">*</span> <span class="dv">2</span>)) <span class="sc">*</span> <span class="dv">100</span>)  <span class="co"># Total epochs = 8 hours * 60 mins * 2 (30 sec epochs)</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge the percentages for both datasets</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>merged_data <span class="ot">&lt;-</span> <span class="fu">full_join</span>(PSG_percentage, Headband_percentage, </span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>                         <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"Subject_ID"</span>, <span class="st">"Sleep_Stage"</span>), </span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>                         <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">"_PSG"</span>, <span class="st">"_Headband"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="plot-the-percentage-of-time-spent-in-each-sleep-stage-for-psg-and-headband" class="level4">
+<h4 class="anchored" data-anchor-id="plot-the-percentage-of-time-spent-in-each-sleep-stage-for-psg-and-headband">Plot the percentage of time spent in each sleep stage for PSG and Headband</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>difference_data <span class="ot">&lt;-</span> merged_data <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Difference =</span> (Percentage_PSG <span class="sc">-</span> Percentage_Headband)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Sleep_Stage) <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Average_Difference =</span> <span class="fu">mean</span>(Difference, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">'drop'</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the differences for each sleep stage</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(difference_data, <span class="fu">aes</span>(<span class="at">x =</span> Sleep_Stage, <span class="at">y =</span> Average_Difference, <span class="at">fill =</span> Sleep_Stage)) <span class="sc">+</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.8</span>), <span class="at">width =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Difference in Time Spent per Sleep Stage between PSG and Headband"</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Sleep Stage"</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Average Difference in Percentage (%)"</span>) <span class="sc">+</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set3"</span>) <span class="sc">+</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-markdown/unnamed-chunk-7-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="calculate-mean-differences-and-confidence-intervals-for-each-sleep-stage---bias" class="level4">
+<h4 class="anchored" data-anchor-id="calculate-mean-differences-and-confidence-intervals-for-each-sleep-stage---bias">Calculate mean differences and confidence intervals for each sleep stage - Bias</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate mean differences and confidence intervals for each sleep stage</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>mean_diff_results <span class="ot">&lt;-</span> merged_data <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Sleep_Stage) <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_Difference =</span> <span class="fu">mean</span>(Percentage_PSG <span class="sc">-</span> Percentage_Headband, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD_Difference =</span> <span class="fu">sd</span>(Percentage_PSG <span class="sc">-</span> Percentage_Headband, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>(),</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">SE_Difference =</span> SD_Difference <span class="sc">/</span> <span class="fu">sqrt</span>(Count),</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">CI_Lower =</span> Mean_Difference <span class="sc">-</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, Count <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> SE_Difference,  <span class="co"># 95% CI</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">CI_Upper =</span> Mean_Difference <span class="sc">+</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, Count <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> SE_Difference,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">'drop'</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the mean difference with error bars</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mean_diff_results, <span class="fu">aes</span>(<span class="at">x =</span> Sleep_Stage, <span class="at">y =</span> Mean_Difference)) <span class="sc">+</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> CI_Lower, <span class="at">ymax =</span> CI_Upper), <span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">color =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span>  <span class="co"># Line at zero for reference</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean Difference in Time Spent in Each Sleep Stage"</span>,</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Sleep Stage"</span>,</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Mean Difference (PSG - Headband) [%]"</span>) <span class="sc">+</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-markdown/unnamed-chunk-8-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="bland-altman-statistics" class="level4">
+<h4 class="anchored" data-anchor-id="bland-altman-statistics">Bland-Altman Statistics</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List of unique sleep stages</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sleep_stages <span class="ot">&lt;-</span> <span class="fu">unique</span>(merged_data<span class="sc">$</span>Sleep_Stage)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize an empty list to store results</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>ba_results <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop through each sleep stage and calculate Bland-Altman statistics</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (stage <span class="cf">in</span> sleep_stages) {</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  stage_data <span class="ot">&lt;-</span> merged_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Sleep_Stage <span class="sc">==</span> stage)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  ba_stats <span class="ot">&lt;-</span> <span class="fu">blandr.statistics</span>(stage_data<span class="sc">$</span>Percentage_PSG, stage_data<span class="sc">$</span>Percentage_Headband)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Append the Bland-Altman statistics object to the list with the stage name</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  ba_results[[stage]] <span class="ot">&lt;-</span> ba_stats</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the results for each sleep stage</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (stage <span class="cf">in</span> <span class="fu">names</span>(ba_results)) {</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n\n</span><span class="st">Results for Sleep Stage:"</span>, stage, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(ba_results[[stage]])</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Results for Sleep Stage: N1 
+Bland-Altman Statistics
+=======================
+t = -1.3072, df = 19, p-value = 0.2067
+alternative hypothesis: true bias is not equal to 0
+
+=======================
+Number of comparisons:  20 
+Maximum value for average measures:  17.8125 
+Minimum value for average measures:  15.05208 
+Maximum value for difference in measures:  5 
+Minimum value for difference in measures:  -3.541667 
+
+Bias:  -0.515625 
+Standard deviation of bias:  1.76404 
+
+Standard error of bias:  0.3944513 
+Standard error for limits of agreement:  0.6856898 
+
+Bias:  -0.515625 
+Bias- upper 95% CI:  0.309971 
+Bias- lower 95% CI:  -1.341221 
+
+Upper limit of agreement:  2.941893 
+Upper LOA- upper 95% CI:  4.377058 
+Upper LOA- lower 95% CI:  1.506728 
+
+Lower limit of agreement:  -3.973143 
+Lower LOA- upper 95% CI:  -2.537978 
+Lower LOA- lower 95% CI:  -5.408308 
+
+=======================
+Derived measures:  
+Mean of differences/means:  -3.040415 
+Point estimate of bias as proportion of lowest average:  -3.425606 
+Point estimate of bias as proportion of highest average -2.894737 
+Spread of data between lower and upper LoAs:  6.915036 
+Bias as proportion of LoA spread:  -7.456577 
+
+=======================
+Bias: 
+ -0.515625  ( -1.341221  to  0.309971 ) 
+ULoA: 
+ 2.941893  ( 1.506728  to  4.377058 ) 
+LLoA: 
+ -3.973143  ( -5.408308  to  -2.537978 ) 
+
+
+
+Results for Sleep Stage: N2 
+Bland-Altman Statistics
+=======================
+t = -0.86936, df = 19, p-value = 0.3955
+alternative hypothesis: true bias is not equal to 0
+
+=======================
+Number of comparisons:  20 
+Maximum value for average measures:  33.85417 
+Minimum value for average measures:  29.89583 
+Maximum value for difference in measures:  4.895833 
+Minimum value for difference in measures:  -4.583333 
+
+Bias:  -0.421875 
+Standard deviation of bias:  2.170194 
+
+Standard error of bias:  0.4852702 
+Standard error for limits of agreement:  0.8435639 
+
+Bias:  -0.421875 
+Bias- upper 95% CI:  0.5938073 
+Bias- lower 95% CI:  -1.437557 
+
+Upper limit of agreement:  3.831706 
+Upper LOA- upper 95% CI:  5.597306 
+Upper LOA- lower 95% CI:  2.066107 
+
+Lower limit of agreement:  -4.675456 
+Lower LOA- upper 95% CI:  -2.909857 
+Lower LOA- lower 95% CI:  -6.441056 
+
+=======================
+Derived measures:  
+Mean of differences/means:  -1.323016 
+Point estimate of bias as proportion of lowest average:  -1.41115 
+Point estimate of bias as proportion of highest average -1.246154 
+Spread of data between lower and upper LoAs:  8.507162 
+Bias as proportion of LoA spread:  -4.959057 
+
+=======================
+Bias: 
+ -0.421875  ( -1.437557  to  0.5938073 ) 
+ULoA: 
+ 3.831706  ( 2.066107  to  5.597306 ) 
+LLoA: 
+ -4.675456  ( -6.441056  to  -2.909857 ) 
+
+
+
+Results for Sleep Stage: N3 
+Bland-Altman Statistics
+=======================
+t = 2.3468, df = 19, p-value = 0.02993
+alternative hypothesis: true bias is not equal to 0
+
+=======================
+Number of comparisons:  20 
+Maximum value for average measures:  27.44792 
+Minimum value for average measures:  24.79167 
+Maximum value for difference in measures:  3.333333 
+Minimum value for difference in measures:  -1.979167 
+
+Bias:  0.78125 
+Standard deviation of bias:  1.488757 
+
+Standard error of bias:  0.3328962 
+Standard error for limits of agreement:  0.5786862 
+
+Bias:  0.78125 
+Bias- upper 95% CI:  1.47801 
+Bias- lower 95% CI:  0.08449032 
+
+Upper limit of agreement:  3.699214 
+Upper LOA- upper 95% CI:  4.910418 
+Upper LOA- lower 95% CI:  2.488009 
+
+Lower limit of agreement:  -2.136714 
+Lower LOA- upper 95% CI:  -0.9255094 
+Lower LOA- lower 95% CI:  -3.347918 
+
+=======================
+Derived measures:  
+Mean of differences/means:  3.090366 
+Point estimate of bias as proportion of lowest average:  3.151261 
+Point estimate of bias as proportion of highest average 2.8463 
+Spread of data between lower and upper LoAs:  5.835927 
+Bias as proportion of LoA spread:  13.3869 
+
+=======================
+Bias: 
+ 0.78125  ( 0.08449032  to  1.47801 ) 
+ULoA: 
+ 3.699214  ( 2.488009  to  4.910418 ) 
+LLoA: 
+ -2.136714  ( -3.347918  to  -0.9255094 ) 
+
+
+
+Results for Sleep Stage: R 
+Bland-Altman Statistics
+=======================
+t = -0.028155, df = 19, p-value = 0.9778
+alternative hypothesis: true bias is not equal to 0
+
+=======================
+Number of comparisons:  20 
+Maximum value for average measures:  23.22917 
+Minimum value for average measures:  19.53125 
+Maximum value for difference in measures:  2.291667 
+Minimum value for difference in measures:  -3.333333 
+
+Bias:  -0.01041667 
+Standard deviation of bias:  1.654596 
+
+Standard error of bias:  0.3699789 
+Standard error for limits of agreement:  0.6431485 
+
+Bias:  -0.01041667 
+Bias- upper 95% CI:  0.763958 
+Bias- lower 95% CI:  -0.7847913 
+
+Upper limit of agreement:  3.232591 
+Upper LOA- upper 95% CI:  4.578716 
+Upper LOA- lower 95% CI:  1.886466 
+
+Lower limit of agreement:  -3.253424 
+Lower LOA- upper 95% CI:  -1.907299 
+Lower LOA- lower 95% CI:  -4.59955 
+
+=======================
+Derived measures:  
+Mean of differences/means:  -0.0266 
+Point estimate of bias as proportion of lowest average:  -0.05333333 
+Point estimate of bias as proportion of highest average -0.04484305 
+Spread of data between lower and upper LoAs:  6.486016 
+Bias as proportion of LoA spread:  -0.1606019 
+
+=======================
+Bias: 
+ -0.01041667  ( -0.7847913  to  0.763958 ) 
+ULoA: 
+ 3.232591  ( 1.886466  to  4.578716 ) 
+LLoA: 
+ -3.253424  ( -4.59955  to  -1.907299 ) 
+
+
+
+Results for Sleep Stage: W 
+Bland-Altman Statistics
+=======================
+t = 0.73662, df = 19, p-value = 0.4703
+alternative hypothesis: true bias is not equal to 0
+
+=======================
+Number of comparisons:  20 
+Maximum value for average measures:  5.885417 
+Minimum value for average measures:  4.0625 
+Maximum value for difference in measures:  2.083333 
+Minimum value for difference in measures:  -1.458333 
+
+Bias:  0.1666667 
+Standard deviation of bias:  1.011854 
+
+Standard error of bias:  0.2262575 
+Standard error for limits of agreement:  0.393312 
+
+Bias:  0.1666667 
+Bias- upper 95% CI:  0.640229 
+Bias- lower 95% CI:  -0.3068956 
+
+Upper limit of agreement:  2.149901 
+Upper LOA- upper 95% CI:  2.973112 
+Upper LOA- lower 95% CI:  1.326689 
+
+Lower limit of agreement:  -1.816567 
+Lower LOA- upper 95% CI:  -0.9933558 
+Lower LOA- lower 95% CI:  -2.639779 
+
+=======================
+Derived measures:  
+Mean of differences/means:  3.584975 
+Point estimate of bias as proportion of lowest average:  4.102564 
+Point estimate of bias as proportion of highest average 2.831858 
+Spread of data between lower and upper LoAs:  3.966468 
+Bias as proportion of LoA spread:  4.201891 
+
+=======================
+Bias: 
+ 0.1666667  ( -0.3068956  to  0.640229 ) 
+ULoA: 
+ 2.149901  ( 1.326689  to  2.973112 ) 
+LLoA: 
+ -1.816567  ( -2.639779  to  -0.9933558 ) </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List of unique sleep stages</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sleep_stages <span class="ot">&lt;-</span> <span class="fu">unique</span>(merged_data<span class="sc">$</span>Sleep_Stage)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize an empty list to store results</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>ba_results <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop through each sleep stage and calculate Bland-Altman statistics</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (stage <span class="cf">in</span> sleep_stages) {</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  stage_data <span class="ot">&lt;-</span> merged_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Sleep_Stage <span class="sc">==</span> stage)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate Bland-Altman statistics</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  ba_stats <span class="ot">&lt;-</span> <span class="fu">blandr.statistics</span>(stage_data<span class="sc">$</span>Percentage_PSG, stage_data<span class="sc">$</span>Percentage_Headband)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Append the Bland-Altman statistics object to the list with the stage name</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  ba_results[[stage]] <span class="ot">&lt;-</span> ba_stats</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Generate the Bland-Altman plot using blandr.draw</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  plot_title <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">'Bland-Altman plot for'</span>, stage)  <span class="co"># Concatenate the plot title properly</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  ba_plot <span class="ot">&lt;-</span> <span class="fu">blandr.draw</span>(stage_data<span class="sc">$</span>Percentage_PSG, stage_data<span class="sc">$</span>Percentage_Headband, </span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>                         <span class="at">plotTitle =</span> plot_title, <span class="at">ciDisplay =</span> <span class="cn">TRUE</span>, <span class="at">ciShading =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Print each plot</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(ba_plot)</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `plot.data$x.axis` is discouraged.
+ℹ Use `x.axis` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `plot.data$y.axis` is discouraged.
+ℹ Use `y.axis` instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-markdown/unnamed-chunk-10-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `plot.data$x.axis` is discouraged.
+ℹ Use `x.axis` instead.
+Use of `plot.data$y.axis` is discouraged.
+ℹ Use `y.axis` instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-markdown/unnamed-chunk-10-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `plot.data$x.axis` is discouraged.
+ℹ Use `x.axis` instead.
+Use of `plot.data$y.axis` is discouraged.
+ℹ Use `y.axis` instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-markdown/unnamed-chunk-10-3.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `plot.data$x.axis` is discouraged.
+ℹ Use `x.axis` instead.
+Use of `plot.data$y.axis` is discouraged.
+ℹ Use `y.axis` instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-markdown/unnamed-chunk-10-4.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `plot.data$x.axis` is discouraged.
+ℹ Use `x.axis` instead.
+Use of `plot.data$y.axis` is discouraged.
+ℹ Use `y.axis` instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-markdown/unnamed-chunk-10-5.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="bland-altman-plots-basic-plots-wo-the-blandr-package" class="level4">
+<h4 class="anchored" data-anchor-id="bland-altman-plots-basic-plots-wo-the-blandr-package">Bland-Altman plots (basic plots, w/o the blandr package)</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate mean and difference for each sleep stage</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>bland_altman_data <span class="ot">&lt;-</span> merged_data <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Mean =</span> (Percentage_PSG <span class="sc">+</span> Percentage_Headband) <span class="sc">/</span> <span class="dv">2</span>,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">Difference =</span> Percentage_PSG <span class="sc">-</span> Percentage_Headband)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create separate Bland-Altman plots for each sleep stage</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>unique_stages <span class="ot">&lt;-</span> <span class="fu">unique</span>(bland_altman_data<span class="sc">$</span>Sleep_Stage)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop through each sleep stage and create a Bland-Altman plot</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(stage <span class="cf">in</span> unique_stages) {</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  stage_data <span class="ot">&lt;-</span> bland_altman_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Sleep_Stage <span class="sc">==</span> stage)</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(stage_data, <span class="fu">aes</span>(<span class="at">x =</span> Mean, <span class="at">y =</span> Difference)) <span class="sc">+</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="fu">mean</span>(Difference)), <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="fu">mean</span>(Difference) <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> <span class="fu">sd</span>(Difference)), <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="fu">mean</span>(Difference) <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> <span class="fu">sd</span>(Difference)), <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Bland-Altman Plot for"</span>, stage),</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Mean Percentage of Time"</span>,</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Difference in Percentage (PSG - Headband)"</span>) <span class="sc">+</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Print each plot</span></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(p)</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-markdown/unnamed-chunk-11-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-markdown/unnamed-chunk-11-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-markdown/unnamed-chunk-11-3.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-markdown/unnamed-chunk-11-4.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-markdown/unnamed-chunk-11-5.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="calculate-pearson-correlation-for-each-sleep-stage-and-each-instrument" class="level4">
+<h4 class="anchored" data-anchor-id="calculate-pearson-correlation-for-each-sleep-stage-and-each-instrument">Calculate Pearson correlation for each sleep stage and each instrument</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate Pearson correlation for each sleep stage</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>correlation_results <span class="ot">&lt;-</span> merged_data <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Sleep_Stage) <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Pearson_Correlation =</span> <span class="fu">cor</span>(Percentage_PSG, Percentage_Headband, <span class="at">use =</span> <span class="st">"complete.obs"</span>), <span class="at">.groups =</span> <span class="st">'drop'</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the correlation results</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the correlation results in a table with a caption and a light blue background</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(correlation_results, <span class="at">caption =</span> <span class="st">"Pearson Correlation for Each Sleep Stage"</span>, <span class="at">digits =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">background =</span> <span class="st">"lightblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Pearson Correlation for Each Sleep Stage</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sleep_Stage</th>
+<th style="text-align: right;">Pearson_Correlation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">N1</td>
+<td style="text-align: right;">-0.192</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">N2</td>
+<td style="text-align: right;">0.023</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N3</td>
+<td style="text-align: right;">-0.085</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R</td>
+<td style="text-align: right;">0.217</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">W</td>
+<td style="text-align: right;">-0.026</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="calculate-cohens-kappa-for-each-sleep-stage" class="level4">
+<h4 class="anchored" data-anchor-id="calculate-cohens-kappa-for-each-sleep-stage">Calculate Cohen’s Kappa for each sleep stage</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge PSG and Headband data by Subject_ID and Epoch to align epochs</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>merged_epochs <span class="ot">&lt;-</span> PSG <span class="sc">%&gt;%</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Subject_ID, Epoch, <span class="at">Sleep_Stage_PSG =</span> Sleep_Stage) <span class="sc">%&gt;%</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(Headband <span class="sc">%&gt;%</span> <span class="fu">select</span>(Subject_ID, Epoch, <span class="at">Sleep_Stage_Headband =</span> Sleep_Stage),</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"Subject_ID"</span>, <span class="st">"Epoch"</span>))</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate Cohen's Kappa for each sleep stage</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>kappa_results <span class="ot">&lt;-</span> <span class="fu">lapply</span>(sleep_stages, <span class="cf">function</span>(stage) {</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  stage_data <span class="ot">&lt;-</span> merged_epochs <span class="sc">%&gt;%</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Sleep_Stage_PSG <span class="sc">==</span> stage <span class="sc">|</span> Sleep_Stage_Headband <span class="sc">==</span> stage) <span class="sc">%&gt;%</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Sleep_Stage_PSG =</span> <span class="fu">ifelse</span>(Sleep_Stage_PSG <span class="sc">==</span> stage, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">Sleep_Stage_Headband =</span> <span class="fu">ifelse</span>(Sleep_Stage_Headband <span class="sc">==</span> stage, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate Cohen's Kappa for the current stage</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>  kappa_value <span class="ot">&lt;-</span> <span class="fu">kappa2</span>(stage_data[, <span class="fu">c</span>(<span class="st">"Sleep_Stage_PSG"</span>, <span class="st">"Sleep_Stage_Headband"</span>)], </span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>                        <span class="at">weight =</span> <span class="st">"unweighted"</span>)<span class="sc">$</span>value</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">Sleep_Stage =</span> stage, <span class="at">Cohen_Kappa =</span> kappa_value)</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine results into a single data frame</span></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>kappa_results <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, kappa_results)</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the Cohen's Kappa results</span></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(kappa_results, <span class="at">caption =</span> <span class="st">"Cohen's Kappa for Each Sleep Stage"</span>, <span class="at">digits =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">background =</span> <span class="st">"lightblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Cohen's Kappa for Each Sleep Stage</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sleep_Stage</th>
+<th style="text-align: right;">Cohen_Kappa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">N1</td>
+<td style="text-align: right;">-0.814</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">N2</td>
+<td style="text-align: right;">-0.657</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N3</td>
+<td style="text-align: right;">-0.590</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R</td>
+<td style="text-align: right;">-0.762</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">W</td>
+<td style="text-align: right;">-0.956</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="calculate-intraclass-correlation-coefficient-icc-for-each-sleep-stage" class="level4">
+<h4 class="anchored" data-anchor-id="calculate-intraclass-correlation-coefficient-icc-for-each-sleep-stage">Calculate Intraclass Correlation Coefficient (ICC) for each sleep stage</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate ICC for each sleep stage by using the percentage of time spent in each stage</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>icc_results <span class="ot">&lt;-</span> <span class="fu">lapply</span>(sleep_stages, <span class="cf">function</span>(stage) {</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  stage_data <span class="ot">&lt;-</span> merged_data <span class="sc">%&gt;%</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Sleep_Stage <span class="sc">==</span> stage) <span class="sc">%&gt;%</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(Percentage_PSG, Percentage_Headband)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate ICC (2,1) for absolute agreement</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  icc_value <span class="ot">&lt;-</span> <span class="fu">icc</span>(stage_data, <span class="at">model =</span> <span class="st">"twoway"</span>, <span class="at">type =</span> <span class="st">"agreement"</span>, <span class="at">unit =</span> <span class="st">"single"</span>)<span class="sc">$</span>value</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">Sleep_Stage =</span> stage, <span class="at">ICC =</span> icc_value)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine results into a single data frame</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>icc_results <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, icc_results)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the ICC results</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(icc_results, <span class="at">caption =</span> <span class="st">"Intraclass Correlation Coefficient (ICC) for Each Sleep Stage"</span>, <span class="at">digits =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">background =</span> <span class="st">"lightblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Intraclass Correlation Coefficient (ICC) for Each Sleep Stage</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sleep_Stage</th>
+<th style="text-align: right;">ICC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">N1</td>
+<td style="text-align: right;">-0.180</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">N2</td>
+<td style="text-align: right;">0.023</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N3</td>
+<td style="text-align: right;">-0.065</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R</td>
+<td style="text-align: right;">0.226</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">W</td>
+<td style="text-align: right;">-0.026</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="calculate-mean-absolute-percentage-error-mape-for-each-sleep-stage" class="level4">
+<h4 class="anchored" data-anchor-id="calculate-mean-absolute-percentage-error-mape-for-each-sleep-stage">Calculate Mean Absolute Percentage Error (MAPE) for each sleep stage</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>mape_results <span class="ot">&lt;-</span> merged_data <span class="sc">%&gt;%</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">APE =</span> ((Percentage_PSG <span class="sc">-</span> Percentage_Headband) <span class="sc">/</span> Percentage_PSG) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Sleep_Stage) <span class="sc">%&gt;%</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">MAPE =</span> <span class="fu">mean</span>(APE, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">'drop'</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>mape_results <span class="ot">&lt;-</span> mape_results <span class="sc">%&gt;%</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">MAPE =</span> <span class="fu">paste0</span>(<span class="fu">round</span>(MAPE, <span class="dv">2</span>), <span class="st">"%"</span>))</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mape_results, <span class="at">caption =</span> <span class="st">"Mean Absolute Percentage Error (MAPE) for Each Sleep Stage"</span>, <span class="at">digits =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">background =</span> <span class="st">"lightblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Mean Absolute Percentage Error (MAPE) for Each Sleep Stage</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sleep_Stage</th>
+<th style="text-align: left;">MAPE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">N1</td>
+<td style="text-align: left;">-3.65%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">N2</td>
+<td style="text-align: left;">-1.56%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N3</td>
+<td style="text-align: left;">2.89%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">-0.33%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">W</td>
+<td style="text-align: left;">1.42%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="calculate-concordance-correlation-coefficient-ccc-for-each-sleep-stage" class="level4">
+<h4 class="anchored" data-anchor-id="calculate-concordance-correlation-coefficient-ccc-for-each-sleep-stage">Calculate Concordance Correlation Coefficient (CCC) for each sleep stage</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Attaching package: 'DescTools'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:caret':
+
+    MAE, RMSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate CCC for each sleep stage</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>ccc_results <span class="ot">&lt;-</span> <span class="fu">lapply</span>(sleep_stages, <span class="cf">function</span>(stage) {</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  stage_data <span class="ot">&lt;-</span> merged_data <span class="sc">%&gt;%</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Sleep_Stage <span class="sc">==</span> stage) <span class="sc">%&gt;%</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(Percentage_PSG, Percentage_Headband)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  ccc_value <span class="ot">&lt;-</span> <span class="fu">CCC</span>(stage_data<span class="sc">$</span>Percentage_PSG, stage_data<span class="sc">$</span>Percentage_Headband)<span class="sc">$</span>rho.c</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">Sleep_Stage =</span> stage, <span class="at">CCC =</span> ccc_value)</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine results into a single data frame</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>ccc_results <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, ccc_results)</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the CCC results</span></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(ccc_results, <span class="at">caption =</span> <span class="st">"Concordance Correlation Coefficient (CCC) for Each Sleep Stage"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">background =</span> <span class="st">"lightblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Concordance Correlation Coefficient (CCC) for Each Sleep Stage</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sleep_Stage</th>
+<th style="text-align: right;">CCC.est</th>
+<th style="text-align: right;">CCC.lwr.ci</th>
+<th style="text-align: right;">CCC.upr.ci</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">N1</td>
+<td style="text-align: right;">-0.1693247</td>
+<td style="text-align: right;">-0.5219840</td>
+<td style="text-align: right;">0.2327739</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">N2</td>
+<td style="text-align: right;">0.0217664</td>
+<td style="text-align: right;">-0.3993760</td>
+<td style="text-align: right;">0.4353233</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N3</td>
+<td style="text-align: right;">-0.0617404</td>
+<td style="text-align: right;">-0.3779477</td>
+<td style="text-align: right;">0.2673661</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R</td>
+<td style="text-align: right;">0.2169865</td>
+<td style="text-align: right;">-0.2361479</td>
+<td style="text-align: right;">0.5926064</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">W</td>
+<td style="text-align: right;">-0.0249000</td>
+<td style="text-align: right;">-0.4385490</td>
+<td style="text-align: right;">0.3974549</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="calculate-sensitivity-for-each-sleep-stage" class="level4">
+<h4 class="anchored" data-anchor-id="calculate-sensitivity-for-each-sleep-stage">Calculate Sensitivity for each sleep stage</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate classification metrics for each sleep stage</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>sensitivity_results <span class="ot">&lt;-</span> merged_epochs <span class="sc">%&gt;%</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Agree =</span> (Sleep_Stage_PSG <span class="sc">==</span> Sleep_Stage_Headband)) <span class="sc">%&gt;%</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Sleep_Stage_PSG) <span class="sc">%&gt;%</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Sensitivity =</span> <span class="fu">mean</span>(Agree), <span class="at">.groups =</span> <span class="st">'drop'</span>)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(sensitivity_results, <span class="at">caption =</span> <span class="st">"Sensitivity for Each Sleep Stage"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">background =</span> <span class="st">"lightblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Sensitivity for Each Sleep Stage</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sleep_Stage_PSG</th>
+<th style="text-align: right;">Sensitivity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">N1</td>
+<td style="text-align: right;">0.1887035</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">N2</td>
+<td style="text-align: right;">0.3449574</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N3</td>
+<td style="text-align: right;">0.4030806</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R</td>
+<td style="text-align: right;">0.2380714</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">W</td>
+<td style="text-align: right;">0.0431211</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="compare-the-confusion-matrix-between-psg-ground-truth-and-headband" class="level4">
+<h4 class="anchored" data-anchor-id="compare-the-confusion-matrix-between-psg-ground-truth-and-headband">Compare the confusion matrix between PSG (ground truth) and Headband</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>confusion_results <span class="ot">&lt;-</span> merged_epochs <span class="sc">%&gt;%</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Sleep_Stage_PSG =</span> <span class="fu">factor</span>(Sleep_Stage_PSG, <span class="at">levels =</span> sleep_stages),</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">Sleep_Stage_Headband =</span> <span class="fu">factor</span>(Sleep_Stage_Headband, <span class="at">levels =</span> sleep_stages))</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the confusion matrix</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>conf_matrix <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(confusion_results<span class="sc">$</span>Sleep_Stage_Headband, confusion_results<span class="sc">$</span>Sleep_Stage_PSG)</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert confusion matrix table to a data frame for manipulation</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>conf_matrix_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(conf_matrix<span class="sc">$</span>table)</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(conf_matrix_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"True_Sleep_Stage"</span>, <span class="st">"Predicted_Sleep_Stage"</span>, <span class="st">"Frequency"</span>)</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate percentages for each row in the confusion matrix</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>conf_matrix_df <span class="ot">&lt;-</span> conf_matrix_df <span class="sc">%&gt;%</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(True_Sleep_Stage) <span class="sc">%&gt;%</span></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Percentage =</span> Frequency <span class="sc">/</span> <span class="fu">sum</span>(Frequency) <span class="sc">*</span> <span class="dv">100</span>)  <span class="co"># Calculate percentages</span></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Display overall statistics and per-class performance metrics</span></span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>conf_matrix<span class="sc">$</span>overall</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull 
+    0.29713542     0.07340406     0.29067635     0.30365597     0.31812500 
+AccuracyPValue  McnemarPValue 
+    1.00000000     0.34012087 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>conf_matrix<span class="sc">$</span>byClass</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Sensitivity Specificity Pos Pred Value Neg Pred Value  Precision
+Class: N1  0.18870347   0.8366700     0.18289269      0.8418517 0.18289269
+Class: N2  0.34495743   0.6882065     0.34044272      0.6924910 0.34044272
+Class: N3  0.40308062   0.8004366     0.41554960      0.7920702 0.41554960
+Class: R   0.23807145   0.7991709     0.23795256      0.7992761 0.23795256
+Class: W   0.04312115   0.9506200     0.04458599      0.9489539 0.04458599
+              Recall         F1 Prevalence Detection Rate Detection Prevalence
+Class: N1 0.18870347 0.18575265 0.16229167     0.03062500            0.1674479
+Class: N2 0.34495743 0.34268521 0.31812500     0.10973958            0.3223437
+Class: N3 0.40308062 0.40922015 0.26036458     0.10494792            0.2525521
+Class: R  0.23807145 0.23801199 0.20848958     0.04963542            0.2085937
+Class: W  0.04312115 0.04384134 0.05072917     0.00218750            0.0490625
+          Balanced Accuracy
+Class: N1         0.5126867
+Class: N2         0.5165820
+Class: N3         0.6017586
+Class: R          0.5186212
+Class: W          0.4968706</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the confusion matrix with counts and percentages</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(conf_matrix_df, <span class="fu">aes</span>(<span class="at">x =</span> True_Sleep_Stage, <span class="at">y =</span> Predicted_Sleep_Stage, <span class="at">fill =</span> Frequency)) <span class="sc">+</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(Frequency, <span class="st">"</span><span class="sc">\n</span><span class="st">("</span>, <span class="fu">round</span>(Percentage, <span class="dv">1</span>), <span class="st">"%)"</span>, <span class="at">sep =</span> <span class="st">""</span>)), </span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"lightblue"</span>, <span class="at">high =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Confusion Matrix for PSG (Ground Truth) vs Headband"</span>,</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"True Sleep Stage (PSG)"</span>,</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Predicted Sleep Stage (Headband)"</span>) <span class="sc">+</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-markdown/unnamed-chunk-18-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="roc-curves-for-each-sleep-stage" class="level4">
+<h4 class="anchored" data-anchor-id="roc-curves-for-each-sleep-stage">ROC Curves for each sleep stage</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare data for ROC analysis</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>roc_data <span class="ot">&lt;-</span> merged_epochs <span class="sc">%&gt;%</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Sleep_Stage_PSG =</span> <span class="fu">factor</span>(Sleep_Stage_PSG, <span class="at">levels =</span> sleep_stages),</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">Sleep_Stage_Headband =</span> <span class="fu">factor</span>(Sleep_Stage_Headband, <span class="at">levels =</span> sleep_stages))</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a list to hold ROC objects for each sleep stage</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>roc_list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop through each sleep stage to compute ROC</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(stage <span class="cf">in</span> sleep_stages) {</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create binary outcomes for the true sleep stage</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>  roc_data<span class="sc">$</span>True_Class <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(roc_data<span class="sc">$</span>Sleep_Stage_PSG <span class="sc">==</span> stage, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>  roc_data<span class="sc">$</span>Predicted_Prob <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(roc_data<span class="sc">$</span>Sleep_Stage_Headband <span class="sc">==</span> stage)  <span class="co"># Assuming you want to predict each stage</span></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate ROC curve</span></span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>  roc_curve <span class="ot">&lt;-</span> <span class="fu">roc</span>(roc_data<span class="sc">$</span>True_Class, roc_data<span class="sc">$</span>Predicted_Prob, </span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>                   <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">direction =</span> <span class="st">"&lt;"</span>)</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Store the ROC object in the list</span></span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>  roc_list[[stage]] <span class="ot">&lt;-</span> roc_curve</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot ROC curves for each sleep stage</span></span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>))  <span class="co"># Adjust layout to fit all plots (change as needed)</span></span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(stage <span class="cf">in</span> sleep_stages) {</span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(roc_list[[stage]], </span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">rainbow</span>(<span class="fu">length</span>(sleep_stages))[<span class="fu">which</span>(sleep_stages <span class="sc">==</span> stage)], </span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"ROC Curve for"</span>, stage), </span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>       <span class="at">print.auc =</span> <span class="cn">TRUE</span>)  <span class="co"># Print AUC on the plot</span></span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-markdown/unnamed-chunk-19-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/circadia\.bio");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Made with ❤️ and Quarto. © 2025. This work is openly licensed via CC BY 4.0</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
