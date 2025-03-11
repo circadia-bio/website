@@ -17,7 +17,7 @@ listing:
   categories: false
   sort-ui: false
   filter-ui: false
-  fields: [title, subtitle, image]
+  fields: [title, subtitle, image, description]
   max-items: 1
   image-height: "200"
 - id: publication
@@ -29,7 +29,7 @@ listing:
   categories: false
   sort-ui: false
   filter-ui: false
-  fields: [title, image]
+  fields: [title, image, description]
   max-items: 1
   image-height: "200"
   image-placeholder: ../publication/featured.jpg
