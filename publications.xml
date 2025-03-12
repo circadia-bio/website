@@ -43,5 +43,51 @@
   <pubDate>Wed, 02 Oct 2024 00:00:00 GMT</pubDate>
   <media:content url="https://circadia.bio/publications/ferre2024/featured.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
+<item>
+  <title>Neonatal brain dynamic functional connectivity in term and preterm infants and its association with early childhood neurodevelopment</title>
+  <dc:creator>Lucas G. S. França</dc:creator>
+  <dc:creator>Judit Ciarrusta</dc:creator>
+  <dc:creator>Oliver Gale-Grant</dc:creator>
+  <dc:creator>Sunniva Fenn-Moltu</dc:creator>
+  <dc:creator>Sean Fitzgibbon</dc:creator>
+  <dc:creator>Andrew Chew</dc:creator>
+  <dc:creator>Shona Falconer</dc:creator>
+  <dc:creator>Ralica Dimitrova</dc:creator>
+  <dc:creator>Lucilio Cordero-Grande</dc:creator>
+  <dc:creator>Anthony N. Price</dc:creator>
+  <dc:creator>Emer Hughes</dc:creator>
+  <dc:creator>Jonathan O’Muircheartaigh</dc:creator>
+  <dc:creator>Eugene Duff</dc:creator>
+  <dc:creator>Jetro J. Tuulari</dc:creator>
+  <dc:creator>Gustavo Deco</dc:creator>
+  <dc:creator>Serena J. Counsell</dc:creator>
+  <dc:creator>Joseph V. Hajnal</dc:creator>
+  <dc:creator>Chiara Nosarti</dc:creator>
+  <dc:creator>Tomoki Arichi</dc:creator>
+  <dc:creator>A. David Edwards</dc:creator>
+  <dc:creator>Grainne McAlonan</dc:creator>
+  <dc:creator>Dafnis Batalle</dc:creator>
+  <link>https://circadia.bio/publications/franca2024/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>Brain dynamic functional connectivity characterises transient connections between brain regions. Features of brain dynamics have been linked to emotion and cognition in adult individuals, and atypical patterns have been associated with neurodevelopmental conditions such as autism. Although reliable functional brain networks have been consistently identified in neonates, little is known about the early development of dynamic functional connectivity. In this study we characterise dynamic functional connectivity with functional magnetic resonance imaging (fMRI) in the first few weeks of postnatal life in term-born (n=324) and preterm-born (n=66) individuals. We show that a dynamic landscape of brain connectivity is already established by the time of birth in the human brain, characterised by six transient states of neonatal functional connectivity with changing dynamics through the neonatal period. The pattern of dynamic connectivity is atypical in preterm-born infants, and associated with atypical social, sensory, and repetitive behaviours measured by the Quantitative Checklist for Autism in Toddlers (Q-CHAT) scores at 18 months of age.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Article</category>
+  <category>brain</category>
+  <category>MRI</category>
+  <category>dynamics</category>
+  <guid>https://circadia.bio/publications/franca2024/</guid>
+  <pubDate>Thu, 08 Feb 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://circadia.bio/publications/franca2024/featured.png" medium="image" type="image/png" height="137" width="144"/>
+</item>
 </channel>
 </rss>

@@ -8,14 +8,16 @@
   {
     "listing": "/publications.html",
     "items": [
-      "/publications/ferre2024/index.html"
+      "/publications/ferre2024/index.html",
+      "/publications/franca2024/index.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
       "/blog/sleep_PSG/index.html",
-      "/publications/ferre2024/index.html"
+      "/publications/ferre2024/index.html",
+      "/publications/franca2024/index.html"
     ]
   },
   {
