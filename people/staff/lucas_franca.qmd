@@ -16,6 +16,8 @@ about:
     - icon: mortarboard
       text: Scholar
       href: https://scholar.google.com/citations?user=O6ML_xwAAAAJ
+    - text: "{{< fa brands orcid >}} ORCID"
+      href: https://orcid.org/0000-0003-0853-1319
     - icon: github
       text: Github
       href: https://www.github.com/lucasfr

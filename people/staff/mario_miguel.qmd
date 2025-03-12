@@ -13,6 +13,8 @@ about:
     - icon: mortarboard
       text: Scholar
       href: https://scholar.google.com/citations?hl=en&user=2TlAx6cAAAAJ
+    - text: "{{< fa brands orcid >}} ORCID"
+      href: https://orcid.org/0000-0002-7248-3529
 ---
 
 
