@@ -13,6 +13,9 @@ about:
     - icon: mortarboard
       text: Scholar
       href: https://scholar.google.com/citations?hl=en&user=2TlAx6cAAAAJ
+    - icon: orcid
+      text: ORCID
+      href: https://orcid.org/0000-0002-0812-0352
 ---
 
 
@@ -20,6 +23,16 @@ about:
 
 ## Biography
 
-{{< lipsum 2 >}}
+Professor Matthew Walker is a distinguished neurologist specialising in epilepsy and neurological sleep disorders. He holds the position of Professor of Neurology at the UCL Queen Square Institute of Neurology and serves as a Consultant Neurologist at the National Hospital for Neurology and Neurosurgery in London.
+
+Professor Walker completed his medical studies at Cambridge University and St Thomas' Hospital. He earned a PhD from University College London, focusing on the treatment of status epilepticus. His research interests encompass the mechanisms, diagnosis, and treatment of epilepsy, and he has published over 200 scientific articles, chapters, and books.
+
+In addition to his clinical and research roles, Professor Walker has held several prominent positions:
+
+- President of the British Branch of the International League Against Epilepsy (ILAE).
+- Secretary of ILAE-Europe.
+- Chair of the Trustees of Epilepsy Research UK.
+
+He was honored with the ILAE Ambassador for Epilepsy award in 2013. Professor Walker is a Fellow of the Royal College of Physicians and the American Epilepsy Society. He is an associate editor of Therapeutic Advances in Neurological Disorders and was previously an associate editor for the journals, Epilepsia and Brain.
 
 :::
