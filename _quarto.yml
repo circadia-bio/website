@@ -9,6 +9,7 @@ website:
   open-graph: true # https://quarto.org/docs/websites/website-tools.html#open-graph
   page-footer: "Made with ❤️ and Quarto. © 2025. This work is openly licensed via CC BY 4.0"
   navbar:
+    logo: "logo.png"
     left:
       - text: Home
         icon: house-fill
