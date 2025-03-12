@@ -20,6 +20,10 @@ about:
 
 ## Biography
 
-{{< lipsum 2 >}}
+Professor John Fontenele Araújo is a distinguished neuroscientist and educator affiliated with the Federal University of Rio Grande do Norte (UFRN). He completed his medical degree at the Federal University of Piauí, followed by a master's and a doctorate in Neurobiology and Behavior from the University of São Paulo. He further enhanced his expertise with postdoctoral research in Chronobiology at the University of Barcelona and at institutions in Lisbon.
+
+At UFRN, Professor Araújo serves as a full professor in the Department of Physiology and Behavior, where he teaches neurophysiology and conducts research in chronobiology. Prof. Araújo has been a faculty member at UFRN since 2000, where he has been instrumental in the development of the Graduate Program in Neuroscience. His research interests encompass biological rhythms, sleep, learning, memory, affective disorders, and primate vocalization. His scholarly contributions have been widely recognized, with his publications cited over 4,500 times, reflecting his significant impact in the fields of chronobiology, neuroscience, physiology, medical education, and sleep medicine.
+
+He is a member of the Brazilian Society of Physiology, the Brazilian Sleep Society, the Brazilian Academy of Sciences and the World Federation of Sleep Research. Beyond academia, Professor Araújo is an avid cyclist and actively promotes cycling mobility and tourism. 
 
 :::
