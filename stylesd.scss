@@ -92,3 +92,29 @@ body {
     border-radius: 30px;
     padding: 20px;
 }
+
+div.quarto-about-trestles .about-entity .about-links {
+    display: flex !important; /* Force flex behavior */
+    flex-direction: row !important; /* Ensure horizontal layout */
+    justify-content: center; /* Center align horizontally */
+    align-items: center; /* Align vertically */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 8px !important; /* Adjust spacing between buttons */
+    max-width: 100%; /* Prevent width issues */
+}
+
+/* Ensure each link behaves correctly */
+div.quarto-about-trestles .about-entity .about-links .about-link {
+    display: inline-flex !important; /* Prevent full-width behavior */
+    white-space: nowrap; /* Prevent text wrapping */
+    padding: 5px 10px; /* Adjust padding */
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Override any mobile-specific column styles */
+@media (max-width: 600px) {
+    div.quarto-about-trestles .about-entity .about-links {
+        flex-wrap: wrap !important; /* Allow wrapping */
+        justify-content: center !important;
+    }
+}
