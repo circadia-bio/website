@@ -3,7 +3,6 @@ title: "Heritability of sleep architecture based on home polysomnography"
 author: 
 - name: Mário A. Leocadio-Miguel
   orcid: 0000-0002-7248-3529
-- Mario Leocadio‐Miguel
 - Tâmara P Taporoski
 - Felipe Beijamini
 - Francieli S Ruiz
