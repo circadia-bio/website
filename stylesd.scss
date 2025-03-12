@@ -25,7 +25,17 @@ body {
     font-family: "Alice", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-.quarto-grid-item img:hover {
+#research-staff .quarto-grid-item img:hover {
+    transform: scale(1.2);
+    transition: transform 0.5s;
+}
+
+#students .quarto-grid-item img:hover {
+    transform: scale(1.2);
+    transition: transform 0.5s;
+}
+
+#collaborators .quarto-grid-item img:hover {
     transform: scale(1.2);
     transition: transform 0.5s;
 }
