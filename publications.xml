@@ -10,7 +10,39 @@
 <atom:link href="https://circadia.bio/publications.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.6.42</generator>
-<lastBuildDate>Wed, 02 Oct 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 29 Dec 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Heritability of sleep architecture based on home polysomnography</title>
+  <dc:creator>Mário A. Leocadio-Miguel</dc:creator>
+  <dc:creator>Tâmara P Taporoski</dc:creator>
+  <dc:creator>Felipe Beijamini</dc:creator>
+  <dc:creator>Francieli S Ruiz</dc:creator>
+  <dc:creator>Andrea RVR Horimoto</dc:creator>
+  <dc:creator>Alexandre C Pereira</dc:creator>
+  <dc:creator>Kristen L Knutson</dc:creator>
+  <dc:creator>Malcolm von Schantz</dc:creator>
+  <link>https://circadia.bio/publications/miguel2024/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>We aimed to establish the heritability of polysomnography measures through the analysis of home polysomnography recordings from 648 participants in the Baependi Heart Study, a rural, family-based, genetically admixed cohort based in the southeast of Brazil. Sleep polysomnography staging variables were computed, and narrow-sense heritability values were derived. The heritability (h2) of polysomnography total sleep time was 0.18±0.08 (p=0.007). Including age and sex did not change the heritability estimates of the model. Wake after sleep onset did not show significant heritability (h2=0.02±0.07, p=0.39). The unadjusted model for N1 resulted in a heritability estimate of 0.22±0.10 (p&lt;0.003), and of 0.26±0.10 (p=0.003) in the adjusted model. Time spent in N2 had an unadjusted heritability of 0.18±0.09 (p=0.01) and adjusted h2 of 0.22±0.10 (p=0.007). The heritability of the total time spent in N3 was 0.35±0.09 (p&lt;0.001) in the unadjusted and 0.38±0.09 (p&lt;0.001) when sex, age and age*age were considered in the model. By contrast, no variance in the total time spent in rapid eye movement could be significantly attributed to genetic variance. In terms of the heritability of the apnea–hypopnea index, 17% of its variance could be attributed to genetic factors (0.17±0.08, p=0.02). This is the first report of heritability of electroencephalographic-derived sleep parameters from a larger population sample, and the first one performed in a population with a majority above 25 years of age. Our findings indicate the potential feasibility of future genome-wide association studies of non-rapid eye movement sleep stages in pooled population samples.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Article</category>
+  <category>heritability</category>
+  <category>sleep</category>
+  <category>PSG</category>
+  <guid>https://circadia.bio/publications/miguel2024/</guid>
+  <pubDate>Sun, 29 Dec 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://circadia.bio/publications/miguel2024/featured.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Cycling reduces the entropy of neuronal activity in the human adult cortex</title>
   <dc:creator>Iara Beatriz Silva Ferré</dc:creator>
@@ -88,6 +120,73 @@
   <guid>https://circadia.bio/publications/franca2024/</guid>
   <pubDate>Thu, 08 Feb 2024 00:00:00 GMT</pubDate>
   <media:content url="https://circadia.bio/publications/franca2024/featured.png" medium="image" type="image/png" height="137" width="144"/>
+</item>
+<item>
+  <title>Hemodialysis-induced chronodisruption and chronotype distribution in patients with chronic kidney disease</title>
+  <dc:creator>Patrícia Pereira Nunes</dc:creator>
+  <dc:creator>Caroline Meneses Resende</dc:creator>
+  <dc:creator>Ellen Dayanne Barros Silva</dc:creator>
+  <dc:creator>Deryc Cleyner Piones Bastos</dc:creator>
+  <dc:creator>Max Luiz Mendes Ramires Filho</dc:creator>
+  <dc:creator>Mário A. Leocadio-Miguel</dc:creator>
+  <dc:creator>Mario Pedrazzoli</dc:creator>
+  <dc:creator>Manoel Alves Sobreira-Neto</dc:creator>
+  <dc:creator>Tiago Gomes de Andrade</dc:creator>
+  <dc:creator>Lívia Leite Góes Gitaí</dc:creator>
+  <dc:creator>Flávio Teles</dc:creator>
+  <link>https://circadia.bio/publications/nunes2024/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>Changes in circadian rhythms have been observed in patients with chronic kidney disease (CKD), and evidence suggests that these changes can have a negative impact on health. This study aimed to investigate the existence of hemodialysis-induced chronodisruption, the chronotype distribution, and their association with sleep quality and quality of life (QoL). This was a cross-sectional study that enrolled 165 patients (mean age: 51.1±12.5 y, 60.6% male) undergoing hemodialysis from three local units. The following instruments were used: the Morning-Eveningness Questionnaire (MEQ); a modified version of the Munich Chronotype Questionnaire (MCQT) to estimate hemodialysis-induced chronodisruption (HIC); the Kidney Disease QoL Short Form (KDQOL-SF); the Epworth Sleepiness Scale (ESS); the Pittsburgh Sleep Quality Index (PSQI) and the 10–Cognitive Screener (10-CS). HIC was present in 40.6% of CKD patients. Morning chronotype was prevalent in CKD patients (69%) compared to evening-type (17.1%) and significantly different from a paired sample from the general population (p&lt;0.001). HIC and chronotype were associated with different domains of QoL but not with sleep quality. This study suggests that there is a HIC and that morning chronotype is associated with CKD patients undergoing hemodialysis, with implications for QoL.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Article</category>
+  <category>hemodialisis</category>
+  <category>sleep</category>
+  <guid>https://circadia.bio/publications/nunes2024/</guid>
+  <pubDate>Thu, 01 Feb 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://circadia.bio/publications/nunes2024/featured.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Blue light exposure-dependent improvement in robustness of circadian rest-activity rhythm in aged rats</title>
+  <dc:creator>Eryck Holmes A. Silva</dc:creator>
+  <dc:creator>Nelyane Nayara M. Santana</dc:creator>
+  <dc:creator>Narita Renata M. Seixas</dc:creator>
+  <dc:creator>Lyzandro Lucas F. Bezerra</dc:creator>
+  <dc:creator>Maria Milena O. Silva</dc:creator>
+  <dc:creator>Sâmarah F. Santos</dc:creator>
+  <dc:creator>Jeferson S. Cavalcante</dc:creator>
+  <dc:creator>Mário A. Leocadio-Miguel</dc:creator>
+  <dc:creator>Rovena Clara Engelberth</dc:creator>
+  <link>https://circadia.bio/publications/silva2023/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>The aging effects on circadian rhythms have diverse implications including changes in the pattern of rhythmic expressions, such as a wide fragmentation of the rhythm of rest-activity and decrease in amplitude of activity regulated by the suprachiasmatic nucleus (SCN). The study of blue light on biological aspects has received great current interest due, among some aspects, to its positive effects on psychiatric disorders in humans. This study aims to evaluate the effect of blue light therapy on the SCN functional aspects, through the evaluation of the rest-activity rhythm, in aging rats. For this, 33 sixteen-months-old male Wistar rats underwent continuous records of locomotor activity and were exposed to periods of 6 hours of blue light during the first half of the light phase (Zeitgeber times 0–6) for 14 days. After this, the rats were maintained at 12h:12h light:dark cycle to check the long-term effect of blue light for 14 days. Blue light repeated exposure showed positive effects on the rhythmic variables of locomotor activity in aged rats, particularly the increase in amplitude, elevation of rhythmic robustness, phase advance in acrophase, and greater consolidation of the resting phase. This effect depends on the presence of daily blue light exposure. In conclusion, our results indicate that blue light is a reliable therapy to reduce circadian dysfunctions in aged rats, but other studies assessing how blue light modulates the neural components to modulate this response are still needed.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Article</category>
+  <category>aging</category>
+  <category>SCN</category>
+  <category>Rest-activity rhythm</category>
+  <guid>https://circadia.bio/publications/silva2023/</guid>
+  <pubDate>Wed, 04 Oct 2023 00:00:00 GMT</pubDate>
+  <media:content url="https://circadia.bio/publications/silva2023/featured.png" medium="image" type="image/png" height="145" width="144"/>
 </item>
 </channel>
 </rss>
