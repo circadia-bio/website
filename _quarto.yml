@@ -7,7 +7,12 @@ website:
   favicon: "logo.png"
   twitter-card: true
   image: "logo.png"
-  open-graph: true # https://quarto.org/docs/websites/website-tools.html#open-graph
+  open-graph: # https://quarto.org/docs/websites/website-tools.html#open-graph
+    title: "Circadia"
+    site-name: "Circadia"
+    locale: "en_GB"
+    description: "We are an interdisciplinary group spanning the Department of Computer and Information Sciences and the Department of Psychology at Northumbria University. Our research focusses on the intersection of physics, computer science, and physiology. We are particularly interested in sleep, rhythmicity, and medical signals of various modalities."
+    image: "logo.png"
   page-footer: "Made with ❤️ and Quarto. © 2025. This work is openly licensed via CC BY 4.0"
   navbar:
     logo: "logo.png"
