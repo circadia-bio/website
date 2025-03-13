@@ -24,7 +24,3 @@ categories:
 doi: 10.1080/07420528.2024.2306838
 ---
 
-## Abstract
-
-Changes in circadian rhythms have been observed in patients with chronic kidney disease (CKD), and evidence suggests that these changes can have a negative impact on health. This study aimed to investigate the existence of hemodialysis-induced chronodisruption, the chronotype distribution, and their association with sleep quality and quality of life (QoL). This was a cross-sectional study that enrolled 165 patients (mean age: 51.1±12.5 y, 60.6% male) undergoing hemodialysis from three local units. The following instruments were used: the Morning-Eveningness Questionnaire (MEQ); a modified version of the Munich Chronotype Questionnaire (MCQT) to estimate hemodialysis-induced chronodisruption (HIC); the Kidney Disease QoL Short Form (KDQOL-SF); the Epworth Sleepiness Scale (ESS); the Pittsburgh Sleep Quality Index (PSQI) and the 10–Cognitive Screener (10-CS). HIC was present in 40.6% of CKD patients. Morning chronotype was prevalent in CKD patients (69%) compared to evening-type (17.1%) and significantly different from a paired sample from the general population (p<0.001). HIC and chronotype were associated with different domains of QoL but not with sleep quality. This study suggests that there is a HIC and that morning chronotype is associated with CKD patients undergoing hemodialysis, with implications for QoL.
-

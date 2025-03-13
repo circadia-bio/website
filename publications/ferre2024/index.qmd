@@ -26,7 +26,3 @@ doi: 10.1371/journal.pone.0298703
 materials: https://github.com/AlgosL/cycling-entropy
 ---
 
-## Abstract
-
-Brain Complexity (BC) have successfully been applied to study the brain electroencephalographic signal (EEG) in health and disease. In this study, we employed recurrence entropy to quantify BC associated with the neurophysiology of movement by comparing BC in both resting state and cycling movement. We measured EEG in 24 healthy adults and placed the electrodes on occipital, parietal, temporal and frontal sites on both the right and left sides of the brain. We computed the recurrence entropy from EEG measurements during cycling and resting states. Entropy is higher in the resting state than in the cycling state for all brain regions analysed. This reduction in complexity is a result of the repetitive movements that occur during cycling. These movements lead to continuous sensorial feedback, resulting in reduced entropy and sensorimotor processing.
-
