@@ -1,8 +1,8 @@
 ---
-title: "Rebeca Buest"
-sortby: "Buest, Rebeca"
+title: "Rebeca Buest de Mesquita Silva"
+sortby: "Silva, Rebeca"
 subtitle: "Visiting PhD Student"
-image: no.jpg
+image: rebeca_buest.jpg
 toc: false
 started: "Summer 2024"
 ended: "Current"
@@ -10,22 +10,21 @@ about:
   id: person-profile
   template: trestles
   image-width: 20em
-  links:
-    - icon: file-earmark-text
-      text: vitae
-      href: about:blank
 ---
 
 :::{#person-profile}
 
 ## Biography
 
-{{< lipsum 1 >}}
+I am a PhD student at the Federal University of Paraná, specialising in chronobiology and children's rhythms. Passionate about research, I explore how biological rhythms influence child development.
 
 ## Education
 
-- [Nortumbria University]{.fw-bold} | Newcastle upon Tyne, UK<br />
-  PhD Student (Computer Science), 2024–Current
+{{< fa graduation-cap >}} PhD in Physiology, Federal University of Paraná (Curitiba, BR - Current)
+
+{{< fa graduation-cap >}} MSc in Physiology, Federal University of Paraná (Curitiba, BR - 2019)
+
+{{< fa graduation-cap >}} BSc in Biomedical Science, Positivo University (Curitiba, BR - 2015)
   
 
 :::
