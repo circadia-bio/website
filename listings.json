@@ -17,6 +17,21 @@
     ]
   },
   {
+    "listing": "/people.html",
+    "items": [
+      "/people/staff/lucas_franca.html",
+      "/people/staff/mario_miguel.html",
+      "/people/staff/malcolm_schantz.html",
+      "/people/students/fernanda_diogo.html",
+      "/people/students/josh_penrhyn-jones.html",
+      "/people/students/karen_pugliane.html",
+      "/people/students/rebeca_buest.html",
+      "/people/collaborators/john_araujo.html",
+      "/people/collaborators/matthew_walker.html",
+      "/people/collaborators/yujiang_wang.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/blog/sleep_PSG/index.html",
@@ -26,21 +41,6 @@
       "/publications/nunes2024/index.html",
       "/publications/torres2024/index.html",
       "/publications/silva2023/index.html"
-    ]
-  },
-  {
-    "listing": "/people.html",
-    "items": [
-      "/people/staff/lucas_franca.html",
-      "/people/staff/mario_miguel.html",
-      "/people/staff/malcolm_schantz.html",
-      "/people/students/rebeca_buest.html",
-      "/people/students/fernanda_diogo.html",
-      "/people/students/josh_penrhyn-jones.html",
-      "/people/students/karen_pugliane.html",
-      "/people/collaborators/john_araujo.html",
-      "/people/collaborators/matthew_walker.html",
-      "/people/collaborators/yujiang_wang.html"
     ]
   },
   {
