@@ -1,0 +1,14 @@
+---
+title: "Join us/Visit"
+citation: false
+toc: false
+comments: false
+format: 
+  html: 
+    page-layout: full
+title-block-banner: false
+---
+
+If you are interested in visiting the lab for a short stay, please get in touch via `lucas.franca` and `mario.miguel` (at) northumbria.ac.uk. We are always looking for motivated people to work with.
+
+If you are interested in doing a PhD or postdoc with us, please contact us to discuss possible projects and information on potential funding streams.

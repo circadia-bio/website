@@ -29,6 +29,9 @@ website:
       - text: Tutorials
         icon: file-earmark-richtext
         href: blog.qmd
+      - text: Join us/Visit
+        icon: person-plus-fill
+        href: join.qmd
     tools:
       - icon: github
         href: https://github.com/circadia-bio/website
