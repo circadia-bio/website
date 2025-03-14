@@ -11,7 +11,7 @@ website:
     title: "Circadia"
     site-name: "Circadia"
     locale: "en_GB"
-    description: "We are an interdisciplinary group spanning the Department of Computer and Information Sciences and the Department of Psychology at Northumbria University. Our research focusses on the intersection of physics, computer science, and physiology. We are particularly interested in sleep, rhythmicity, and medical signals of various modalities."
+    description: "We are an interdisciplinary team researching the intersection of physics, computer science, and physiology, with a focus on sleep, rhythmicity, and medical signals."
     image: "logo.png"
   page-footer: "Made with ❤️ and Quarto. © 2025. This work is openly licensed via CC BY 4.0"
   navbar:
@@ -32,6 +32,9 @@ website:
       - text: Join us/Visit
         icon: person-plus-fill
         href: join.qmd
+      - text: Design
+        icon: palette-fill
+        href: design.qmd
     tools:
       - icon: github
         href: https://github.com/circadia-bio/website
