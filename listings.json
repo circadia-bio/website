@@ -6,6 +6,10 @@
     ]
   },
   {
+    "listing": "/projects/index.html",
+    "items": []
+  },
+  {
     "listing": "/publications.html",
     "items": [
       "/publications/miguel2024/index.html",
@@ -27,6 +31,7 @@
       "/people/students/karen_pugliane.html",
       "/people/students/rebeca_buest.html",
       "/people/collaborators/john_araujo.html",
+      "/people/collaborators/nick_puts.html",
       "/people/collaborators/matthew_walker.html",
       "/people/collaborators/yujiang_wang.html"
     ]
@@ -42,9 +47,5 @@
       "/publications/torres2024/index.html",
       "/publications/silva2023/index.html"
     ]
-  },
-  {
-    "listing": "/projects/index.html",
-    "items": []
   }
 ]
