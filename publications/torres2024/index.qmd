@@ -1,5 +1,6 @@
 ---
 title: "Use of sleep quality questionary and cortisol awakening response as complementary tools for the evaluation of major depression progression"
+subtitle: "*Current Psychology*"
 author: 
 - Lucas Henrique Sousa Freitas Torres
 - Ysla Kallena Macedo Medeiros
@@ -13,7 +14,7 @@ author:
 - Fernanda Palhano-Fontes
 - Dráulio Barros de Araujo
 - Nicole Leite Galvão-Coelho
-description: "**Current Psychology.** This study examined the relationship between sleep quality and cortisol awakening response (CAR) across major depression severity. Patients with treatment-resistant depression had poorer sleep and a blunted CAR, while those with mild depression showed worse sleep but an elevated CAR compared to healthy controls. Sleep quality, particularly sleep medication use and sleep efficiency, was a strong predictor of depression severity, highlighting its clinical relevance for assessing and managing major depressive disorder."
+description: "This study examined the relationship between sleep quality and cortisol awakening response (CAR) across major depression severity. Patients with treatment-resistant depression had poorer sleep and a blunted CAR, while those with mild depression showed worse sleep but an elevated CAR compared to healthy controls. Sleep quality, particularly sleep medication use and sleep efficiency, was a strong predictor of depression severity, highlighting its clinical relevance for assessing and managing major depressive disorder."
 date: '2024-02-01'
 slug: sleep-cortisol-depression
 image: featured.jpg

@@ -1,5 +1,6 @@
 ---
 title: "Blue light exposure-dependent improvement in robustness of circadian rest-activity rhythm in aged rats"
+subtitle: "*Plos One*"
 author: 
 - Eryck Holmes A. Silva
 - Nelyane Nayara M. Santana
@@ -11,7 +12,7 @@ author:
 - name: Mário A. Leocadio-Miguel
   orcid: 0000-0002-7248-3529
 - Rovena Clara Engelberth
-description: "**Plos One.** This study investigated the effects of blue light therapy on circadian rhythms in aging rats. Exposure to blue light for 14 days improved locomotor rhythmicity, increasing amplitude, robustness, and phase advance while enhancing rest-phase consolidation. However, these benefits required continuous exposure. The findings suggest that blue light may help mitigate age-related circadian dysfunctions, though further research is needed to understand the underlying neural mechanisms."
+description: "This study investigated the effects of blue light therapy on circadian rhythms in aging rats. Exposure to blue light for 14 days improved locomotor rhythmicity, increasing amplitude, robustness, and phase advance while enhancing rest-phase consolidation. However, these benefits required continuous exposure. The findings suggest that blue light may help mitigate age-related circadian dysfunctions, though further research is needed to understand the underlying neural mechanisms."
 date: '2023-10-04'
 slug: light-cicadian-aging
 image: featured.png

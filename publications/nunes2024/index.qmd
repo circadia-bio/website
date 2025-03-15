@@ -1,5 +1,6 @@
 ---
 title: "Hemodialysis-induced chronodisruption and chronotype distribution in patients with chronic kidney disease"
+subtitle: "*The Journal of Biological and Medical Rhythm Research*"
 author: 
 - Patrícia Pereira Nunes
 - Caroline Meneses Resende
@@ -13,7 +14,7 @@ author:
 - Tiago Gomes de Andrade
 - Lívia Leite Góes Gitaí
 - Flávio Teles
-description: "**The Journal of Biological and Medical Rhythm Research**. This study examined circadian rhythm disruptions in 165 hemodialysis patients, finding that 40.6% experienced hemodialysis-induced chronodisruption (HIC). A morning chronotype was more prevalent in CKD patients than in the general population. HIC and chronotype were linked to quality of life but not sleep quality, highlighting potential implications for patient well-being."
+description: "This study examined circadian rhythm disruptions in 165 hemodialysis patients, finding that 40.6% experienced hemodialysis-induced chronodisruption (HIC). A morning chronotype was more prevalent in CKD patients than in the general population. HIC and chronotype were linked to quality of life but not sleep quality, highlighting potential implications for patient well-being."
 date: '2024-02-01'
 slug: hemodialsis-sleep
 image: featured.jpg

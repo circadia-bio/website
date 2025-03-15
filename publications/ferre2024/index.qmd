@@ -1,5 +1,6 @@
 ---
 title: "Cycling reduces the entropy of neuronal activity in the human adult cortex"
+subtitle: "*Plos One*"
 author: 
 - Iara Beatriz Silva Ferré
 - name: Gilberto Corso
@@ -13,7 +14,7 @@ author:
   orcid: 0000-0003-0853-1319
 - Thiago de Lima Prado
 - John Fontenele Araújo
-description: "**Plos One**. This study used recurrence entropy to assess brain complexity (BC) in EEG signals during rest and cycling in 24 healthy adults. Results showed lower entropy during cycling, suggesting that repetitive movement reduces brain complexity due to continuous sensory feedback and streamlined sensorimotor processing."
+description: "This study used recurrence entropy to assess brain complexity (BC) in EEG signals during rest and cycling in 24 healthy adults. Results showed lower entropy during cycling, suggesting that repetitive movement reduces brain complexity due to continuous sensory feedback and streamlined sensorimotor processing."
 date: '2024-10-02'
 slug: cycling-entropy
 image: featured.png

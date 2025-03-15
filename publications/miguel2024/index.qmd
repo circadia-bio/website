@@ -1,5 +1,6 @@
 ---
 title: "Heritability of sleep architecture based on home polysomnography"
+subtitle: "*Journal of Sleep Research*"
 author: 
 - name: Mário A. Leocadio-Miguel
   orcid: 0000-0002-7248-3529
@@ -11,7 +12,7 @@ author:
 - Kristen L Knutson
 - name: Malcolm von Schantz
   orcid: 0000-0002-9911-9436
-description: "**Journal of Sleep Research**. This study assessed the heritability of polysomnography sleep measures in 648 participants from the Baependi Heart Study in Brazil. It found that genetic factors influence total sleep time, non-REM sleep stages (especially N3), and the apnea-hypopnea index, but not REM sleep. These findings support the feasibility of future genetic studies on sleep traits."
+description: "This study assessed the heritability of polysomnography sleep measures in 648 participants from the Baependi Heart Study in Brazil. It found that genetic factors influence total sleep time, non-REM sleep stages (especially N3), and the apnea-hypopnea index, but not REM sleep. These findings support the feasibility of future genetic studies on sleep traits."
 date: '2024-12-29'
 slug: heritability-sleep-psg
 image: featured.jpg
