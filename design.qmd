@@ -1,0 +1,36 @@
+---
+title: "Design"
+citation: false
+toc: false
+comments: false
+format: 
+  html: 
+    page-layout: full
+title-block-banner: false
+---
+
+The colours in this page were inspired by Hiroshige's woodblock print *Sailing Boats Returning to Yabase, Lake Biwa*.
+
+![](design.jpeg)
+*Sailing Boats Returning to Yabase, Lake Biwa.
+Utagawa Hiroshige (Japanese).
+ca. 1835*
+
+The picture is composed by yellow and blue tones, which are relevant in the context of 
+rhythmicity and chronobiology. We derived six tones on a divergent palette from Hiroshige's print. The palette is shown below.
+
+<br>
+
+```{=html}
+<!-- Coolors Palette Widget -->
+      <script src="https://coolors.co/palette-widget/widget.js"></script>
+      <script data-id="06047768881598022">new CoolorsPaletteWidget("06047768881598022", ["014370","fc544a","1b6799","ffa75d","9bdfe2","ffecd4"]); </script>
+```
+
+<br>
+
+Our logo also explores the dychotomy between day and night, light and darkness, yellow and blue light - linking these to circadian rhythms, with a wave-like symbol often used to illustrate *'zeitgebers'* (synchronisers). The logo is shown below.
+
+<br>
+
+![](logo_large.png)
