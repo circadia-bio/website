@@ -1,5 +1,5 @@
 ---
-title: "Dr Yujiang Wang"
+title: "Prof. Yujiang Wang"
 sortby: "Wang, Yujiang"
 subtitle: "Newcastle University"
 image: yujiang.jpg
@@ -25,12 +25,12 @@ about:
 
 ## Biography
 
-Dr. Yujiang Wang is a Reader in Computational Neuroscience at Newcastle University, affiliated with the School of Computing. She completed a double-degree in Mathematics and Molecular Biotechnology at the University of Heidelberg, Germany, where her interest in interdisciplinary research began. She then moved to the UK to pursue a PhD in Systems Biology, specializing in Computational Neuroscience.
+Prof. Yujiang Wang is a Professor in Computational Neuroscience at Newcastle University, affiliated with the School of Computing. She completed a double-degree in Mathematics and Molecular Biotechnology at the University of Heidelberg, Germany, where her interest in interdisciplinary research began. She then moved to the UK to pursue a PhD in Systems Biology, specializing in Computational Neuroscience.
 
-Dr. Wang leads the [Computational Neurology and Psychiatry Lab (CNNP Lab)](https://www.cnnp-lab.com) at Newcastle University, focusing on quantitative, computational, and mathematical methods to gain new perspectives and understanding in neurological conditions. Her research primarily centers on mathematical and computational modeling, as well as advanced data analytics in neurological disorders, with a particular emphasis on epilepsy. Her wider research interests include neuroimaging and neuromorphology in both health and disease.
+Prof. Wang leads the [Computational Neurology and Psychiatry Lab (CNNP Lab)](https://www.cnnp-lab.com) at Newcastle University, focusing on quantitative, computational, and mathematical methods to gain new perspectives and understanding in neurological conditions. Her research primarily centers on mathematical and computational modeling, as well as advanced data analytics in neurological disorders, with a particular emphasis on epilepsy. Her wider research interests include neuroimaging and neuromorphology in both health and disease.
 
-In recognition of her contributions to the field, Dr. Wang was awarded a Future Leaders Fellowship. Her fellowship project, titled "Assessing and Controlling Seizure-Modulating Fluctuations (ACORN)," leverages the latest wearable and environmental sensor technology, combining it with signal and statistical analytics to investigate chronobiological rhythms and states in epilepsy.
+In recognition of her contributions to the field, Prof. Wang was awarded a Future Leaders Fellowship. Her fellowship project, titled "Assessing and Controlling Seizure-Modulating Fluctuations (ACORN)," leverages the latest wearable and environmental sensor technology, combining it with signal and statistical analytics to investigate chronobiological rhythms and states in epilepsy.
 
-Dr. Wang has an extensive publication record, with her work being cited over 2,400 times, reflecting her significant impact on the field of computational neuroscience.
+Prof. Wang has an extensive publication record, with her work being cited over 2,400 times, reflecting her significant impact on the field of computational neuroscience.
 
 :::
