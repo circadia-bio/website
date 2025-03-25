@@ -2,7 +2,7 @@
 title: "Fernanda Diogo"
 sortby: "Diogo, Fernanda"
 subtitle: "Visiting PhD Student"
-image: no.jpg
+image: fernanda_diogo.jpg
 toc: false
 started: "Autumn 2024"
 ended: "Current"
@@ -20,12 +20,18 @@ about:
 
 ## Biography
 
-{{< lipsum 1 >}}
+A biomedical scientist, specialist in clinical analysis and microbiology, and a proud researcher from Brazil’s Northeast. My work focus on sex differences, biological rhythms and mental health.
 
 ## Education
 
-- [Nortumbria University]{.fw-bold} | Newcastle upon Tyne, UK<br />
-  PhD Student (Computer Science), 2024–Current
-  
+{{< fa graduation-cap >}} PhD in Physiology, Federal University of Rio Grande do Norte (Natal, BR - Current)
+
+{{< fa graduation-cap >}} MSc in Physiology, Federal University of Rio Grande do Norte (Natal, BR - 2021)
+
+{{< fa graduation-cap >}} BSc in Biomedicine, Federal University of Rio Grande do Norte (Natal, BR - 2018)
+
+## Experience
+
+{{< fa vial >}} Biomedical scientist – State University of Rio Grande do Norte (Natal. BR \| Current)
 
 :::
