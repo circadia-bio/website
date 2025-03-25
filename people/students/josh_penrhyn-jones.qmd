@@ -2,7 +2,7 @@
 title: "Josh Penrhyn-Jones"
 sortby: "Penrhyn-Jones, Josh"
 subtitle: "PhD Student"
-image: no.jpg
+image: jpj.jpg
 toc: false
 started: "Autumn 2024"
 ended: "Current"
@@ -20,12 +20,23 @@ about:
 
 ## Biography
 
-{{< lipsum 1 >}}
+Having previously worked in education, I rediscovered the joys of research while completing my master’s degree. I am currently studying for my PhD in Computer Science at Northumbria University, investigating how actigraphy can be used to provide contextual information for neuroimaging. My research interests include wearable sensors and the impact of sleep on the brain. 
 
 ## Education
 
-- [Nortumbria University]{.fw-bold} | Newcastle upon Tyne, UK<br />
-  PhD Student (Computer Science), 2024–Current
+{{< fa graduation-cap >}} PhD in Computer Science – Northumbria University (Newcastle upon Tyne, UK - Current)
+
+{{< fa graduation-cap >}} MSc in Computer Science – Northumbria University (Newcastle upon Tyne, UK - 2024)
+
+{{< fa graduation-cap >}} PGCE (Science with Chemistry Education) – University of Sunderland (Sunderland, UK -  2015)
+
+{{< fa graduation-cap >}} BSc in Zoology – University of Leeds (Leeds, UK - 2011) 
   
+## Expetience
+
+{{< fa vial >}} Research Assistant – Northumbria University (Newcastle upon Tyne, UK \| 2024 – 2024)
+
+{{< fa briefcase >}} Teacher of Science – Cramlington Learning Village (Cramlington, UK \| 2016 – 2022)
+
 
 :::
