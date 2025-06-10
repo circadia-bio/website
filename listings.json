@@ -12,16 +12,23 @@
     ]
   },
   {
-    "listing": "/projects/index.html",
-    "items": []
+    "listing": "/publications.html",
+    "items": [
+      "/publications/miguel2024/index.html",
+      "/publications/ferre2024/index.html",
+      "/publications/franca2024/index.html",
+      "/publications/nunes2024/index.html",
+      "/publications/torres2024/index.html",
+      "/publications/silva2023/index.html"
+    ]
   },
   {
     "listing": "/people.html",
     "items": [
-      "/people/staff/julia_vallim.html",
       "/people/staff/lucas_franca.html",
       "/people/staff/mario_miguel.html",
       "/people/staff/malcolm_schantz.html",
+      "/people/staff/julia_vallim.html",
       "/people/students/fernanda_diogo.html",
       "/people/students/josh_penrhyn-jones.html",
       "/people/students/karen_pugliane.html",
@@ -33,15 +40,8 @@
     ]
   },
   {
-    "listing": "/publications.html",
-    "items": [
-      "/publications/miguel2024/index.html",
-      "/publications/ferre2024/index.html",
-      "/publications/franca2024/index.html",
-      "/publications/nunes2024/index.html",
-      "/publications/torres2024/index.html",
-      "/publications/silva2023/index.html"
-    ]
+    "listing": "/projects/index.html",
+    "items": []
   },
   {
     "listing": "/blog.html",
