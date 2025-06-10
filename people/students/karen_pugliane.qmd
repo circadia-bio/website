@@ -2,7 +2,7 @@
 title: "Karen Pugliane"
 sortby: "Pugliane, Karen"
 subtitle: "Visiting PhD Student"
-image: no.jpg
+image: karen.jpg
 toc: false
 started: "Autumn 2024"
 ended: "Current"
@@ -20,12 +20,15 @@ about:
 
 ## Biography
 
-{{< lipsum 1 >}}
+I’m a PhD candidate in Psychobiology at UFRN, and my passion for building knowledge through science began when I was 16 years old. I discovered chronobiology in 2014 and have been dedicated to researching biological rhythms ever since. With a background in Psychology, Neuroscience, and Food Technology, I’ve integrated behavior, physiology, and data science throughout my academic journey, gaining experience in animal models, human studies, and Python-based analysis. Currently, I study circadian rhythms in blind individuals living in Northeast Brazil. As a visiting scholar at Northumbria University, I further developed my skills in data analysis with a focus on chronobiology, exploring new tools and methodologies to investigate biological rhythms. My main interest focuses on understanding circadian rhythmicity through a multidisciplinary perspective. 
 
 ## Education
 
-- [Nortumbria University]{.fw-bold} | Newcastle upon Tyne, UK<br />
-  PhD Student (Computer Science), 2024–Current
+{{< fa graduation-cap >}} PhD in Psychobiology, Federal University of Rio Grande do Norte (Natal, BR - Current)
+
+{{< fa graduation-cap >}} MSc in Cognitive and Behavioral Neuroscience, Federal University of Paraíba (João Pessoa, Paraíba - 2021)
+
+{{< fa graduation-cap >}} BSc in Psychology, Federal University of Paraíba (João Pessoa, Paraíba - 2018)
   
 
 :::
