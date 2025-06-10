@@ -1,17 +1,8 @@
 [
   {
-    "listing": "/blog.html",
+    "listing": "/index.html",
     "items": [
-      "/blog/sleep_PSG/index.html"
-    ]
-  },
-  {
-    "listing": "/projects/index.html",
-    "items": []
-  },
-  {
-    "listing": "/publications.html",
-    "items": [
+      "/blog/sleep_PSG/index.html",
       "/publications/miguel2024/index.html",
       "/publications/ferre2024/index.html",
       "/publications/franca2024/index.html",
@@ -21,8 +12,13 @@
     ]
   },
   {
+    "listing": "/projects/index.html",
+    "items": []
+  },
+  {
     "listing": "/people.html",
     "items": [
+      "/people/staff/julia_vallim.html",
       "/people/staff/lucas_franca.html",
       "/people/staff/mario_miguel.html",
       "/people/staff/malcolm_schantz.html",
@@ -37,15 +33,20 @@
     ]
   },
   {
-    "listing": "/index.html",
+    "listing": "/publications.html",
     "items": [
-      "/blog/sleep_PSG/index.html",
       "/publications/miguel2024/index.html",
       "/publications/ferre2024/index.html",
       "/publications/franca2024/index.html",
       "/publications/nunes2024/index.html",
       "/publications/torres2024/index.html",
       "/publications/silva2023/index.html"
+    ]
+  },
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/blog/sleep_PSG/index.html"
     ]
   }
 ]
