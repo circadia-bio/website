@@ -1,0 +1,33 @@
+---
+title: "Julia Vallim"
+sortby: "Vallim, Julia"
+subtitle: "Visiting Research Fellow"
+image: rebeca_buest.jpg
+toc: false
+started: "Autumn 2025"
+ended: "Current"
+about:
+  id: person-profile
+  template: trestles
+  image-width: 20em
+---
+
+:::{#person-profile}
+
+## Biography
+
+I am a postdoctoral research fellow at the Federal University of São Paulo, where I focus on how circadian rhythms influence the health and disease balance. My goal is to specialise in analysing actigraphy data and using it to predict health outcomes. I also have experience working with wearable sleep technology.
+
+## Education
+
+{{< fa graduation-cap >}} PhD in Biomedical Science, Federal University of Paraná (São Paulo, BR - 2022)
+
+{{< fa graduation-cap >}} MSc in Biomedical Science, Federal University of Paraná (São Paulo, BR - 2018)
+
+{{< fa graduation-cap >}} BSc in Biomedical Science, Federal University of São Paulo (São Paulo, BR - 2015)
+
+## Experience
+
+{{< fa vial >}} Postdoctoral Research Fellow - Federal University of São Paulo (São Paulo, BR \| 2022 - Current)
+
+:::
