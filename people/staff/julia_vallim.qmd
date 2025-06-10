@@ -1,6 +1,6 @@
 ---
-title: "Julia Vallim"
-sortby: "Vallim, Julia"
+title: "Dr Julia Vallim"
+sortby: 4
 subtitle: "Visiting Research Fellow"
 image: julia.jpg
 toc: false
