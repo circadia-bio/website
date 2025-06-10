@@ -2,7 +2,7 @@
 title: "Julia Vallim"
 sortby: "Vallim, Julia"
 subtitle: "Visiting Research Fellow"
-image: rebeca_buest.jpg
+image: julia.jpg
 toc: false
 started: "Autumn 2025"
 ended: "Current"
