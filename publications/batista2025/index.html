@@ -6,8 +6,17 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Elias dos Santos Batista">
+<meta name="author" content="Stephania Ruth Basilio Gomes">
+<meta name="author" content="Ayrton Bruno de Morais Ferreira">
+<meta name="author" content="Lucas G. S. França">
+<meta name="author" content="John Fontenele Araújo">
+<meta name="author" content="Arnaldo Luis Mortatti">
+<meta name="author" content="Mário A. Leocadio-Miguel">
+<meta name="dcterms.date" content="2025-05-21">
+<meta name="description" content="Physical activity (PA) is recognised for providing several health benefits in humans, mainly preventing and controlling chronic non-communicable diseases. However estimating PA is a challenging and expensive task. An alternative would be to devise a model to estimate PA using actigraphy devices calibrated from an initially validated model. This has been previously done to a number of devices, including ActiGraph® GT3X+. In this study we aimed at validating ActTrust® against the widely used GT3X+ and comparing activity counts to metabolic equivalents (METs) derived from indirect calorimetry during treadmill walking and running. Fifty-six young adults (34 men, 22 women) participated in controlled effort exercises including light, moderate, vigorous, and very vigorous activity intensities. We developed a general linear model to estimate energy expenditure (EE) from movement count of combinations of GT3X+ and ActTrust devices placed at hip or wrist. We then estimated cut-off points for each intensity range. Our results showed correlations between treadmill speed, METs, and movement counts across all devices and placements combinations. Our proposed model performed well with balanced accuracies above 0.77 for all intensity ranges and over 0.9 for light and moderate activity. This is the first study to model estimate and validate PA intensity thresholds on ActTrust® devices. Our findings support the use of ActTrust® devices in PA estimation as a low complexity and cost approach to allow 24-hour assessments of EE.">
 
-<title>Tutorials – Circadia</title>
+<title>From Movement to METs: A Validation of ActTrust® for Energy Expenditure Estimation and Physical Activity Classification in Young Adults – Circadia</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,30 +32,28 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-5419ed3fafcd2fdb822a7ad489787a21.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-5419ed3fafcd2fdb822a7ad489787a21.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-5419ed3fafcd2fdb822a7ad489787a21.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-42b477a27b4d7a3ab2d0bf50114576ca.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-4b1b79aa645950734516d33037550799.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-42b477a27b4d7a3ab2d0bf50114576ca.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-5419ed3fafcd2fdb822a7ad489787a21.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-5419ed3fafcd2fdb822a7ad489787a21.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-5419ed3fafcd2fdb822a7ad489787a21.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-42b477a27b4d7a3ab2d0bf50114576ca.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-4b1b79aa645950734516d33037550799.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-42b477a27b4d7a3ab2d0bf50114576ca.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,75 +81,16 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-categories','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="alternate" type="application/rss+xml" title="Circadia" href="blog.xml" data-external="1"><meta property="og:title" content="Circadia">
+<meta property="og:title" content="Circadia">
 <meta property="og:description" content="We are an interdisciplinary team researching the intersection of physics, computer science, and physiology, with a focus on sleep, rhythmicity, and medical signals.">
-<meta property="og:image" content="https://circadia.bio/logo.png">
+<meta property="og:image" content="https://circadia.bio/publications/batista2025/featured.jpg">
 <meta property="og:site_name" content="Circadia">
 <meta property="og:locale" content="en_GB">
-<meta property="og:image:height" content="4135">
-<meta property="og:image:width" content="4135">
-<meta name="twitter:title" content="Tutorials – Circadia">
-<meta name="twitter:image" content="https://circadia.bio/blog/sleep_PSG/cover.jpg">
+<meta name="twitter:title" content="From Movement to METs: A Validation of ActTrust® for Energy Expenditure Estimation and Physical Activity Classification in Young Adults – Circadia">
+<meta name="twitter:description" content="Physical activity (PA) is recognised for providing several health benefits in humans, mainly preventing and controlling chronic non-communicable diseases. However estimating PA is a challenging and expensive task. An alternative would be to devise a model to estimate PA using actigraphy devices calibrated from an initially validated model. This has been previously done to a number of devices, including ActiGraph® GT3X+. In this study we aimed at validating ActTrust® against the widely used GT3X+ and comparing activity counts to metabolic equivalents (METs) derived from indirect calorimetry during treadmill walking and running. Fifty-six young adults (34 men, 22 women) participated in controlled effort exercises including light, moderate, vigorous, and very vigorous activity intensities. We developed a general linear model to estimate energy expenditure (EE) from movement count of combinations of GT3X+ and ActTrust devices placed at hip or wrist. We then estimated cut-off points for each intensity range. Our results showed correlations between treadmill speed, METs, and movement counts across all devices and placements combinations. Our proposed model performed well with balanced accuracies above 0.77 for all intensity ranges and over 0.9 for light and moderate activity. This is the first study to model estimate and validate PA intensity thresholds on ActTrust® devices. Our findings support the use of ActTrust® devices in PA estimation as a low complexity and cost approach to allow 24-hour assessments of EE.">
+<meta name="twitter:image" content="https://circadia.bio/publications/batista2025/featured.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -315,10 +263,10 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./logo.png" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../logo.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Circadia</span>
     </a>
   </div>
@@ -329,32 +277,32 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> <i class="bi bi-house-fill" role="img">
+    <a class="nav-link" href="../../index.html"> <i class="bi bi-house-fill" role="img">
 </i> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./people.html"> <i class="bi bi-people-fill" role="img">
+    <a class="nav-link" href="../../people.html"> <i class="bi bi-people-fill" role="img">
 </i> 
 <span class="menu-text">People</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publications.html"> <i class="bi bi-newspaper" role="img">
+    <a class="nav-link" href="../../publications.html"> <i class="bi bi-newspaper" role="img">
 </i> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" aria-current="page"> <i class="bi bi-file-earmark-richtext" role="img">
+    <a class="nav-link" href="../../blog.html"> <i class="bi bi-file-earmark-richtext" role="img">
 </i> 
 <span class="menu-text">Tutorials</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./join.html"> <i class="bi bi-person-plus-fill" role="img">
+    <a class="nav-link" href="../../join.html"> <i class="bi bi-person-plus-fill" role="img">
 </i> 
 <span class="menu-text">Join us/Visit</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./design.html"> <i class="bi bi-palette-fill" role="img">
+    <a class="nav-link" href="../../design.html"> <i class="bi bi-palette-fill" role="img">
 </i> 
 <span class="menu-text">Design</span></a>
   </li>  
@@ -366,12 +314,12 @@ window.Quarto = {
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-rss"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="./publications.xml">
+            <a class="dropdown-item quarto-navbar-tools-item" href="../../publications.xml">
             Publications
             </a>
           </li>
           <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="./blog.xml">
+            <a class="dropdown-item quarto-navbar-tools-item" href="../../blog.xml">
             Posts
             </a>
           </li>
@@ -393,16 +341,54 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Tutorials</h1>
-</div>
+<h1 class="title">From Movement to METs: A Validation of ActTrust® for Energy Expenditure Estimation and Physical Activity Classification in Young Adults</h1>
+<p class="subtitle lead"><em>bioRxiv</em></p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Article</div>
+    <div class="quarto-category">indirect calorimetry</div>
+    <div class="quarto-category">accelerometer</div>
+    <div class="quarto-category">activity intensity</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Physical activity (PA) is recognised for providing several health benefits in humans, mainly preventing and controlling chronic non-communicable diseases. However estimating PA is a challenging and expensive task. An alternative would be to devise a model to estimate PA using actigraphy devices calibrated from an initially validated model. This has been previously done to a number of devices, including ActiGraph® GT3X+. In this study we aimed at validating ActTrust® against the widely used GT3X+ and comparing activity counts to metabolic equivalents (METs) derived from indirect calorimetry during treadmill walking and running. Fifty-six young adults (34 men, 22 women) participated in controlled effort exercises including light, moderate, vigorous, and very vigorous activity intensities. We developed a general linear model to estimate energy expenditure (EE) from movement count of combinations of GT3X+ and ActTrust devices placed at hip or wrist. We then estimated cut-off points for each intensity range. Our results showed correlations between treadmill speed, METs, and movement counts across all devices and placements combinations. Our proposed model performed well with balanced accuracies above 0.77 for all intensity ranges and over 0.9 for light and moderate activity. This is the first study to model estimate and validate PA intensity thresholds on ActTrust® devices. Our findings support the use of ActTrust® devices in PA estimation as a low complexity and cost approach to allow 24-hour assessments of EE.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta column-page">
 
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+             <p>Elias dos Santos Batista </p>
+             <p>Stephania Ruth Basilio Gomes </p>
+             <p>Ayrton Bruno de Morais Ferreira </p>
+             <p>Lucas G. S. França <a href="https://orcid.org/0000-0003-0853-1319" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+             <p>John Fontenele Araújo <a href="https://orcid.org/0000-0002-8022-2425" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+             <p>Arnaldo Luis Mortatti </p>
+             <p>Mário A. Leocadio-Miguel <a href="https://orcid.org/0000-0002-7248-3529" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 21, 2025</p>
+    </div>
+  </div>
   
     
+    <div>
+    <div class="quarto-title-meta-heading">Doi</div>
+    <div class="quarto-title-meta-contents">
+      <p class="doi">
+        <a href="https://doi.org/10.1007/s12144-024-05786-z">10.1007/s12144-024-05786-z</a>
+      </p>
+    </div>
+  </div>
   </div>
   
 
@@ -410,47 +396,14 @@ window.Quarto = {
 </header>
 
 
+<section id="abstract" class="level1">
+<h1>Abstract</h1>
+<p>Physical activity (PA) is recognised for providing several health benefits in humans, mainly preventing and controlling chronic non-communicable diseases. However estimating PA is a challenging and expensive task. An alternative would be to devise a model to estimate PA using actigraphy devices calibrated from an initially validated model. This has been previously done to a number of devices, including ActiGraph® GT3X+. In this study we aimed at validating ActTrust® against the widely used GT3X+ and comparing activity counts to metabolic equivalents (METs) derived from indirect calorimetry during treadmill walking and running. Fifty-six young adults (34 men, 22 women) participated in controlled effort exercises including light, moderate, vigorous, and very vigorous activity intensities. We developed a general linear model to estimate energy expenditure (EE) from movement count of combinations of GT3X+ and ActTrust devices placed at hip or wrist. We then estimated cut-off points for each intensity range. Our results showed correlations between treadmill speed, METs, and movement counts across all devices and placements combinations. Our proposed model performed well with balanced accuracies above 0.77 for all intensity ranges and over 0.9 for light and moderate activity. This is the first study to model estimate and validate PA intensity thresholds on ActTrust® devices. Our findings support the use of ActTrust® devices in PA estimation as a low complexity and cost approach to allow 24-hour assessments of EE.</p>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="U2xlZXAlMkNQU0Q=" data-listing-date-sort="1741651200000" data-listing-file-modified-sort="1749628762678" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="32" data-listing-word-count-sort="6288">
-<div class="thumbnail"><a href="./blog/sleep_PSG/index.html" class="no-external">
-
-<img loading="lazy" src="./blog/sleep_PSG/cover.jpg" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blog/sleep_PSG/index.html" class="no-external">Sleep PSG validation</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('U2xlZXA='); return false;">Sleep</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UFNE'); return false;">PSD</div>
-
-</div>
-<div class="delink listing-description"><a href="./blog/sleep_PSG/index.html" class="no-external">
-<p>This post presents an analysis of sleep stage classification validation using polysomnography (PSG) as the ground truth and a headband-based device as the test instrument. The workflow includes generating synthetic sleep data, loading real-world datasets, and comparing sleep stage distributions between the two devices. The validation process includes Bland-Altman analysis, Pearson correlation, Cohen’s Kappa, and statistical measures of agreement. The results provide insight into the accuracy and bias of wearable sleep-tracking devices in sleep stage classification.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./blog/sleep_PSG/index.html" class="no-external">
-<div class="listing-date">
-Mar 11, 2025
-</div>
-<div class="listing-author">
-Mario Miguel
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

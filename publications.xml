@@ -17,7 +17,39 @@
 <width>144</width>
 </image>
 <generator>quarto-1.7.31</generator>
-<lastBuildDate>Sun, 29 Dec 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 21 May 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>From Movement to METs: A Validation of ActTrust® for Energy Expenditure Estimation and Physical Activity Classification in Young Adults</title>
+  <dc:creator>Elias dos Santos Batista</dc:creator>
+  <dc:creator>Stephania Ruth Basilio Gomes</dc:creator>
+  <dc:creator>Ayrton Bruno de Morais Ferreira</dc:creator>
+  <dc:creator>Lucas G. S. França</dc:creator>
+  <dc:creator>John Fontenele Araújo</dc:creator>
+  <dc:creator>Arnaldo Luis Mortatti</dc:creator>
+  <dc:creator>Mário A. Leocadio-Miguel</dc:creator>
+  <link>https://circadia.bio/publications/batista2025/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="abstract" class="level1">
+<h1>Abstract</h1>
+<p>Physical activity (PA) is recognised for providing several health benefits in humans, mainly preventing and controlling chronic non-communicable diseases. However estimating PA is a challenging and expensive task. An alternative would be to devise a model to estimate PA using actigraphy devices calibrated from an initially validated model. This has been previously done to a number of devices, including ActiGraph® GT3X+. In this study we aimed at validating ActTrust® against the widely used GT3X+ and comparing activity counts to metabolic equivalents (METs) derived from indirect calorimetry during treadmill walking and running. Fifty-six young adults (34 men, 22 women) participated in controlled effort exercises including light, moderate, vigorous, and very vigorous activity intensities. We developed a general linear model to estimate energy expenditure (EE) from movement count of combinations of GT3X+ and ActTrust devices placed at hip or wrist. We then estimated cut-off points for each intensity range. Our results showed correlations between treadmill speed, METs, and movement counts across all devices and placements combinations. Our proposed model performed well with balanced accuracies above 0.77 for all intensity ranges and over 0.9 for light and moderate activity. This is the first study to model estimate and validate PA intensity thresholds on ActTrust® devices. Our findings support the use of ActTrust® devices in PA estimation as a low complexity and cost approach to allow 24-hour assessments of EE.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Article</category>
+  <category>indirect calorimetry</category>
+  <category>accelerometer</category>
+  <category>activity intensity</category>
+  <guid>https://circadia.bio/publications/batista2025/</guid>
+  <pubDate>Wed, 21 May 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://circadia.bio/publications/batista2025/featured.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Heritability of sleep architecture based on home polysomnography</title>
   <dc:creator>Mário A. Leocadio-Miguel</dc:creator>

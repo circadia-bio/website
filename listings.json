@@ -3,6 +3,7 @@
     "listing": "/index.html",
     "items": [
       "/blog/sleep_PSG/index.html",
+      "/publications/batista2025/index.html",
       "/publications/miguel2024/index.html",
       "/publications/ferre2024/index.html",
       "/publications/franca2024/index.html",
@@ -12,15 +13,14 @@
     ]
   },
   {
-    "listing": "/publications.html",
+    "listing": "/blog.html",
     "items": [
-      "/publications/miguel2024/index.html",
-      "/publications/ferre2024/index.html",
-      "/publications/franca2024/index.html",
-      "/publications/nunes2024/index.html",
-      "/publications/torres2024/index.html",
-      "/publications/silva2023/index.html"
+      "/blog/sleep_PSG/index.html"
     ]
+  },
+  {
+    "listing": "/projects/index.html",
+    "items": []
   },
   {
     "listing": "/people.html",
@@ -40,13 +40,15 @@
     ]
   },
   {
-    "listing": "/projects/index.html",
-    "items": []
-  },
-  {
-    "listing": "/blog.html",
+    "listing": "/publications.html",
     "items": [
-      "/blog/sleep_PSG/index.html"
+      "/publications/batista2025/index.html",
+      "/publications/miguel2024/index.html",
+      "/publications/ferre2024/index.html",
+      "/publications/franca2024/index.html",
+      "/publications/nunes2024/index.html",
+      "/publications/torres2024/index.html",
+      "/publications/silva2023/index.html"
     ]
   }
 ]
