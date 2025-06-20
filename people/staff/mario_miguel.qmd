@@ -22,7 +22,21 @@ about:
 
 ## Biography
 
-I can describe myself as a physiologist shaped by several years of intensive chronobiology. I am an Assistant Professor in Sleep Science at Northumbria University, where my research interests include the neurophysiology of sleep, circadian rhythms, and mental health. I am particularly focussed on developing new approaches to physiological and behavioural signal processing.      
+I can describe myself as a physiologist shaped by several years of intensive chronobiology. I am an Assistant Professor in Sleep Science at Northumbria University, where my research interests include the neurophysiology of sleep, circadian rhythms, and mental health. I am particularly focussed on developing new approaches to physiological and behavioural signal processing. 
+
+## Education
+
+{{< fa graduation-cap >}} PhD in Human Physiology - Department of Physiology and Biophysics, University of São Paulo (São Paulo, Brazil - 2012)
+
+{{< fa graduation-cap >}} MSc in Huma Physiology - Department of Physiology and Biophysics, University of São Paulo (São Paulo, Brazil - 2006)
+
+## Experience
+
+{{< fa vial >}} Assistant Professor in Sleep Sciences - Northumbria University (Newcastle upon Tyne, UK \| 2023 - Current)
+
+{{< fa vial >}} Adjunct Professor in Physiology - Federal University of Rio Grande do Norte (Natal, Brazil \| 2013 - 2023)
+
+:::
 
 
 :::
