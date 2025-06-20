@@ -28,12 +28,12 @@ I can describe myself as a physiologist shaped by several years of intensive chr
 
 {{< fa graduation-cap >}} PhD in Human Physiology - Department of Physiology and Biophysics, University of São Paulo (São Paulo, Brazil - 2012)
 
-{{< fa graduation-cap >}} MSc in Huma Physiology - Department of Physiology and Biophysics, University of São Paulo (São Paulo, Brazil - 2006)
+{{< fa graduation-cap >}} MSc in Human Physiology - Department of Physiology and Biophysics, University of São Paulo (São Paulo, Brazil - 2006)
 
 ## Experience
 
-{{< fa vial >}} Assistant Professor in Sleep Sciences - Northumbria University (Newcastle upon Tyne, UK \| 2023 - Current)
+{{< fa vial >}} Assistant Professor in Sleep Sciences - Department of Psychology, Northumbria University (Newcastle upon Tyne, UK \| 2023 - Current)
 
-{{< fa vial >}} Adjunct Professor in Physiology - Federal University of Rio Grande do Norte (Natal, Brazil \| 2013 - 2023)
+{{< fa vial >}} Adjunct Professor in Physiology and Chronobiology - Department of Physiology and Behaviour, Federal University of Rio Grande do Norte (Natal, Brazil \| 2013 - 2023)
 
 :::
