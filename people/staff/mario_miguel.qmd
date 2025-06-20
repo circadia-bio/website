@@ -22,6 +22,7 @@ about:
 
 ## Biography
 
-{{< lipsum 2 >}}
+I can describe myself as a physiologist shaped by several years of intensive chronobiology. I am an Assistant Professor in Sleep Science at Northumbria University, where my research interests include the neurophysiology of sleep, circadian rhythms, and mental health. I am particularly focussed on developing new approaches to physiological and behavioural signal processing.      
+
 
 :::
