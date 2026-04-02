@@ -17,7 +17,37 @@
 <width>144</width>
 </image>
 <generator>quarto-1.9.36</generator>
-<lastBuildDate>Wed, 21 May 2025 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 21 Mar 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Low-latitude environmental regularity sustains non-photic entrainment in blind adults</title>
+  <dc:creator>Karen C. Pugliane</dc:creator>
+  <dc:creator>Lucas G. S. França</dc:creator>
+  <dc:creator>Mario Leocadio-Miguel</dc:creator>
+  <dc:creator>John F. Araújo</dc:creator>
+  <link>https://circadia.bio/publications/pugliane2026/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="abstract" class="level1">
+<h1>Abstract</h1>
+<p>The light–dark cycle shaped by Earth’s rotation provided the evolutionary conditions under which circadian rhythms emerged. Consistent with this, previous studies indicate that less than 40% of totally blind individuals, who lack photic input, entrain to the 24-h cycle, further evidencing the critical role of light as the dominant zeitgeber for circadian alignment. However, this assumption has been tested almost exclusively in temperate, high-latitude regions, where environmental cues vary seasonally. Near the equator, by contrast, photoperiod and temperature cycles remain exceptionally stable. This highlights a fundamental gap: can circadian rhythms in humans remain synchronised without light when environmental temporal cues are highly regular? We addressed this question in 58 blind adults (21–77 years; 43.1% female) living near the equator in Rio Grande do Norte, Brazil (~5°S), who wore wrist actigraphy continuously for four weeks. Light sensitivity was assessed through the pupillary light reflex (PLR; 22 PLR-reactive, 36 non-reactive). Applying a semi-supervised machine learning approach to uncover multidimensional patterns without prior categorisation, we identified two distinct phenotypes: a Higher Circadian Stability (HCS; 72%, n = 42) and a Lower Circadian Stability group (LCS; 28%, n = 16). Notably, 64% of PLR-non-reactive individuals (23 of 36) were classified within the HCS group, a proportion approximately 1.6 times higher than previously reported for blind cohorts. These findings demonstrate that, under exceptionally regular equatorial conditions, non-photic cues can sustain a robust circadian entrainment even in the absence of photic input. We propose that environmental regularity promotes the synergy of non-photic timing signals, underscoring ecological context as a key determinant of human circadian temporal organisation.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Preprint</category>
+  <category>circadian</category>
+  <category>actigraphy</category>
+  <category>blindness</category>
+  <category>machine learning</category>
+  <guid>https://circadia.bio/publications/pugliane2026/</guid>
+  <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://circadia.bio/publications/pugliane2026/featured.png" medium="image" type="image/png" height="132" width="144"/>
+</item>
 <item>
   <title>From Movement to METs: A Validation of ActTrust® for Energy Expenditure Estimation and Physical Activity Classification in Young Adults</title>
   <dc:creator>Elias dos Santos Batista</dc:creator>
