@@ -1,7 +1,7 @@
 ---
 title: "Josh Penrhyn-Jones"
-sortby: "Penrhyn-Jones, Josh"
-subtitle: "PhD Student"
+sortby: 2
+subtitle: "Former PhD Student"
 image: jpj.jpg
 toc: false
 started: "Autumn 2024"
