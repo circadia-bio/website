@@ -47,9 +47,7 @@ website:
       
 format:
   html:
-    theme:
-      light: [cosmo, styles.scss]
-      dark: [cosmo, stylesd.scss]
+    theme: [cosmo, styles.scss]
     highlight-style: nord
     page-layout: full
   
