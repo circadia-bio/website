@@ -5,7 +5,7 @@ author:
     orcid: 0000-0003-1031-4267
   - name: Mario Leocadio-Miguel
     orcid: 0000-0002-7248-3529
-date: 2025-04-02
+date: 2026-04-02
 description: >
   We are releasing Sleep Diaries — a free, open-source, research-grade sleep diary app
   built with React Native and Expo. It runs on iOS, Android, and the web, and is designed
