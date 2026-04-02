@@ -93,6 +93,13 @@ body {
   border: none;
 }
 
+code {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #9bdfe2;
+  border-radius: 4px;
+  padding: 2px 5px;
+}
+
 .navbar {
   border-style: none !important;
   background: rgba(1, 67, 112, 0.7) !important; /* Adjust alpha for translucency */
