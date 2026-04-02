@@ -1,0 +1,157 @@
+---
+title: "Introducing Sleep Diaries: an open-source sleep diary app for research"
+author:
+  - name: Lucas França
+    orcid: 0000-0003-1031-4267
+  - name: Mario Leocadio-Miguel
+    orcid: 0000-0002-7248-3529
+date: 2025-04-02
+description: >
+  We are releasing Sleep Diaries — a free, open-source, research-grade sleep diary app
+  built with React Native and Expo. It runs on iOS, Android, and the web, and is designed
+  to be easily adapted for clinical sleep research and personal use.
+categories:
+  - Sleep
+  - Open Source
+  - Tools
+image: cover.png
+toc: true
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+## Why a sleep diary app?
+
+Self-reported sleep data remains one of the most widely used instruments
+in both clinical practice and sleep research. Sleep diaries have been
+validated against polysomnography and actigraphy and are often the most
+practical way to capture subjective sleep quality and patterns over time.
+
+Despite their importance, most sleep diary solutions available to
+researchers are either proprietary, difficult to adapt, or require
+participants to fill in paper forms. We wanted something that was free,
+open, easily customisable, and could run on the devices participants
+already carry in their pockets.
+
+**Sleep Diaries** is our answer to that. It is a cross-platform mobile
+and web app implementing the [Consensus Sleep Diary
+(CSD)](https://doi.org/10.5665/sleep.1642) with a clean, accessible
+interface and a fully open codebase.
+
+------------------------------------------------------------------------
+
+## What does it do?
+
+The app guides participants through two brief structured questionnaires
+each day:
+
+-   **Morning entry** (13 questions): bedtime, sleep onset latency,
+    night wakings, final awakening, total time in bed, sleep quality,
+    restedness, and more.
+-   **Evening entry** (5 questions): naps, caffeine intake, exercise,
+    and medication.
+
+Input types go beyond simple text boxes: there is a 24-hour time
+stepper, a duration stepper, yes/no buttons, a 1–5 rating scale, a
+number counter, a medication tracker with dose and time, and free-text
+comments. Conditional follow-up questions appear automatically based on
+prior answers — for example, a waking count question only appears if the
+participant reports having woken during the night.
+
+After 14 morning entries, a **final report** unlocks and automatically
+computes:
+
+| Metric              | How it is calculated                     |
+|---------------------|------------------------------------------|
+| Total sleep time    | Time in bed − sleep onset latency − WASO |
+| Sleep efficiency    | Total sleep time ÷ time in bed × 100%    |
+| Sleep onset latency | Average time to fall asleep              |
+| WASO                | Wake after sleep onset                   |
+| Sleep quality       | Average of 1–5 ratings                   |
+| Restedness          | Average of 1–5 ratings                   |
+
+All entries are stored locally on the device — no data is ever sent to a
+server. Participants can export their data as **CSV or JSON** at any
+time, and JSON exports can be imported back into the app (with merge or
+replace options) to restore a backup or migrate between devices.
+
+------------------------------------------------------------------------
+
+## Designed for research
+
+A key feature for study use is the optional **research code** field at
+onboarding. Researchers can assign each participant a unique identifier
+at enrolment; it is saved locally and included in all data exports. This
+makes it straightforward to link app data to other study measures.
+
+The app also includes **daily push notification reminders** (for iOS and Android versions only. 8am and 9pm
+by default), a scrollable entry history, a live stats dashboard (streak,
+entry counts, sleep metrics), and a profile screen where participants
+can update their name and research code.
+
+------------------------------------------------------------------------
+
+## Open source and customisable
+
+The entire codebase is on GitHub:
+
+🔗
+[github.com/circadia-bio/SleepDiaries](https://github.com/circadia-bio/SleepDiaries)
+
+The question set lives in a single file — `data/questions.js` — making
+it straightforward to add, remove, or reorder items without touching the
+navigation or UI logic. New input types can be added in
+`app/questionnaire.jsx`, and the colour themes (amber for morning, blue
+for evening) are defined in a single `THEME` object at the top of the
+same file.
+
+The app is built with **React Native + Expo (SDK 55)** and uses
+`expo-router` for file-based navigation. It also ships as a
+**Progressive Web App (PWA)** — participants can install it directly to
+their home screen from the browser on iOS, Android, or desktop without
+going through an app store.
+
+For researchers who want to connect a backend or integrate with an
+existing data pipeline, the `storage/storage.js` file contains all
+AsyncStorage calls in one place, making it easy to swap in API calls.
+
+------------------------------------------------------------------------
+
+## Try it now
+
+The web version is live and installable — no account or App Store
+needed:
+
+📱[**sleepdiaries.circadia-lab.uk**](https://sleepdiaries.circadia-lab.uk)
+
+To install it as an app on your phone, open the link in Safari (iOS) or
+Chrome (Android) and use **Add to Home Screen**.
+
+------------------------------------------------------------------------
+
+## Get involved
+
+If you are a sleep researcher, clinician, or developer interested in
+using or adapting Sleep Diaries for your study, we would love to hear
+from you. You can:
+
+-   **Fork the repository** and adapt it to your study's questionnaire
+-   **Open an issue** if you encounter a bug or have a feature request
+-   **Open a pull request** if you have an improvement to share back
+
+The app is released under the **MIT Licence** — free to use, adapt, and
+redistribute for any purpose, including commercial research.
+
+------------------------------------------------------------------------
+
+## Acknowledgements
+
+The app design was created by exchange students — Bri Baehl, Jacob
+Howard, Frederic Kussow, and Yuliana Luna Colón — as part of the [7th
+Annual Digital Civics Exchange (DCX)](https://www.dcx.events/home), an
+international programme connecting students across disciplines to
+co-design civic technologies.
+
+Development was led by **Lucas França** and **Mario Leocadio-Miguel**,
+at the [Circadia Lab](https://circadia-lab.uk), Northumbria University.
