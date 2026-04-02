@@ -40,6 +40,11 @@ body {
     transition: transform 0.5s;
 }
 
+#former .quarto-grid-item img:hover {
+    transform: scale(1.2);
+    transition: transform 0.5s;
+}
+
 #research-staff .quarto-grid-item img {
     border-radius: 50%;
     width: 200px; /* Adjust size as needed */
@@ -65,6 +70,18 @@ body {
 }
 
 #collaborators .quarto-grid-item img {
+    border-radius: 50%;
+    width: 200px; /* Adjust size as needed */
+    height: 200px; /* Keep it square for perfect circles */
+    object-fit: cover; /* Ensures the image fills the circular frame */
+}
+
+#former .card {
+  border-style: none;
+  border: none;
+}
+
+#former .quarto-grid-item img {
     border-radius: 50%;
     width: 200px; /* Adjust size as needed */
     height: 200px; /* Keep it square for perfect circles */
