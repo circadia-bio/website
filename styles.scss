@@ -46,6 +46,19 @@ body {
     transition: transform 0.5s;
 }
 
+#listing-former .quarto-grid-item img {
+    border-radius: 50% !important;
+    width: 200px !important;
+    height: 200px !important;
+    object-fit: cover !important;
+    padding: 0 !important;
+}
+
+#listing-former .quarto-grid-item img:hover {
+    transform: scale(1.2);
+    transition: transform 0.5s;
+}
+
 #research-staff .card {
   border-style: none;
   border: none;
@@ -70,10 +83,19 @@ body {
     object-fit: cover; /* Ensures the image fills the circular frame */
 }
 
+
+
 #collaborators .card {
   border-style: none;
   border: none;
 }
+
+#listing-former .card {
+  border-style: none;
+  border: none;
+}
+
+
 
 .navbar {
   border-style: none !important;

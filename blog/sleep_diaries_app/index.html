@@ -2,13 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Lucas França">
+<meta name="author" content="Mario Leocadio-Miguel">
+<meta name="dcterms.date" content="2025-04-02">
+<meta name="description" content="We are releasing Sleep Diaries — a free, open-source, research-grade sleep diary app built with React Native and Expo. It runs on iOS, Android, and the web, and is designed to be easily adapted for clinical sleep research and personal use.">
 
-<title>Prof.&nbsp;Malcolm von Schantz – Circadia</title>
+<title>Introducing Sleep Diaries: an open-source sleep diary app for research – Circadia</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -35,15 +42,16 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-4faf44808c66243957c3082ea87d90f3.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4faf44808c66243957c3082ea87d90f3.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-4faf44808c66243957c3082ea87d90f3.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-28e72ba70fba340fa7700951308d29bb.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-28e72ba70fba340fa7700951308d29bb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-28e72ba70fba340fa7700951308d29bb.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-42b477a27b4d7a3ab2d0bf50114576ca.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-4b1b79aa645950734516d33037550799.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-42b477a27b4d7a3ab2d0bf50114576ca.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-941ddb5784c9b29b8f80a7779bb3526d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-eeaf793b1230771fd1c8178759a5de2d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-941ddb5784c9b29b8f80a7779bb3526d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,14 +83,16 @@ ul.task-list li input[type="checkbox"] {
 
 <meta property="og:title" content="Circadia">
 <meta property="og:description" content="We are an interdisciplinary team researching the intersection of physics, computer science, and physiology, with a focus on sleep, rhythmicity, and medical signals.">
-<meta property="og:image" content="https://circadia.bio/people/staff/malcolm.jpg">
+<meta property="og:image" content="https://circadia.bio/blog/sleep_diaries_app/cover.png">
 <meta property="og:site_name" content="Circadia">
 <meta property="og:locale" content="en_GB">
-<meta property="og:image:alt" content="Photo of Malcolm von Schantz">
-<meta name="twitter:title" content="Prof.&nbsp;Malcolm von Schantz – Circadia">
-<meta name="twitter:description" content="Member">
-<meta name="twitter:image" content="https://circadia.bio/people/staff/malcolm.jpg">
-<meta name="twitter:image:alt" content="Photo of Malcolm von Schantz">
+<meta property="og:image:height" content="640">
+<meta property="og:image:width" content="1280">
+<meta name="twitter:title" content="Introducing Sleep Diaries: an open-source sleep diary app for research – Circadia">
+<meta name="twitter:description" content="We are releasing Sleep Diaries — a free, open-source, research-grade sleep diary app built with React Native and Expo. It runs on iOS, Android, and the web, and is designed to be easily adapted for clinical sleep research and personal use.">
+<meta name="twitter:image" content="https://circadia.bio/blog/sleep_diaries_app/cover.png">
+<meta name="twitter:image-height" content="640">
+<meta name="twitter:image-width" content="1280">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -256,7 +266,8 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../logo.png" alt="" class="navbar-logo">
+    <img src="../../logo.png" alt="" class="navbar-logo light-content">
+    <img src="../../logo.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Circadia</span>
@@ -326,44 +337,160 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why-a-sleep-diary-app" id="toc-why-a-sleep-diary-app" class="nav-link active" data-scroll-target="#why-a-sleep-diary-app">Why a sleep diary app?</a></li>
+  <li><a href="#what-does-it-do" id="toc-what-does-it-do" class="nav-link" data-scroll-target="#what-does-it-do">What does it do?</a></li>
+  <li><a href="#designed-for-research" id="toc-designed-for-research" class="nav-link" data-scroll-target="#designed-for-research">Designed for research</a></li>
+  <li><a href="#open-source-and-customisable" id="toc-open-source-and-customisable" class="nav-link" data-scroll-target="#open-source-and-customisable">Open source and customisable</a></li>
+  <li><a href="#try-it-now" id="toc-try-it-now" class="nav-link" data-scroll-target="#try-it-now">Try it now</a></li>
+  <li><a href="#get-involved" id="toc-get-involved" class="nav-link" data-scroll-target="#get-involved">Get involved</a></li>
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 
-
-
-
-<div class="quarto-about-trestles column-page">
-  <div class="about-entity">
-    <img src="malcolm.jpg" alt="Photo of Malcolm von Schantz" class="about-image
-  rounded " style="width: 20em;">
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Prof.&nbsp;Malcolm von Schantz</h1>
-<p class="subtitle lead">Member</p>
-</div>
-<div class="quarto-title-meta column-page">
+<h1 class="title">Introducing Sleep Diaries: an open-source sleep diary app for research</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Sleep</div>
+    <div class="quarto-category">Open Source</div>
+    <div class="quarto-category">Tools</div>
   </div>
+  </div>
+
+<div>
+  <div class="description">
+    <p>We are releasing Sleep Diaries — a free, open-source, research-grade sleep diary app built with React Native and Expo. It runs on iOS, Android, and the web, and is designed to be easily adapted for clinical sleep research and personal use.</p>
+  </div>
+</div>
+
+
+<div class="quarto-title-meta column-page-left">
+
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+             <p>Lucas França <a href="https://orcid.org/0000-0003-1031-4267" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+             <p>Mario Leocadio-Miguel <a href="https://orcid.org/0000-0002-7248-3529" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 2, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
 </header>
-    <div class="about-links">
-  <a href="https://scholar.google.com/citations?user=ww4dEJgAAAAJ" class="about-link" rel="" target="">
-    <i class="bi bi-mortarboard"></i>
-     <span class="about-link-text">Scholar</span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><div id="person-profile">
-<section id="biography" class="level2">
-<h2 data-anchor-id="biography">Biography</h2>
-<p>Malcolm von Schantz is an internationally recognised researcher and an experienced educator, who received his training in Sweden, the United States, and the UK. He has recently joined Northumbria from the University of Surrey, where he also served in leaderships positions as Associate Dean (International) and acting Pro-Vice Chancellor (International Relations). He is also an Honorary Professor at the Univeristy of the Witwatersrand, South Africa. He has received over £6.4 million in research funding from public and private sources including MRC, Wellcome Trust, British Heart Foundation, and US Air Force Office of Scientific Research. He currently holds research funding from the Academy of Medical Sciences (Newton Fund) and the National Institutes of Health (NIH). His research has been published in high-impact international journals and presented both at major scientific conferences and in broadcast, print, and web-based media worldwide.</p>
+
+
+<section id="why-a-sleep-diary-app" class="level2">
+<h2 class="anchored" data-anchor-id="why-a-sleep-diary-app">Why a sleep diary app?</h2>
+<p>Self-reported sleep data remains one of the most widely used instruments in both clinical practice and sleep research. Sleep diaries have been validated against polysomnography and actigraphy and are often the most practical way to capture subjective sleep quality and patterns over time.</p>
+<p>Despite their importance, most sleep diary solutions available to researchers are either proprietary, difficult to adapt, or require participants to fill in paper forms. We wanted something that was free, open, easily customisable, and could run on the devices participants already carry in their pockets.</p>
+<p><strong>Sleep Diaries</strong> is our answer to that. It is a cross-platform mobile and web app implementing the <a href="https://doi.org/10.5665/sleep.1642">Consensus Sleep Diary (CSD)</a> with a clean, accessible interface and a fully open codebase.</p>
+<hr>
 </section>
-</div></div>
-</div>
+<section id="what-does-it-do" class="level2">
+<h2 class="anchored" data-anchor-id="what-does-it-do">What does it do?</h2>
+<p>The app guides participants through two brief structured questionnaires each day:</p>
+<ul>
+<li><strong>Morning entry</strong> (13 questions): bedtime, sleep onset latency, night wakings, final awakening, total time in bed, sleep quality, restedness, and more.</li>
+<li><strong>Evening entry</strong> (5 questions): naps, caffeine intake, exercise, and medication.</li>
+</ul>
+<p>Input types go beyond simple text boxes: there is a 24-hour time stepper, a duration stepper, yes/no buttons, a 1–5 rating scale, a number counter, a medication tracker with dose and time, and free-text comments. Conditional follow-up questions appear automatically based on prior answers — for example, a waking count question only appears if the participant reports having woken during the night.</p>
+<p>After 14 morning entries, a <strong>final report</strong> unlocks and automatically computes:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>How it is calculated</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Total sleep time</td>
+<td>Time in bed − sleep onset latency − WASO</td>
+</tr>
+<tr class="even">
+<td>Sleep efficiency</td>
+<td>Total sleep time ÷ time in bed × 100%</td>
+</tr>
+<tr class="odd">
+<td>Sleep onset latency</td>
+<td>Average time to fall asleep</td>
+</tr>
+<tr class="even">
+<td>WASO</td>
+<td>Wake after sleep onset</td>
+</tr>
+<tr class="odd">
+<td>Sleep quality</td>
+<td>Average of 1–5 ratings</td>
+</tr>
+<tr class="even">
+<td>Restedness</td>
+<td>Average of 1–5 ratings</td>
+</tr>
+</tbody>
+</table>
+<p>All entries are stored locally on the device — no data is ever sent to a server. Participants can export their data as <strong>CSV or JSON</strong> at any time, and JSON exports can be imported back into the app (with merge or replace options) to restore a backup or migrate between devices.</p>
+<hr>
+</section>
+<section id="designed-for-research" class="level2">
+<h2 class="anchored" data-anchor-id="designed-for-research">Designed for research</h2>
+<p>A key feature for study use is the optional <strong>research code</strong> field at onboarding. Researchers can assign each participant a unique identifier at enrolment; it is saved locally and included in all data exports. This makes it straightforward to link app data to other study measures.</p>
+<p>The app also includes <strong>daily push notification reminders</strong> (for iOS and Android versions only. 8am and 9pm by default), a scrollable entry history, a live stats dashboard (streak, entry counts, sleep metrics), and a profile screen where participants can update their name and research code.</p>
+<hr>
+</section>
+<section id="open-source-and-customisable" class="level2">
+<h2 class="anchored" data-anchor-id="open-source-and-customisable">Open source and customisable</h2>
+<p>The entire codebase is on GitHub:</p>
+<p>🔗 <a href="https://github.com/circadia-bio/SleepDiaries">github.com/circadia-bio/SleepDiaries</a></p>
+<p>The question set lives in a single file — <code>data/questions.js</code> — making it straightforward to add, remove, or reorder items without touching the navigation or UI logic. New input types can be added in <code>app/questionnaire.jsx</code>, and the colour themes (amber for morning, blue for evening) are defined in a single <code>THEME</code> object at the top of the same file.</p>
+<p>The app is built with <strong>React Native + Expo (SDK 55)</strong> and uses <code>expo-router</code> for file-based navigation. It also ships as a <strong>Progressive Web App (PWA)</strong> — participants can install it directly to their home screen from the browser on iOS, Android, or desktop without going through an app store.</p>
+<p>For researchers who want to connect a backend or integrate with an existing data pipeline, the <code>storage/storage.js</code> file contains all AsyncStorage calls in one place, making it easy to swap in API calls.</p>
+<hr>
+</section>
+<section id="try-it-now" class="level2">
+<h2 class="anchored" data-anchor-id="try-it-now">Try it now</h2>
+<p>The web version is live and installable — no account or App Store needed:</p>
+<p>📱<a href="https://sleepdiaries.circadia-lab.uk"><strong>sleepdiaries.circadia-lab.uk</strong></a></p>
+<p>To install it as an app on your phone, open the link in Safari (iOS) or Chrome (Android) and use <strong>Add to Home Screen</strong>.</p>
+<hr>
+</section>
+<section id="get-involved" class="level2">
+<h2 class="anchored" data-anchor-id="get-involved">Get involved</h2>
+<p>If you are a sleep researcher, clinician, or developer interested in using or adapting Sleep Diaries for your study, we would love to hear from you. You can:</p>
+<ul>
+<li><strong>Fork the repository</strong> and adapt it to your study’s questionnaire</li>
+<li><strong>Open an issue</strong> if you encounter a bug or have a feature request</li>
+<li><strong>Open a pull request</strong> if you have an improvement to share back</li>
+</ul>
+<p>The app is released under the <strong>MIT Licence</strong> — free to use, adapt, and redistribute for any purpose, including commercial research.</p>
+<hr>
+</section>
+<section id="acknowledgements" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
+<p>The app design was created by exchange students — Bri Baehl, Jacob Howard, Frederic Kussow, and Yuliana Luna Colón — as part of the <a href="https://www.dcx.events/home">7th Annual Digital Civics Exchange (DCX)</a>, an international programme connecting students across disciplines to co-design civic technologies.</p>
+<p>Development was led by <strong>Lucas França</strong> and <strong>Mario Leocadio-Miguel</strong>, at the <a href="https://circadia-lab.uk">Circadia Lab</a>, Northumbria University.</p>
 
 
-
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -381,6 +508,13 @@ ul.task-list li input[type="checkbox"] {
       window.document.body.appendChild(a);
     }
     setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -423,13 +557,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -778,7 +913,7 @@ ul.task-list li input[type="checkbox"] {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Made with ❤️ and Quarto. © 2025. This work is openly licensed via CC BY 4.0</p>
+<p>Made with ❤️ and Quarto. © 2026. This work is openly licensed via CC BY 4.0</p>
 </div>
     <div class="nav-footer-right">
       &nbsp;

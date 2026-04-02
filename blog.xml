@@ -16,8 +16,121 @@
 <height>144</height>
 <width>144</width>
 </image>
-<generator>quarto-1.7.32</generator>
-<lastBuildDate>Tue, 11 Mar 2025 00:00:00 GMT</lastBuildDate>
+<generator>quarto-1.9.36</generator>
+<lastBuildDate>Wed, 02 Apr 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Introducing Sleep Diaries: an open-source sleep diary app for research</title>
+  <dc:creator>Lucas França</dc:creator>
+  <dc:creator>Mario Leocadio-Miguel</dc:creator>
+  <link>https://circadia.bio/blog/sleep_diaries_app/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="why-a-sleep-diary-app" class="level2">
+<h2 class="anchored" data-anchor-id="why-a-sleep-diary-app">Why a sleep diary app?</h2>
+<p>Self-reported sleep data remains one of the most widely used instruments in both clinical practice and sleep research. Sleep diaries have been validated against polysomnography and actigraphy and are often the most practical way to capture subjective sleep quality and patterns over time.</p>
+<p>Despite their importance, most sleep diary solutions available to researchers are either proprietary, difficult to adapt, or require participants to fill in paper forms. We wanted something that was free, open, easily customisable, and could run on the devices participants already carry in their pockets.</p>
+<p><strong>Sleep Diaries</strong> is our answer to that. It is a cross-platform mobile and web app implementing the <a href="https://doi.org/10.5665/sleep.1642">Consensus Sleep Diary (CSD)</a> with a clean, accessible interface and a fully open codebase.</p>
+<hr>
+</section>
+<section id="what-does-it-do" class="level2">
+<h2 class="anchored" data-anchor-id="what-does-it-do">What does it do?</h2>
+<p>The app guides participants through two brief structured questionnaires each day:</p>
+<ul>
+<li><strong>Morning entry</strong> (13 questions): bedtime, sleep onset latency, night wakings, final awakening, total time in bed, sleep quality, restedness, and more.</li>
+<li><strong>Evening entry</strong> (5 questions): naps, caffeine intake, exercise, and medication.</li>
+</ul>
+<p>Input types go beyond simple text boxes: there is a 24-hour time stepper, a duration stepper, yes/no buttons, a 1–5 rating scale, a number counter, a medication tracker with dose and time, and free-text comments. Conditional follow-up questions appear automatically based on prior answers — for example, a waking count question only appears if the participant reports having woken during the night.</p>
+<p>After 14 morning entries, a <strong>final report</strong> unlocks and automatically computes:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>How it is calculated</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Total sleep time</td>
+<td>Time in bed − sleep onset latency − WASO</td>
+</tr>
+<tr class="even">
+<td>Sleep efficiency</td>
+<td>Total sleep time ÷ time in bed × 100%</td>
+</tr>
+<tr class="odd">
+<td>Sleep onset latency</td>
+<td>Average time to fall asleep</td>
+</tr>
+<tr class="even">
+<td>WASO</td>
+<td>Wake after sleep onset</td>
+</tr>
+<tr class="odd">
+<td>Sleep quality</td>
+<td>Average of 1–5 ratings</td>
+</tr>
+<tr class="even">
+<td>Restedness</td>
+<td>Average of 1–5 ratings</td>
+</tr>
+</tbody>
+</table>
+<p>All entries are stored locally on the device — no data is ever sent to a server. Participants can export their data as <strong>CSV or JSON</strong> at any time, and JSON exports can be imported back into the app (with merge or replace options) to restore a backup or migrate between devices.</p>
+<hr>
+</section>
+<section id="designed-for-research" class="level2">
+<h2 class="anchored" data-anchor-id="designed-for-research">Designed for research</h2>
+<p>A key feature for study use is the optional <strong>research code</strong> field at onboarding. Researchers can assign each participant a unique identifier at enrolment; it is saved locally and included in all data exports. This makes it straightforward to link app data to other study measures.</p>
+<p>The app also includes <strong>daily push notification reminders</strong> (for iOS and Android versions only. 8am and 9pm by default), a scrollable entry history, a live stats dashboard (streak, entry counts, sleep metrics), and a profile screen where participants can update their name and research code.</p>
+<hr>
+</section>
+<section id="open-source-and-customisable" class="level2">
+<h2 class="anchored" data-anchor-id="open-source-and-customisable">Open source and customisable</h2>
+<p>The entire codebase is on GitHub:</p>
+<p>🔗 <a href="https://github.com/circadia-bio/SleepDiaries">github.com/circadia-bio/SleepDiaries</a></p>
+<p>The question set lives in a single file — <code>data/questions.js</code> — making it straightforward to add, remove, or reorder items without touching the navigation or UI logic. New input types can be added in <code>app/questionnaire.jsx</code>, and the colour themes (amber for morning, blue for evening) are defined in a single <code>THEME</code> object at the top of the same file.</p>
+<p>The app is built with <strong>React Native + Expo (SDK 55)</strong> and uses <code>expo-router</code> for file-based navigation. It also ships as a <strong>Progressive Web App (PWA)</strong> — participants can install it directly to their home screen from the browser on iOS, Android, or desktop without going through an app store.</p>
+<p>For researchers who want to connect a backend or integrate with an existing data pipeline, the <code>storage/storage.js</code> file contains all AsyncStorage calls in one place, making it easy to swap in API calls.</p>
+<hr>
+</section>
+<section id="try-it-now" class="level2">
+<h2 class="anchored" data-anchor-id="try-it-now">Try it now</h2>
+<p>The web version is live and installable — no account or App Store needed:</p>
+<p>📱<a href="https://sleepdiaries.circadia-lab.uk"><strong>sleepdiaries.circadia-lab.uk</strong></a></p>
+<p>To install it as an app on your phone, open the link in Safari (iOS) or Chrome (Android) and use <strong>Add to Home Screen</strong>.</p>
+<hr>
+</section>
+<section id="get-involved" class="level2">
+<h2 class="anchored" data-anchor-id="get-involved">Get involved</h2>
+<p>If you are a sleep researcher, clinician, or developer interested in using or adapting Sleep Diaries for your study, we would love to hear from you. You can:</p>
+<ul>
+<li><strong>Fork the repository</strong> and adapt it to your study’s questionnaire</li>
+<li><strong>Open an issue</strong> if you encounter a bug or have a feature request</li>
+<li><strong>Open a pull request</strong> if you have an improvement to share back</li>
+</ul>
+<p>The app is released under the <strong>MIT Licence</strong> — free to use, adapt, and redistribute for any purpose, including commercial research.</p>
+<hr>
+</section>
+<section id="acknowledgements" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
+<p>The app design was created by exchange students — Bri Baehl, Jacob Howard, Frederic Kussow, and Yuliana Luna Colón — as part of the <a href="https://www.dcx.events/home">7th Annual Digital Civics Exchange (DCX)</a>, an international programme connecting students across disciplines to co-design civic technologies.</p>
+<p>Development was led by <strong>Lucas França</strong> and <strong>Mario Leocadio-Miguel</strong>, at the <a href="https://circadia-lab.uk">Circadia Lab</a>, Northumbria University.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Sleep</category>
+  <category>Open Source</category>
+  <category>Tools</category>
+  <guid>https://circadia.bio/blog/sleep_diaries_app/</guid>
+  <pubDate>Wed, 02 Apr 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://circadia.bio/blog/sleep_diaries_app/cover.png" medium="image" type="image/png" height="72" width="144"/>
+</item>
 <item>
   <title>Sleep PSG validation</title>
   <dc:creator>Mario Miguel</dc:creator>
@@ -33,7 +146,7 @@
 <section id="load-necessary-libraries" class="level4">
 <h4 class="anchored" data-anchor-id="load-necessary-libraries">Load necessary libraries</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(dplyr)</span>
 <span id="cb1-2"><span class="fu" style="color: #4758AB;
@@ -59,13 +172,13 @@ background-color: null;
 font-style: inherit;">library</span>(kableExtra)</span>
 <span id="cb1-9"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">library</span>(knitr)</span></code></pre></div>
+font-style: inherit;">library</span>(knitr)</span></code></pre></div></div>
 </div>
 </section>
 <section id="add-seeds-for-reproductibility---used-when-generating-synthetic-data-only" class="level4">
 <h4 class="anchored" data-anchor-id="add-seeds-for-reproductibility---used-when-generating-synthetic-data-only">Add seeds for reproductibility - used when generating synthetic data only</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">set.seed</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
@@ -78,13 +191,13 @@ font-style: inherit;">set.seed</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>)  <span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># For the Headband dataset</span></span></code></pre></div>
+font-style: inherit;"># For the Headband dataset</span></span></code></pre></div></div>
 </div>
 </section>
 <section id="define-parameters-need-to-run-this-code-before-generating-synthetic-data-and-before-opening-real-data-because-of-sleep_stages" class="level4">
 <h4 class="anchored" data-anchor-id="define-parameters-need-to-run-this-code-before-generating-synthetic-data-and-before-opening-real-data-because-of-sleep_stages">Define parameters (need to run this code before generating synthetic data and before opening real data, because of sleep_stages)</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">num_subjects <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">num_subjects <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -118,7 +231,7 @@ font-style: inherit;">"N2"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"N3"</span>, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"R"</span>)</span></code></pre></div>
+font-style: inherit;">"R"</span>)</span></code></pre></div></div>
 </div>
 </section>
 <section id="generate-synthetic-data---psg-ground-truth" class="level4">
@@ -131,7 +244,7 @@ font-style: inherit;">"R"</span>)</span></code></pre></div>
 </blockquote>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">generate_sleep_data_with_cycles <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">generate_sleep_data_with_cycles <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
@@ -485,7 +598,7 @@ background-color: null;
 font-style: inherit;"># Save the dataset as a CSV file</span></span>
 <span id="cb4-50"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">#write.csv(PSG, "PSG_data.csv", row.names = FALSE)</span></span></code></pre></div>
+font-style: inherit;">#write.csv(PSG, "PSG_data.csv", row.names = FALSE)</span></span></code></pre></div></div>
 </div>
 </section>
 <section id="generate-synthetic-data---headband" class="level4">
@@ -497,7 +610,7 @@ font-style: inherit;">#write.csv(PSG, "PSG_data.csv", row.names = FALSE)</span><
 </blockquote>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">generate_sleep_data_with_cycles <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">generate_sleep_data_with_cycles <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
@@ -851,13 +964,13 @@ background-color: null;
 font-style: inherit;"># Save the dataset as a CSV file</span></span>
 <span id="cb5-50"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">#write.csv(Headband, "Headband.csv", row.names = FALSE)</span></span></code></pre></div>
+font-style: inherit;">#write.csv(Headband, "Headband.csv", row.names = FALSE)</span></span></code></pre></div></div>
 </div>
 </section>
 <section id="calculate-the-percentage-of-time-spent-in-each-sleep-stage" class="level4">
 <h4 class="anchored" data-anchor-id="calculate-the-percentage-of-time-spent-in-each-sleep-stage">Calculate the percentage of time spent in each sleep stage</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Calculate the percentage of time spent in each sleep stage for the PSG dataset</span></span>
 <span id="cb6-2">PSG_percentage <span class="ot" style="color: #003B4F;
@@ -982,13 +1095,13 @@ font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"_PSG"</span>, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"_Headband"</span>))</span></code></pre></div>
+font-style: inherit;">"_Headband"</span>))</span></code></pre></div></div>
 </div>
 </section>
 <section id="plot-the-percentage-of-time-spent-in-each-sleep-stage-for-psg-and-headband" class="level4">
 <h4 class="anchored" data-anchor-id="plot-the-percentage-of-time-spent-in-each-sleep-stage-for-psg-and-headband">Plot the percentage of time spent in each sleep stage for PSG and Headband</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">difference_data <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">difference_data <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> merged_data <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -1099,7 +1212,7 @@ font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">legend.position =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"none"</span>)</span></code></pre></div>
+font-style: inherit;">"none"</span>)</span></code></pre></div></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1112,7 +1225,7 @@ font-style: inherit;">"none"</span>)</span></code></pre></div>
 <section id="calculate-mean-differences-and-confidence-intervals-for-each-sleep-stage---bias" class="level4">
 <h4 class="anchored" data-anchor-id="calculate-mean-differences-and-confidence-intervals-for-each-sleep-stage---bias">Calculate mean differences and confidence intervals for each sleep stage - Bias</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Calculate mean differences and confidence intervals for each sleep stage</span></span>
 <span id="cb8-2">mean_diff_results <span class="ot" style="color: #003B4F;
@@ -1294,7 +1407,7 @@ background-color: null;
 font-style: inherit;">+</span></span>
 <span id="cb8-23">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">theme_minimal</span>()</span></code></pre></div>
+font-style: inherit;">theme_minimal</span>()</span></code></pre></div></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1307,7 +1420,7 @@ font-style: inherit;">theme_minimal</span>()</span></code></pre></div>
 <section id="bland-altman-statistics" class="level4">
 <h4 class="anchored" data-anchor-id="bland-altman-statistics">Bland-Altman Statistics</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># List of unique sleep stages</span></span>
 <span id="cb9-2">sleep_stages <span class="ot" style="color: #003B4F;
@@ -1394,7 +1507,7 @@ font-style: inherit;">"</span>)</span>
 <span id="cb9-19">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">print</span>(ba_results[[stage]])</span>
-<span id="cb9-20">}</span></code></pre></div>
+<span id="cb9-20">}</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Results for Sleep Stage: N1 
 Bland-Altman Statistics
@@ -1641,7 +1754,7 @@ LLoA:
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># List of unique sleep stages</span></span>
 <span id="cb11-2">sleep_stages <span class="ot" style="color: #003B4F;
@@ -1740,7 +1853,7 @@ font-style: inherit;"># Print each plot</span></span>
 <span id="cb11-23">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">print</span>(ba_plot)</span>
-<span id="cb11-24">}</span></code></pre></div>
+<span id="cb11-24">}</span></code></pre></div></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `plot.data$x.axis` is discouraged.
 ℹ Use `x.axis` instead.</code></pre>
@@ -1813,7 +1926,7 @@ Use of `plot.data$y.axis` is discouraged.
 <section id="bland-altman-plots-basic-plots-wo-the-blandr-package" class="level4">
 <h4 class="anchored" data-anchor-id="bland-altman-plots-basic-plots-wo-the-blandr-package">Bland-Altman plots (basic plots, w/o the blandr package)</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Calculate mean and difference for each sleep stage</span></span>
 <span id="cb18-2">bland_altman_data <span class="ot" style="color: #003B4F;
@@ -2016,7 +2129,7 @@ font-style: inherit;"># Print each plot</span></span>
 <span id="cb18-25">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">print</span>(p)</span>
-<span id="cb18-26">}</span></code></pre></div>
+<span id="cb18-26">}</span></code></pre></div></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2057,7 +2170,7 @@ font-style: inherit;">print</span>(p)</span>
 <section id="calculate-pearson-correlation-for-each-sleep-stage-and-each-instrument" class="level4">
 <h4 class="anchored" data-anchor-id="calculate-pearson-correlation-for-each-sleep-stage-and-each-instrument">Calculate Pearson correlation for each sleep stage and each instrument</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Calculate Pearson correlation for each sleep stage</span></span>
 <span id="cb19-2">correlation_results <span class="ot" style="color: #003B4F;
@@ -2126,7 +2239,7 @@ font-style: inherit;">0</span>, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">background =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"lightblue"</span>)</span></code></pre></div>
+font-style: inherit;">"lightblue"</span>)</span></code></pre></div></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Pearson Correlation for Each Sleep Stage</caption>
@@ -2165,7 +2278,7 @@ font-style: inherit;">"lightblue"</span>)</span></code></pre></div>
 <section id="calculate-cohens-kappa-for-each-sleep-stage" class="level4">
 <h4 class="anchored" data-anchor-id="calculate-cohens-kappa-for-each-sleep-stage">Calculate Cohen’s Kappa for each sleep stage</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Merge PSG and Headband data by Subject_ID and Epoch to align epochs</span></span>
 <span id="cb20-2">merged_epochs <span class="ot" style="color: #003B4F;
@@ -2328,7 +2441,7 @@ font-style: inherit;">0</span>, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">background =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"lightblue"</span>)</span></code></pre></div>
+font-style: inherit;">"lightblue"</span>)</span></code></pre></div></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Cohen's Kappa for Each Sleep Stage</caption>
@@ -2367,7 +2480,7 @@ font-style: inherit;">"lightblue"</span>)</span></code></pre></div>
 <section id="calculate-intraclass-correlation-coefficient-icc-for-each-sleep-stage" class="level4">
 <h4 class="anchored" data-anchor-id="calculate-intraclass-correlation-coefficient-icc-for-each-sleep-stage">Calculate Intraclass Correlation Coefficient (ICC) for each sleep stage</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Calculate ICC for each sleep stage by using the percentage of time spent in each stage</span></span>
 <span id="cb21-2">icc_results <span class="ot" style="color: #003B4F;
@@ -2472,7 +2585,7 @@ font-style: inherit;">0</span>, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">background =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"lightblue"</span>)</span></code></pre></div>
+font-style: inherit;">"lightblue"</span>)</span></code></pre></div></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Intraclass Correlation Coefficient (ICC) for Each Sleep Stage</caption>
@@ -2511,7 +2624,7 @@ font-style: inherit;">"lightblue"</span>)</span></code></pre></div>
 <section id="calculate-mean-absolute-percentage-error-mape-for-each-sleep-stage" class="level4">
 <h4 class="anchored" data-anchor-id="calculate-mean-absolute-percentage-error-mape-for-each-sleep-stage">Calculate Mean Absolute Percentage Error (MAPE) for each sleep stage</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1">mape_results <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1">mape_results <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> merged_data <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -2605,7 +2718,7 @@ font-style: inherit;">0</span>, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">background =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"lightblue"</span>)</span></code></pre></div>
+font-style: inherit;">"lightblue"</span>)</span></code></pre></div></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Mean Absolute Percentage Error (MAPE) for Each Sleep Stage</caption>
@@ -2644,9 +2757,9 @@ font-style: inherit;">"lightblue"</span>)</span></code></pre></div>
 <section id="calculate-concordance-correlation-coefficient-ccc-for-each-sleep-stage" class="level4">
 <h4 class="anchored" data-anchor-id="calculate-concordance-correlation-coefficient-ccc-for-each-sleep-stage">Calculate Concordance Correlation Coefficient (CCC) for each sleep stage</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">library</span>(DescTools)</span></code></pre></div>
+font-style: inherit;">library</span>(DescTools)</span></code></pre></div></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Attaching package: 'DescTools'</code></pre>
 </div>
@@ -2655,7 +2768,7 @@ font-style: inherit;">library</span>(DescTools)</span></code></pre></div>
 
     MAE, RMSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Calculate CCC for each sleep stage</span></span>
 <span id="cb26-2">ccc_results <span class="ot" style="color: #003B4F;
@@ -2745,7 +2858,7 @@ font-style: inherit;">0</span>, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">background =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"lightblue"</span>)</span></code></pre></div>
+font-style: inherit;">"lightblue"</span>)</span></code></pre></div></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Concordance Correlation Coefficient (CCC) for Each Sleep Stage</caption>
@@ -2796,7 +2909,7 @@ font-style: inherit;">"lightblue"</span>)</span></code></pre></div>
 <section id="calculate-sensitivity-for-each-sleep-stage" class="level4">
 <h4 class="anchored" data-anchor-id="calculate-sensitivity-for-each-sleep-stage">Calculate Sensitivity for each sleep stage</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Calculate classification metrics for each sleep stage</span></span>
 <span id="cb27-2">sensitivity_results <span class="ot" style="color: #003B4F;
@@ -2860,7 +2973,7 @@ font-style: inherit;">0</span>, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">background =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"lightblue"</span>)</span></code></pre></div>
+font-style: inherit;">"lightblue"</span>)</span></code></pre></div></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Sensitivity for Each Sleep Stage</caption>
@@ -2899,7 +3012,7 @@ font-style: inherit;">"lightblue"</span>)</span></code></pre></div>
 <section id="compare-the-confusion-matrix-between-psg-ground-truth-and-headband" class="level4">
 <h4 class="anchored" data-anchor-id="compare-the-confusion-matrix-between-psg-ground-truth-and-headband">Compare the confusion matrix between PSG (ground truth) and Headband</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1">confusion_results <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1">confusion_results <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> merged_epochs <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -2992,16 +3105,16 @@ background-color: null;
 font-style: inherit;"># Display overall statistics and per-class performance metrics</span></span>
 <span id="cb28-18">conf_matrix<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">$</span>overall</span></code></pre></div>
+font-style: inherit;">$</span>overall</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull 
     0.29713542     0.07340406     0.29067635     0.30365597     0.31812500 
 AccuracyPValue  McnemarPValue 
     1.00000000     0.34012087 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1">conf_matrix<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1">conf_matrix<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">$</span>byClass</span></code></pre></div>
+font-style: inherit;">$</span>byClass</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          Sensitivity Specificity Pos Pred Value Neg Pred Value  Precision
 Class: N1  0.18870347   0.8366700     0.18289269      0.8418517 0.18289269
@@ -3022,7 +3135,7 @@ Class: N3         0.6017586
 Class: R          0.5186212
 Class: W          0.4968706</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb32" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Plot the confusion matrix with counts and percentages</span></span>
 <span id="cb32-2"><span class="fu" style="color: #4758AB;
@@ -3113,7 +3226,7 @@ background-color: null;
 font-style: inherit;">+</span></span>
 <span id="cb32-10">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">theme_minimal</span>()</span></code></pre></div>
+font-style: inherit;">theme_minimal</span>()</span></code></pre></div></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -3126,7 +3239,7 @@ font-style: inherit;">theme_minimal</span>()</span></code></pre></div>
 <section id="roc-curves-for-each-sleep-stage" class="level4">
 <h4 class="anchored" data-anchor-id="roc-curves-for-each-sleep-stage">ROC Curves for each sleep stage</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Prepare data for ROC analysis</span></span>
 <span id="cb33-2">roc_data <span class="ot" style="color: #003B4F;
@@ -3288,7 +3401,7 @@ background-color: null;
 font-style: inherit;">TRUE</span>)  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Print AUC on the plot</span></span>
-<span id="cb33-31">}</span></code></pre></div>
+<span id="cb33-31">}</span></code></pre></div></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
