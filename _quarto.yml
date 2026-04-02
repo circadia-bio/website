@@ -48,6 +48,6 @@ website:
 format:
   html:
     theme: [cosmo, styles.scss]
-    highlight-style: nord
+    highlight-style: arrow
     page-layout: full
   
