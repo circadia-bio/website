@@ -93,11 +93,11 @@ body {
   border: none;
 }
 
-code {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #9bdfe2;
-  border-radius: 4px;
-  padding: 2px 5px;
+p code, li code, td code {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #9bdfe2 !important;
+  border-radius: 4px !important;
+  padding: 2px 5px !important;
 }
 
 .navbar {
