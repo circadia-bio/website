@@ -47,7 +47,9 @@ website:
       
 format:
   html:
-    theme: [cosmo, styles.scss]
+    theme:
+      light: [cosmo, styles.scss]
+      dark: [cosmo, stylesd.scss]
     highlight-style: arrow
     page-layout: full
   
