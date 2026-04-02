@@ -13,7 +13,7 @@ website:
     locale: "en_GB"
     description: "We are an interdisciplinary team researching the intersection of physics, computer science, and physiology, with a focus on sleep, rhythmicity, and medical signals."
     image: "logo.png"
-  page-footer: "Made with ❤️ and Quarto. © 2025. This work is openly licensed via CC BY 4.0"
+  page-footer: "Made with ❤️ and Quarto. © 2026. This work is openly licensed via CC BY 4.0"
   navbar:
     logo: "logo.png"
     left:
