@@ -33,6 +33,7 @@
 
 
 
+
 <section id="abstract" class="level1">
 <h1>Abstract</h1>
 <p>Physical activity (PA) is recognised for providing several health benefits in humans, mainly preventing and controlling chronic non-communicable diseases. However estimating PA is a challenging and expensive task. An alternative would be to devise a model to estimate PA using actigraphy devices calibrated from an initially validated model. This has been previously done to a number of devices, including ActiGraph® GT3X+. In this study we aimed at validating ActTrust® against the widely used GT3X+ and comparing activity counts to metabolic equivalents (METs) derived from indirect calorimetry during treadmill walking and running. Fifty-six young adults (34 men, 22 women) participated in controlled effort exercises including light, moderate, vigorous, and very vigorous activity intensities. We developed a general linear model to estimate energy expenditure (EE) from movement count of combinations of GT3X+ and ActTrust devices placed at hip or wrist. We then estimated cut-off points for each intensity range. Our results showed correlations between treadmill speed, METs, and movement counts across all devices and placements combinations. Our proposed model performed well with balanced accuracies above 0.77 for all intensity ranges and over 0.9 for light and moderate activity. This is the first study to model estimate and validate PA intensity thresholds on ActTrust® devices. Our findings support the use of ActTrust® devices in PA estimation as a low complexity and cost approach to allow 24-hour assessments of EE.</p>
@@ -65,6 +66,7 @@
 
 
 
+
 <section id="abstract" class="level1">
 <h1>Abstract</h1>
 <p>We aimed to establish the heritability of polysomnography measures through the analysis of home polysomnography recordings from 648 participants in the Baependi Heart Study, a rural, family-based, genetically admixed cohort based in the southeast of Brazil. Sleep polysomnography staging variables were computed, and narrow-sense heritability values were derived. The heritability (h2) of polysomnography total sleep time was 0.18±0.08 (p=0.007). Including age and sex did not change the heritability estimates of the model. Wake after sleep onset did not show significant heritability (h2=0.02±0.07, p=0.39). The unadjusted model for N1 resulted in a heritability estimate of 0.22±0.10 (p&lt;0.003), and of 0.26±0.10 (p=0.003) in the adjusted model. Time spent in N2 had an unadjusted heritability of 0.18±0.09 (p=0.01) and adjusted h2 of 0.22±0.10 (p=0.007). The heritability of the total time spent in N3 was 0.35±0.09 (p&lt;0.001) in the unadjusted and 0.38±0.09 (p&lt;0.001) when sex, age and age*age were considered in the model. By contrast, no variance in the total time spent in rapid eye movement could be significantly attributed to genetic variance. In terms of the heritability of the apnea–hypopnea index, 17% of its variance could be attributed to genetic factors (0.17±0.08, p=0.02). This is the first report of heritability of electroencephalographic-derived sleep parameters from a larger population sample, and the first one performed in a population with a majority above 25 years of age. Our findings indicate the potential feasibility of future genome-wide association studies of non-rapid eye movement sleep stages in pooled population samples.</p>
@@ -93,6 +95,7 @@
   <dc:creator>John Fontenele Araújo</dc:creator>
   <link>https://circadia.bio/publications/ferre2024/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -143,6 +146,7 @@
 
 
 
+
 <section id="abstract" class="level1">
 <h1>Abstract</h1>
 <p>Brain dynamic functional connectivity characterises transient connections between brain regions. Features of brain dynamics have been linked to emotion and cognition in adult individuals, and atypical patterns have been associated with neurodevelopmental conditions such as autism. Although reliable functional brain networks have been consistently identified in neonates, little is known about the early development of dynamic functional connectivity. In this study we characterise dynamic functional connectivity with functional magnetic resonance imaging (fMRI) in the first few weeks of postnatal life in term-born (n=324) and preterm-born (n=66) individuals. We show that a dynamic landscape of brain connectivity is already established by the time of birth in the human brain, characterised by six transient states of neonatal functional connectivity with changing dynamics through the neonatal period. The pattern of dynamic connectivity is atypical in preterm-born infants, and associated with atypical social, sensory, and repetitive behaviours measured by the Quantitative Checklist for Autism in Toddlers (Q-CHAT) scores at 18 months of age.</p>
@@ -174,6 +178,7 @@
   <dc:creator>Flávio Teles</dc:creator>
   <link>https://circadia.bio/publications/nunes2024/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -212,6 +217,7 @@
 
 
 
+
 <section id="abstract" class="level1">
 <h1>Abstract</h1>
 <p>Sleep disorders and changes in the profile of the cortisol awakening response (CAR) are potential predictive factors for the incidence of major depressive disorder (MDD). However, these parameters usually are evaluated separately, lacking information regarding the simultaneous association of sleep disorders and CAR, mainly throughout the MDD severity. This study addressed the relationship between sleep quality and CAR in patients with initial/mild depression (MD, n=30) versus advanced/treatment-resistant (TRD, n=28), compared with a group of healthy controls (CG, n=49), aiming to point out in a clinical perspective which alterations in sleep and CAR have been observed along major depression severity stages. TRD patients presented a blunted CAR and poorer sleep quality comparing MD and CG groups. Additionally, MD patients showed worse sleep quality and larger CAR than CG. Taken together, both sleep quality and CAR were correlated with MDD symptoms and predictors of MDD severity, with a greater classification power for sleep quality. From sleep quality, specifically, the use of sleep medication and sleep efficiency predicted depression severity, discriminating mild and treatment-resistant depression. These results show the importance of assessing sleep quality and CAR in patients with major depression when there is a need for evaluation of the disorder’s severity in a clinical context. CAR and sleep quality can be useful complementary tools to help in the clinical identification of major depression severity and the understanding of their impact on MDD may support further studies that aim to improve intervention strategies to increase the effectiveness of treatments.</p>
@@ -241,6 +247,7 @@
   <dc:creator>Rovena Clara Engelberth</dc:creator>
   <link>https://circadia.bio/publications/silva2023/</link>
   <description><![CDATA[ 
+
 
 
 
