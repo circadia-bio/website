@@ -132,6 +132,521 @@
   <media:content url="https://circadia.bio/blog/sleep_diaries_app/cover.png" medium="image" type="image/png" height="72" width="144"/>
 </item>
 <item>
+  <title>Setting up circadiaBase Docker</title>
+  <dc:creator>Lucas França</dc:creator>
+  <dc:creator>Mario Leocadio-Miguel</dc:creator>
+  <link>https://circadia.bio/blog/circadiabase_docker/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>circadiaBase_Docker is a self-contained research computing environment for the Circadia Lab. It bundles a fully pinned Python 3.11 and R 4.4 stack into two Docker services — JupyterLab and RStudio Server — that share the same project volume and launch together with a single command. This tutorial walks through the full setup from installation to daily use.</p>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<p>You will need:</p>
+<ul>
+<li><strong>Docker Desktop</strong> (Mac/Windows) or <strong>Docker Engine + Compose plugin</strong> (Linux) — <a href="https://www.docker.com/products/docker-desktop/">download here</a>. Allocate at least 8 GB RAM and 20 GB disk to Docker.</li>
+<li><strong>Git</strong> — <a href="https://git-scm.com/">download here</a></li>
+</ul>
+<p>Verify your installation:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--version</span>        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Docker 24.x or later</span></span>
+<span id="cb1-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> compose version  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Docker Compose 2.x or later</span></span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--version</span></span></code></pre></div></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Apple Silicon (M1/M2/M3/M4):</strong> Both services run natively on ARM64. The RStudio service uses <code>jmgirard/rstudio2u</code> which has full ARM64 support built in — no Rosetta required.</p>
+</div>
+</div>
+</section>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>Clone the repository:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> clone https://github.com/circadia-bio/circadiaBase_Docker.git</span>
+<span id="cb2-2"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">cd</span> circadiaBase_Docker</span></code></pre></div></div>
+</section>
+<section id="configuration" class="level2">
+<h2 class="anchored" data-anchor-id="configuration">Configuration</h2>
+<p>Copy the example environment file and open it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cp</span> .env.example .env</span></code></pre></div></div>
+<p>The key variables:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">IMAGE_NAME</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>circadia_base   <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Docker image name — auto-set by GitHub Actions</span></span>
+<span id="cb4-2"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">DISABLE_AUTH</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>true          <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Disable RStudio password (local dev only)</span></span>
+<span id="cb4-3"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">COMPOSE_PROFILES</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>both      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># both | jupyter | rstudio</span></span>
+<span id="cb4-4"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">INSTALL_PACKAGE</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>true       <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Install condor_pipeline in editable mode</span></span>
+<span id="cb4-5"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">RSTUDIO_PROFILE</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>minimal    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># minimal | no-stan | full</span></span></code></pre></div></div>
+<section id="which-services-to-run" class="level3">
+<h3 class="anchored" data-anchor-id="which-services-to-run">Which services to run</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><code>COMPOSE_PROFILES</code></th>
+<th>Services started</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>both</code> (default)</td>
+<td>JupyterLab + RStudio</td>
+</tr>
+<tr class="even">
+<td><code>jupyter</code></td>
+<td>JupyterLab only</td>
+</tr>
+<tr class="odd">
+<td><code>rstudio</code></td>
+<td>RStudio only</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="which-r-profile-to-use" class="level3">
+<h3 class="anchored" data-anchor-id="which-r-profile-to-use">Which R profile to use</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Profile</th>
+<th>Stan/brms</th>
+<th>lunaR</th>
+<th>Build time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>minimal</code></td>
+<td>❌</td>
+<td>❌</td>
+<td>~5–8 min</td>
+</tr>
+<tr class="even">
+<td><code>no-stan</code></td>
+<td>❌</td>
+<td>✅</td>
+<td>~10–15 min</td>
+</tr>
+<tr class="odd">
+<td><code>full</code></td>
+<td>✅</td>
+<td>✅</td>
+<td>~30–40 min</td>
+</tr>
+</tbody>
+</table>
+<p>Start with <code>minimal</code> — you can always rebuild with a heavier profile later.</p>
+</section>
+</section>
+<section id="building-and-running" class="level2">
+<h2 class="anchored" data-anchor-id="building-and-running">Building and Running</h2>
+<p>On first run, Docker builds both images:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker-compose</span> up <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--build</span></span></code></pre></div></div>
+<p>This takes a few minutes. Subsequent runs use Docker’s layer cache and start in seconds:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker-compose</span> up</span></code></pre></div></div>
+<p>To run in the background:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker-compose</span> up <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-d</span></span>
+<span id="cb7-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker-compose</span> down   <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># to stop</span></span></code></pre></div></div>
+<p>Once running, open:</p>
+<ul>
+<li><strong>JupyterLab</strong> → <code>http://localhost:8889/lab</code></li>
+<li><strong>RStudio Server</strong> → <code>http://localhost:8787</code></li>
+</ul>
+<p>No token or password required for either.</p>
+</section>
+<section id="github-actions-auto-configuration" class="level2">
+<h2 class="anchored" data-anchor-id="github-actions-auto-configuration">GitHub Actions Auto-configuration</h2>
+<p>If you use this repo as a template or fork it, a bundled GitHub Actions workflow (<code>.github/workflows/setup-env.yml</code>) runs automatically on every push to <code>main</code>. It does two things:</p>
+<p><strong>1. Generates <code>.env</code> from the repo name.</strong> The workflow converts the repository name to a Docker-safe string and writes it as <code>IMAGE_NAME</code>. For example, <code>Per3_Study</code> becomes <code>IMAGE_NAME=per3_study</code>. This means collaborators never need to configure the image name manually.</p>
+<p><strong>2. Resets the README to a stub on the first push.</strong> If the README still contains the original placeholder text, the workflow replaces it with a minimal template pre-filled with your repo name and Circadia Lab authorship. This only fires once.</p>
+<p>To enable the workflow to commit back to your repo, go to <strong>Settings → Actions → General → Workflow permissions</strong> and select <strong>Read and write permissions</strong>.</p>
+</section>
+<section id="using-jupyterlab" class="level2">
+<h2 class="anchored" data-anchor-id="using-jupyterlab">Using JupyterLab</h2>
+<p>Navigate to <code>http://localhost:8889/lab</code>. The environment includes a complete scientific stack for chronobiology research:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> pyActigraphy      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Actigraphy — IS, IV, RA, M10, L5, cosinor, SSA</span></span>
+<span id="cb8-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> mne               <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># EEG and MEG processing</span></span>
+<span id="cb8-3"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> yasa              <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Automatic sleep staging</span></span>
+<span id="cb8-4"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> EntropyHub <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> eh  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Entropy methods for physiological time series</span></span>
+<span id="cb8-5"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb8-6"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pd</span>
+<span id="cb8-7"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> matplotlib.pyplot <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> plt</span>
+<span id="cb8-8"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> seaborn <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> sns</span>
+<span id="cb8-9"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> sklearn <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> decomposition, cluster</span></code></pre></div></div>
+<p>Files saved inside <code>/home/jovyan/&lt;IMAGE_NAME&gt;/</code> are written to the shared project volume and persist after the container stops.</p>
+</section>
+<section id="using-condor_pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="using-condor_pipeline">Using condor_pipeline</h2>
+<p><code>condor_pipeline</code> is the Circadia Lab’s core actigraphy sleep analysis library, installed in editable mode when <code>INSTALL_PACKAGE=true</code>. It provides a high-level <code>SleepPipeline</code> orchestrator for ActTrust and Actiwatch data.</p>
+<section id="single-file" class="level3">
+<h3 class="anchored" data-anchor-id="single-file">Single file</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> condor_pipeline.pipeline <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> SleepPipeline</span>
+<span id="cb9-2"></span>
+<span id="cb9-3">pipe <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> SleepPipeline(</span>
+<span id="cb9-4">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"data/raw/subject_01.txt"</span>,</span>
+<span id="cb9-5">    device<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"acttrust"</span>,       <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># or "actiwatch"</span></span>
+<span id="cb9-6">    gap_threshold<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">120.0</span>,     <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># seconds — flags timestamp gaps</span></span>
+<span id="cb9-7">    wake_thresh<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span>,          <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># minutes — WASO threshold</span></span>
+<span id="cb9-8">    export_offwrist<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>,    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># writes off-wrist CSV alongside input</span></span>
+<span id="cb9-9">)</span>
+<span id="cb9-10"></span>
+<span id="cb9-11">result <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pipe.run()</span>
+<span id="cb9-12"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(result.nights)   <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># per-night sleep statistics</span></span>
+<span id="cb9-13">result.plot()          <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># actogram</span></span></code></pre></div></div>
+</section>
+<section id="batch-processing" class="level3">
+<h3 class="anchored" data-anchor-id="batch-processing">Batch processing</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1">results <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> SleepPipeline.batch(</span>
+<span id="cb10-2">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"data/raw/"</span>,</span>
+<span id="cb10-3">    device<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"acttrust"</span>,</span>
+<span id="cb10-4">    pattern<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"*.txt"</span>,</span>
+<span id="cb10-5">)</span>
+<span id="cb10-6"></span>
+<span id="cb10-7"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> r <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> results:</span>
+<span id="cb10-8">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(r.subject_id, r.nights)</span></code></pre></div></div>
+<p>The <code>PipelineResult</code> object exposes <code>subject_id</code>, <code>source_file</code>, <code>df</code> (full working DataFrame with all state columns), <code>nights</code> (per-night statistics), and <code>issues</code> (timestamp consistency problems, empty if none).</p>
+</section>
+</section>
+<section id="using-rstudio-server" class="level2">
+<h2 class="anchored" data-anchor-id="using-rstudio-server">Using RStudio Server</h2>
+<p>Navigate to <code>http://localhost:8787</code>. Your project files are mounted at <code>/home/rstudio/&lt;IMAGE_NAME&gt;/</code>. Set this as your working directory:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">setwd</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"/home/rstudio/circadia_base"</span>)</span></code></pre></div></div>
+<p>The environment includes:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Visualisation</span></span>
+<span id="cb12-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggpubr); <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(patchwork); <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggridges)</span>
+<span id="cb12-3"></span>
+<span id="cb12-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Statistical modelling</span></span>
+<span id="cb12-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(lme4); <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(lmerTest); <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(emmeans); <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(effectsize)</span>
+<span id="cb12-6"></span>
+<span id="cb12-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Sleep &amp; circadian</span></span>
+<span id="cb12-8"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(GGIR); <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ActCR); <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(circacompare)</span>
+<span id="cb12-9"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(cosinor); <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(cosinor2)</span>
+<span id="cb12-10"></span>
+<span id="cb12-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Bayesian (no-stan / full profiles)</span></span>
+<span id="cb12-12"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(brms); <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(rstanarm); <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidybayes)</span></code></pre></div></div>
+</section>
+<section id="shared-files" class="level2">
+<h2 class="anchored" data-anchor-id="shared-files">Shared Files</h2>
+<p>Both services mount the same directory, so files created in one are immediately visible in the other:</p>
+<pre><code>Host machine:      ~/circadiaBase_Docker/
+                           │
+         ┌─────────────────┴─────────────────┐
+         ▼                                   ▼
+JupyterLab                            RStudio
+/home/jovyan/circadia_base/    /home/rstudio/circadia_base/</code></pre>
+<p>A practical workflow: clean and process raw actigraphy in Python → export a <code>.csv</code> → load it directly in RStudio for statistical modelling.</p>
+<p>Recommended project layout:</p>
+<pre><code>circadiaBase_Docker/
+├── data/
+│   ├── raw/          # Raw input files
+│   └── processed/    # Cleaned outputs
+├── notebooks/        # JupyterLab notebooks
+├── scripts/          # R and Python scripts
+├── figures/          # Generated plots
+└── results/          # Model outputs and tables</code></pre>
+</section>
+<section id="switching-r-profiles" class="level2">
+<h2 class="anchored" data-anchor-id="switching-r-profiles">Switching R Profiles</h2>
+<p>To switch from <code>minimal</code> to a heavier profile, edit <code>.env</code> and rebuild:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">RSTUDIO_PROFILE</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>full</span></code></pre></div></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker-compose</span> build <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--no-cache</span> rstudio</span>
+<span id="cb16-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker-compose</span> up</span></code></pre></div></div>
+<p>The JupyterLab image is unaffected — only RStudio rebuilds.</p>
+</section>
+<section id="troubleshooting" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting">Troubleshooting</h2>
+<p><strong>Cannot connect to JupyterLab or RStudio</strong></p>
+<p>Check that both containers are running:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> ps</span></code></pre></div></div>
+<p>Both images should appear with status <code>Up</code>. If not, inspect the logs:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker-compose</span> logs</span></code></pre></div></div>
+<p>Make sure you are using the correct URLs — JupyterLab requires the <code>/lab</code> suffix: <code>http://localhost:8889/lab</code>.</p>
+<p><strong>Build fails with a package error</strong></p>
+<p>Try a clean rebuild:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker-compose</span> build <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--no-cache</span> rstudio</span></code></pre></div></div>
+<p><strong>Port already in use</strong></p>
+<p>Edit <code>docker-compose.yml</code> and change the host port:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb20-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ports</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb20-2"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"8890:8888"</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">   # use any free port</span></span></code></pre></div></div>
+<p><strong>Files not persisting after container restart</strong></p>
+<p>Save files inside the mounted volume:</p>
+<ul>
+<li>JupyterLab: <code>/home/jovyan/&lt;IMAGE_NAME&gt;/</code></li>
+<li>RStudio: <code>/home/rstudio/&lt;IMAGE_NAME&gt;/</code></li>
+</ul>
+<p>Files saved outside these paths (e.g.&nbsp;<code>/tmp</code>) are lost when the container stops.</p>
+<p><strong>Apple Silicon — RStudio not loading</strong></p>
+<p>Ensure <strong>“Use Rosetta for x86/amd64 emulation”</strong> is disabled in Docker Desktop. The RStudio service runs natively on ARM64.</p>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further Reading</h2>
+<ul>
+<li><a href="https://pyactigraphy.readthedocs.io/">pyActigraphy documentation</a></li>
+<li><a href="https://mne.tools/stable/index.html">MNE-Python documentation</a></li>
+<li><a href="https://raphaelvallat.com/yasa/build/html/index.html">YASA documentation</a></li>
+<li><a href="https://cran.r-project.org/web/packages/GGIR/vignettes/GGIR.html">GGIR documentation</a></li>
+<li><a href="https://cran.r-project.org/web/packages/circacompare/index.html">circacompare on CRAN</a></li>
+<li><a href="https://github.com/circadia-bio/circadiaBase_Docker">circadiaBase_Docker on GitHub</a></li>
+</ul>
+
+
+</section>
+
+ ]]></description>
+  <category>Infrastructure</category>
+  <category>Docker</category>
+  <category>Python</category>
+  <category>R</category>
+  <category>Reproducibility</category>
+  <guid>https://circadia.bio/blog/circadiabase_docker/</guid>
+  <pubDate>Sun, 01 Jun 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://circadia.bio/blog/circadiabase_docker/cover.svg" medium="image" type="image/svg+xml"/>
+</item>
+<item>
   <title>Sleep PSG validation</title>
   <dc:creator>Mario Miguel</dc:creator>
   <link>https://circadia.bio/blog/sleep_PSG/</link>
