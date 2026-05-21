@@ -32,16 +32,16 @@
   {
     "listing": "/blog.html",
     "items": [
-      "/blog/sleep_diaries_app/index.html",
       "/blog/circadiabase_docker/index.html",
+      "/blog/sleep_diaries_app/index.html",
       "/blog/sleep_PSG/index.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
-      "/blog/sleep_diaries_app/index.html",
       "/blog/circadiabase_docker/index.html",
+      "/blog/sleep_diaries_app/index.html",
       "/blog/sleep_PSG/index.html",
       "/publications/pugliane2026/index.html",
       "/publications/batista2025/index.html",

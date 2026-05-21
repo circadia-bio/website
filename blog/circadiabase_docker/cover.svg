@@ -16,76 +16,69 @@
     <line x1="1000" y1="0" x2="1000" y2="630"/>
   </g>
 
-  <!-- Container stack — left side -->
-  <g transform="translate(80, 140)">
-    <!-- Row 1 -->
-    <rect x="0"   y="0"  width="90" height="70" rx="8" fill="#4A7BB5" opacity="0.9"/>
-    <rect x="100" y="0"  width="90" height="70" rx="8" fill="#4A7BB5" opacity="0.9"/>
-    <rect x="200" y="0"  width="90" height="70" rx="8" fill="#4A7BB5" opacity="0.9"/>
-    <!-- Row 2 -->
-    <rect x="0"   y="80" width="90" height="70" rx="8" fill="#6A9BD4" opacity="0.9"/>
-    <rect x="100" y="80" width="90" height="70" rx="8" fill="#6A9BD4" opacity="0.9"/>
-    <!-- Row 3 -->
-    <rect x="0"   y="160" width="90" height="70" rx="8" fill="#8AB8E8" opacity="0.9"/>
-    <!-- Labels -->
-    <text x="45"  y="42"  text-anchor="middle" font-family="monospace" font-size="11" fill="#EEF5FF">Python</text>
-    <text x="45"  y="56"  text-anchor="middle" font-family="monospace" font-size="10" fill="#C8DFF5">3.11</text>
-    <text x="145" y="42"  text-anchor="middle" font-family="monospace" font-size="11" fill="#EEF5FF">pyActi-</text>
-    <text x="145" y="56"  text-anchor="middle" font-family="monospace" font-size="10" fill="#C8DFF5">graphy</text>
-    <text x="245" y="42"  text-anchor="middle" font-family="monospace" font-size="11" fill="#EEF5FF">MNE</text>
-    <text x="245" y="56"  text-anchor="middle" font-family="monospace" font-size="10" fill="#C8DFF5">YASA</text>
-    <text x="45"  y="122" text-anchor="middle" font-family="monospace" font-size="11" fill="#1E3A5F">R 4.4</text>
-    <text x="145" y="122" text-anchor="middle" font-family="monospace" font-size="11" fill="#1E3A5F">GGIR</text>
-    <text x="45"  y="202" text-anchor="middle" font-family="monospace" font-size="11" fill="#1E3A5F">brms</text>
-    <!-- Wave base -->
-    <path d="M-20,245 Q55,228 130,245 Q205,262 290,245 Q340,235 360,245 L360,275 L-20,275 Z" fill="#2D5A8E" opacity="0.7"/>
+  <!-- Container stack — centred in left zone (0–552), centre=276
+       Stack width=290, offset=(276-145)=131 -->
+  <g transform="translate(131, 115)">
+    <!-- Row 3 (bottom) -->
+    <rect x="0"   y="170" width="90" height="70" rx="8" fill="#4A7BB5" opacity="0.9"/>
+    <rect x="100" y="170" width="90" height="70" rx="8" fill="#4A7BB5" opacity="0.9"/>
+    <rect x="200" y="170" width="90" height="70" rx="8" fill="#4A7BB5" opacity="0.9"/>
+    <text x="45"  y="201" text-anchor="middle" font-family="monospace" font-size="12" fill="#EEF5FF">Python</text>
+    <text x="45"  y="217" text-anchor="middle" font-family="monospace" font-size="11" fill="#C8DFF5">3.11</text>
+    <text x="145" y="208" text-anchor="middle" font-family="monospace" font-size="11" fill="#EEF5FF">pyActigraphy</text>
+    <text x="245" y="201" text-anchor="middle" font-family="monospace" font-size="12" fill="#EEF5FF">MNE</text>
+    <text x="245" y="217" text-anchor="middle" font-family="monospace" font-size="11" fill="#C8DFF5">YASA</text>
+    <!-- Row 2 (middle) -->
+    <rect x="50"  y="85" width="90" height="70" rx="8" fill="#6A9BD4" opacity="0.9"/>
+    <rect x="150" y="85" width="90" height="70" rx="8" fill="#6A9BD4" opacity="0.9"/>
+    <text x="95"  y="122" text-anchor="middle" font-family="monospace" font-size="13" fill="#1E3A5F">R 4.4</text>
+    <text x="195" y="122" text-anchor="middle" font-family="monospace" font-size="13" fill="#1E3A5F">GGIR</text>
+    <!-- Row 1 (top) -->
+    <rect x="100" y="0" width="90" height="70" rx="8" fill="#8AB8E8" opacity="0.9"/>
+    <text x="145" y="40" text-anchor="middle" font-family="monospace" font-size="13" fill="#1E3A5F">brms</text>
+    <!-- Wave -->
+    <path d="M-60,252 Q75,238 145,252 Q215,266 290,252 Q345,242 400,252 L400,285 L-60,285 Z" fill="#2D5A8E" opacity="0.7"/>
   </g>
 
-  <!-- Arrow -->
-  <g transform="translate(480, 285)">
-    <line x1="0" y1="30" x2="80" y2="30" stroke="#E07A20" stroke-width="3"/>
-    <polygon points="80,22 96,30 80,38" fill="#E07A20"/>
-    <text x="40" y="18" text-anchor="middle" font-family="monospace" font-size="11" fill="#E07A20">docker-compose</text>
-    <text x="40" y="52" text-anchor="middle" font-family="monospace" font-size="11" fill="#E07A20">up --build</text>
+  <!-- Arrow — horizontally centred (x=552), vertically centred (y=230) -->
+  <g transform="translate(552, 230)">
+    <line x1="0" y1="0" x2="80" y2="0" stroke="#E07A20" stroke-width="3"/>
+    <polygon points="80,-8 96,0 80,8" fill="#E07A20"/>
+    <text x="48" y="-14" text-anchor="middle" font-family="monospace" font-size="11" fill="#E07A20">docker-compose</text>
+    <text x="48" y="18"  text-anchor="middle" font-family="monospace" font-size="11" fill="#E07A20">up --build</text>
   </g>
 
-  <!-- Browser windows — right side -->
+  <!-- Browser windows — centred in right zone (648–1200), centre=924
+       Each 260px wide, offset=924-130=794 -->
   <!-- JupyterLab -->
-  <g transform="translate(610, 110)">
-    <rect width="250" height="160" rx="10" fill="#0D1117"/>
-    <rect width="250" height="28" rx="10" fill="#161B22"/>
-    <rect x="0" y="18" width="250" height="10" fill="#161B22"/>
+  <g transform="translate(794, 110)">
+    <rect width="260" height="160" rx="10" fill="#0D1117"/>
+    <rect width="260" height="28" rx="10" fill="#161B22"/>
+    <rect x="0" y="18" width="260" height="10" fill="#161B22"/>
     <circle cx="16" cy="14" r="5" fill="#FF5F57"/>
     <circle cx="32" cy="14" r="5" fill="#FEBC2E"/>
     <circle cx="48" cy="14" r="5" fill="#28C840"/>
-    <text x="125" y="17" text-anchor="middle" font-family="monospace" font-size="9" fill="#8B949E">localhost:8889/lab</text>
-    <!-- Jupyter content -->
+    <text x="130" y="17" text-anchor="middle" font-family="monospace" font-size="9" fill="#8B949E">localhost:8889/lab</text>
     <text x="12" y="50"  font-family="monospace" font-size="10" fill="#79C0FF">import</text>
     <text x="65" y="50"  font-family="monospace" font-size="10" fill="#E6EDF3"> pyActigraphy</text>
     <text x="12" y="66"  font-family="monospace" font-size="10" fill="#79C0FF">import</text>
-    <text x="65" y="66"  font-family="monospace" font-size="10" fill="#E6EDF3"> pandas </text>
-    <text x="130" y="66" font-family="monospace" font-size="10" fill="#79C0FF">as</text>
-    <text x="148" y="66" font-family="monospace" font-size="10" fill="#E6EDF3"> pd</text>
+    <text x="65" y="66"  font-family="monospace" font-size="10" fill="#E6EDF3"> pandas as pd</text>
     <text x="12" y="82"  font-family="monospace" font-size="10" fill="#3FB950">pipe </text>
     <text x="46" y="82"  font-family="monospace" font-size="10" fill="#E6EDF3">= SleepPipeline(</text>
-    <text x="12" y="98"  font-family="monospace" font-size="10" fill="#E6EDF3">  </text>
-    <text x="22" y="98"  font-family="monospace" font-size="10" fill="#A5D6FF">"subject_01.txt"</text>
-    <text x="12" y="114" font-family="monospace" font-size="10" fill="#E6EDF3">result </text>
-    <text x="56" y="114" font-family="monospace" font-size="10" fill="#E6EDF3">= pipe.run()</text>
+    <text x="12" y="98"  font-family="monospace" font-size="10" fill="#A5D6FF">  "subject_01.txt"</text>
+    <text x="12" y="114" font-family="monospace" font-size="10" fill="#E6EDF3">result = pipe.run()</text>
     <text x="12" y="130" font-family="monospace" font-size="10" fill="#E6EDF3">result.plot()</text>
     <text x="12" y="150" font-family="monospace" font-size="9"  fill="#8B949E">🪐 JupyterLab</text>
   </g>
-
   <!-- RStudio -->
-  <g transform="translate(610, 295)">
-    <rect width="250" height="160" rx="10" fill="#1A1A2E"/>
-    <rect width="250" height="28" rx="10" fill="#16213E"/>
-    <rect x="0" y="18" width="250" height="10" fill="#16213E"/>
+  <g transform="translate(794, 290)">
+    <rect width="260" height="160" rx="10" fill="#1A1A2E"/>
+    <rect width="260" height="28" rx="10" fill="#16213E"/>
+    <rect x="0" y="18" width="260" height="10" fill="#16213E"/>
     <circle cx="16" cy="14" r="5" fill="#FF5F57"/>
     <circle cx="32" cy="14" r="5" fill="#FEBC2E"/>
     <circle cx="48" cy="14" r="5" fill="#28C840"/>
-    <text x="125" y="17" text-anchor="middle" font-family="monospace" font-size="9" fill="#8B949E">localhost:8787</text>
-    <!-- R content -->
+    <text x="130" y="17" text-anchor="middle" font-family="monospace" font-size="9" fill="#8B949E">localhost:8787</text>
     <text x="12" y="50"  font-family="monospace" font-size="10" fill="#79C0FF">library</text>
     <text x="60" y="50"  font-family="monospace" font-size="10" fill="#E6EDF3">(GGIR)</text>
     <text x="12" y="66"  font-family="monospace" font-size="10" fill="#79C0FF">library</text>
