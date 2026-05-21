@@ -78,7 +78,7 @@ The word *"Circadia"* derives from the Latin *"circa diem"* meaning "around the 
   <a class="product-card" href="https://tallier.circadia-lab.uk" target="_blank" rel="noopener">
     <img class="card-icon-img" src="https://tallier.circadia-lab.uk/logo.svg" alt="tallieR">
     <p class="card-title">tallieR</p>
-    <p class="card-desc">Tally and summarise actigraphy and wearable data</p>
+    <p class="card-desc">R package for importing, scoring, and analysing ScoreMe questionnaire data</p>
     <span class="card-link tag-pkg">R pkg →</span>
   </a>
 
