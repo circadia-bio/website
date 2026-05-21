@@ -26,9 +26,9 @@ body {
 
 #research-staff .quarto-grid-item img {
     border-radius: 50%;
-    width: 200px; /* Adjust size as needed */
-    height: 200px; /* Keep it square for perfect circles */
-    object-fit: cover; /* Ensures the image fills the circular frame */
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
 }
 
 #research-staff .quarto-grid-item img:hover {
@@ -66,9 +66,9 @@ body {
 
 #students .quarto-grid-item img {
     border-radius: 50%;
-    width: 200px; /* Adjust size as needed */
-    height: 200px; /* Keep it square for perfect circles */
-    object-fit: cover; /* Ensures the image fills the circular frame */
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
 }
 
 #students .card {
@@ -78,9 +78,9 @@ body {
 
 #collaborators .quarto-grid-item img {
     border-radius: 50%;
-    width: 200px; /* Adjust size as needed */
-    height: 200px; /* Keep it square for perfect circles */
-    object-fit: cover; /* Ensures the image fills the circular frame */
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
 }
 
 #collaborators .card {
@@ -95,9 +95,9 @@ body {
 
 .navbar {
   border-style: none !important;
-  background: rgba(255, 236, 212, 0.7) !important; /* Adjust alpha for translucency */
-  backdrop-filter: blur(5px); /* Applies blur effect */
-  -webkit-backdrop-filter: blur(5px); /* For Safari compatibility */
+  background: rgba(255, 236, 212, 0.7) !important;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 #tutorials .card {
@@ -131,43 +131,25 @@ body {
 }
 
 div.quarto-about-trestles .about-entity .about-links {
-    display: flex !important; /* Force flex behavior */
-    flex-direction: row !important; /* Ensure horizontal layout */
-    justify-content: center; /* Center align horizontally */
-    align-items: center; /* Align vertically */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    gap: 8px !important; /* Adjust spacing between buttons */
-    max-width: 100%; /* Prevent width issues */
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px !important;
+    max-width: 100%;
 }
 
-/* Ensure each link behaves correctly */
 div.quarto-about-trestles .about-entity .about-links .about-link {
-    display: inline-flex !important; /* Prevent full-width behavior */
-    white-space: nowrap; /* Prevent text wrapping */
-    padding: 5px 10px; /* Adjust padding */
-    flex-shrink: 0; /* Prevent shrinking */
+    display: inline-flex !important;
+    white-space: nowrap;
+    padding: 5px 10px;
+    flex-shrink: 0;
 }
 
-/* Override any mobile-specific column styles */
 @media (max-width: 600px) {
     div.quarto-about-trestles .about-entity .about-links {
-        flex-wrap: wrap !important; /* Allow wrapping */
+        flex-wrap: wrap !important;
         justify-content: center !important;
     }
-}
-
-/* Projects listing — borderless cards with squared cover images */
-/* Using attribute selector to avoid SCSS stripping the # from ID selectors */
-[id="listing-projects"] .card {
-  border: none !important;
-  --bs-card-border-width: 0 !important;
-  box-shadow: none !important;
-}
-
-[id="listing-projects"] .quarto-grid-item img {
-    border-radius: 12px !important;
-    padding: 0 !important;
-    object-fit: cover !important;
-    width: 100% !important;
-    aspect-ratio: 16 / 9;
 }
