@@ -1,0 +1,302 @@
+---
+title: "Setting up circadiaBase Docker"
+description: "A step-by-step guide to spinning up the Circadia Lab's reproducible research environment — JupyterLab and RStudio Server in a single Docker Compose stack — for chronobiology and actigraphy research."
+date: "2025-06-01"
+author:
+  - name: Lucas França
+    orcid: 0000-0003-0853-1319
+  - name: Mario Leocadio-Miguel
+    orcid: 0000-0002-7248-3529
+categories:
+  - Infrastructure
+  - Docker
+  - Python
+  - R
+  - Reproducibility
+image: cover.svg
+toc: true
+---
+
+circadiaBase_Docker is a self-contained research computing environment for the Circadia Lab. It bundles a fully pinned Python 3.11 and R 4.4 stack into two Docker services — JupyterLab and RStudio Server — that share the same project volume and launch together with a single command. This tutorial walks through the full setup from installation to daily use.
+
+## Prerequisites
+
+You will need:
+
+- **Docker Desktop** (Mac/Windows) or **Docker Engine + Compose plugin** (Linux) — [download here](https://www.docker.com/products/docker-desktop/). Allocate at least 8 GB RAM and 20 GB disk to Docker.
+- **Git** — [download here](https://git-scm.com/)
+
+Verify your installation:
+
+```bash
+docker --version        # Docker 24.x or later
+docker compose version  # Docker Compose 2.x or later
+git --version
+```
+
+::: {.callout-note}
+**Apple Silicon (M1/M2/M3/M4):** Both services run natively on ARM64. The RStudio service uses `jmgirard/rstudio2u` which has full ARM64 support built in — no Rosetta required.
+:::
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/circadia-bio/circadiaBase_Docker.git
+cd circadiaBase_Docker
+```
+
+## Configuration
+
+Copy the example environment file and open it:
+
+```bash
+cp .env.example .env
+```
+
+The key variables:
+
+```bash
+IMAGE_NAME=circadia_base   # Docker image name — auto-set by GitHub Actions
+DISABLE_AUTH=true          # Disable RStudio password (local dev only)
+COMPOSE_PROFILES=both      # both | jupyter | rstudio
+INSTALL_PACKAGE=true       # Install condor_pipeline in editable mode
+RSTUDIO_PROFILE=minimal    # minimal | no-stan | full
+```
+
+### Which services to run
+
+| `COMPOSE_PROFILES` | Services started |
+|---|---|
+| `both` (default) | JupyterLab + RStudio |
+| `jupyter` | JupyterLab only |
+| `rstudio` | RStudio only |
+
+### Which R profile to use
+
+| Profile | Stan/brms | lunaR | Build time |
+|---|---|---|---|
+| `minimal` | ❌ | ❌ | ~5–8 min |
+| `no-stan` | ❌ | ✅ | ~10–15 min |
+| `full` | ✅ | ✅ | ~30–40 min |
+
+Start with `minimal` — you can always rebuild with a heavier profile later.
+
+## Building and Running
+
+On first run, Docker builds both images:
+
+```bash
+docker-compose up --build
+```
+
+This takes a few minutes. Subsequent runs use Docker's layer cache and start in seconds:
+
+```bash
+docker-compose up
+```
+
+To run in the background:
+
+```bash
+docker-compose up -d
+docker-compose down   # to stop
+```
+
+Once running, open:
+
+- **JupyterLab** → `http://localhost:8889/lab`
+- **RStudio Server** → `http://localhost:8787`
+
+No token or password required for either.
+
+## GitHub Actions Auto-configuration
+
+If you use this repo as a template or fork it, a bundled GitHub Actions workflow (`.github/workflows/setup-env.yml`) runs automatically on every push to `main`. It does two things:
+
+**1. Generates `.env` from the repo name.** The workflow converts the repository name to a Docker-safe string and writes it as `IMAGE_NAME`. For example, `Per3_Study` becomes `IMAGE_NAME=per3_study`. This means collaborators never need to configure the image name manually.
+
+**2. Resets the README to a stub on the first push.** If the README still contains the original placeholder text, the workflow replaces it with a minimal template pre-filled with your repo name and Circadia Lab authorship. This only fires once.
+
+To enable the workflow to commit back to your repo, go to **Settings → Actions → General → Workflow permissions** and select **Read and write permissions**.
+
+## Using JupyterLab
+
+Navigate to `http://localhost:8889/lab`. The environment includes a complete scientific stack for chronobiology research:
+
+```python
+import pyActigraphy      # Actigraphy — IS, IV, RA, M10, L5, cosinor, SSA
+import mne               # EEG and MEG processing
+import yasa              # Automatic sleep staging
+import EntropyHub as eh  # Entropy methods for physiological time series
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn import decomposition, cluster
+```
+
+Files saved inside `/home/jovyan/<IMAGE_NAME>/` are written to the shared project volume and persist after the container stops.
+
+## Using condor_pipeline
+
+`condor_pipeline` is the Circadia Lab's core actigraphy sleep analysis library, installed in editable mode when `INSTALL_PACKAGE=true`. It provides a high-level `SleepPipeline` orchestrator for ActTrust and Actiwatch data.
+
+### Single file
+
+```python
+from condor_pipeline.pipeline import SleepPipeline
+
+pipe = SleepPipeline(
+    "data/raw/subject_01.txt",
+    device="acttrust",       # or "actiwatch"
+    gap_threshold=120.0,     # seconds — flags timestamp gaps
+    wake_thresh=60,          # minutes — WASO threshold
+    export_offwrist=True,    # writes off-wrist CSV alongside input
+)
+
+result = pipe.run()
+print(result.nights)   # per-night sleep statistics
+result.plot()          # actogram
+```
+
+### Batch processing
+
+```python
+results = SleepPipeline.batch(
+    "data/raw/",
+    device="acttrust",
+    pattern="*.txt",
+)
+
+for r in results:
+    print(r.subject_id, r.nights)
+```
+
+The `PipelineResult` object exposes `subject_id`, `source_file`, `df` (full working DataFrame with all state columns), `nights` (per-night statistics), and `issues` (timestamp consistency problems, empty if none).
+
+## Using RStudio Server
+
+Navigate to `http://localhost:8787`. Your project files are mounted at `/home/rstudio/<IMAGE_NAME>/`. Set this as your working directory:
+
+```r
+setwd("/home/rstudio/circadia_base")
+```
+
+The environment includes:
+
+```r
+# Visualisation
+library(ggpubr); library(patchwork); library(ggridges)
+
+# Statistical modelling
+library(lme4); library(lmerTest); library(emmeans); library(effectsize)
+
+# Sleep & circadian
+library(GGIR); library(ActCR); library(circacompare)
+library(cosinor); library(cosinor2)
+
+# Bayesian (no-stan / full profiles)
+library(brms); library(rstanarm); library(tidybayes)
+```
+
+## Shared Files
+
+Both services mount the same directory, so files created in one are immediately visible in the other:
+
+```
+Host machine:      ~/circadiaBase_Docker/
+                           │
+         ┌─────────────────┴─────────────────┐
+         ▼                                   ▼
+JupyterLab                            RStudio
+/home/jovyan/circadia_base/    /home/rstudio/circadia_base/
+```
+
+A practical workflow: clean and process raw actigraphy in Python → export a `.csv` → load it directly in RStudio for statistical modelling.
+
+Recommended project layout:
+
+```
+circadiaBase_Docker/
+├── data/
+│   ├── raw/          # Raw input files
+│   └── processed/    # Cleaned outputs
+├── notebooks/        # JupyterLab notebooks
+├── scripts/          # R and Python scripts
+├── figures/          # Generated plots
+└── results/          # Model outputs and tables
+```
+
+## Switching R Profiles
+
+To switch from `minimal` to a heavier profile, edit `.env` and rebuild:
+
+```bash
+RSTUDIO_PROFILE=full
+```
+
+```bash
+docker-compose build --no-cache rstudio
+docker-compose up
+```
+
+The JupyterLab image is unaffected — only RStudio rebuilds.
+
+## Troubleshooting
+
+**Cannot connect to JupyterLab or RStudio**
+
+Check that both containers are running:
+
+```bash
+docker ps
+```
+
+Both images should appear with status `Up`. If not, inspect the logs:
+
+```bash
+docker-compose logs
+```
+
+Make sure you are using the correct URLs — JupyterLab requires the `/lab` suffix: `http://localhost:8889/lab`.
+
+**Build fails with a package error**
+
+Try a clean rebuild:
+
+```bash
+docker-compose build --no-cache rstudio
+```
+
+**Port already in use**
+
+Edit `docker-compose.yml` and change the host port:
+
+```yaml
+ports:
+  - "8890:8888"   # use any free port
+```
+
+**Files not persisting after container restart**
+
+Save files inside the mounted volume:
+
+- JupyterLab: `/home/jovyan/<IMAGE_NAME>/`
+- RStudio: `/home/rstudio/<IMAGE_NAME>/`
+
+Files saved outside these paths (e.g. `/tmp`) are lost when the container stops.
+
+**Apple Silicon — RStudio not loading**
+
+Ensure **"Use Rosetta for x86/amd64 emulation"** is disabled in Docker Desktop. The RStudio service runs natively on ARM64.
+
+## Further Reading
+
+- [pyActigraphy documentation](https://pyactigraphy.readthedocs.io/)
+- [MNE-Python documentation](https://mne.tools/stable/index.html)
+- [YASA documentation](https://raphaelvallat.com/yasa/build/html/index.html)
+- [GGIR documentation](https://cran.r-project.org/web/packages/GGIR/vignettes/GGIR.html)
+- [circacompare on CRAN](https://cran.r-project.org/web/packages/circacompare/index.html)
+- [circadiaBase_Docker on GitHub](https://github.com/circadia-bio/circadiaBase_Docker)
