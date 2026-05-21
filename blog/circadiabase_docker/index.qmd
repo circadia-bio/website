@@ -1,7 +1,7 @@
 ---
 title: "Setting up circadiaBase Docker"
 description: "A step-by-step guide to spinning up the Circadia Lab's reproducible research environment — JupyterLab and RStudio Server in a single Docker Compose stack — for chronobiology and actigraphy research."
-date: "2025-06-01"
+date: "2026-05-21"
 author:
   - name: Lucas França
     orcid: 0000-0003-0853-1319
