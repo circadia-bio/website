@@ -195,21 +195,6 @@ div.quarto-about-trestles .about-entity .about-links .about-link {
   }
 }
 
-.quarto-dark .product-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.12);
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: $link-color;
-  }
-
-  .card-title { color: #e8f4fd; }
-  .card-desc  { color: rgba(232, 244, 253, 0.6); }
-}
-
-.product-card {
-
   .card-icon {
     font-size: 2.8rem;
     line-height: 1;
