@@ -1,6 +1,6 @@
 ---
 title: "ACTT Validation Study"
-subtitle: "Validating the ActTrust® actigraphy device"
+subtitle: "From Movement to METs: Validating the ActTrust® actigraphy device"
 description: "A fully reproducible R/Quarto pipeline validating the ActTrust® device for energy expenditure and physical activity classification, benchmarked against the ActiGraph® GT3X+ and indirect calorimetry."
 date: "2024-09-01"
 image: ../images/actt_validation.svg
@@ -9,17 +9,59 @@ categories: [Research Pipeline, Actigraphy, R, Reproducible Research]
 
 ## About
 
-This project provides a fully reproducible analysis pipeline for validating the ActTrust® actigraphy device as a tool for energy expenditure estimation and physical activity intensity classification in young adults.
+This repository contains all data and analysis code for a controlled laboratory validation of the **ActTrust® actigraphy device** (Condor Instruments, São Paulo, Brazil). The study compares ActTrust® activity counts to those from the ActiGraph® GT3X+ accelerometer, and relates both to metabolic equivalents (METs) measured by indirect calorimetry during a treadmill protocol in healthy young adults.
 
-The pipeline benchmarks ActTrust® against the ActiGraph® GT3X+ — a widely used reference device — and against indirect calorimetry as the gold standard. All analyses are implemented in R and rendered as a Quarto document, making every step fully auditable and reproducible.
+The entire analysis is implemented as a single Quarto notebook (`index.qmd`) that renders a self-contained HTML report with all figures, tables, and statistical outputs inline — making every step fully auditable and reproducible.
 
-## Methods
+> **Batista ES, Basilio Gomes SR, Morais Ferreira AB, França LGSF, Fontenele Araújo J, Mortatti AL, Leocadio-Miguel MA.**
+> *From Movement to METs: A Validation of ActTrust® for Energy Expenditure Estimation and Physical Activity Classification in Young Adults.*
+> bioRxiv 2025. [doi:10.1101/2025.05.16.654458](https://doi.org/10.1101/2025.05.16.654458)
 
-- Bland-Altman analysis for agreement between devices
-- Physical activity intensity classification benchmarking
-- Energy expenditure estimation validation
-- Fully reproducible R/Quarto pipeline
+## Study Design
+
+**56 healthy young adults** (34 men, 22 women; aged 18–35) completed a controlled treadmill protocol in a single laboratory session. Participants simultaneously wore four devices — two ActiGraph® GT3X+ and two ActTrust® units at hip and wrist — while oxygen uptake was measured breath-by-breath by indirect calorimetry (Quark CPET, Cosmed®).
+
+| Condition | Speed | Description |
+|---|---|---|
+| Rest | — | Seated, no movement |
+| Walking | 3 km/h | Slow walk |
+| Walking | 5 km/h | Brisk walk |
+| Walking/Running | 7 km/h | Fast walk / slow run |
+| Running | 9 km/h | Running |
+
+Each condition lasted 10 minutes, separated by 5-minute rest periods. Activity counts and METs were averaged over the central 4 minutes of each condition to exclude transition effects.
+
+## Key Contributions
+
+- **First published cut-points** for physical activity intensity classification using ActTrust® devices at hip and wrist placement
+- **General linear model** for estimating energy expenditure (METs) from ActTrust® counts, with device × placement interaction terms
+- **Balanced accuracies above 0.77** for all intensity ranges, exceeding 0.90 for light and moderate activity
+- **Bland-Altman analysis** of predicted vs measured METs per device × placement
+- **Sex-stratified supplementary analysis** addressing body composition differences
+
+## Derived Cut-points
+
+Physical activity intensity cut-points derived by inverting the regression model at MET thresholds of 3, 6, and 9 (counts/min):
+
+| Device (Placement) | Light < 3 METs | Moderate 3–6 METs | Vigorous 6–9 METs |
+|---|---|---|---|
+| ActTrust® hip | < 5057 | 5057–23339 | 23339–46410 |
+| ActTrust® wrist | < 3761 | 3761–22368 | 22368–47203 |
+| GT3X+ hip | < 1132 | 1132–4853 | 4853–9468 |
+| GT3X+ wrist | < 1698 | 1698–9503 | 9503–19787 |
+
+## Reproducibility
+
+The analysis can be reproduced in two ways:
+
+**RStudio** — open `ACTT_validation_study.Rproj` and render `index.qmd`.
+
+**Docker** — `docker-compose up` builds the full R environment and renders the notebook automatically.
+
+Data are archived on Zenodo: [doi:10.5281/zenodo.15315735](https://doi.org/10.5281/zenodo.15315735)
 
 ## Links
 
 - 💻 [GitHub](https://github.com/circadia-bio/ACTT_validation_study)
+- 📄 [Preprint (bioRxiv)](https://doi.org/10.1101/2025.05.16.654458)
+- 🗄️ [Data (Zenodo)](https://doi.org/10.5281/zenodo.15315735)

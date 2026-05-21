@@ -1,6 +1,6 @@
 ---
 title: "Cycling & EEG Entropy"
-subtitle: "Neural complexity during cycling and rest"
+subtitle: "Cycling reduces the entropy of neuronal activity in the human adult cortex"
 description: "An R analysis pipeline examining recurrence-matrix entropy in scalp EEG signals recorded during cycling and rest across four behavioural conditions in healthy adults."
 date: "2024-04-01"
 image: ../images/cycling_entropy.svg
@@ -9,17 +9,49 @@ categories: [Research Pipeline, EEG, R, Reproducible Research]
 
 ## About
 
-This project investigates how physical activity modulates neural complexity, using recurrence quantification analysis (RQA) applied to scalp EEG signals recorded from healthy adults during cycling and rest.
+This repository contains all data and analysis code for a study examining how physical activity modulates the complexity of cortical neural signals, using recurrence-matrix entropy (S_Max) computed from scalp EEG.
 
-EEG was recorded across four behavioural conditions, and recurrence-matrix entropy was computed as a measure of signal complexity. The analysis pipeline is fully implemented in R and designed for reproducibility.
+The analysis pipeline is fully implemented in R and renders a self-contained HTML report. Raw EEG and pre-computed entropy data are archived on OSF.
 
-## Methods
+> **Ferré IBS, Corso G, dos Santos Lima GZ, Lopes SR, Leocadio-Miguel MA, França LGS, de Lima Prado T, Araújo JF (2024).**
+> Cycling reduces the entropy of neuronal activity in the human adult cortex.
+> *PLOS ONE*, 19(10): e0298703. [doi:10.1371/journal.pone.0298703](https://doi.org/10.1371/journal.pone.0298703)
 
-- Scalp EEG recording across four conditions (rest and cycling at varying intensities)
-- Recurrence quantification analysis (RQA)
-- Recurrence-matrix entropy as a complexity measure
-- Fully reproducible R pipeline
+## Study Design
+
+**24 healthy adults** (13 women, 11 men; mean age ~21 years) performed four behavioural conditions — resting eyes open, resting eyes closed, cycling eyes open, and cycling eyes closed — on a horizontal stationary bicycle. EEG was recorded from eight bimodal electrode pairs covering frontal, central, parietal, and occipital scalp regions. Recurrence-matrix entropy (S_Max) was computed for each 300-sample window across the 2-minute recordings, producing 100 time points per condition per electrode.
+
+## Key Findings
+
+Cycling was associated with significantly reduced cortical entropy across all eight electrode sites compared to rest (all p ≤ 0.042), suggesting that physical activity organises neural dynamics toward lower complexity. A further entropy reduction was observed when cycling with eyes closed, most prominently at right occipital (p = 0.045) and left parietal (p = 0.006) sites.
+
+The eyes-open vs eyes-closed comparison at rest confirmed the expected entropy reduction in the occipital region (t = −2.657, p = 0.015) — consistent with well-established alpha-rhythm physiology and serving as a validation of the method.
+
+## Statistical Approach
+
+All models are generalised linear mixed models (GLMMs) with participant as a random effect, tested using 10,000-repetition two-sided permutation tests via the `ptestR` package:
+
+```r
+# Main effect: cycling vs resting
+med_entr ~ State + (1|sub)
+
+# Interaction: State × Eyes
+med_entr ~ State * Eyes + (1|sub)
+```
+
+## Analysis Pipeline
+
+The pre-computed entropy data in `data/` are the output of [`circadia-bio/maxEntropy`](https://github.com/circadia-bio/maxEntropy), a Julia script that computes S_Max from the raw EEG recordings. The R analysis then:
+
+1. Loads and reshapes all 32 entropy files (8 electrodes × 4 conditions) via `src/legacy.R`
+2. Fits permutation GLMMs per electrode in `translating.Rmd`
+3. Generates topographic scalp maps via `topoplots.Rmd`
+
+The environment can be reproduced via Docker (`docker-compose up`) or locally in R ≥ 4.3.
 
 ## Links
 
 - 💻 [GitHub](https://github.com/circadia-bio/cycling-entropy)
+- 📄 [Published paper (PLOS ONE)](https://doi.org/10.1371/journal.pone.0298703)
+- 🗄️ [Data (OSF)](https://doi.org/10.17605/OSF.IO/CW87P)
+- 🔗 [maxEntropy — entropy computation script](https://github.com/circadia-bio/maxEntropy)

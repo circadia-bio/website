@@ -9,15 +9,30 @@ categories: [Web App, Questionnaires, Open Source]
 
 ## About
 
-ScoreMe is a lightweight web app for scoring validated sleep and chronobiology questionnaires directly in the browser. No account, no installation, no data sent to any server — everything runs locally.
+ScoreMe is a lightweight web app for administering and scoring validated sleep and chronobiology questionnaires directly in the browser. Everything runs locally — no account is required, no data is sent to any server, and the app works fully offline once loaded.
 
-It is designed for clinicians and researchers who need a quick, reliable way to score questionnaires without setting up analysis software.
+It is designed for clinicians and researchers who need a reliable, zero-friction way to collect and score standardised questionnaire data without installing specialised software or building custom data entry forms. Participants can complete questionnaires on any device, and researchers can export the responses and computed scores as structured JSON for downstream analysis.
+
+## Supported Instruments
+
+ScoreMe supports a growing library of validated instruments. Current instruments include:
+
+- **ESS** — Epworth Sleepiness Scale
+- **ISI** — Insomnia Severity Index
+- **MEQ** — Morningness–Eveningness Questionnaire
+- **PSQI** — Pittsburgh Sleep Quality Index
+- **STOP-BANG** — Sleep apnoea screening tool
+
+## Ecosystem
+
+ScoreMe is part of a broader open-source toolkit. The companion R package [tallieR](https://tallier.circadia-lab.uk) reads the JSON exports produced by ScoreMe, re-scores instruments using auditable algorithms, and returns tidy data frames ready for analysis — including longitudinal data, item-level outputs for reliability analysis, and custom instrument definitions.
 
 ## Features
 
-- Supports a growing library of validated instruments (PSQI, ESS, ISI, MEQ, and more)
-- Instant scoring in the browser
-- No installation or account required
+- Instant browser-based questionnaire administration
+- Automatic scoring with interpretation labels
+- JSON export of responses and scores
+- No installation, no account, no data transmission
 - Fully open source
 
 ## Links

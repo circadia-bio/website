@@ -11,15 +11,30 @@ categories: [Mobile App, Sleep, Open Source, React Native]
 
 Sleep Diaries is an open-source mobile app for collecting sleep diary data in clinical and research settings. Built with React Native and Expo, it runs on both iOS and Android and is designed with accessibility and inclusive research in mind.
 
-Participants complete brief morning and evening questionnaires. The app computes standard sleep diary variables automatically and stores everything locally on the device until the study ends, at which point data can be exported as CSV or JSON.
+Sleep diaries are a cornerstone of clinical sleep assessment and cognitive behavioural therapy for insomnia (CBT-I). Participants complete brief morning and evening questionnaires each day. The app computes standard sleep diary variables — including sleep onset latency, wake after sleep onset, total sleep time, sleep efficiency, and time in bed — automatically from each entry. All data is stored locally on the device and never transmitted until the participant chooses to export it.
+
+## Questionnaire Structure
+
+Each diary entry consists of two parts completed at fixed times of day:
+
+**Evening questionnaire** — captures the day's behaviours: caffeine and alcohol intake, exercise, napping, medication, and a subjective mood and alertness rating.
+
+**Morning questionnaire** — captures the preceding night: bedtime, lights-out time, sleep onset, number and duration of nocturnal awakenings, final wake time, and rise time, plus a subjective sleep quality rating.
+
+From these entries the app derives the full set of consensus sleep diary variables as defined by the Consensus Sleep Diary (CSD) framework.
 
 ## Features
 
-- Morning & evening questionnaires
-- Automatic computation of sleep metrics (sleep onset, wake time, sleep efficiency, and more)
-- CSV and JSON data export
-- Push notification reminders
-- Fully open source
+- Morning and evening questionnaires following the Consensus Sleep Diary framework
+- Automatic computation of derived sleep variables (SOL, WASO, TST, SE, TIB)
+- CSV and JSON data export for downstream analysis
+- Push notification reminders at configurable times
+- Works fully offline — no account or internet connection required
+- Accessibility-first design
+
+## Ecosystem
+
+Sleep Diaries is part of a broader open-source toolkit. The companion R package [slumbR](https://slumbr.circadia-lab.uk) reads the JSON export files produced by the app, computes participant-level summaries, and returns tidy data frames ready for statistical modelling.
 
 ## Links
 

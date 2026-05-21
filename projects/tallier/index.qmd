@@ -9,18 +9,68 @@ categories: [R Package, Questionnaires, Open Source]
 
 ## About
 
-tallieR is the official R companion to ScoreMe. It reads ScoreMe export files, re-scores instruments using validated algorithms, and returns tidy data frames ready for analysis. It supports longitudinal data, custom instruments, and reliability analysis.
+tallieR is the official R companion to [ScoreMe](https://scoreme.circadia-lab.uk). It reads ScoreMe JSON export files — one at a time or in bulk from a study directory — rescores all instruments from raw item responses using auditable, validated algorithms, and returns tidy data frames ready for statistical analysis.
+
+The package is built around four output formats to support different analysis needs: a wide score table (one row per participant, one column per questionnaire), a long score table (full administration history), an item-level table for reliability analysis or IRT, and interpretation labels with colour coding for clinical use.
+
+## Workflow
+
+```r
+library(tallieR)
+
+# Read a ScoreMe export
+exp <- read_scoreme("path/to/export.json")
+
+# Wide table — one row per participant
+wide <- scores_wide(exp)
+
+# Long table — full history, one row per administration
+long <- scores_long(exp)
+
+# Item-level data — one row per item response
+items <- items_long(exp)
+```
+
+## Scoring and Interpretation
+
+tallieR rescores questionnaires from raw item responses by default, so computed scores are always reproducible and verifiable. Scoring functions can also be called directly:
+
+```r
+score_questionnaire("ess", list(ess1 = 2, ess2 = 1, ...))
+interpret_score("ess", 10)
+# $label: "Excessive"
+# $description: "Excessive daytime sleepiness. Consider clinical review."
+```
+
+The PSQI returns all seven component scores alongside the global score. Custom instruments can be defined via YAML and used immediately with the same API.
+
+## Supported Instruments
+
+| ID | Instrument |
+|---|---|
+| `ess` | Epworth Sleepiness Scale |
+| `isi` | Insomnia Severity Index |
+| `meq` | Morningness–Eveningness Questionnaire |
+| `psqi` | Pittsburgh Sleep Quality Index |
+| `stopbang` | STOP-BANG |
 
 ## Features
 
-- Import ScoreMe JSON exports
-- Re-score validated instruments with auditable algorithms
+- Import ScoreMe JSON exports — single file or full study directory
+- Rescore all instruments from raw item responses
+- Wide, long, and item-level output formats
+- Interpretation labels and colour codes for clinical use
 - Longitudinal data support
-- Reliability analysis (Cronbach's alpha, inter-rater reliability)
-- Custom instrument definitions
+- Reliability analysis (Cronbach's α, inter-rater reliability)
+- Custom instrument definitions via YAML
+
+## Status
+
+tallieR is in early development. Scoring algorithms have not been validated against all reference implementations. Use with caution and verify outputs independently before using in research.
 
 ## Links
 
 - 🌐 [Documentation](https://tallier.circadia-lab.uk)
+- 📖 [Getting started vignette](https://tallier.circadia-lab.uk/articles/getting-started)
 - 💻 [GitHub](https://github.com/circadia-bio/tallieR)
 - 🖥️ [ScoreMe web app](https://scoreme.circadia-lab.uk)

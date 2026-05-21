@@ -1,6 +1,6 @@
 ---
 title: "Circadian Phenotyping in Visual Impairment"
-subtitle: "Data-driven circadian phenotyping using actigraphy"
+subtitle: "Low-latitude environmental regularity sustains non-photic entrainment in blind adults"
 description: "A data-driven framework for identifying circadian phenotypes in visually impaired participants using non-parametric actigraphy metrics, dimensionality reduction, clustering, and SHAP-based interpretation."
 date: "2025-02-01"
 image: ../images/actigraphy_clustering.svg
@@ -9,18 +9,56 @@ categories: [Research Pipeline, Actigraphy, Chronobiology, Python, Reproducible 
 
 ## About
 
-This project develops a data-driven framework for identifying and characterising circadian phenotypes in visually impaired participants, who lack the primary light input that synchronises circadian rhythms in sighted individuals.
+This repository contains three integrated Jupyter notebooks implementing a modular Python pipeline for extracting, contextualising, and clustering circadian and sleep features from wrist actigraphy data. The pipeline was developed for a study of blind adults living near the equator in northeastern Brazil, and is readily adaptable to other actigraphy datasets.
 
-Non-parametric actigraphy metrics are used as features, with dimensionality reduction and clustering applied to identify phenotypic groups. SHAP values provide interpretable explanations of which actigraphy features drive each phenotype.
+> **Pugliane KC, França LGS, Leocadio-Miguel M, Araújo JF (2026).**
+> Low-latitude environmental regularity sustains non-photic entrainment in blind adults.
+> *bioRxiv*. [doi:10.64898/2026.03.19.712663](https://doi.org/10.64898/2026.03.19.712663)
 
-## Methods
+## Scientific Context
 
-- Non-parametric actigraphy metrics (IS, IV, RA, M10, L5, and more)
-- Dimensionality reduction (UMAP)
-- Unsupervised clustering
-- SHAP-based feature interpretation
-- Statistical comparison across phenotypic groups
+Most research on circadian rhythms in blind individuals has been conducted at high latitudes (North America, Europe), where pronounced seasonal variation in photoperiod may compound the loss of photic entrainment cues. This study asked whether the exceptionally stable environmental conditions near the equator (~5°S, Rio Grande do Norte, Brazil) — minimal photoperiod variation (~44 min annual amplitude) and stable temperature (~27°C year-round) — could sustain circadian entrainment even in the absence of light perception.
+
+## Study Design
+
+**58 blind adults** (21–77 years; 43.1% female) wore wrist actigraphy continuously for four weeks. Pupillary light reflex (PLR) was used as a proxy for intact ipRGC photoreception (22 reactive, 36 non-reactive). A semi-supervised machine learning approach — combining PCA, KMeans clustering, and SHAP feature importance — was applied to 23 non-parametric actigraphy variables.
+
+Two distinct circadian phenotypes emerged:
+
+| Phenotype | n | Key characteristics |
+|---|---|---|
+| **Higher Circadian Stability (HCS)** | 42 (72%) | High RA, IS, QPActivity, LRI; consolidated rhythms |
+| **Lower Circadian Stability (LCS)** | 16 (28%) | Fragmented rhythms, lower regularity and amplitude |
+
+Notably, 64% of PLR-non-reactive individuals fell in the HCS group — approximately 1.6× higher than previously reported for blind cohorts at higher latitudes. Cluster membership explained substantially more variance in circadian metrics than PLR status alone (e.g., RA: R² = 0.61 for cluster vs R² = 0.15 for PLR).
+
+## Pipeline Structure
+
+| Notebook | Description |
+|---|---|
+| `geographical_and_seasonal_context` | Maps participant location, estimates photoperiod via `astral`, retrieves NASA POWER temperature and radiation data |
+| `nonparametric_actigraphy_feature_extraction` | Loads actigraphy files, applies off-wrist masks, extracts 23 non-parametric circadian and sleep variables via `pyActigraphy` |
+| `nonparametric_actigraphy_clustering` | Z-score normalisation → multicollinearity screening → PCA → KMeans → Random Forest + SHAP feature importance → between-group comparisons |
+
+## Actigraphy Features
+
+The pipeline extracts variables spanning four circadian domains:
+
+**Stability** — IS (interdaily stability), SRI (sleep regularity index)
+
+**Fragmentation** — IV (intradaily variability), kRA (rest-to-activity probability), kAR (activity-to-rest probability), FSoD
+
+**Amplitude** — RA (relative amplitude), M10, L5, ADAT
+
+**Phase** — sleep midpoint, M10 onset, L5 onset, centre of gravity
+
+**Light exposure** — LRI (light regularity index), M10/L5 light onset
+
+**Frequency domain** — QP statistic and period estimate for activity, light, and temperature
 
 ## Links
 
 - 💻 [GitHub](https://github.com/circadia-bio/nonparametric-actigraphy-clustering)
+- 📄 [Preprint (bioRxiv)](https://doi.org/10.64898/2026.03.19.712663)
+- 🗄️ [Software archive (Zenodo)](https://doi.org/10.5281/zenodo.18922404)
+- ☁️ [Run in Google Colab](https://colab.research.google.com/github/Pugliane/nonparametric-actigraphy-clustering/blob/main/nonparametric_actigraphy_clustering.ipynb)

@@ -9,23 +9,76 @@ categories: [Infrastructure, Docker, Python, R]
 
 ## About
 
-circadiaBase Docker is a reproducible containerised environment for chronobiology and actigraphy research. It bundles a Jupyter notebook server and an RStudio server into a single Docker Compose setup, so any lab member can spin up a full analysis stack with one command, regardless of their local OS.
+circadiaBase Docker is a reproducible containerised research environment for the Circadia Lab. It packages a fully pinned Python and R stack into two Docker services — JupyterLab and RStudio Server — that share the same project volume and can be launched together with a single command. The goal is to eliminate "works on my machine" problems across collaborators, operating systems, and time.
 
-The environment pins all critical dependencies to ensure reproducibility across machines and time.
+The environment includes `condor_pipeline`, the Circadia Lab's core actigraphy sleep analysis library, installed in editable mode so that changes to the source are reflected immediately without rebuilding the image.
 
-## Stack
+## Services
 
-**Python (Jupyter)**
+| Service | URL | Description |
+|---|---|---|
+| JupyterLab | `localhost:8889` | Python 3.11 environment for actigraphy, EEG, entropy, and circadian modelling |
+| RStudio Server | `localhost:8787` | R 4.4 environment for sleep and circadian statistical analyses |
 
-- Python 3.11
-- pyActigraphy, NumPy, scikit-learn, and more
+Both services share the same mounted volume, so notebooks and scripts can read and write the same files regardless of which interface they are opened in.
 
-**R (RStudio)**
+## Quick Start
 
-- R 4.4 (rocker/rstudio)
-- GGIR, ActCR, circacompare, cosinor, lunaR
-- brms, rstanarm, lme4, lmerTest
-- tidyverse, ggplot2 extensions
+```bash
+git clone https://github.com/circadia-bio/circadiaBase_Docker.git
+cd circadiaBase_Docker
+cp .env.example .env
+docker-compose up --build
+```
+
+## Python Stack
+
+| Package | Purpose |
+|---|---|
+| pyActigraphy | Actigraphy parsing and non-parametric metrics (IS, IV, RA, M10, L5, SRI, cosinor, SSA) |
+| MNE | EEG and MEG signal processing |
+| YASA | Automatic sleep staging from EEG |
+| EntropyHub | Entropy methods for physiological time series |
+| scikit-learn | Machine learning (clustering, classification, dimensionality reduction) |
+| numpy, scipy, pandas, matplotlib, seaborn, statsmodels, plotly | Core scientific stack |
+
+**Note on Python version:** pyActigraphy's `accelerometer` dependency requires Python < 3.12, making 3.11 the effective ceiling for this environment.
+
+## R Stack
+
+**ggplot2 extensions** — `ggpubr`, `ggrepel`, `ggridges`, `patchwork`, `cowplot`, `viridis`
+
+**Statistics** — `lme4`, `lmerTest`, `emmeans`, `MuMIn`, `effectsize`, `performance`
+
+**Bayesian** — `brms`, `rstanarm`, `bayesplot`, `tidybayes` *(full profile)*
+
+**Sleep & circadian** — `GGIR`, `ActCR`, `circacompare`, `cosinor`, `cosinor2`, `lunaR`
+
+## Build Profiles
+
+The RStudio service supports three build profiles selectable via `RSTUDIO_PROFILE` in `.env`:
+
+| Profile | Stan | lunaR | Build time |
+|---|---|---|---|
+| `minimal` | ❌ | ❌ | ~5–8 min |
+| `no-stan` | ❌ | ✅ | ~10–15 min |
+| `full` | ✅ | ✅ | ~30–40 min |
+
+## condor_pipeline
+
+The environment includes `condor_pipeline`, the Circadia Lab's internal actigraphy sleep analysis library. It provides a high-level `SleepPipeline` orchestrator for single-file and batch processing of ActTrust and Actiwatch data, with modules for off-wrist detection, sleep period detection, WASO estimation, and actogram visualisation.
+
+```python
+from condor_pipeline.pipeline import SleepPipeline
+
+pipe = SleepPipeline("data/raw/subject_01.txt", device="acttrust")
+result = pipe.run()
+result.plot()
+```
+
+## GitHub Actions
+
+A bundled workflow auto-generates `.env` from the repository name on every push to `main`, so collaborators forking or templating the repo never need to configure the image name manually. On the first push to a new repo, the workflow also resets the README to a Circadia Lab stub template.
 
 ## Links
 

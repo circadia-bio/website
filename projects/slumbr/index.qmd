@@ -9,17 +9,46 @@ categories: [R Package, Sleep, Open Source]
 
 ## About
 
-slumbR is the official R companion to the Sleep Diaries app. When a study ends, participants export their data as a JSON file. slumbR reads those files — one per participant or in batch — computes sleep diary variables, and returns tidy data frames ready for statistical analysis.
+slumbR is the official R companion to the [Sleep Diaries app](https://sleepdiaries.circadia-lab.uk). When a study ends, participants export their data as a JSON file from the app. slumbR reads those files — one at a time or in batch across a full study — computes the complete set of sleep diary variables, and returns tidy data frames ready for statistical analysis.
+
+The package is designed around three contrasting participant archetypes included as example data: a chronic insomnia patient with an evening chronotype, a healthy morning-type sleeper, and a rotating night-shift nurse with extreme social jetlag — covering the range of profiles a researcher is likely to encounter in practice.
+
+## Data Structure
+
+`read_study()` returns a `slumbr_study` object with three slots:
+
+- **`$diary`** — long-format data frame, one row per diary entry. Morning entries are automatically enriched with derived sleep variables.
+- **`$wide`** — wide-format data frame, one row per participant × night, with `m_` and `e_` prefixes for morning and evening entries respectively.
+- **`$scores`** — questionnaire results, one row per participant × instrument.
+
+## Computed Variables
+
+From each morning entry, slumbR derives the full set of consensus sleep diary variables:
+
+| Variable | Description |
+|---|---|
+| `sol_min` | Sleep onset latency (minutes) |
+| `waso_min` | Wake after sleep onset (minutes) |
+| `tst_min` | Total sleep time: TIB − SOL − WASO |
+| `tib_min` | Time in bed |
+| `se_pct` | Sleep efficiency: TST / TIB × 100 |
+| `sleep_quality` | Subjective sleep quality rating |
 
 ## Features
 
-- Import Sleep Diaries JSON exports (single file or batch)
-- Compute standard sleep diary variables (sleep onset, wake time, total sleep time, sleep efficiency, and more)
-- Tidy output compatible with the tidyverse
-- Visualisation helpers for sleep diary data
+- Import Sleep Diaries JSON exports — single file or full study directory
+- Automatic derivation of consensus sleep diary variables
+- Long and wide output formats
+- Participant-level summary statistics via `study_summary()`
+- Tidy output compatible with the tidyverse and standard modelling functions
+
+## Status
+
+slumbR is in early development. The API may change without notice and scoring algorithms have not yet been validated against reference implementations. Use with caution and verify outputs independently before using in any research context.
 
 ## Links
 
 - 🌐 [Documentation](https://slumbr.circadia-lab.uk)
+- 📖 [Getting started vignette](https://slumbr.circadia-lab.uk/articles/getting-started)
 - 💻 [GitHub](https://github.com/circadia-bio/slumbR)
 - 📱 [Sleep Diaries app](https://sleepdiaries.circadia-lab.uk)

@@ -9,19 +9,29 @@ categories: [Wearables, Firmware, In Development]
 
 ## About
 
-The PineTime Research Platform is an open-source wearable data collection system built on the [PineTime](https://www.pine64.org/pinetime/) smartwatch — an affordable, open-hardware device. The platform comprises two components: a custom firmware fork optimised for research use, and a companion web app for device configuration and data offload.
+The PineTime Research Platform is an open-source wearable data collection system built on the [PineTime](https://www.pine64.org/pinetime/) smartwatch — an affordable (~$27), open-hardware device designed for hacking and research. The platform aims to provide chronobiology researchers with a low-cost, fully transparent wrist-worn sensor for continuous data collection in naturalistic settings.
+
+The project comprises two components: a custom firmware fork optimised for research data collection, and a companion web app for wireless device configuration and data offload.
 
 This project is currently in active development.
 
 ## Components
 
 **pinetime-research-firmware**
-A fork of [InfiniTime](https://github.com/InfiniTimeOrg/InfiniTime) with modifications for research data collection, including configurable sampling rates and storage optimisation.
+
+A fork of [InfiniTime](https://github.com/InfiniTimeOrg/InfiniTime) — the primary open-source firmware for the PineTime — with modifications oriented toward research use. The PineTime hardware includes a triaxial accelerometer (BMA425), heart rate sensor (HRS3300), and Bluetooth Low Energy radio, making it a capable platform for continuous actigraphy, heart rate monitoring, and step counting in free-living conditions.
 
 **infinitime-webapp**
-A companion web app for wirelessly configuring the device and offloading collected data without requiring specialist software.
+
+A companion web app that communicates with the PineTime over BLE using the Web Bluetooth API. It allows researchers to configure the device remotely (sampling rates, recording windows, participant IDs) and offload collected data without requiring any native software installation.
+
+## Why PineTime?
+
+Commercial research-grade actigraphy devices are expensive, closed-source, and often require proprietary software for data export. The PineTime offers an open alternative: the hardware schematics and firmware are fully open, the device is inexpensive enough to deploy at scale, and the community ecosystem means firmware modifications are well-documented and maintainable.
 
 ## Links
 
 - 💻 [Firmware — GitHub](https://github.com/circadia-bio/pinetime-research-firmware)
 - 💻 [Web app — GitHub](https://github.com/circadia-bio/infinitime-webapp)
+- 🔗 [InfiniTime upstream](https://github.com/InfiniTimeOrg/InfiniTime)
+- 🔗 [PineTime hardware](https://www.pine64.org/pinetime/)
