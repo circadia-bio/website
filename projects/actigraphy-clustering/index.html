@@ -344,7 +344,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Circadian Phenotyping in Visual Impairment</h1>
-<p class="subtitle lead">Data-driven circadian phenotyping using actigraphy</p>
+<p class="subtitle lead">Low-latitude environmental regularity sustains non-photic entrainment in blind adults</p>
   <div class="quarto-categories">
     <div class="quarto-category">Research Pipeline</div>
     <div class="quarto-category">Actigraphy</div>
@@ -381,23 +381,93 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="about" class="level2">
 <h2 class="anchored" data-anchor-id="about">About</h2>
-<p>This project develops a data-driven framework for identifying and characterising circadian phenotypes in visually impaired participants, who lack the primary light input that synchronises circadian rhythms in sighted individuals.</p>
-<p>Non-parametric actigraphy metrics are used as features, with dimensionality reduction and clustering applied to identify phenotypic groups. SHAP values provide interpretable explanations of which actigraphy features drive each phenotype.</p>
+<p>This repository contains three integrated Jupyter notebooks implementing a modular Python pipeline for extracting, contextualising, and clustering circadian and sleep features from wrist actigraphy data. The pipeline was developed for a study of blind adults living near the equator in northeastern Brazil, and is readily adaptable to other actigraphy datasets.</p>
+<blockquote class="blockquote">
+<p><strong>Pugliane KC, França LGS, Leocadio-Miguel M, Araújo JF (2026).</strong> Low-latitude environmental regularity sustains non-photic entrainment in blind adults. <em>bioRxiv</em>. <a href="https://doi.org/10.64898/2026.03.19.712663">doi:10.64898/2026.03.19.712663</a></p>
+</blockquote>
 </section>
-<section id="methods" class="level2">
-<h2 class="anchored" data-anchor-id="methods">Methods</h2>
-<ul>
-<li>Non-parametric actigraphy metrics (IS, IV, RA, M10, L5, and more)</li>
-<li>Dimensionality reduction (UMAP)</li>
-<li>Unsupervised clustering</li>
-<li>SHAP-based feature interpretation</li>
-<li>Statistical comparison across phenotypic groups</li>
-</ul>
+<section id="scientific-context" class="level2">
+<h2 class="anchored" data-anchor-id="scientific-context">Scientific Context</h2>
+<p>Most research on circadian rhythms in blind individuals has been conducted at high latitudes (North America, Europe), where pronounced seasonal variation in photoperiod may compound the loss of photic entrainment cues. This study asked whether the exceptionally stable environmental conditions near the equator (~5°S, Rio Grande do Norte, Brazil) — minimal photoperiod variation (~44 min annual amplitude) and stable temperature (~27°C year-round) — could sustain circadian entrainment even in the absence of light perception.</p>
+</section>
+<section id="study-design" class="level2">
+<h2 class="anchored" data-anchor-id="study-design">Study Design</h2>
+<p><strong>58 blind adults</strong> (21–77 years; 43.1% female) wore wrist actigraphy continuously for four weeks. Pupillary light reflex (PLR) was used as a proxy for intact ipRGC photoreception (22 reactive, 36 non-reactive). A semi-supervised machine learning approach — combining PCA, KMeans clustering, and SHAP feature importance — was applied to 23 non-parametric actigraphy variables.</p>
+<p>Two distinct circadian phenotypes emerged:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Phenotype</th>
+<th>n</th>
+<th>Key characteristics</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Higher Circadian Stability (HCS)</strong></td>
+<td>42 (72%)</td>
+<td>High RA, IS, QPActivity, LRI; consolidated rhythms</td>
+</tr>
+<tr class="even">
+<td><strong>Lower Circadian Stability (LCS)</strong></td>
+<td>16 (28%)</td>
+<td>Fragmented rhythms, lower regularity and amplitude</td>
+</tr>
+</tbody>
+</table>
+<p>Notably, 64% of PLR-non-reactive individuals fell in the HCS group — approximately 1.6× higher than previously reported for blind cohorts at higher latitudes. Cluster membership explained substantially more variance in circadian metrics than PLR status alone (e.g., RA: R² = 0.61 for cluster vs R² = 0.15 for PLR).</p>
+</section>
+<section id="pipeline-structure" class="level2">
+<h2 class="anchored" data-anchor-id="pipeline-structure">Pipeline Structure</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Notebook</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>geographical_and_seasonal_context</code></td>
+<td>Maps participant location, estimates photoperiod via <code>astral</code>, retrieves NASA POWER temperature and radiation data</td>
+</tr>
+<tr class="even">
+<td><code>nonparametric_actigraphy_feature_extraction</code></td>
+<td>Loads actigraphy files, applies off-wrist masks, extracts 23 non-parametric circadian and sleep variables via <code>pyActigraphy</code></td>
+</tr>
+<tr class="odd">
+<td><code>nonparametric_actigraphy_clustering</code></td>
+<td>Z-score normalisation → multicollinearity screening → PCA → KMeans → Random Forest + SHAP feature importance → between-group comparisons</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="actigraphy-features" class="level2">
+<h2 class="anchored" data-anchor-id="actigraphy-features">Actigraphy Features</h2>
+<p>The pipeline extracts variables spanning four circadian domains:</p>
+<p><strong>Stability</strong> — IS (interdaily stability), SRI (sleep regularity index)</p>
+<p><strong>Fragmentation</strong> — IV (intradaily variability), kRA (rest-to-activity probability), kAR (activity-to-rest probability), FSoD</p>
+<p><strong>Amplitude</strong> — RA (relative amplitude), M10, L5, ADAT</p>
+<p><strong>Phase</strong> — sleep midpoint, M10 onset, L5 onset, centre of gravity</p>
+<p><strong>Light exposure</strong> — LRI (light regularity index), M10/L5 light onset</p>
+<p><strong>Frequency domain</strong> — QP statistic and period estimate for activity, light, and temperature</p>
 </section>
 <section id="links" class="level2">
 <h2 class="anchored" data-anchor-id="links">Links</h2>
 <ul>
 <li>💻 <a href="https://github.com/circadia-bio/nonparametric-actigraphy-clustering">GitHub</a></li>
+<li>📄 <a href="https://doi.org/10.64898/2026.03.19.712663">Preprint (bioRxiv)</a></li>
+<li>🗄️ <a href="https://doi.org/10.5281/zenodo.18922404">Software archive (Zenodo)</a></li>
+<li>☁️ <a href="https://colab.research.google.com/github/Pugliane/nonparametric-actigraphy-clustering/blob/main/nonparametric_actigraphy_clustering.ipynb">Run in Google Colab</a></li>
 </ul>
 
 

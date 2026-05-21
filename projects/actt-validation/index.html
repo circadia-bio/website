@@ -344,7 +344,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">ACTT Validation Study</h1>
-<p class="subtitle lead">Validating the ActTrust® actigraphy device</p>
+<p class="subtitle lead">From Movement to METs: Validating the ActTrust® actigraphy device</p>
   <div class="quarto-categories">
     <div class="quarto-category">Research Pipeline</div>
     <div class="quarto-category">Actigraphy</div>
@@ -380,22 +380,122 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="about" class="level2">
 <h2 class="anchored" data-anchor-id="about">About</h2>
-<p>This project provides a fully reproducible analysis pipeline for validating the ActTrust® actigraphy device as a tool for energy expenditure estimation and physical activity intensity classification in young adults.</p>
-<p>The pipeline benchmarks ActTrust® against the ActiGraph® GT3X+ — a widely used reference device — and against indirect calorimetry as the gold standard. All analyses are implemented in R and rendered as a Quarto document, making every step fully auditable and reproducible.</p>
+<p>This repository contains all data and analysis code for a controlled laboratory validation of the <strong>ActTrust® actigraphy device</strong> (Condor Instruments, São Paulo, Brazil). The study compares ActTrust® activity counts to those from the ActiGraph® GT3X+ accelerometer, and relates both to metabolic equivalents (METs) measured by indirect calorimetry during a treadmill protocol in healthy young adults.</p>
+<p>The entire analysis is implemented as a single Quarto notebook (<code>index.qmd</code>) that renders a self-contained HTML report with all figures, tables, and statistical outputs inline — making every step fully auditable and reproducible.</p>
+<blockquote class="blockquote">
+<p><strong>Batista ES, Basilio Gomes SR, Morais Ferreira AB, França LGSF, Fontenele Araújo J, Mortatti AL, Leocadio-Miguel MA.</strong> <em>From Movement to METs: A Validation of ActTrust® for Energy Expenditure Estimation and Physical Activity Classification in Young Adults.</em> bioRxiv 2025. <a href="https://doi.org/10.1101/2025.05.16.654458">doi:10.1101/2025.05.16.654458</a></p>
+</blockquote>
 </section>
-<section id="methods" class="level2">
-<h2 class="anchored" data-anchor-id="methods">Methods</h2>
+<section id="study-design" class="level2">
+<h2 class="anchored" data-anchor-id="study-design">Study Design</h2>
+<p><strong>56 healthy young adults</strong> (34 men, 22 women; aged 18–35) completed a controlled treadmill protocol in a single laboratory session. Participants simultaneously wore four devices — two ActiGraph® GT3X+ and two ActTrust® units at hip and wrist — while oxygen uptake was measured breath-by-breath by indirect calorimetry (Quark CPET, Cosmed®).</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Condition</th>
+<th>Speed</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Rest</td>
+<td>—</td>
+<td>Seated, no movement</td>
+</tr>
+<tr class="even">
+<td>Walking</td>
+<td>3 km/h</td>
+<td>Slow walk</td>
+</tr>
+<tr class="odd">
+<td>Walking</td>
+<td>5 km/h</td>
+<td>Brisk walk</td>
+</tr>
+<tr class="even">
+<td>Walking/Running</td>
+<td>7 km/h</td>
+<td>Fast walk / slow run</td>
+</tr>
+<tr class="odd">
+<td>Running</td>
+<td>9 km/h</td>
+<td>Running</td>
+</tr>
+</tbody>
+</table>
+<p>Each condition lasted 10 minutes, separated by 5-minute rest periods. Activity counts and METs were averaged over the central 4 minutes of each condition to exclude transition effects.</p>
+</section>
+<section id="key-contributions" class="level2">
+<h2 class="anchored" data-anchor-id="key-contributions">Key Contributions</h2>
 <ul>
-<li>Bland-Altman analysis for agreement between devices</li>
-<li>Physical activity intensity classification benchmarking</li>
-<li>Energy expenditure estimation validation</li>
-<li>Fully reproducible R/Quarto pipeline</li>
+<li><strong>First published cut-points</strong> for physical activity intensity classification using ActTrust® devices at hip and wrist placement</li>
+<li><strong>General linear model</strong> for estimating energy expenditure (METs) from ActTrust® counts, with device × placement interaction terms</li>
+<li><strong>Balanced accuracies above 0.77</strong> for all intensity ranges, exceeding 0.90 for light and moderate activity</li>
+<li><strong>Bland-Altman analysis</strong> of predicted vs measured METs per device × placement</li>
+<li><strong>Sex-stratified supplementary analysis</strong> addressing body composition differences</li>
 </ul>
+</section>
+<section id="derived-cut-points" class="level2">
+<h2 class="anchored" data-anchor-id="derived-cut-points">Derived Cut-points</h2>
+<p>Physical activity intensity cut-points derived by inverting the regression model at MET thresholds of 3, 6, and 9 (counts/min):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Device (Placement)</th>
+<th>Light &lt; 3 METs</th>
+<th>Moderate 3–6 METs</th>
+<th>Vigorous 6–9 METs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ActTrust® hip</td>
+<td>&lt; 5057</td>
+<td>5057–23339</td>
+<td>23339–46410</td>
+</tr>
+<tr class="even">
+<td>ActTrust® wrist</td>
+<td>&lt; 3761</td>
+<td>3761–22368</td>
+<td>22368–47203</td>
+</tr>
+<tr class="odd">
+<td>GT3X+ hip</td>
+<td>&lt; 1132</td>
+<td>1132–4853</td>
+<td>4853–9468</td>
+</tr>
+<tr class="even">
+<td>GT3X+ wrist</td>
+<td>&lt; 1698</td>
+<td>1698–9503</td>
+<td>9503–19787</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="reproducibility" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility">Reproducibility</h2>
+<p>The analysis can be reproduced in two ways:</p>
+<p><strong>RStudio</strong> — open <code>ACTT_validation_study.Rproj</code> and render <code>index.qmd</code>.</p>
+<p><strong>Docker</strong> — <code>docker-compose up</code> builds the full R environment and renders the notebook automatically.</p>
+<p>Data are archived on Zenodo: <a href="https://doi.org/10.5281/zenodo.15315735">doi:10.5281/zenodo.15315735</a></p>
 </section>
 <section id="links" class="level2">
 <h2 class="anchored" data-anchor-id="links">Links</h2>
 <ul>
 <li>💻 <a href="https://github.com/circadia-bio/ACTT_validation_study">GitHub</a></li>
+<li>📄 <a href="https://doi.org/10.1101/2025.05.16.654458">Preprint (bioRxiv)</a></li>
+<li>🗄️ <a href="https://doi.org/10.5281/zenodo.15315735">Data (Zenodo)</a></li>
 </ul>
 
 

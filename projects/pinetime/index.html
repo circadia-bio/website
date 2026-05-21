@@ -379,19 +379,28 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="about" class="level2">
 <h2 class="anchored" data-anchor-id="about">About</h2>
-<p>The PineTime Research Platform is an open-source wearable data collection system built on the <a href="https://www.pine64.org/pinetime/">PineTime</a> smartwatch — an affordable, open-hardware device. The platform comprises two components: a custom firmware fork optimised for research use, and a companion web app for device configuration and data offload.</p>
+<p>The PineTime Research Platform is an open-source wearable data collection system built on the <a href="https://www.pine64.org/pinetime/">PineTime</a> smartwatch — an affordable (~$27), open-hardware device designed for hacking and research. The platform aims to provide chronobiology researchers with a low-cost, fully transparent wrist-worn sensor for continuous data collection in naturalistic settings.</p>
+<p>The project comprises two components: a custom firmware fork optimised for research data collection, and a companion web app for wireless device configuration and data offload.</p>
 <p>This project is currently in active development.</p>
 </section>
 <section id="components" class="level2">
 <h2 class="anchored" data-anchor-id="components">Components</h2>
-<p><strong>pinetime-research-firmware</strong> A fork of <a href="https://github.com/InfiniTimeOrg/InfiniTime">InfiniTime</a> with modifications for research data collection, including configurable sampling rates and storage optimisation.</p>
-<p><strong>infinitime-webapp</strong> A companion web app for wirelessly configuring the device and offloading collected data without requiring specialist software.</p>
+<p><strong>pinetime-research-firmware</strong></p>
+<p>A fork of <a href="https://github.com/InfiniTimeOrg/InfiniTime">InfiniTime</a> — the primary open-source firmware for the PineTime — with modifications oriented toward research use. The PineTime hardware includes a triaxial accelerometer (BMA425), heart rate sensor (HRS3300), and Bluetooth Low Energy radio, making it a capable platform for continuous actigraphy, heart rate monitoring, and step counting in free-living conditions.</p>
+<p><strong>infinitime-webapp</strong></p>
+<p>A companion web app that communicates with the PineTime over BLE using the Web Bluetooth API. It allows researchers to configure the device remotely (sampling rates, recording windows, participant IDs) and offload collected data without requiring any native software installation.</p>
+</section>
+<section id="why-pinetime" class="level2">
+<h2 class="anchored" data-anchor-id="why-pinetime">Why PineTime?</h2>
+<p>Commercial research-grade actigraphy devices are expensive, closed-source, and often require proprietary software for data export. The PineTime offers an open alternative: the hardware schematics and firmware are fully open, the device is inexpensive enough to deploy at scale, and the community ecosystem means firmware modifications are well-documented and maintainable.</p>
 </section>
 <section id="links" class="level2">
 <h2 class="anchored" data-anchor-id="links">Links</h2>
 <ul>
 <li>💻 <a href="https://github.com/circadia-bio/pinetime-research-firmware">Firmware — GitHub</a></li>
 <li>💻 <a href="https://github.com/circadia-bio/infinitime-webapp">Web app — GitHub</a></li>
+<li>🔗 <a href="https://github.com/InfiniTimeOrg/InfiniTime">InfiniTime upstream</a></li>
+<li>🔗 <a href="https://www.pine64.org/pinetime/">PineTime hardware</a></li>
 </ul>
 
 

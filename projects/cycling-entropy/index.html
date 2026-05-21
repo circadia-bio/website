@@ -25,6 +25,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -344,7 +379,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Cycling &amp; EEG Entropy</h1>
-<p class="subtitle lead">Neural complexity during cycling and rest</p>
+<p class="subtitle lead">Cycling reduces the entropy of neuronal activity in the human adult cortex</p>
   <div class="quarto-categories">
     <div class="quarto-category">Research Pipeline</div>
     <div class="quarto-category">EEG</div>
@@ -380,22 +415,47 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="about" class="level2">
 <h2 class="anchored" data-anchor-id="about">About</h2>
-<p>This project investigates how physical activity modulates neural complexity, using recurrence quantification analysis (RQA) applied to scalp EEG signals recorded from healthy adults during cycling and rest.</p>
-<p>EEG was recorded across four behavioural conditions, and recurrence-matrix entropy was computed as a measure of signal complexity. The analysis pipeline is fully implemented in R and designed for reproducibility.</p>
+<p>This repository contains all data and analysis code for a study examining how physical activity modulates the complexity of cortical neural signals, using recurrence-matrix entropy (S_Max) computed from scalp EEG.</p>
+<p>The analysis pipeline is fully implemented in R and renders a self-contained HTML report. Raw EEG and pre-computed entropy data are archived on OSF.</p>
+<blockquote class="blockquote">
+<p><strong>Ferré IBS, Corso G, dos Santos Lima GZ, Lopes SR, Leocadio-Miguel MA, França LGS, de Lima Prado T, Araújo JF (2024).</strong> Cycling reduces the entropy of neuronal activity in the human adult cortex. <em>PLOS ONE</em>, 19(10): e0298703. <a href="https://doi.org/10.1371/journal.pone.0298703">doi:10.1371/journal.pone.0298703</a></p>
+</blockquote>
 </section>
-<section id="methods" class="level2">
-<h2 class="anchored" data-anchor-id="methods">Methods</h2>
-<ul>
-<li>Scalp EEG recording across four conditions (rest and cycling at varying intensities)</li>
-<li>Recurrence quantification analysis (RQA)</li>
-<li>Recurrence-matrix entropy as a complexity measure</li>
-<li>Fully reproducible R pipeline</li>
-</ul>
+<section id="study-design" class="level2">
+<h2 class="anchored" data-anchor-id="study-design">Study Design</h2>
+<p><strong>24 healthy adults</strong> (13 women, 11 men; mean age ~21 years) performed four behavioural conditions — resting eyes open, resting eyes closed, cycling eyes open, and cycling eyes closed — on a horizontal stationary bicycle. EEG was recorded from eight bimodal electrode pairs covering frontal, central, parietal, and occipital scalp regions. Recurrence-matrix entropy (S_Max) was computed for each 300-sample window across the 2-minute recordings, producing 100 time points per condition per electrode.</p>
+</section>
+<section id="key-findings" class="level2">
+<h2 class="anchored" data-anchor-id="key-findings">Key Findings</h2>
+<p>Cycling was associated with significantly reduced cortical entropy across all eight electrode sites compared to rest (all p ≤ 0.042), suggesting that physical activity organises neural dynamics toward lower complexity. A further entropy reduction was observed when cycling with eyes closed, most prominently at right occipital (p = 0.045) and left parietal (p = 0.006) sites.</p>
+<p>The eyes-open vs eyes-closed comparison at rest confirmed the expected entropy reduction in the occipital region (t = −2.657, p = 0.015) — consistent with well-established alpha-rhythm physiology and serving as a validation of the method.</p>
+</section>
+<section id="statistical-approach" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-approach">Statistical Approach</h2>
+<p>All models are generalised linear mixed models (GLMMs) with participant as a random effect, tested using 10,000-repetition two-sided permutation tests via the <code>ptestR</code> package:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Main effect: cycling vs resting</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>med_entr <span class="sc">~</span> State <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>sub)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Interaction: State × Eyes</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>med_entr <span class="sc">~</span> State <span class="sc">*</span> Eyes <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>sub)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="analysis-pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-pipeline">Analysis Pipeline</h2>
+<p>The pre-computed entropy data in <code>data/</code> are the output of <a href="https://github.com/circadia-bio/maxEntropy"><code>circadia-bio/maxEntropy</code></a>, a Julia script that computes S_Max from the raw EEG recordings. The R analysis then:</p>
+<ol type="1">
+<li>Loads and reshapes all 32 entropy files (8 electrodes × 4 conditions) via <code>src/legacy.R</code></li>
+<li>Fits permutation GLMMs per electrode in <code>translating.Rmd</code></li>
+<li>Generates topographic scalp maps via <code>topoplots.Rmd</code></li>
+</ol>
+<p>The environment can be reproduced via Docker (<code>docker-compose up</code>) or locally in R ≥ 4.3.</p>
 </section>
 <section id="links" class="level2">
 <h2 class="anchored" data-anchor-id="links">Links</h2>
 <ul>
 <li>💻 <a href="https://github.com/circadia-bio/cycling-entropy">GitHub</a></li>
+<li>📄 <a href="https://doi.org/10.1371/journal.pone.0298703">Published paper (PLOS ONE)</a></li>
+<li>🗄️ <a href="https://doi.org/10.17605/OSF.IO/CW87P">Data (OSF)</a></li>
+<li>🔗 <a href="https://github.com/circadia-bio/maxEntropy">maxEntropy — entropy computation script</a></li>
 </ul>
 
 

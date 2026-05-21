@@ -383,15 +383,31 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="about" class="level2">
 <h2 class="anchored" data-anchor-id="about">About</h2>
-<p>ScoreMe is a lightweight web app for scoring validated sleep and chronobiology questionnaires directly in the browser. No account, no installation, no data sent to any server — everything runs locally.</p>
-<p>It is designed for clinicians and researchers who need a quick, reliable way to score questionnaires without setting up analysis software.</p>
+<p>ScoreMe is a lightweight web app for administering and scoring validated sleep and chronobiology questionnaires directly in the browser. Everything runs locally — no account is required, no data is sent to any server, and the app works fully offline once loaded.</p>
+<p>It is designed for clinicians and researchers who need a reliable, zero-friction way to collect and score standardised questionnaire data without installing specialised software or building custom data entry forms. Participants can complete questionnaires on any device, and researchers can export the responses and computed scores as structured JSON for downstream analysis.</p>
+</section>
+<section id="supported-instruments" class="level2">
+<h2 class="anchored" data-anchor-id="supported-instruments">Supported Instruments</h2>
+<p>ScoreMe supports a growing library of validated instruments. Current instruments include:</p>
+<ul>
+<li><strong>ESS</strong> — Epworth Sleepiness Scale</li>
+<li><strong>ISI</strong> — Insomnia Severity Index</li>
+<li><strong>MEQ</strong> — Morningness–Eveningness Questionnaire</li>
+<li><strong>PSQI</strong> — Pittsburgh Sleep Quality Index</li>
+<li><strong>STOP-BANG</strong> — Sleep apnoea screening tool</li>
+</ul>
+</section>
+<section id="ecosystem" class="level2">
+<h2 class="anchored" data-anchor-id="ecosystem">Ecosystem</h2>
+<p>ScoreMe is part of a broader open-source toolkit. The companion R package <a href="https://tallier.circadia-lab.uk">tallieR</a> reads the JSON exports produced by ScoreMe, re-scores instruments using auditable algorithms, and returns tidy data frames ready for analysis — including longitudinal data, item-level outputs for reliability analysis, and custom instrument definitions.</p>
 </section>
 <section id="features" class="level2">
 <h2 class="anchored" data-anchor-id="features">Features</h2>
 <ul>
-<li>Supports a growing library of validated instruments (PSQI, ESS, ISI, MEQ, and more)</li>
-<li>Instant scoring in the browser</li>
-<li>No installation or account required</li>
+<li>Instant browser-based questionnaire administration</li>
+<li>Automatic scoring with interpretation labels</li>
+<li>JSON export of responses and scores</li>
+<li>No installation, no account, no data transmission</li>
 <li>Fully open source</li>
 </ul>
 </section>

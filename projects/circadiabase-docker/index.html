@@ -25,6 +25,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -380,23 +415,141 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="about" class="level2">
 <h2 class="anchored" data-anchor-id="about">About</h2>
-<p>circadiaBase Docker is a reproducible containerised environment for chronobiology and actigraphy research. It bundles a Jupyter notebook server and an RStudio server into a single Docker Compose setup, so any lab member can spin up a full analysis stack with one command, regardless of their local OS.</p>
-<p>The environment pins all critical dependencies to ensure reproducibility across machines and time.</p>
+<p>circadiaBase Docker is a reproducible containerised research environment for the Circadia Lab. It packages a fully pinned Python and R stack into two Docker services — JupyterLab and RStudio Server — that share the same project volume and can be launched together with a single command. The goal is to eliminate “works on my machine” problems across collaborators, operating systems, and time.</p>
+<p>The environment includes <code>condor_pipeline</code>, the Circadia Lab’s core actigraphy sleep analysis library, installed in editable mode so that changes to the source are reflected immediately without rebuilding the image.</p>
 </section>
-<section id="stack" class="level2">
-<h2 class="anchored" data-anchor-id="stack">Stack</h2>
-<p><strong>Python (Jupyter)</strong></p>
-<ul>
-<li>Python 3.11</li>
-<li>pyActigraphy, NumPy, scikit-learn, and more</li>
-</ul>
-<p><strong>R (RStudio)</strong></p>
-<ul>
-<li>R 4.4 (rocker/rstudio)</li>
-<li>GGIR, ActCR, circacompare, cosinor, lunaR</li>
-<li>brms, rstanarm, lme4, lmerTest</li>
-<li>tidyverse, ggplot2 extensions</li>
-</ul>
+<section id="services" class="level2">
+<h2 class="anchored" data-anchor-id="services">Services</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Service</th>
+<th>URL</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>JupyterLab</td>
+<td><code>localhost:8889</code></td>
+<td>Python 3.11 environment for actigraphy, EEG, entropy, and circadian modelling</td>
+</tr>
+<tr class="even">
+<td>RStudio Server</td>
+<td><code>localhost:8787</code></td>
+<td>R 4.4 environment for sleep and circadian statistical analyses</td>
+</tr>
+</tbody>
+</table>
+<p>Both services share the same mounted volume, so notebooks and scripts can read and write the same files regardless of which interface they are opened in.</p>
+</section>
+<section id="quick-start" class="level2">
+<h2 class="anchored" data-anchor-id="quick-start">Quick Start</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/circadia-bio/circadiaBase_Docker.git</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> circadiaBase_Docker</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> .env.example .env</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">docker-compose</span> up <span class="at">--build</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="python-stack" class="level2">
+<h2 class="anchored" data-anchor-id="python-stack">Python Stack</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>pyActigraphy</td>
+<td>Actigraphy parsing and non-parametric metrics (IS, IV, RA, M10, L5, SRI, cosinor, SSA)</td>
+</tr>
+<tr class="even">
+<td>MNE</td>
+<td>EEG and MEG signal processing</td>
+</tr>
+<tr class="odd">
+<td>YASA</td>
+<td>Automatic sleep staging from EEG</td>
+</tr>
+<tr class="even">
+<td>EntropyHub</td>
+<td>Entropy methods for physiological time series</td>
+</tr>
+<tr class="odd">
+<td>scikit-learn</td>
+<td>Machine learning (clustering, classification, dimensionality reduction)</td>
+</tr>
+<tr class="even">
+<td>numpy, scipy, pandas, matplotlib, seaborn, statsmodels, plotly</td>
+<td>Core scientific stack</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note on Python version:</strong> pyActigraphy’s <code>accelerometer</code> dependency requires Python &lt; 3.12, making 3.11 the effective ceiling for this environment.</p>
+</section>
+<section id="r-stack" class="level2">
+<h2 class="anchored" data-anchor-id="r-stack">R Stack</h2>
+<p><strong>ggplot2 extensions</strong> — <code>ggpubr</code>, <code>ggrepel</code>, <code>ggridges</code>, <code>patchwork</code>, <code>cowplot</code>, <code>viridis</code></p>
+<p><strong>Statistics</strong> — <code>lme4</code>, <code>lmerTest</code>, <code>emmeans</code>, <code>MuMIn</code>, <code>effectsize</code>, <code>performance</code></p>
+<p><strong>Bayesian</strong> — <code>brms</code>, <code>rstanarm</code>, <code>bayesplot</code>, <code>tidybayes</code> <em>(full profile)</em></p>
+<p><strong>Sleep &amp; circadian</strong> — <code>GGIR</code>, <code>ActCR</code>, <code>circacompare</code>, <code>cosinor</code>, <code>cosinor2</code>, <code>lunaR</code></p>
+</section>
+<section id="build-profiles" class="level2">
+<h2 class="anchored" data-anchor-id="build-profiles">Build Profiles</h2>
+<p>The RStudio service supports three build profiles selectable via <code>RSTUDIO_PROFILE</code> in <code>.env</code>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Profile</th>
+<th>Stan</th>
+<th>lunaR</th>
+<th>Build time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>minimal</code></td>
+<td>❌</td>
+<td>❌</td>
+<td>~5–8 min</td>
+</tr>
+<tr class="even">
+<td><code>no-stan</code></td>
+<td>❌</td>
+<td>✅</td>
+<td>~10–15 min</td>
+</tr>
+<tr class="odd">
+<td><code>full</code></td>
+<td>✅</td>
+<td>✅</td>
+<td>~30–40 min</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="condor_pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="condor_pipeline">condor_pipeline</h2>
+<p>The environment includes <code>condor_pipeline</code>, the Circadia Lab’s internal actigraphy sleep analysis library. It provides a high-level <code>SleepPipeline</code> orchestrator for single-file and batch processing of ActTrust and Actiwatch data, with modules for off-wrist detection, sleep period detection, WASO estimation, and actogram visualisation.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> condor_pipeline.pipeline <span class="im">import</span> SleepPipeline</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>pipe <span class="op">=</span> SleepPipeline(<span class="st">"data/raw/subject_01.txt"</span>, device<span class="op">=</span><span class="st">"acttrust"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> pipe.run()</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>result.plot()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="github-actions" class="level2">
+<h2 class="anchored" data-anchor-id="github-actions">GitHub Actions</h2>
+<p>A bundled workflow auto-generates <code>.env</code> from the repository name on every push to <code>main</code>, so collaborators forking or templating the repo never need to configure the image name manually. On the first push to a new repo, the workflow also resets the README to a Circadia Lab stub template.</p>
 </section>
 <section id="links" class="level2">
 <h2 class="anchored" data-anchor-id="links">Links</h2>
