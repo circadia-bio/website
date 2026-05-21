@@ -4,4 +4,6 @@ listing:
   contents: projects.yml
   type: grid
   max-description-length: 250
+  categories: true
+  sort: "date desc"
 ---

@@ -1,32 +1,103 @@
-- title: Predicting House Prices with Machine Learning
-  path: https://example.com/house-prices
-  # Photo by Breno Assis on Unsplash https://unsplash.com/photos/aerial-photography-of-rural-r3WAWU5Fi5Q 
-  image: images/breno-assis-r3WAWU5Fi5Q-unsplash.jpg
-  description: >
-    This project involves using machine learning algorithms to predict house prices based on
-    various features such as location, size, and amenities. It includes data cleaning,
-    feature engineering, and model selection.
-  categories: [Python, Machine Learning, Data Cleaning]
-  date: 2024-01-01
+# Sleep Data Collection & Management
 
-- title: Customer Segmentation Using Clustering Techniques
-  path: https://example.com/customer-segmentation
-  # Photo by Adrien Delforge on Unsplash  https://unsplash.com/photos/man-in-black-long-sleeve-shirt-and-black-pants-standing-on-shopping-cart-CrHG_ZYn1Dw
-  image: images/adrien-delforge-CrHG_ZYn1Dw-unsplash.jpg
+- title: "Sleep Diaries"
+  path: https://sleepdiaries.circadia-lab.uk
+  image: https://sleepdiaries.circadia-lab.uk/social.png
   description: >
-    This project focuses on segmenting customers into different groups based on their
-    purchasing behavior and demographics. It uses clustering algorithms like K-means and
-    hierarchical clustering to identify distinct customer segments.
-  categories: [R, Machine Learning, Clustering, Statistical Modelling]
+    An open-source sleep diary app for clinical research, built with React Native & Expo.
+    Supports morning & evening questionnaires, computes standard sleep metrics, and exports
+    data as CSV or JSON for downstream analysis. Designed with accessibility and inclusive
+    research in mind.
+  categories: [Mobile App, Sleep, Open Source, React Native]
+  date: 2025-01-01
+
+- title: "slumbR"
+  path: https://slumbr.circadia-lab.uk
+  image: images/slumbr_logo.svg
+  description: >
+    The official R companion to the Sleep Diaries app. Reads participant JSON exports,
+    computes sleep diary variables (sleep onset, wake time, sleep efficiency, and more),
+    and prepares tidy data frames ready for statistical analysis.
+  categories: [R Package, Sleep, Open Source]
+  date: 2025-01-01
+
+# Questionnaire Tooling
+
+- title: "ScoreMe"
+  path: https://scoreme.circadia-lab.uk
+  image: https://scoreme.circadia-lab.uk/og-image.png
+  description: >
+    A lightweight web app for scoring validated research questionnaires in the browser.
+    Supports a growing library of sleep and chronobiology instruments. No installation
+    required — useful for clinicians and researchers alike.
+  categories: [Web App, Questionnaires, Open Source]
+  date: 2025-03-01
+
+- title: "tallieR"
+  path: https://tallier.circadia-lab.uk
+  image: images/tallier_logo.svg
+  description: >
+    An R package for importing, re-scoring, and tidying questionnaire data collected
+    with ScoreMe. Supports longitudinal data, custom instruments, and reliability
+    analysis. The statistical counterpart to ScoreMe.
+  categories: [R Package, Questionnaires, Open Source]
+  date: 2025-03-01
+
+# Research Infrastructure
+
+- title: "circadiaBase Docker"
+  path: https://github.com/circadia-bio/circadiaBase_Docker
+  image: images/circadiabase_docker.svg
+  description: >
+    A reproducible Docker environment for chronobiology and actigraphy research.
+    Bundles a Jupyter notebook server (Python 3.11 with pyActigraphy, NumPy, scikit-learn)
+    and an RStudio server (R 4.4 with GGIR, ActCR, brms, and more) — spin up a full
+    analysis stack with a single command.
+  categories: [Infrastructure, Docker, Python, R]
+  date: 2024-06-01
+
+# Hardware & Wearables
+
+- title: "PineTime Research Platform"
+  path: https://github.com/circadia-bio/pinetime-research-firmware
+  image: images/pinetime_research.svg
+  description: >
+    An open-source wearable research platform built on the PineTime smartwatch.
+    Comprises a custom InfiniTime firmware fork optimised for research data collection
+    and a companion web app for device configuration and data offload. Currently in
+    active development.
+  categories: [Wearables, Firmware, In Development]
+  date: 2025-06-01
+
+# Research Pipelines
+
+- title: "ACTT Validation Study"
+  path: https://github.com/circadia-bio/ACTT_validation_study
+  image: images/actt_validation.svg
+  description: >
+    A fully reproducible R/Quarto analysis pipeline validating the ActTrust® actigraphy
+    device for energy expenditure estimation and physical activity intensity classification
+    in young adults, benchmarked against the ActiGraph® GT3X+ and indirect calorimetry.
+  categories: [Research Pipeline, Actigraphy, R, Reproducible Research]
+  date: 2024-09-01
+
+- title: "Cycling & EEG Entropy"
+  path: https://github.com/circadia-bio/cycling-entropy
+  image: images/cycling_entropy.svg
+  description: >
+    An R analysis pipeline examining recurrence-matrix entropy in scalp EEG signals
+    recorded during cycling and rest across four behavioural conditions in healthy adults.
+    Investigates how physical activity modulates neural complexity.
+  categories: [Research Pipeline, EEG, R, Reproducible Research]
   date: 2024-04-01
 
-- title: Visualizing Global CO2 Emissions
-  path: https://example.com/co2-visualization
-  # Photo by Anne Nygård on Unsplash https://unsplash.com/photos/white-clouds-in-blue-sky-vc-vPgGqAr4
-  image: images/anne-nygard-vc-vPgGqAr4-unsplash.jpg
+- title: "Circadian Phenotyping in Visual Impairment"
+  path: https://github.com/circadia-bio/nonparametric-actigraphy-clustering
+  image: images/actigraphy_clustering.svg
   description: >
-    This project involves creating visualizations to show trends in global CO2 emissions
-    over time. It includes data extraction from public databases, data cleaning, and using
-    visualization libraries to create interactive charts and graphs.
-  categories: [R, Data Visualization, Environmental Science]
-  date: 2024-07-01
+    A data-driven framework for identifying circadian phenotypes in visually impaired
+    participants using non-parametric actigraphy metrics, dimensionality reduction,
+    clustering, and SHAP-based interpretation. Investigates circadian rhythmicity
+    beyond pupillary light reactivity.
+  categories: [Research Pipeline, Actigraphy, Chronobiology, Python, Reproducible Research]
+  date: 2025-02-01

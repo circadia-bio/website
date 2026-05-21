@@ -26,6 +26,9 @@ website:
       - text: Publications
         icon: newspaper
         href: publications.qmd
+      - text: Projects
+        icon: folder-fill
+        href: projects/index.qmd
       - text: Tutorials
         icon: file-earmark-richtext
         href: blog.qmd
@@ -52,4 +55,3 @@ format:
       dark: [cosmo, stylesd.scss]
     highlight-style: arrow
     page-layout: full
-  
