@@ -1,26 +1,19 @@
 [
   {
-    "listing": "/projects/index.html",
-    "items": []
-  },
-  {
-    "listing": "/publications.html",
+    "listing": "/people.html",
     "items": [
-      "/publications/pugliane2026/index.html",
-      "/publications/batista2025/index.html",
-      "/publications/miguel2024/index.html",
-      "/publications/ferre2024/index.html",
-      "/publications/franca2024/index.html",
-      "/publications/nunes2024/index.html",
-      "/publications/torres2024/index.html",
-      "/publications/silva2023/index.html"
-    ]
-  },
-  {
-    "listing": "/blog.html",
-    "items": [
-      "/blog/sleep_diaries_app/index.html",
-      "/blog/sleep_PSG/index.html"
+      "/people/staff/lucas_franca.html",
+      "/people/staff/mario_miguel.html",
+      "/people/staff/julia_vallim.html",
+      "/people/students/fernanda_diogo.html",
+      "/people/students/karen_pugliane.html",
+      "/people/students/rebeca_buest.html",
+      "/people/collaborators/john_araujo.html",
+      "/people/collaborators/nick_puts.html",
+      "/people/collaborators/matthew_walker.html",
+      "/people/collaborators/yujiang_wang.html",
+      "/people/former/malcolm_schantz.html",
+      "/people/former/josh_penrhyn-jones.html"
     ]
   },
   {
@@ -39,20 +32,31 @@
     ]
   },
   {
-    "listing": "/people.html",
+    "listing": "/blog.html",
     "items": [
-      "/people/staff/lucas_franca.html",
-      "/people/staff/mario_miguel.html",
-      "/people/staff/julia_vallim.html",
-      "/people/students/fernanda_diogo.html",
-      "/people/students/karen_pugliane.html",
-      "/people/students/rebeca_buest.html",
-      "/people/collaborators/john_araujo.html",
-      "/people/collaborators/nick_puts.html",
-      "/people/collaborators/matthew_walker.html",
-      "/people/collaborators/yujiang_wang.html",
-      "/people/former/malcolm_schantz.html",
-      "/people/former/josh_penrhyn-jones.html"
+      "/blog/sleep_diaries_app/index.html",
+      "/blog/sleep_PSG/index.html"
     ]
+  },
+  {
+    "listing": "/publications.html",
+    "items": [
+      "/publications/pugliane2026/index.html",
+      "/publications/batista2025/index.html",
+      "/publications/miguel2024/index.html",
+      "/publications/ferre2024/index.html",
+      "/publications/franca2024/index.html",
+      "/publications/nunes2024/index.html",
+      "/publications/torres2024/index.html",
+      "/publications/silva2023/index.html"
+    ]
+  },
+  {
+    "listing": "/projects/index.html",
+    "items": []
+  },
+  {
+    "listing": "/projects.html",
+    "items": []
   }
 ]
