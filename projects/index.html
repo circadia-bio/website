@@ -87,9 +87,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-image','listing-description','listing-categories','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-image","listing-description","listing-categories","listing-date"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -143,7 +143,7 @@ window.Quarto = {
 <meta property="og:site_name" content="Circadia">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:title" content="Projects – Circadia">
-<meta name="twitter:image" content="https://circadia.bio/projects/images/pinetime_research.svg">
+<meta name="twitter:image" content="https://circadia.bio/projects/projects/images/pinetime_research.svg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -426,10 +426,10 @@ window.Quarto = {
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
 <div class="g-col-1" data-index="0" data-categories="V2VhcmFibGVzJTJDRmlybXdhcmUlMkNJbiUyMERldmVsb3BtZW50" data-listing-date-sort="1748736000000">
-<a href="https://github.com/circadia-bio/pinetime-research-firmware" class="quarto-grid-link">
+<a href="../projects/projects/pinetime/index.qmd" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="images/pinetime_research.svg" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="projects/images/pinetime_research.svg" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -445,9 +445,12 @@ PineTime Research Platform
 
 </div>
 <div class="card-text listing-description delink">
-<p>An open-source wearable research platform built on the PineTime smartwatch. Comprises a custom InfiniTime firmware fork optimised for research data collection and a companion web app for device configuration and data offload. Currently in active…</p>
+<p>An open-source wearable research platform built on the PineTime smartwatch. Comprises a custom InfiniTime firmware fork and a companion web app for device configuration and data offload. Currently in active development.</p>
 </div>
-<div class="card-attribution card-text-small end">
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
 <div class="listing-date">
 Jun 1, 2025
 </div>
@@ -456,10 +459,10 @@ Jun 1, 2025
 </div></a>
 </div>
 <div class="g-col-1" data-index="1" data-categories="V2ViJTIwQXBwJTJDUXVlc3Rpb25uYWlyZXMlMkNPcGVuJTIwU291cmNl" data-listing-date-sort="1740787200000">
-<a href="https://scoreme.circadia-lab.uk" class="quarto-grid-link">
+<a href="../projects/projects/scoreme/index.qmd" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="https://scoreme.circadia-lab.uk/og-image.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="projects/images/scoreme_og.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -475,9 +478,12 @@ ScoreMe
 
 </div>
 <div class="card-text listing-description delink">
-<p>A lightweight web app for scoring validated research questionnaires in the browser. Supports a growing library of sleep and chronobiology instruments. No installation required — useful for clinicians and researchers alike.</p>
+<p>A lightweight web app for scoring validated research questionnaires in the browser. Supports a growing library of sleep and chronobiology instruments. No installation required.</p>
 </div>
-<div class="card-attribution card-text-small end">
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
 <div class="listing-date">
 Mar 1, 2025
 </div>
@@ -486,10 +492,10 @@ Mar 1, 2025
 </div></a>
 </div>
 <div class="g-col-1" data-index="2" data-categories="UiUyMFBhY2thZ2UlMkNRdWVzdGlvbm5haXJlcyUyQ09wZW4lMjBTb3VyY2U=" data-listing-date-sort="1740787200000">
-<a href="https://tallier.circadia-lab.uk" class="quarto-grid-link">
+<a href="../projects/projects/tallier/index.qmd" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="images/tallier_logo.svg" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="projects/images/tallier_logo.svg" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -505,9 +511,12 @@ tallieR
 
 </div>
 <div class="card-text listing-description delink">
-<p>An R package for importing, re-scoring, and tidying questionnaire data collected with ScoreMe. Supports longitudinal data, custom instruments, and reliability analysis. The statistical counterpart to ScoreMe.</p>
+<p>An R package for importing, re-scoring, and tidying questionnaire data collected with ScoreMe. Supports longitudinal data, custom instruments, and reliability analysis.</p>
 </div>
-<div class="card-attribution card-text-small end">
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
 <div class="listing-date">
 Mar 1, 2025
 </div>
@@ -516,10 +525,10 @@ Mar 1, 2025
 </div></a>
 </div>
 <div class="g-col-1" data-index="3" data-categories="UmVzZWFyY2glMjBQaXBlbGluZSUyQ0FjdGlncmFwaHklMkNDaHJvbm9iaW9sb2d5JTJDUHl0aG9uJTJDUmVwcm9kdWNpYmxlJTIwUmVzZWFyY2g=" data-listing-date-sort="1738368000000">
-<a href="https://github.com/circadia-bio/nonparametric-actigraphy-clustering" class="quarto-grid-link">
+<a href="../projects/projects/actigraphy-clustering/index.qmd" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="images/actigraphy_clustering.svg" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="projects/images/actigraphy_clustering.svg" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -539,9 +548,12 @@ Circadian Phenotyping in Visual Impairment
 
 </div>
 <div class="card-text listing-description delink">
-<p>A data-driven framework for identifying circadian phenotypes in visually impaired participants using non-parametric actigraphy metrics, dimensionality reduction, clustering, and SHAP-based interpretation. Investigates circadian rhythmicity beyond…</p>
+<p>A data-driven framework for identifying circadian phenotypes in visually impaired participants using non-parametric actigraphy metrics, dimensionality reduction, clustering, and SHAP-based interpretation.</p>
 </div>
-<div class="card-attribution card-text-small end">
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
 <div class="listing-date">
 Feb 1, 2025
 </div>
@@ -550,10 +562,10 @@ Feb 1, 2025
 </div></a>
 </div>
 <div class="g-col-1" data-index="4" data-categories="TW9iaWxlJTIwQXBwJTJDU2xlZXAlMkNPcGVuJTIwU291cmNlJTJDUmVhY3QlMjBOYXRpdmU=" data-listing-date-sort="1735689600000">
-<a href="https://sleepdiaries.circadia-lab.uk" class="quarto-grid-link">
+<a href="../projects/projects/sleep-diaries/index.qmd" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="https://sleepdiaries.circadia-lab.uk/social.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="projects/images/sleepdiaries_social.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -571,9 +583,12 @@ Sleep Diaries
 
 </div>
 <div class="card-text listing-description delink">
-<p>An open-source sleep diary app for clinical research, built with React Native &amp; Expo. Supports morning &amp; evening questionnaires, computes standard sleep metrics, and exports data as CSV or JSON for downstream analysis. Designed with accessibility…</p>
+<p>An open-source mobile app for collecting sleep diary data in clinical and research settings, built with React Native &amp; Expo. Morning &amp; evening questionnaires, sleep metrics, and CSV/JSON data export.</p>
 </div>
-<div class="card-attribution card-text-small end">
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
 <div class="listing-date">
 Jan 1, 2025
 </div>
@@ -582,10 +597,10 @@ Jan 1, 2025
 </div></a>
 </div>
 <div class="g-col-1" data-index="5" data-categories="UiUyMFBhY2thZ2UlMkNTbGVlcCUyQ09wZW4lMjBTb3VyY2U=" data-listing-date-sort="1735689600000">
-<a href="https://slumbr.circadia-lab.uk" class="quarto-grid-link">
+<a href="../projects/projects/slumbr/index.qmd" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="images/slumbr_logo.svg" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="projects/images/slumbr_logo.svg" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -601,9 +616,12 @@ slumbR
 
 </div>
 <div class="card-text listing-description delink">
-<p>The official R companion to the Sleep Diaries app. Reads participant JSON exports, computes sleep diary variables (sleep onset, wake time, sleep efficiency, and more), and prepares tidy data frames ready for statistical analysis.</p>
+<p>The official R companion to the Sleep Diaries app. Reads participant JSON exports, computes sleep diary variables, and returns tidy data frames ready for statistical analysis.</p>
 </div>
-<div class="card-attribution card-text-small end">
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
 <div class="listing-date">
 Jan 1, 2025
 </div>
@@ -612,10 +630,10 @@ Jan 1, 2025
 </div></a>
 </div>
 <div class="g-col-1" data-index="6" data-categories="UmVzZWFyY2glMjBQaXBlbGluZSUyQ0FjdGlncmFwaHklMkNSJTJDUmVwcm9kdWNpYmxlJTIwUmVzZWFyY2g=" data-listing-date-sort="1725148800000">
-<a href="https://github.com/circadia-bio/ACTT_validation_study" class="quarto-grid-link">
+<a href="../projects/projects/actt-validation/index.qmd" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="images/actt_validation.svg" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="projects/images/actt_validation.svg" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -633,9 +651,12 @@ ACTT Validation Study
 
 </div>
 <div class="card-text listing-description delink">
-<p>A fully reproducible R/Quarto analysis pipeline validating the ActTrust® actigraphy device for energy expenditure estimation and physical activity intensity classification in young adults, benchmarked against the ActiGraph® GT3X+ and indirect…</p>
+<p>A fully reproducible R/Quarto pipeline validating the ActTrust® actigraphy device for energy expenditure and physical activity classification, benchmarked against the ActiGraph® GT3X+ and indirect calorimetry.</p>
 </div>
-<div class="card-attribution card-text-small end">
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
 <div class="listing-date">
 Sep 1, 2024
 </div>
@@ -644,10 +665,10 @@ Sep 1, 2024
 </div></a>
 </div>
 <div class="g-col-1" data-index="7" data-categories="SW5mcmFzdHJ1Y3R1cmUlMkNEb2NrZXIlMkNQeXRob24lMkNS" data-listing-date-sort="1717200000000">
-<a href="https://github.com/circadia-bio/circadiaBase_Docker" class="quarto-grid-link">
+<a href="../projects/projects/circadiabase-docker/index.qmd" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="images/circadiabase_docker.svg" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="projects/images/circadiabase_docker.svg" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -665,9 +686,12 @@ circadiaBase Docker
 
 </div>
 <div class="card-text listing-description delink">
-<p>A reproducible Docker environment for chronobiology and actigraphy research. Bundles a Jupyter notebook server (Python 3.11 with pyActigraphy, NumPy, scikit-learn) and an RStudio server (R 4.4 with GGIR, ActCR, brms, and more) — spin up a full…</p>
+<p>A reproducible Docker environment for chronobiology and actigraphy research, bundling Jupyter (Python 3.11 + pyActigraphy) and RStudio (R 4.4 + GGIR, brms, and more). Spin up a full analysis stack with a single command.</p>
 </div>
-<div class="card-attribution card-text-small end">
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
 <div class="listing-date">
 Jun 1, 2024
 </div>
@@ -676,10 +700,10 @@ Jun 1, 2024
 </div></a>
 </div>
 <div class="g-col-1" data-index="8" data-categories="UmVzZWFyY2glMjBQaXBlbGluZSUyQ0VFRyUyQ1IlMkNSZXByb2R1Y2libGUlMjBSZXNlYXJjaA==" data-listing-date-sort="1711929600000">
-<a href="https://github.com/circadia-bio/cycling-entropy" class="quarto-grid-link">
+<a href="../projects/projects/cycling-entropy/index.qmd" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="images/cycling_entropy.svg" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="projects/images/cycling_entropy.svg" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -697,9 +721,12 @@ Cycling &amp; EEG Entropy
 
 </div>
 <div class="card-text listing-description delink">
-<p>An R analysis pipeline examining recurrence-matrix entropy in scalp EEG signals recorded during cycling and rest across four behavioural conditions in healthy adults. Investigates how physical activity modulates neural complexity.</p>
+<p>An R pipeline examining recurrence-matrix entropy in scalp EEG signals recorded during cycling and rest across four behavioural conditions in healthy adults.</p>
 </div>
-<div class="card-attribution card-text-small end">
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
 <div class="listing-date">
 Apr 1, 2024
 </div>
