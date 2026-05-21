@@ -52,11 +52,17 @@
     ]
   },
   {
-    "listing": "/projects/index.html",
-    "items": []
-  },
-  {
     "listing": "/projects.html",
-    "items": []
+    "items": [
+      "/projects/pinetime/index.html",
+      "/projects/scoreme/index.html",
+      "/projects/tallier/index.html",
+      "/projects/actigraphy-clustering/index.html",
+      "/projects/sleep-diaries/index.html",
+      "/projects/slumbr/index.html",
+      "/projects/actt-validation/index.html",
+      "/projects/circadiabase-docker/index.html",
+      "/projects/cycling-entropy/index.html"
+    ]
   }
 ]

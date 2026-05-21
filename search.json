@@ -203,6 +203,118 @@
     "text": "News\n\n\nTutorials\n\n\n\n\n\n\n\n\n\n\nIntroducing Sleep Diaries: an open-source sleep diary app for research\n\n\nWe are releasing Sleep Diaries — a free, open-source, research-grade sleep diary app built with React Native and Expo. It runs on iOS, Android, and the web, and is designed…\n\n\n\n\n\nNo matching items\n\nSee all →\n\n\nPublications\n\n\n\n\n\n\n\n\n\n\nLow-latitude environmental regularity sustains non-photic entrainment in blind adults\n\n\nUsing wrist actigraphy and machine learning in 58 blind adults living near the equator in Brazil, this study shows that circadian rest–activity rhythms can remain stably…\n\n\n\n\n\nNo matching items\n\nSee all →"
   },
   {
+    "objectID": "projects/cycling-entropy/index.html",
+    "href": "projects/cycling-entropy/index.html",
+    "title": "Cycling & EEG Entropy",
+    "section": "",
+    "text": "This project investigates how physical activity modulates neural complexity, using recurrence quantification analysis (RQA) applied to scalp EEG signals recorded from healthy adults during cycling and rest.\nEEG was recorded across four behavioural conditions, and recurrence-matrix entropy was computed as a measure of signal complexity. The analysis pipeline is fully implemented in R and designed for reproducibility."
+  },
+  {
+    "objectID": "projects/cycling-entropy/index.html#about",
+    "href": "projects/cycling-entropy/index.html#about",
+    "title": "Cycling & EEG Entropy",
+    "section": "",
+    "text": "This project investigates how physical activity modulates neural complexity, using recurrence quantification analysis (RQA) applied to scalp EEG signals recorded from healthy adults during cycling and rest.\nEEG was recorded across four behavioural conditions, and recurrence-matrix entropy was computed as a measure of signal complexity. The analysis pipeline is fully implemented in R and designed for reproducibility."
+  },
+  {
+    "objectID": "projects/cycling-entropy/index.html#methods",
+    "href": "projects/cycling-entropy/index.html#methods",
+    "title": "Cycling & EEG Entropy",
+    "section": "Methods",
+    "text": "Methods\n\nScalp EEG recording across four conditions (rest and cycling at varying intensities)\nRecurrence quantification analysis (RQA)\nRecurrence-matrix entropy as a complexity measure\nFully reproducible R pipeline"
+  },
+  {
+    "objectID": "projects/cycling-entropy/index.html#links",
+    "href": "projects/cycling-entropy/index.html#links",
+    "title": "Cycling & EEG Entropy",
+    "section": "Links",
+    "text": "Links\n\n💻 GitHub"
+  },
+  {
+    "objectID": "projects/actigraphy-clustering/index.html",
+    "href": "projects/actigraphy-clustering/index.html",
+    "title": "Circadian Phenotyping in Visual Impairment",
+    "section": "",
+    "text": "This project develops a data-driven framework for identifying and characterising circadian phenotypes in visually impaired participants, who lack the primary light input that synchronises circadian rhythms in sighted individuals.\nNon-parametric actigraphy metrics are used as features, with dimensionality reduction and clustering applied to identify phenotypic groups. SHAP values provide interpretable explanations of which actigraphy features drive each phenotype."
+  },
+  {
+    "objectID": "projects/actigraphy-clustering/index.html#about",
+    "href": "projects/actigraphy-clustering/index.html#about",
+    "title": "Circadian Phenotyping in Visual Impairment",
+    "section": "",
+    "text": "This project develops a data-driven framework for identifying and characterising circadian phenotypes in visually impaired participants, who lack the primary light input that synchronises circadian rhythms in sighted individuals.\nNon-parametric actigraphy metrics are used as features, with dimensionality reduction and clustering applied to identify phenotypic groups. SHAP values provide interpretable explanations of which actigraphy features drive each phenotype."
+  },
+  {
+    "objectID": "projects/actigraphy-clustering/index.html#methods",
+    "href": "projects/actigraphy-clustering/index.html#methods",
+    "title": "Circadian Phenotyping in Visual Impairment",
+    "section": "Methods",
+    "text": "Methods\n\nNon-parametric actigraphy metrics (IS, IV, RA, M10, L5, and more)\nDimensionality reduction (UMAP)\nUnsupervised clustering\nSHAP-based feature interpretation\nStatistical comparison across phenotypic groups"
+  },
+  {
+    "objectID": "projects/actigraphy-clustering/index.html#links",
+    "href": "projects/actigraphy-clustering/index.html#links",
+    "title": "Circadian Phenotyping in Visual Impairment",
+    "section": "Links",
+    "text": "Links\n\n💻 GitHub"
+  },
+  {
+    "objectID": "projects/scoreme/index.html",
+    "href": "projects/scoreme/index.html",
+    "title": "ScoreMe",
+    "section": "",
+    "text": "ScoreMe is a lightweight web app for scoring validated sleep and chronobiology questionnaires directly in the browser. No account, no installation, no data sent to any server — everything runs locally.\nIt is designed for clinicians and researchers who need a quick, reliable way to score questionnaires without setting up analysis software."
+  },
+  {
+    "objectID": "projects/scoreme/index.html#about",
+    "href": "projects/scoreme/index.html#about",
+    "title": "ScoreMe",
+    "section": "",
+    "text": "ScoreMe is a lightweight web app for scoring validated sleep and chronobiology questionnaires directly in the browser. No account, no installation, no data sent to any server — everything runs locally.\nIt is designed for clinicians and researchers who need a quick, reliable way to score questionnaires without setting up analysis software."
+  },
+  {
+    "objectID": "projects/scoreme/index.html#features",
+    "href": "projects/scoreme/index.html#features",
+    "title": "ScoreMe",
+    "section": "Features",
+    "text": "Features\n\nSupports a growing library of validated instruments (PSQI, ESS, ISI, MEQ, and more)\nInstant scoring in the browser\nNo installation or account required\nFully open source"
+  },
+  {
+    "objectID": "projects/scoreme/index.html#links",
+    "href": "projects/scoreme/index.html#links",
+    "title": "ScoreMe",
+    "section": "Links",
+    "text": "Links\n\n🌐 Web app\n💻 GitHub\n📦 tallieR — R companion package"
+  },
+  {
+    "objectID": "projects/pinetime/index.html",
+    "href": "projects/pinetime/index.html",
+    "title": "PineTime Research Platform",
+    "section": "",
+    "text": "The PineTime Research Platform is an open-source wearable data collection system built on the PineTime smartwatch — an affordable, open-hardware device. The platform comprises two components: a custom firmware fork optimised for research use, and a companion web app for device configuration and data offload.\nThis project is currently in active development."
+  },
+  {
+    "objectID": "projects/pinetime/index.html#about",
+    "href": "projects/pinetime/index.html#about",
+    "title": "PineTime Research Platform",
+    "section": "",
+    "text": "The PineTime Research Platform is an open-source wearable data collection system built on the PineTime smartwatch — an affordable, open-hardware device. The platform comprises two components: a custom firmware fork optimised for research use, and a companion web app for device configuration and data offload.\nThis project is currently in active development."
+  },
+  {
+    "objectID": "projects/pinetime/index.html#components",
+    "href": "projects/pinetime/index.html#components",
+    "title": "PineTime Research Platform",
+    "section": "Components",
+    "text": "Components\npinetime-research-firmware A fork of InfiniTime with modifications for research data collection, including configurable sampling rates and storage optimisation.\ninfinitime-webapp A companion web app for wirelessly configuring the device and offloading collected data without requiring specialist software."
+  },
+  {
+    "objectID": "projects/pinetime/index.html#links",
+    "href": "projects/pinetime/index.html#links",
+    "title": "PineTime Research Platform",
+    "section": "Links",
+    "text": "Links\n\n💻 Firmware — GitHub\n💻 Web app — GitHub"
+  },
+  {
     "objectID": "publications/miguel2024/index.html",
     "href": "publications/miguel2024/index.html",
     "title": "Heritability of sleep architecture based on home polysomnography",
@@ -273,11 +385,144 @@
     "text": "Abstract\nChanges in circadian rhythms have been observed in patients with chronic kidney disease (CKD), and evidence suggests that these changes can have a negative impact on health. This study aimed to investigate the existence of hemodialysis-induced chronodisruption, the chronotype distribution, and their association with sleep quality and quality of life (QoL). This was a cross-sectional study that enrolled 165 patients (mean age: 51.1±12.5 y, 60.6% male) undergoing hemodialysis from three local units. The following instruments were used: the Morning-Eveningness Questionnaire (MEQ); a modified version of the Munich Chronotype Questionnaire (MCQT) to estimate hemodialysis-induced chronodisruption (HIC); the Kidney Disease QoL Short Form (KDQOL-SF); the Epworth Sleepiness Scale (ESS); the Pittsburgh Sleep Quality Index (PSQI) and the 10–Cognitive Screener (10-CS). HIC was present in 40.6% of CKD patients. Morning chronotype was prevalent in CKD patients (69%) compared to evening-type (17.1%) and significantly different from a paired sample from the general population (p&lt;0.001). HIC and chronotype were associated with different domains of QoL but not with sleep quality. This study suggests that there is a HIC and that morning chronotype is associated with CKD patients undergoing hemodialysis, with implications for QoL."
   },
   {
-    "objectID": "projects/index.html",
-    "href": "projects/index.html",
-    "title": "Projects",
+    "objectID": "projects/actt-validation/index.html",
+    "href": "projects/actt-validation/index.html",
+    "title": "ACTT Validation Study",
     "section": "",
-    "text": "PineTime Research Platform\n\n\n\nWearables\n\nFirmware\n\nIn Development\n\n\n\nAn open-source wearable research platform built on the PineTime smartwatch. Comprises a custom InfiniTime firmware fork and a companion web app for device configuration and data offload. Currently in active development.\n\n\n\n\n\n\nJun 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nScoreMe\n\n\n\nWeb App\n\nQuestionnaires\n\nOpen Source\n\n\n\nA lightweight web app for scoring validated research questionnaires in the browser. Supports a growing library of sleep and chronobiology instruments. No installation required.\n\n\n\n\n\n\nMar 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\ntallieR\n\n\n\nR Package\n\nQuestionnaires\n\nOpen Source\n\n\n\nAn R package for importing, re-scoring, and tidying questionnaire data collected with ScoreMe. Supports longitudinal data, custom instruments, and reliability analysis.\n\n\n\n\n\n\nMar 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nCircadian Phenotyping in Visual Impairment\n\n\n\nResearch Pipeline\n\nActigraphy\n\nChronobiology\n\nPython\n\nReproducible Research\n\n\n\nA data-driven framework for identifying circadian phenotypes in visually impaired participants using non-parametric actigraphy metrics, dimensionality reduction, clustering, and SHAP-based interpretation.\n\n\n\n\n\n\nFeb 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nSleep Diaries\n\n\n\nMobile App\n\nSleep\n\nOpen Source\n\nReact Native\n\n\n\nAn open-source mobile app for collecting sleep diary data in clinical and research settings, built with React Native & Expo. Morning & evening questionnaires, sleep metrics, and CSV/JSON data export.\n\n\n\n\n\n\nJan 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nslumbR\n\n\n\nR Package\n\nSleep\n\nOpen Source\n\n\n\nThe official R companion to the Sleep Diaries app. Reads participant JSON exports, computes sleep diary variables, and returns tidy data frames ready for statistical analysis.\n\n\n\n\n\n\nJan 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nACTT Validation Study\n\n\n\nResearch Pipeline\n\nActigraphy\n\nR\n\nReproducible Research\n\n\n\nA fully reproducible R/Quarto pipeline validating the ActTrust® actigraphy device for energy expenditure and physical activity classification, benchmarked against the ActiGraph® GT3X+ and indirect calorimetry.\n\n\n\n\n\n\nSep 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\ncircadiaBase Docker\n\n\n\nInfrastructure\n\nDocker\n\nPython\n\nR\n\n\n\nA reproducible Docker environment for chronobiology and actigraphy research, bundling Jupyter (Python 3.11 + pyActigraphy) and RStudio (R 4.4 + GGIR, brms, and more). Spin up a full analysis stack with a single command.\n\n\n\n\n\n\nJun 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nCycling & EEG Entropy\n\n\n\nResearch Pipeline\n\nEEG\n\nR\n\nReproducible Research\n\n\n\nAn R pipeline examining recurrence-matrix entropy in scalp EEG signals recorded during cycling and rest across four behavioural conditions in healthy adults.\n\n\n\n\n\n\nApr 1, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "This project provides a fully reproducible analysis pipeline for validating the ActTrust® actigraphy device as a tool for energy expenditure estimation and physical activity intensity classification in young adults.\nThe pipeline benchmarks ActTrust® against the ActiGraph® GT3X+ — a widely used reference device — and against indirect calorimetry as the gold standard. All analyses are implemented in R and rendered as a Quarto document, making every step fully auditable and reproducible."
+  },
+  {
+    "objectID": "projects/actt-validation/index.html#about",
+    "href": "projects/actt-validation/index.html#about",
+    "title": "ACTT Validation Study",
+    "section": "",
+    "text": "This project provides a fully reproducible analysis pipeline for validating the ActTrust® actigraphy device as a tool for energy expenditure estimation and physical activity intensity classification in young adults.\nThe pipeline benchmarks ActTrust® against the ActiGraph® GT3X+ — a widely used reference device — and against indirect calorimetry as the gold standard. All analyses are implemented in R and rendered as a Quarto document, making every step fully auditable and reproducible."
+  },
+  {
+    "objectID": "projects/actt-validation/index.html#methods",
+    "href": "projects/actt-validation/index.html#methods",
+    "title": "ACTT Validation Study",
+    "section": "Methods",
+    "text": "Methods\n\nBland-Altman analysis for agreement between devices\nPhysical activity intensity classification benchmarking\nEnergy expenditure estimation validation\nFully reproducible R/Quarto pipeline"
+  },
+  {
+    "objectID": "projects/actt-validation/index.html#links",
+    "href": "projects/actt-validation/index.html#links",
+    "title": "ACTT Validation Study",
+    "section": "Links",
+    "text": "Links\n\n💻 GitHub"
+  },
+  {
+    "objectID": "projects/sleep-diaries/index.html",
+    "href": "projects/sleep-diaries/index.html",
+    "title": "Sleep Diaries",
+    "section": "",
+    "text": "Sleep Diaries is an open-source mobile app for collecting sleep diary data in clinical and research settings. Built with React Native and Expo, it runs on both iOS and Android and is designed with accessibility and inclusive research in mind.\nParticipants complete brief morning and evening questionnaires. The app computes standard sleep diary variables automatically and stores everything locally on the device until the study ends, at which point data can be exported as CSV or JSON."
+  },
+  {
+    "objectID": "projects/sleep-diaries/index.html#about",
+    "href": "projects/sleep-diaries/index.html#about",
+    "title": "Sleep Diaries",
+    "section": "",
+    "text": "Sleep Diaries is an open-source mobile app for collecting sleep diary data in clinical and research settings. Built with React Native and Expo, it runs on both iOS and Android and is designed with accessibility and inclusive research in mind.\nParticipants complete brief morning and evening questionnaires. The app computes standard sleep diary variables automatically and stores everything locally on the device until the study ends, at which point data can be exported as CSV or JSON."
+  },
+  {
+    "objectID": "projects/sleep-diaries/index.html#features",
+    "href": "projects/sleep-diaries/index.html#features",
+    "title": "Sleep Diaries",
+    "section": "Features",
+    "text": "Features\n\nMorning & evening questionnaires\nAutomatic computation of sleep metrics (sleep onset, wake time, sleep efficiency, and more)\nCSV and JSON data export\nPush notification reminders\nFully open source"
+  },
+  {
+    "objectID": "projects/sleep-diaries/index.html#links",
+    "href": "projects/sleep-diaries/index.html#links",
+    "title": "Sleep Diaries",
+    "section": "Links",
+    "text": "Links\n\n🌐 Web app\n💻 GitHub\n📦 slumbR — R companion package"
+  },
+  {
+    "objectID": "projects/tallier/index.html",
+    "href": "projects/tallier/index.html",
+    "title": "tallieR",
+    "section": "",
+    "text": "tallieR is the official R companion to ScoreMe. It reads ScoreMe export files, re-scores instruments using validated algorithms, and returns tidy data frames ready for analysis. It supports longitudinal data, custom instruments, and reliability analysis."
+  },
+  {
+    "objectID": "projects/tallier/index.html#about",
+    "href": "projects/tallier/index.html#about",
+    "title": "tallieR",
+    "section": "",
+    "text": "tallieR is the official R companion to ScoreMe. It reads ScoreMe export files, re-scores instruments using validated algorithms, and returns tidy data frames ready for analysis. It supports longitudinal data, custom instruments, and reliability analysis."
+  },
+  {
+    "objectID": "projects/tallier/index.html#features",
+    "href": "projects/tallier/index.html#features",
+    "title": "tallieR",
+    "section": "Features",
+    "text": "Features\n\nImport ScoreMe JSON exports\nRe-score validated instruments with auditable algorithms\nLongitudinal data support\nReliability analysis (Cronbach’s alpha, inter-rater reliability)\nCustom instrument definitions"
+  },
+  {
+    "objectID": "projects/tallier/index.html#links",
+    "href": "projects/tallier/index.html#links",
+    "title": "tallieR",
+    "section": "Links",
+    "text": "Links\n\n🌐 Documentation\n💻 GitHub\n🖥️ ScoreMe web app"
+  },
+  {
+    "objectID": "projects/slumbr/index.html",
+    "href": "projects/slumbr/index.html",
+    "title": "slumbR",
+    "section": "",
+    "text": "slumbR is the official R companion to the Sleep Diaries app. When a study ends, participants export their data as a JSON file. slumbR reads those files — one per participant or in batch — computes sleep diary variables, and returns tidy data frames ready for statistical analysis."
+  },
+  {
+    "objectID": "projects/slumbr/index.html#about",
+    "href": "projects/slumbr/index.html#about",
+    "title": "slumbR",
+    "section": "",
+    "text": "slumbR is the official R companion to the Sleep Diaries app. When a study ends, participants export their data as a JSON file. slumbR reads those files — one per participant or in batch — computes sleep diary variables, and returns tidy data frames ready for statistical analysis."
+  },
+  {
+    "objectID": "projects/slumbr/index.html#features",
+    "href": "projects/slumbr/index.html#features",
+    "title": "slumbR",
+    "section": "Features",
+    "text": "Features\n\nImport Sleep Diaries JSON exports (single file or batch)\nCompute standard sleep diary variables (sleep onset, wake time, total sleep time, sleep efficiency, and more)\nTidy output compatible with the tidyverse\nVisualisation helpers for sleep diary data"
+  },
+  {
+    "objectID": "projects/slumbr/index.html#links",
+    "href": "projects/slumbr/index.html#links",
+    "title": "slumbR",
+    "section": "Links",
+    "text": "Links\n\n🌐 Documentation\n💻 GitHub\n📱 Sleep Diaries app"
+  },
+  {
+    "objectID": "projects/circadiabase-docker/index.html",
+    "href": "projects/circadiabase-docker/index.html",
+    "title": "circadiaBase Docker",
+    "section": "",
+    "text": "circadiaBase Docker is a reproducible containerised environment for chronobiology and actigraphy research. It bundles a Jupyter notebook server and an RStudio server into a single Docker Compose setup, so any lab member can spin up a full analysis stack with one command, regardless of their local OS.\nThe environment pins all critical dependencies to ensure reproducibility across machines and time."
+  },
+  {
+    "objectID": "projects/circadiabase-docker/index.html#about",
+    "href": "projects/circadiabase-docker/index.html#about",
+    "title": "circadiaBase Docker",
+    "section": "",
+    "text": "circadiaBase Docker is a reproducible containerised environment for chronobiology and actigraphy research. It bundles a Jupyter notebook server and an RStudio server into a single Docker Compose setup, so any lab member can spin up a full analysis stack with one command, regardless of their local OS.\nThe environment pins all critical dependencies to ensure reproducibility across machines and time."
+  },
+  {
+    "objectID": "projects/circadiabase-docker/index.html#stack",
+    "href": "projects/circadiabase-docker/index.html#stack",
+    "title": "circadiaBase Docker",
+    "section": "Stack",
+    "text": "Stack\nPython (Jupyter)\n\nPython 3.11\npyActigraphy, NumPy, scikit-learn, and more\n\nR (RStudio)\n\nR 4.4 (rocker/rstudio)\nGGIR, ActCR, circacompare, cosinor, lunaR\nbrms, rstanarm, lme4, lmerTest\ntidyverse, ggplot2 extensions"
+  },
+  {
+    "objectID": "projects/circadiabase-docker/index.html#links",
+    "href": "projects/circadiabase-docker/index.html#links",
+    "title": "circadiaBase Docker",
+    "section": "Links",
+    "text": "Links\n\n💻 GitHub"
   },
   {
     "objectID": "people/collaborators/john_araujo.html",
@@ -466,6 +711,6 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "PineTime Research Platform\n\n\n\nWearables\n\nFirmware\n\nIn Development\n\n\n\nAn open-source wearable research platform built on the PineTime smartwatch. Comprises a custom InfiniTime firmware fork and a companion web app for device configuration and data offload. Currently in active development.\n\n\n\n\n\n\nJun 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nScoreMe\n\n\n\nWeb App\n\nQuestionnaires\n\nOpen Source\n\n\n\nA lightweight web app for scoring validated research questionnaires in the browser. Supports a growing library of sleep and chronobiology instruments. No installation required.\n\n\n\n\n\n\nMar 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\ntallieR\n\n\n\nR Package\n\nQuestionnaires\n\nOpen Source\n\n\n\nAn R package for importing, re-scoring, and tidying questionnaire data collected with ScoreMe. Supports longitudinal data, custom instruments, and reliability analysis.\n\n\n\n\n\n\nMar 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nCircadian Phenotyping in Visual Impairment\n\n\n\nResearch Pipeline\n\nActigraphy\n\nChronobiology\n\nPython\n\nReproducible Research\n\n\n\nA data-driven framework for identifying circadian phenotypes in visually impaired participants using non-parametric actigraphy metrics, dimensionality reduction, clustering, and SHAP-based interpretation.\n\n\n\n\n\n\nFeb 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nSleep Diaries\n\n\n\nMobile App\n\nSleep\n\nOpen Source\n\nReact Native\n\n\n\nAn open-source mobile app for collecting sleep diary data in clinical and research settings, built with React Native & Expo. Morning & evening questionnaires, sleep metrics, and CSV/JSON data export.\n\n\n\n\n\n\nJan 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nslumbR\n\n\n\nR Package\n\nSleep\n\nOpen Source\n\n\n\nThe official R companion to the Sleep Diaries app. Reads participant JSON exports, computes sleep diary variables, and returns tidy data frames ready for statistical analysis.\n\n\n\n\n\n\nJan 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nACTT Validation Study\n\n\n\nResearch Pipeline\n\nActigraphy\n\nR\n\nReproducible Research\n\n\n\nA fully reproducible R/Quarto pipeline validating the ActTrust® actigraphy device for energy expenditure and physical activity classification, benchmarked against the ActiGraph® GT3X+ and indirect calorimetry.\n\n\n\n\n\n\nSep 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\ncircadiaBase Docker\n\n\n\nInfrastructure\n\nDocker\n\nPython\n\nR\n\n\n\nA reproducible Docker environment for chronobiology and actigraphy research, bundling Jupyter (Python 3.11 + pyActigraphy) and RStudio (R 4.4 + GGIR, brms, and more). Spin up a full analysis stack with a single command.\n\n\n\n\n\n\nJun 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nCycling & EEG Entropy\n\n\n\nResearch Pipeline\n\nEEG\n\nR\n\nReproducible Research\n\n\n\nAn R pipeline examining recurrence-matrix entropy in scalp EEG signals recorded during cycling and rest across four behavioural conditions in healthy adults.\n\n\n\n\n\n\nApr 1, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "PineTime Research Platform\n\n\n\nWearables\n\nFirmware\n\nIn Development\n\n\n\nA custom InfiniTime firmware fork and companion web app for the PineTime smartwatch, optimised for research data collection. Currently in active development.\n\n\n\n\n\n\nJun 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nScoreMe\n\n\n\nWeb App\n\nQuestionnaires\n\nOpen Source\n\n\n\nA lightweight web app for scoring validated research questionnaires in the browser. No installation required.\n\n\n\n\n\n\nMar 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\ntallieR\n\n\n\nR Package\n\nQuestionnaires\n\nOpen Source\n\n\n\nAn R package for importing, re-scoring, and tidying questionnaire data collected with the ScoreMe app.\n\n\n\n\n\n\nMar 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nCircadian Phenotyping in Visual Impairment\n\n\n\nResearch Pipeline\n\nActigraphy\n\nChronobiology\n\nPython\n\nReproducible Research\n\n\n\nA data-driven framework for identifying circadian phenotypes in visually impaired participants using non-parametric actigraphy metrics, dimensionality reduction, clustering, and SHAP-based interpretation.\n\n\n\n\n\n\nFeb 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nSleep Diaries\n\n\n\nMobile App\n\nSleep\n\nOpen Source\n\nReact Native\n\n\n\nAn open-source mobile app for collecting sleep diary data in clinical and research settings, built with React Native & Expo.\n\n\n\n\n\n\nJan 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nslumbR\n\n\n\nR Package\n\nSleep\n\nOpen Source\n\n\n\nAn R package for processing, scoring, and visualising sleep diary data collected with the Sleep Diaries app.\n\n\n\n\n\n\nJan 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nACTT Validation Study\n\n\n\nResearch Pipeline\n\nActigraphy\n\nR\n\nReproducible Research\n\n\n\nA fully reproducible R/Quarto pipeline validating the ActTrust® device for energy expenditure and physical activity classification, benchmarked against the ActiGraph® GT3X+ and indirect calorimetry.\n\n\n\n\n\n\nSep 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\ncircadiaBase Docker\n\n\n\nInfrastructure\n\nDocker\n\nPython\n\nR\n\n\n\nA Docker template bundling a full chronobiology and actigraphy analysis stack — Jupyter + RStudio — launchable with a single command.\n\n\n\n\n\n\nJun 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nCycling & EEG Entropy\n\n\n\nResearch Pipeline\n\nEEG\n\nR\n\nReproducible Research\n\n\n\nAn R analysis pipeline examining recurrence-matrix entropy in scalp EEG signals recorded during cycling and rest across four behavioural conditions in healthy adults.\n\n\n\n\n\n\nApr 1, 2024\n\n\n\n\n\n\nNo matching items"
   }
 ]

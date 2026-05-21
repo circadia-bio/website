@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-09-01">
+<meta name="description" content="A fully reproducible R/Quarto pipeline validating the ActTrust® device for energy expenditure and physical activity classification, benchmarked against the ActiGraph® GT3X+ and indirect calorimetry.">
 
-<title>Projects – Circadia</title>
+<title>ACTT Validation Study – Circadia</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,30 +28,28 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../logo.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b63e5efd6a575734c4eb2ecd2273215d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-f128af1fb6e268f97b565466096f0ba2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-b63e5efd6a575734c4eb2ecd2273215d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-b63e5efd6a575734c4eb2ecd2273215d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-f128af1fb6e268f97b565466096f0ba2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-b63e5efd6a575734c4eb2ecd2273215d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,73 +77,16 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <meta property="og:title" content="Circadia">
 <meta property="og:description" content="We are an interdisciplinary team researching the intersection of physics, computer science, and physiology, with a focus on sleep, rhythmicity, and medical signals.">
-<meta property="og:image" content="https://circadia.bio/projects/logo.png">
+<meta property="og:image" content="https://circadia.bio/projects/images/actt_validation.svg">
 <meta property="og:site_name" content="Circadia">
 <meta property="og:locale" content="en_GB">
-<meta name="twitter:title" content="Projects – Circadia">
-<meta name="twitter:image" content="https://circadia.bio/projects/projects/images/pinetime_research.svg">
+<meta name="twitter:title" content="ACTT Validation Study – Circadia">
+<meta name="twitter:description" content="A fully reproducible R/Quarto pipeline validating the ActTrust® device for energy expenditure and physical activity classification, benchmarked against the ActiGraph® GT3X+ and indirect calorimetry.">
+<meta name="twitter:image" content="https://circadia.bio/projects/images/actt_validation.svg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -316,11 +259,11 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../logo.png" alt="" class="navbar-logo light-content">
-    <img src="../logo.png" alt="" class="navbar-logo dark-content">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../logo.png" alt="" class="navbar-logo light-content">
+    <img src="../../logo.png" alt="" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Circadia</span>
     </a>
   </div>
@@ -331,37 +274,37 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> <i class="bi bi-house-fill" role="img">
+    <a class="nav-link" href="../../index.html"> <i class="bi bi-house-fill" role="img">
 </i> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../people.html"> <i class="bi bi-people-fill" role="img">
+    <a class="nav-link" href="../../people.html"> <i class="bi bi-people-fill" role="img">
 </i> 
 <span class="menu-text">People</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../publications.html"> <i class="bi bi-newspaper" role="img">
+    <a class="nav-link" href="../../publications.html"> <i class="bi bi-newspaper" role="img">
 </i> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../projects.html"> <i class="bi bi-folder-fill" role="img">
+    <a class="nav-link" href="../../projects.html"> <i class="bi bi-folder-fill" role="img">
 </i> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../blog.html"> <i class="bi bi-file-earmark-richtext" role="img">
+    <a class="nav-link" href="../../blog.html"> <i class="bi bi-file-earmark-richtext" role="img">
 </i> 
 <span class="menu-text">Tutorials</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../join.html"> <i class="bi bi-person-plus-fill" role="img">
+    <a class="nav-link" href="../../join.html"> <i class="bi bi-person-plus-fill" role="img">
 </i> 
 <span class="menu-text">Join us/Visit</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../design.html"> <i class="bi bi-palette-fill" role="img">
+    <a class="nav-link" href="../../design.html"> <i class="bi bi-palette-fill" role="img">
 </i> 
 <span class="menu-text">Design</span></a>
   </li>  
@@ -373,12 +316,12 @@ window.Quarto = {
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-rss"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="../publications.xml">
+            <a class="dropdown-item quarto-navbar-tools-item" href="../../publications.xml">
             Publications
             </a>
           </li>
           <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="../blog.xml">
+            <a class="dropdown-item quarto-navbar-tools-item" href="../../blog.xml">
             Posts
             </a>
           </li>
@@ -393,23 +336,39 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(9)</span></div><div class="category" data-category="QWN0aWdyYXBoeQ==">Actigraphy <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Q2hyb25vYmlvbG9neQ==">Chronobiology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RG9ja2Vy">Docker <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RUVH">EEG <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RmlybXdhcmU=">Firmware <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SW4lMjBEZXZlbG9wbWVudA==">In Development <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SW5mcmFzdHJ1Y3R1cmU=">Infrastructure <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TW9iaWxlJTIwQXBw">Mobile App <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T3BlbiUyMFNvdXJjZQ==">Open Source <span class="quarto-category-count">(4)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UXVlc3Rpb25uYWlyZXM=">Questionnaires <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UiUyMFBhY2thZ2U=">R Package <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UmVhY3QlMjBOYXRpdmU=">React Native <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UmVwcm9kdWNpYmxlJTIwUmVzZWFyY2g=">Reproducible Research <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UmVzZWFyY2glMjBQaXBlbGluZQ==">Research Pipeline <span class="quarto-category-count">(3)</span></div><div class="category" data-category="U2xlZXA=">Sleep <span class="quarto-category-count">(2)</span></div><div class="category" data-category="V2VhcmFibGVz">Wearables <span class="quarto-category-count">(1)</span></div><div class="category" data-category="V2ViJTIwQXBw">Web App <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Projects</h1>
+<h1 class="title">ACTT Validation Study</h1>
+<p class="subtitle lead">Validating the ActTrust® actigraphy device</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Research Pipeline</div>
+    <div class="quarto-category">Actigraphy</div>
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">Reproducible Research</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    A fully reproducible R/Quarto pipeline validating the ActTrust® device for energy expenditure and physical activity classification, benchmarked against the ActiGraph® GT3X+ and indirect calorimetry.
+  </div>
 </div>
 
 
-
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-page">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 1, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -419,324 +378,30 @@ window.Quarto = {
 </header>
 
 
+<section id="about" class="level2">
+<h2 class="anchored" data-anchor-id="about">About</h2>
+<p>This project provides a fully reproducible analysis pipeline for validating the ActTrust® actigraphy device as a tool for energy expenditure estimation and physical activity intensity classification in young adults.</p>
+<p>The pipeline benchmarks ActTrust® against the ActiGraph® GT3X+ — a widely used reference device — and against indirect calorimetry as the gold standard. All analyses are implemented in R and rendered as a Quarto document, making every step fully auditable and reproducible.</p>
+</section>
+<section id="methods" class="level2">
+<h2 class="anchored" data-anchor-id="methods">Methods</h2>
+<ul>
+<li>Bland-Altman analysis for agreement between devices</li>
+<li>Physical activity intensity classification benchmarking</li>
+<li>Energy expenditure estimation validation</li>
+<li>Fully reproducible R/Quarto pipeline</li>
+</ul>
+</section>
+<section id="links" class="level2">
+<h2 class="anchored" data-anchor-id="links">Links</h2>
+<ul>
+<li>💻 <a href="https://github.com/circadia-bio/ACTT_validation_study">GitHub</a></li>
+</ul>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="V2VhcmFibGVzJTJDRmlybXdhcmUlMkNJbiUyMERldmVsb3BtZW50" data-listing-date-sort="1748736000000">
-<a href="../projects/projects/pinetime/index.qmd" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="projects/images/pinetime_research.svg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-PineTime Research Platform
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('V2VhcmFibGVz'); return false;">Wearables</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RmlybXdhcmU='); return false;">Firmware</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SW4lMjBEZXZlbG9wbWVudA=='); return false;">In Development</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>An open-source wearable research platform built on the PineTime smartwatch. Comprises a custom InfiniTime firmware fork and a companion web app for device configuration and data offload. Currently in active development.</p>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
-<div class="listing-date">
-Jun 1, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="V2ViJTIwQXBwJTJDUXVlc3Rpb25uYWlyZXMlMkNPcGVuJTIwU291cmNl" data-listing-date-sort="1740787200000">
-<a href="../projects/projects/scoreme/index.qmd" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="projects/images/scoreme_og.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-ScoreMe
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('V2ViJTIwQXBw'); return false;">Web App</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UXVlc3Rpb25uYWlyZXM='); return false;">Questionnaires</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3BlbiUyMFNvdXJjZQ=='); return false;">Open Source</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>A lightweight web app for scoring validated research questionnaires in the browser. Supports a growing library of sleep and chronobiology instruments. No installation required.</p>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
-<div class="listing-date">
-Mar 1, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="UiUyMFBhY2thZ2UlMkNRdWVzdGlvbm5haXJlcyUyQ09wZW4lMjBTb3VyY2U=" data-listing-date-sort="1740787200000">
-<a href="../projects/projects/tallier/index.qmd" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="projects/images/tallier_logo.svg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-tallieR
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UiUyMFBhY2thZ2U='); return false;">R Package</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UXVlc3Rpb25uYWlyZXM='); return false;">Questionnaires</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3BlbiUyMFNvdXJjZQ=='); return false;">Open Source</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>An R package for importing, re-scoring, and tidying questionnaire data collected with ScoreMe. Supports longitudinal data, custom instruments, and reliability analysis.</p>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
-<div class="listing-date">
-Mar 1, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="UmVzZWFyY2glMjBQaXBlbGluZSUyQ0FjdGlncmFwaHklMkNDaHJvbm9iaW9sb2d5JTJDUHl0aG9uJTJDUmVwcm9kdWNpYmxlJTIwUmVzZWFyY2g=" data-listing-date-sort="1738368000000">
-<a href="../projects/projects/actigraphy-clustering/index.qmd" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="projects/images/actigraphy_clustering.svg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Circadian Phenotyping in Visual Impairment
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmVzZWFyY2glMjBQaXBlbGluZQ=='); return false;">Research Pipeline</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('QWN0aWdyYXBoeQ=='); return false;">Actigraphy</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q2hyb25vYmlvbG9neQ=='); return false;">Chronobiology</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmVwcm9kdWNpYmxlJTIwUmVzZWFyY2g='); return false;">Reproducible Research</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>A data-driven framework for identifying circadian phenotypes in visually impaired participants using non-parametric actigraphy metrics, dimensionality reduction, clustering, and SHAP-based interpretation.</p>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
-<div class="listing-date">
-Feb 1, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="4" data-categories="TW9iaWxlJTIwQXBwJTJDU2xlZXAlMkNPcGVuJTIwU291cmNlJTJDUmVhY3QlMjBOYXRpdmU=" data-listing-date-sort="1735689600000">
-<a href="../projects/projects/sleep-diaries/index.qmd" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="projects/images/sleepdiaries_social.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Sleep Diaries
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TW9iaWxlJTIwQXBw'); return false;">Mobile App</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U2xlZXA='); return false;">Sleep</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3BlbiUyMFNvdXJjZQ=='); return false;">Open Source</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmVhY3QlMjBOYXRpdmU='); return false;">React Native</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>An open-source mobile app for collecting sleep diary data in clinical and research settings, built with React Native &amp; Expo. Morning &amp; evening questionnaires, sleep metrics, and CSV/JSON data export.</p>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
-<div class="listing-date">
-Jan 1, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="5" data-categories="UiUyMFBhY2thZ2UlMkNTbGVlcCUyQ09wZW4lMjBTb3VyY2U=" data-listing-date-sort="1735689600000">
-<a href="../projects/projects/slumbr/index.qmd" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="projects/images/slumbr_logo.svg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-slumbR
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UiUyMFBhY2thZ2U='); return false;">R Package</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U2xlZXA='); return false;">Sleep</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3BlbiUyMFNvdXJjZQ=='); return false;">Open Source</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>The official R companion to the Sleep Diaries app. Reads participant JSON exports, computes sleep diary variables, and returns tidy data frames ready for statistical analysis.</p>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
-<div class="listing-date">
-Jan 1, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="6" data-categories="UmVzZWFyY2glMjBQaXBlbGluZSUyQ0FjdGlncmFwaHklMkNSJTJDUmVwcm9kdWNpYmxlJTIwUmVzZWFyY2g=" data-listing-date-sort="1725148800000">
-<a href="../projects/projects/actt-validation/index.qmd" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="projects/images/actt_validation.svg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-ACTT Validation Study
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmVzZWFyY2glMjBQaXBlbGluZQ=='); return false;">Research Pipeline</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('QWN0aWdyYXBoeQ=='); return false;">Actigraphy</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmVwcm9kdWNpYmxlJTIwUmVzZWFyY2g='); return false;">Reproducible Research</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>A fully reproducible R/Quarto pipeline validating the ActTrust® actigraphy device for energy expenditure and physical activity classification, benchmarked against the ActiGraph® GT3X+ and indirect calorimetry.</p>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
-<div class="listing-date">
-Sep 1, 2024
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="7" data-categories="SW5mcmFzdHJ1Y3R1cmUlMkNEb2NrZXIlMkNQeXRob24lMkNS" data-listing-date-sort="1717200000000">
-<a href="../projects/projects/circadiabase-docker/index.qmd" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="projects/images/circadiabase_docker.svg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-circadiaBase Docker
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('SW5mcmFzdHJ1Y3R1cmU='); return false;">Infrastructure</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RG9ja2Vy'); return false;">Docker</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>A reproducible Docker environment for chronobiology and actigraphy research, bundling Jupyter (Python 3.11 + pyActigraphy) and RStudio (R 4.4 + GGIR, brms, and more). Spin up a full analysis stack with a single command.</p>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
-<div class="listing-date">
-Jun 1, 2024
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="8" data-categories="UmVzZWFyY2glMjBQaXBlbGluZSUyQ0VFRyUyQ1IlMkNSZXByb2R1Y2libGUlMjBSZXNlYXJjaA==" data-listing-date-sort="1711929600000">
-<a href="../projects/projects/cycling-entropy/index.qmd" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="projects/images/cycling_entropy.svg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Cycling &amp; EEG Entropy
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmVzZWFyY2glMjBQaXBlbGluZQ=='); return false;">Research Pipeline</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RUVH'); return false;">EEG</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmVwcm9kdWNpYmxlJTIwUmVzZWFyY2g='); return false;">Reproducible Research</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>An R pipeline examining recurrence-matrix entropy in scalp EEG signals recorded during cycling and rest across four behavioural conditions in healthy adults.</p>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
-<div class="listing-date">
-Apr 1, 2024
-</div>
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
