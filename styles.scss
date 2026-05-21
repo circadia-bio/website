@@ -164,3 +164,79 @@ div.quarto-about-trestles .about-entity .about-links .about-link {
     border-radius: 30px;
     padding: 20px;
 }
+
+/* Products grid */
+#products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  margin: 1.5rem 0 2rem;
+}
+
+.product-card {
+  background: lighten($body-bg, 3%);
+  border: 1.5px solid darken($body-bg, 8%);
+  border-radius: 18px;
+  padding: 1.25rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  text-decoration: none !important;
+  color: inherit;
+  transition: border-color 0.18s, background 0.18s;
+
+  &:hover {
+    border-color: $link-color;
+    background: darken($body-bg, 4%);
+
+    .card-link { opacity: 1; }
+  }
+
+  .card-icon {
+    font-size: 2.8rem;
+    line-height: 1;
+  }
+
+  .card-icon-img {
+    width: 64px;
+    height: 64px;
+    display: block;
+    flex-shrink: 0;
+    border-radius: 12px;
+    object-fit: contain;
+    padding: 0 !important;
+  }
+
+  .card-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0.25rem 0 0;
+    color: $body-color;
+  }
+
+  .card-desc {
+    font-size: 0.72rem;
+    color: lighten($body-color, 20%);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .card-link {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: auto;
+    padding-top: 0.5rem;
+    opacity: 0.65;
+    transition: opacity 0.18s;
+    text-decoration: none !important;
+  }
+}
+
+.tag-app   { color: $body-color; }
+.tag-pkg   { color: #185fa5; }
+.tag-infra { color: #3b6d11; }
