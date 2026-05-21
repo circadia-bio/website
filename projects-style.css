@@ -1,0 +1,16 @@
+/* Projects listing — borderless cards with squared cover images */
+div#listing-projects .card,
+div#listing-projects .quarto-grid-item.card {
+  border: none !important;
+  border-width: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+div#listing-projects .quarto-grid-item img {
+    border-radius: 12px !important;
+    padding: 0 !important;
+    object-fit: cover !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9;
+}

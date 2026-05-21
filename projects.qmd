@@ -12,6 +12,7 @@ listing:
   image-height: "200"
 toc: false
 title-block-banner: false
+css: projects-style.css
 format:
   html:
     page-layout: full

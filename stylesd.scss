@@ -10,7 +10,6 @@ $link-color: #9bdfe2;
 $navbar-bg: #014370;
 
 
-
 /* Fonts */
 $font-size-root: 22px;
 
@@ -149,20 +148,4 @@ div.quarto-about-trestles .about-entity .about-links .about-link {
         flex-wrap: wrap !important;
         justify-content: center !important;
     }
-}
-
-/* Projects listing — borderless cards with squared cover images */
-/* Using attribute selector to avoid SCSS stripping the # from ID selectors */
-[id="listing-projects"] .card {
-  border: none !important;
-  --bs-card-border-width: 0 !important;
-  box-shadow: none !important;
-}
-
-[id="listing-projects"] .quarto-grid-item img {
-    border-radius: 12px !important;
-    padding: 0 !important;
-    object-fit: cover !important;
-    width: 100% !important;
-    aspect-ratio: 16 / 9;
 }
