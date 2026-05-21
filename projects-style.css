@@ -1,20 +1,17 @@
 /* Projects listing — borderless cards with squared cover images */
-/* Targeting both possible IDs: listing-projects (local) and listing-listing (CI) */
-div#listing-projects .card,
 div#listing-listing .card,
-div#listing-projects .quarto-grid-item.card,
-div#listing-listing .quarto-grid-item.card {
+div#listing-projects .card {
   border: none !important;
   border-width: 0 !important;
   box-shadow: none !important;
-  outline: none !important;
 }
 
-div#listing-projects .quarto-grid-item img,
-div#listing-listing .quarto-grid-item img {
-    border-radius: 12px !important;
-    padding: 0 !important;
-    object-fit: cover !important;
-    width: 100% !important;
-    aspect-ratio: 16 / 9;
+div#listing-listing .quarto-grid-item img,
+div#listing-projects .quarto-grid-item img {
+  border-radius: 12px !important;
+  padding: 8px !important;
+  object-fit: contain !important;
+  width: 100% !important;
+  aspect-ratio: 16 / 9;
+  background-color: transparent;
 }
