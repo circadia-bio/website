@@ -1,0 +1,27 @@
+---
+title: "ScoreMe"
+subtitle: "Research questionnaire scorer"
+description: "A lightweight web app for scoring validated research questionnaires in the browser. No installation required."
+date: "2025-03-01"
+image: ../images/scoreme_og.png
+categories: [Web App, Questionnaires, Open Source]
+---
+
+## About
+
+ScoreMe is a lightweight web app for scoring validated sleep and chronobiology questionnaires directly in the browser. No account, no installation, no data sent to any server — everything runs locally.
+
+It is designed for clinicians and researchers who need a quick, reliable way to score questionnaires without setting up analysis software.
+
+## Features
+
+- Supports a growing library of validated instruments (PSQI, ESS, ISI, MEQ, and more)
+- Instant scoring in the browser
+- No installation or account required
+- Fully open source
+
+## Links
+
+- 🌐 [Web app](https://scoreme.circadia-lab.uk)
+- 💻 [GitHub](https://github.com/circadia-bio/ScoreMe)
+- 📦 [tallieR — R companion package](https://tallier.circadia-lab.uk)

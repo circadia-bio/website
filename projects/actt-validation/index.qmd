@@ -1,0 +1,25 @@
+---
+title: "ACTT Validation Study"
+subtitle: "Validating the ActTrust® actigraphy device"
+description: "A fully reproducible R/Quarto pipeline validating the ActTrust® device for energy expenditure and physical activity classification, benchmarked against the ActiGraph® GT3X+ and indirect calorimetry."
+date: "2024-09-01"
+image: ../images/actt_validation.svg
+categories: [Research Pipeline, Actigraphy, R, Reproducible Research]
+---
+
+## About
+
+This project provides a fully reproducible analysis pipeline for validating the ActTrust® actigraphy device as a tool for energy expenditure estimation and physical activity intensity classification in young adults.
+
+The pipeline benchmarks ActTrust® against the ActiGraph® GT3X+ — a widely used reference device — and against indirect calorimetry as the gold standard. All analyses are implemented in R and rendered as a Quarto document, making every step fully auditable and reproducible.
+
+## Methods
+
+- Bland-Altman analysis for agreement between devices
+- Physical activity intensity classification benchmarking
+- Energy expenditure estimation validation
+- Fully reproducible R/Quarto pipeline
+
+## Links
+
+- 💻 [GitHub](https://github.com/circadia-bio/ACTT_validation_study)

@@ -1,0 +1,26 @@
+---
+title: "tallieR"
+subtitle: "R tools for ScoreMe questionnaire data"
+description: "An R package for importing, re-scoring, and tidying questionnaire data collected with the ScoreMe app."
+date: "2025-03-01"
+image: ../images/tallier_logo.svg
+categories: [R Package, Questionnaires, Open Source]
+---
+
+## About
+
+tallieR is the official R companion to ScoreMe. It reads ScoreMe export files, re-scores instruments using validated algorithms, and returns tidy data frames ready for analysis. It supports longitudinal data, custom instruments, and reliability analysis.
+
+## Features
+
+- Import ScoreMe JSON exports
+- Re-score validated instruments with auditable algorithms
+- Longitudinal data support
+- Reliability analysis (Cronbach's alpha, inter-rater reliability)
+- Custom instrument definitions
+
+## Links
+
+- 🌐 [Documentation](https://tallier.circadia-lab.uk)
+- 💻 [GitHub](https://github.com/circadia-bio/tallieR)
+- 🖥️ [ScoreMe web app](https://scoreme.circadia-lab.uk)

@@ -1,0 +1,25 @@
+---
+title: "slumbR"
+subtitle: "R tools for sleep diary research"
+description: "An R package for processing, scoring, and visualising sleep diary data collected with the Sleep Diaries app."
+date: "2025-01-01"
+image: ../images/slumbr_logo.svg
+categories: [R Package, Sleep, Open Source]
+---
+
+## About
+
+slumbR is the official R companion to the Sleep Diaries app. When a study ends, participants export their data as a JSON file. slumbR reads those files — one per participant or in batch — computes sleep diary variables, and returns tidy data frames ready for statistical analysis.
+
+## Features
+
+- Import Sleep Diaries JSON exports (single file or batch)
+- Compute standard sleep diary variables (sleep onset, wake time, total sleep time, sleep efficiency, and more)
+- Tidy output compatible with the tidyverse
+- Visualisation helpers for sleep diary data
+
+## Links
+
+- 🌐 [Documentation](https://slumbr.circadia-lab.uk)
+- 💻 [GitHub](https://github.com/circadia-bio/slumbR)
+- 📱 [Sleep Diaries app](https://sleepdiaries.circadia-lab.uk)

@@ -1,0 +1,28 @@
+---
+title: "Sleep Diaries"
+subtitle: "Open-source sleep diary app for clinical research"
+description: "An open-source mobile app for collecting sleep diary data in clinical and research settings, built with React Native & Expo."
+date: "2025-01-01"
+image: ../images/sleepdiaries_social.png
+categories: [Mobile App, Sleep, Open Source, React Native]
+---
+
+## About
+
+Sleep Diaries is an open-source mobile app for collecting sleep diary data in clinical and research settings. Built with React Native and Expo, it runs on both iOS and Android and is designed with accessibility and inclusive research in mind.
+
+Participants complete brief morning and evening questionnaires. The app computes standard sleep diary variables automatically and stores everything locally on the device until the study ends, at which point data can be exported as CSV or JSON.
+
+## Features
+
+- Morning & evening questionnaires
+- Automatic computation of sleep metrics (sleep onset, wake time, sleep efficiency, and more)
+- CSV and JSON data export
+- Push notification reminders
+- Fully open source
+
+## Links
+
+- 🌐 [Web app](https://sleepdiaries.circadia-lab.uk)
+- 💻 [GitHub](https://github.com/circadia-bio/SleepDiaries)
+- 📦 [slumbR — R companion package](https://slumbr.circadia-lab.uk)

@@ -1,0 +1,32 @@
+---
+title: "circadiaBase Docker"
+subtitle: "Reproducible research environment for chronobiology"
+description: "A Docker template bundling a full chronobiology and actigraphy analysis stack — Jupyter + RStudio — launchable with a single command."
+date: "2024-06-01"
+image: ../images/circadiabase_docker.svg
+categories: [Infrastructure, Docker, Python, R]
+---
+
+## About
+
+circadiaBase Docker is a reproducible containerised environment for chronobiology and actigraphy research. It bundles a Jupyter notebook server and an RStudio server into a single Docker Compose setup, so any lab member can spin up a full analysis stack with one command, regardless of their local OS.
+
+The environment pins all critical dependencies to ensure reproducibility across machines and time.
+
+## Stack
+
+**Python (Jupyter)**
+
+- Python 3.11
+- pyActigraphy, NumPy, scikit-learn, and more
+
+**R (RStudio)**
+
+- R 4.4 (rocker/rstudio)
+- GGIR, ActCR, circacompare, cosinor, lunaR
+- brms, rstanarm, lme4, lmerTest
+- tidyverse, ggplot2 extensions
+
+## Links
+
+- 💻 [GitHub](https://github.com/circadia-bio/circadiaBase_Docker)

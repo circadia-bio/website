@@ -1,0 +1,25 @@
+---
+title: "Cycling & EEG Entropy"
+subtitle: "Neural complexity during cycling and rest"
+description: "An R analysis pipeline examining recurrence-matrix entropy in scalp EEG signals recorded during cycling and rest across four behavioural conditions in healthy adults."
+date: "2024-04-01"
+image: ../images/cycling_entropy.svg
+categories: [Research Pipeline, EEG, R, Reproducible Research]
+---
+
+## About
+
+This project investigates how physical activity modulates neural complexity, using recurrence quantification analysis (RQA) applied to scalp EEG signals recorded from healthy adults during cycling and rest.
+
+EEG was recorded across four behavioural conditions, and recurrence-matrix entropy was computed as a measure of signal complexity. The analysis pipeline is fully implemented in R and designed for reproducibility.
+
+## Methods
+
+- Scalp EEG recording across four conditions (rest and cycling at varying intensities)
+- Recurrence quantification analysis (RQA)
+- Recurrence-matrix entropy as a complexity measure
+- Fully reproducible R pipeline
+
+## Links
+
+- 💻 [GitHub](https://github.com/circadia-bio/cycling-entropy)

@@ -1,0 +1,27 @@
+---
+title: "PineTime Research Platform"
+subtitle: "Open-source wearable platform for research"
+description: "A custom InfiniTime firmware fork and companion web app for the PineTime smartwatch, optimised for research data collection. Currently in active development."
+date: "2025-06-01"
+image: ../images/pinetime_research.svg
+categories: [Wearables, Firmware, In Development]
+---
+
+## About
+
+The PineTime Research Platform is an open-source wearable data collection system built on the [PineTime](https://www.pine64.org/pinetime/) smartwatch — an affordable, open-hardware device. The platform comprises two components: a custom firmware fork optimised for research use, and a companion web app for device configuration and data offload.
+
+This project is currently in active development.
+
+## Components
+
+**pinetime-research-firmware**
+A fork of [InfiniTime](https://github.com/InfiniTimeOrg/InfiniTime) with modifications for research data collection, including configurable sampling rates and storage optimisation.
+
+**infinitime-webapp**
+A companion web app for wirelessly configuring the device and offloading collected data without requiring specialist software.
+
+## Links
+
+- 💻 [Firmware — GitHub](https://github.com/circadia-bio/pinetime-research-firmware)
+- 💻 [Web app — GitHub](https://github.com/circadia-bio/infinitime-webapp)

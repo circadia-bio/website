@@ -1,0 +1,26 @@
+---
+title: "Circadian Phenotyping in Visual Impairment"
+subtitle: "Data-driven circadian phenotyping using actigraphy"
+description: "A data-driven framework for identifying circadian phenotypes in visually impaired participants using non-parametric actigraphy metrics, dimensionality reduction, clustering, and SHAP-based interpretation."
+date: "2025-02-01"
+image: ../images/actigraphy_clustering.svg
+categories: [Research Pipeline, Actigraphy, Chronobiology, Python, Reproducible Research]
+---
+
+## About
+
+This project develops a data-driven framework for identifying and characterising circadian phenotypes in visually impaired participants, who lack the primary light input that synchronises circadian rhythms in sighted individuals.
+
+Non-parametric actigraphy metrics are used as features, with dimensionality reduction and clustering applied to identify phenotypic groups. SHAP values provide interpretable explanations of which actigraphy features drive each phenotype.
+
+## Methods
+
+- Non-parametric actigraphy metrics (IS, IV, RA, M10, L5, and more)
+- Dimensionality reduction (UMAP)
+- Unsupervised clustering
+- SHAP-based feature interpretation
+- Statistical comparison across phenotypic groups
+
+## Links
+
+- 💻 [GitHub](https://github.com/circadia-bio/nonparametric-actigraphy-clustering)
