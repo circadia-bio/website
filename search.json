@@ -788,7 +788,7 @@
     "href": "index.html#our-tools-software",
     "title": "Circadia",
     "section": "Our tools & software",
-    "text": "Our tools & software\n\n\n  \n    \n    Sleep Diaries\n    Structured digital sleep diary for research and clinical use\n    App →\n  \n\n  \n    \n    ScoreMe\n    Scoring and interpretation of validated sleep questionnaires\n    App →\n  \n\n  \n    \n    slumbR\n    R package for sleep data analysis and visualisation\n    R pkg →\n  \n\n  \n    \n    tallieR\n    Tally and summarise actigraphy and wearable data\n    R pkg →\n  \n\n  \n    🐳\n    Circadia Docker\n    Reproducible research environment for chronobiology\n    Infra →"
+    "text": "Our tools & software\n\n\n  \n    \n    Sleep Diaries\n    Structured digital sleep diary for research and clinical use\n    App →\n  \n\n  \n    \n    ScoreMe\n    Scoring and interpretation of validated sleep questionnaires\n    App →\n  \n\n  \n    \n    slumbR\n    R package for sleep data analysis and visualisation\n    R pkg →\n  \n\n  \n    \n    tallieR\n    R package for importing, scoring, and analysing ScoreMe questionnaire data\n    R pkg →\n  \n\n  \n    🐳\n    Circadia Docker\n    Reproducible research environment for chronobiology\n    Infra →"
   },
   {
     "objectID": "index.html#news",
