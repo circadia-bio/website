@@ -137,7 +137,6 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="projects-style.css">
 <meta property="og:title" content="Circadia">
 <meta property="og:description" content="We are an interdisciplinary team researching the intersection of physics, computer science, and physiology, with a focus on sleep, rhythmicity, and medical signals.">
 <meta property="og:image" content="https://circadia.bio/logo.png">
@@ -421,6 +420,22 @@ window.Quarto = {
 </header>
 
 
+<style>
+div#listing-listing .card,
+div#listing-projects .card {
+  border: none !important;
+  border-width: 0 !important;
+  box-shadow: none !important;
+}
+div#listing-listing .quarto-grid-item img,
+div#listing-projects .quarto-grid-item img {
+  border-radius: 12px !important;
+  padding: 0 !important;
+  object-fit: cover !important;
+  width: 100% !important;
+  aspect-ratio: 16 / 9;
+}
+</style>
 
 
 
