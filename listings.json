@@ -1,5 +1,9 @@
 [
   {
+    "listing": "/projects/index.html",
+    "items": []
+  },
+  {
     "listing": "/publications.html",
     "items": [
       "/publications/pugliane2026/index.html",
@@ -18,10 +22,6 @@
       "/blog/sleep_diaries_app/index.html",
       "/blog/sleep_PSG/index.html"
     ]
-  },
-  {
-    "listing": "/projects/index.html",
-    "items": []
   },
   {
     "listing": "/index.html",
