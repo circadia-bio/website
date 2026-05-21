@@ -160,13 +160,17 @@ div.quarto-about-trestles .about-entity .about-links .about-link {
     }
 }
 
-/* Projects listing — match blog/publications card style */
+/* Projects listing — borderless cards with squared cover images */
 #listing-projects .card {
-  border-style: none;
-  border: none;
+  border: none !important;
+  --bs-card-border-width: 0 !important;
+  box-shadow: none !important;
 }
 
 #listing-projects .quarto-grid-item img {
-    border-radius: 30px;
-    padding: 20px;
+    border-radius: 12px !important;
+    padding: 0 !important;
+    object-fit: cover !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9;
 }
