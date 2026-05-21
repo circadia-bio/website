@@ -162,8 +162,8 @@ div.quarto-about-trestles .about-entity .about-links .about-link {
 
 #listing-listing .quarto-grid-item img {
     border-radius: 12px;
-    padding: 0;
-    object-fit: cover;
+    padding: 10px;
+    object-fit: contain;
     width: 100%;
     aspect-ratio: 16 / 9;
 }
