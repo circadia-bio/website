@@ -160,5 +160,13 @@ div.quarto-about-trestles .about-entity .about-links .about-link {
     }
 }
 
+/* Projects listing — match blog/publications card style */
+#listing-projects .card {
+  border-style: none;
+  border: none;
+}
 
-
+#listing-projects .quarto-grid-item img {
+    border-radius: 30px;
+    padding: 20px;
+}

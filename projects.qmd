@@ -1,0 +1,18 @@
+---
+title: Projects
+listing:
+  id: projects
+  contents: projects/projects.yml
+  type: grid
+  max-description-length: 250
+  categories: true
+  sort: "date desc"
+  sort-ui: false
+  filter-ui: false
+  image-height: "200"
+toc: false
+title-block-banner: false
+format:
+  html:
+    page-layout: full
+---

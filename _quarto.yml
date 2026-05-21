@@ -28,7 +28,7 @@ website:
         href: publications.qmd
       - text: Projects
         icon: folder-fill
-        href: projects/index.qmd
+        href: projects.qmd
       - text: Tutorials
         icon: file-earmark-richtext
         href: blog.qmd
