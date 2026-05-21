@@ -83,8 +83,6 @@ body {
     object-fit: cover; /* Ensures the image fills the circular frame */
 }
 
-
-
 #collaborators .card {
   border-style: none;
   border: none;
@@ -94,8 +92,6 @@ body {
   border-style: none;
   border: none;
 }
-
-
 
 .navbar {
   border-style: none !important;
@@ -161,13 +157,14 @@ div.quarto-about-trestles .about-entity .about-links .about-link {
 }
 
 /* Projects listing — borderless cards with squared cover images */
-#listing-projects .card {
+/* Using attribute selector to avoid SCSS stripping the # from ID selectors */
+[id="listing-projects"] .card {
   border: none !important;
   --bs-card-border-width: 0 !important;
   box-shadow: none !important;
 }
 
-#listing-projects .quarto-grid-item img {
+[id="listing-projects"] .quarto-grid-item img {
     border-radius: 12px !important;
     padding: 0 !important;
     object-fit: cover !important;
