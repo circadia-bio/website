@@ -240,3 +240,48 @@ div.quarto-about-trestles .about-entity .about-links .about-link {
 .tag-app   { color: $body-color; }
 .tag-pkg   { color: #185fa5; }
 .tag-infra { color: #3b6d11; }
+
+/* News section — column layout */
+#news .g-col-6 {
+  display: flex;
+  flex-direction: column;
+}
+
+#news .g-col-6 > p:last-child {
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+#listing-blog .thumbnail-image,
+#listing-publication .thumbnail-image {
+  height: 220px !important;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* News section — card title & description */
+#listing-blog .card,
+#listing-publication .card {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+#listing-blog h5.listing-title,
+#listing-publication h5.listing-title {
+  font-family: "Playfair Display", serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $body-color;
+  line-height: 1.4;
+  margin-bottom: 0.4rem;
+}
+
+#listing-blog .listing-description,
+#listing-publication .listing-description {
+  font-size: 0.72rem;
+  color: lighten($body-color, 20%);
+  line-height: 1.55;
+  margin-top: 0;
+}
