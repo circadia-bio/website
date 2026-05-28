@@ -52,44 +52,116 @@ The word *"Circadia"* derives from the Latin *"circa diem"* meaning "around the 
 ## Our tools & software
 
 ```{=html}
-<div id="products-grid">
-
-  <a class="product-card" href="https://sleepdiaries.circadia-lab.uk" target="_blank" rel="noopener">
-    <img class="card-icon-img" src="sleepdiaries-icon.png" alt="Sleep Diaries">
-    <p class="card-title">Sleep Diaries</p>
-    <p class="card-desc">Structured digital sleep diary for research and clinical use</p>
-    <span class="card-link tag-app">App →</span>
-  </a>
-
-  <a class="product-card" href="https://scoreme.circadia-lab.uk" target="_blank" rel="noopener">
-    <img class="card-icon-img" src="scoreme-icon.svg" alt="ScoreMe">
-    <p class="card-title">ScoreMe</p>
-    <p class="card-desc">Scoring and interpretation of validated sleep questionnaires</p>
-    <span class="card-link tag-app">App →</span>
-  </a>
-
-  <a class="product-card" href="https://slumbr.circadia-lab.uk" target="_blank" rel="noopener">
-    <img class="card-icon-img" src="https://slumbr.circadia-lab.uk/logo.svg" alt="slumbR">
-    <p class="card-title">slumbR</p>
-    <p class="card-desc">R package for sleep data analysis and visualisation</p>
-    <span class="card-link tag-pkg">R pkg →</span>
-  </a>
-
-  <a class="product-card" href="https://tallier.circadia-lab.uk" target="_blank" rel="noopener">
-    <img class="card-icon-img" src="https://tallier.circadia-lab.uk/logo.svg" alt="tallieR">
-    <p class="card-title">tallieR</p>
-    <p class="card-desc">R package for importing, scoring, and analysing ScoreMe questionnaire data</p>
-    <span class="card-link tag-pkg">R pkg →</span>
-  </a>
-
-  <a class="product-card" href="https://github.com/circadia-bio/circadiaBase_Docker" target="_blank" rel="noopener">
-    <span class="card-icon">🐳</span>
-    <p class="card-title">Circadia Docker</p>
-    <p class="card-desc">Reproducible research environment for chronobiology</p>
-    <span class="card-link tag-infra">Infra →</span>
-  </a>
-
+<div id="pc-wrap">
+  <button class="pc-btn" id="pc-prev" aria-label="Previous">&#8249;</button>
+  <div id="pc-viewport">
+    <div id="pc-track"></div>
+  </div>
+  <button class="pc-btn" id="pc-next" aria-label="Next">&#8250;</button>
 </div>
+<div id="pc-dots"></div>
+
+<script>
+(function(){
+  var products = [
+    { href: "https://sleepdiaries.circadia-lab.uk", img: "sleepdiaries-icon.png",             name: "Sleep Diaries", desc: "Digital sleep diary for research and clinical use",             tag: "App" },
+    { href: "https://scoreme.circadia-lab.uk",     img: "scoreme-icon.svg",                   name: "ScoreMe",      desc: "Scoring and interpretation of sleep questionnaires",         tag: "App" },
+    { href: "https://slumbr.circadia-lab.uk",      img: "https://slumbr.circadia-lab.uk/logo.svg",   name: "slumbR",       desc: "R package for sleep data analysis and visualisation",        tag: "R pkg" },
+    { href: "https://tallier.circadia-lab.uk",     img: "https://tallier.circadia-lab.uk/logo.svg",  name: "tallieR",      desc: "R package for ScoreMe questionnaire data",                  tag: "R pkg" },
+    { href: "https://r-itable.circadia-lab.uk",    img: "https://r-itable.circadia-lab.uk/logo.svg", name: "R-itable",     desc: "Pedigree-based heritability estimation",                    tag: "R pkg" },
+    { href: "https://github.com/circadia-bio/circadiaBase_Docker", img: null, emoji: "&#x1F433;", name: "Circadia Docker", desc: "Reproducible research environment for chronobiology", tag: "Infra" }
+  ];
+
+  var VISIBLE = 5;
+  var N = products.length;
+  var track = document.getElementById('pc-track');
+  var dotsEl = document.getElementById('pc-dots');
+  var current = 0;
+
+  function makeCard(p, isClone) {
+    var a = document.createElement('a');
+    a.className = 'pc-card';
+    a.href = p.href;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    if (isClone) a.setAttribute('aria-hidden', 'true');
+    if (p.img) {
+      var img = document.createElement('img');
+      img.src = p.img;
+      img.alt = p.name;
+      img.className = 'pc-icon';
+      a.appendChild(img);
+    } else {
+      var em = document.createElement('span');
+      em.className = 'pc-emoji';
+      em.innerHTML = p.emoji;
+      a.appendChild(em);
+    }
+    var name = document.createElement('p');
+    name.className = 'pc-name';
+    name.textContent = p.name;
+    var desc = document.createElement('p');
+    desc.className = 'pc-desc';
+    desc.textContent = p.desc;
+    var tag = document.createElement('span');
+    tag.className = 'pc-tag';
+    tag.textContent = p.tag + ' →';
+    a.appendChild(name);
+    a.appendChild(desc);
+    a.appendChild(tag);
+    return a;
+  }
+
+  products.forEach(function(p) { track.appendChild(makeCard(p, false)); });
+  products.forEach(function(p) { track.appendChild(makeCard(p, true)); });
+
+  for (var i = 0; i < N; i++) {
+    (function(idx){
+      var d = document.createElement('button');
+      d.className = 'pc-dot';
+      d.setAttribute('aria-label', 'Go to ' + products[idx].name);
+      d.onclick = function() { goTo(idx, true); };
+      dotsEl.appendChild(d);
+    })(i);
+  }
+
+  function cardW() {
+    var c = track.querySelector('.pc-card');
+    return c ? c.getBoundingClientRect().width + 14 : 0;
+  }
+
+  function setPos(animated) {
+    track.style.transition = animated ? 'transform 0.45s cubic-bezier(0.4,0,0.2,1)' : 'none';
+    track.style.transform = 'translateX(-' + (current * cardW()) + 'px)';
+    dotsEl.querySelectorAll('.pc-dot').forEach(function(d, i) {
+      d.classList.toggle('pc-dot-on', i === current % N);
+    });
+  }
+
+  function goTo(idx, animated) {
+    current = idx;
+    setPos(animated !== false);
+  }
+
+  function next() { goTo(current + 1, true); }
+  function prev() { goTo(current - 1 + N, true); }
+
+  track.addEventListener('transitionend', function() {
+    if (current >= N) { current = current - N; setPos(false); }
+    if (current < 0)  { current = current + N; setPos(false); }
+  });
+
+  document.getElementById('pc-next').onclick = next;
+  document.getElementById('pc-prev').onclick = prev;
+
+  var timer = setInterval(next, 3000);
+  var wrap = document.getElementById('pc-wrap');
+  wrap.addEventListener('mouseenter', function() { clearInterval(timer); });
+  wrap.addEventListener('mouseleave', function() { timer = setInterval(next, 3000); });
+
+  setPos(false);
+})();
+</script>
 ```
 
 ---
