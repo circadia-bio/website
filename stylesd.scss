@@ -99,6 +99,16 @@ p code, li code, td code {
   padding: 2px 5px !important;
 }
 
+/* ── Glass helpers ─────────────────────────────────────────── */
+
+@mixin glass-dark($alpha: 0.45, $blur: 14px, $border-alpha: 0.12) {
+  background: rgba(1, 67, 112, $alpha) !important;
+  backdrop-filter: blur($blur) saturate(1.5);
+  -webkit-backdrop-filter: blur($blur) saturate(1.5);
+  border: 1px solid rgba(155, 223, 226, $border-alpha) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255,255,255,0.04) inset;
+}
+
 .navbar {
   border-style: none !important;
   background: rgba(1, 67, 112, 0.7) !important;
@@ -124,6 +134,13 @@ p code, li code, td code {
 .figure-img {
     border-radius: 30px;
     padding: 20px;
+}
+
+/* Hero bio panel */
+div.quarto-about-trestles .about-entity {
+  @include glass-dark(0.5, 16px, 0.15);
+  border-radius: 22px;
+  padding: 1.5rem;
 }
 
 div.quarto-about-trestles .about-entity .about-links {
@@ -152,13 +169,30 @@ div.quarto-about-trestles .about-entity .about-links .about-link {
 
 /* Projects listing */
 #listing-listing .card {
-  border-style: none;
-  border: none;
+  @include glass-dark(0.45, 12px, 0.15);
+  border-radius: 18px !important;
+  transition: box-shadow 0.2s;
+  &:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
 }
 
 #listing-listing .quarto-grid-item img {
     border-radius: 30px;
     padding: 20px;
+}
+
+/* ── Page footer glass ─────────────────────────────────────── */
+.nav-footer {
+  @include glass-dark(0.55, 12px, 0.1);
+  border-top: 1px solid rgba(155,223,226,0.12) !important;
+  margin-top: 2rem;
+}
+
+/* ── Horizontal rules ───────────────────────────────────────── */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(155,223,226,0.15), transparent);
+  margin: 2rem 0;
 }
 
 /* Products grid */
@@ -170,8 +204,11 @@ div.quarto-about-trestles .about-entity .about-links .about-link {
 }
 
 .product-card {
-  background: lighten($body-bg, 5%);
-  border: 1.5px solid lighten($body-bg, 12%);
+  background: rgba(1, 67, 112, 0.48);
+  border: 1px solid rgba(155, 223, 226, 0.15);
+  backdrop-filter: blur(12px) saturate(1.4);
+  -webkit-backdrop-filter: blur(12px) saturate(1.4);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.2), 0 1px 0 rgba(255,255,255,0.04) inset;
   border-radius: 18px;
   padding: 1.25rem 1rem 1rem;
   display: flex;
@@ -181,11 +218,12 @@ div.quarto-about-trestles .about-entity .about-links .about-link {
   gap: 8px;
   text-decoration: none !important;
   color: inherit;
-  transition: border-color 0.18s, background 0.18s;
+  transition: border-color 0.18s, background 0.18s, box-shadow 0.18s;
 
   &:hover {
-    border-color: $link-color;
-    background: lighten($body-bg, 8%);
+    border-color: rgba($link-color, 0.5);
+    background: rgba(1, 67, 112, 0.65);
+    box-shadow: 0 6px 28px rgba(0,0,0,0.28);
     .card-link { opacity: 1; }
   }
 
@@ -258,9 +296,10 @@ div.quarto-about-trestles .about-entity .about-links .about-link {
 /* News section — card title & description */
 #listing-blog .card,
 #listing-publication .card {
-  border: none;
-  background: transparent;
-  box-shadow: none;
+  @include glass-dark(0.42, 12px, 0.12);
+  border-radius: 18px !important;
+  transition: box-shadow 0.2s;
+  &:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
 }
 
 #listing-blog h5.listing-title,
