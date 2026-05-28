@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -41,14 +41,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-982531db6ae0f1a193a090647a98e26b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-20cb300d2351d60199f22cf7ebd52077.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-982531db6ae0f1a193a090647a98e26b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-056a28dfc3d336b9a3310d97b0dd77a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-7622cf0f657f863feaf7b7530f852924.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-056a28dfc3d336b9a3310d97b0dd77a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -453,44 +453,116 @@ window.Quarto = {
 
 <section id="our-tools-software" class="level2">
 <h2 data-anchor-id="our-tools-software">Our tools &amp; software</h2>
-<div id="products-grid">
-
-  <a class="product-card" href="https://sleepdiaries.circadia-lab.uk" target="_blank" rel="noopener">
-    <img class="card-icon-img" src="sleepdiaries-icon.png" alt="Sleep Diaries">
-    <p class="card-title">Sleep Diaries</p>
-    <p class="card-desc">Structured digital sleep diary for research and clinical use</p>
-    <span class="card-link tag-app">App →</span>
-  </a>
-
-  <a class="product-card" href="https://scoreme.circadia-lab.uk" target="_blank" rel="noopener">
-    <img class="card-icon-img" src="scoreme-icon.svg" alt="ScoreMe">
-    <p class="card-title">ScoreMe</p>
-    <p class="card-desc">Scoring and interpretation of validated sleep questionnaires</p>
-    <span class="card-link tag-app">App →</span>
-  </a>
-
-  <a class="product-card" href="https://slumbr.circadia-lab.uk" target="_blank" rel="noopener">
-    <img class="card-icon-img" src="https://slumbr.circadia-lab.uk/logo.svg" alt="slumbR">
-    <p class="card-title">slumbR</p>
-    <p class="card-desc">R package for sleep data analysis and visualisation</p>
-    <span class="card-link tag-pkg">R pkg →</span>
-  </a>
-
-  <a class="product-card" href="https://tallier.circadia-lab.uk" target="_blank" rel="noopener">
-    <img class="card-icon-img" src="https://tallier.circadia-lab.uk/logo.svg" alt="tallieR">
-    <p class="card-title">tallieR</p>
-    <p class="card-desc">R package for importing, scoring, and analysing ScoreMe questionnaire data</p>
-    <span class="card-link tag-pkg">R pkg →</span>
-  </a>
-
-  <a class="product-card" href="https://github.com/circadia-bio/circadiaBase_Docker" target="_blank" rel="noopener">
-    <span class="card-icon">🐳</span>
-    <p class="card-title">Circadia Docker</p>
-    <p class="card-desc">Reproducible research environment for chronobiology</p>
-    <span class="card-link tag-infra">Infra →</span>
-  </a>
-
+<div id="pc-wrap">
+  <button class="pc-btn" id="pc-prev" aria-label="Previous">‹</button>
+  <div id="pc-viewport">
+    <div id="pc-track"></div>
+  </div>
+  <button class="pc-btn" id="pc-next" aria-label="Next">›</button>
 </div>
+<div id="pc-dots"></div>
+
+<script>
+(function(){
+  var products = [
+    { href: "https://sleepdiaries.circadia-lab.uk", img: "sleepdiaries-icon.png",             name: "Sleep Diaries", desc: "Digital sleep diary for research and clinical use",             tag: "App" },
+    { href: "https://scoreme.circadia-lab.uk",     img: "scoreme-icon.svg",                   name: "ScoreMe",      desc: "Scoring and interpretation of sleep questionnaires",         tag: "App" },
+    { href: "https://slumbr.circadia-lab.uk",      img: "https://slumbr.circadia-lab.uk/logo.svg",   name: "slumbR",       desc: "R package for sleep data analysis and visualisation",        tag: "R pkg" },
+    { href: "https://tallier.circadia-lab.uk",     img: "https://tallier.circadia-lab.uk/logo.svg",  name: "tallieR",      desc: "R package for ScoreMe questionnaire data",                  tag: "R pkg" },
+    { href: "https://r-itable.circadia-lab.uk",    img: "https://r-itable.circadia-lab.uk/logo.svg", name: "R-itable",     desc: "Pedigree-based heritability estimation",                    tag: "R pkg" },
+    { href: "https://github.com/circadia-bio/circadiaBase_Docker", img: null, emoji: "&#x1F433;", name: "Circadia Docker", desc: "Reproducible research environment for chronobiology", tag: "Infra" }
+  ];
+
+  var VISIBLE = 5;
+  var N = products.length;
+  var track = document.getElementById('pc-track');
+  var dotsEl = document.getElementById('pc-dots');
+  var current = 0;
+
+  function makeCard(p, isClone) {
+    var a = document.createElement('a');
+    a.className = 'pc-card';
+    a.href = p.href;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    if (isClone) a.setAttribute('aria-hidden', 'true');
+    if (p.img) {
+      var img = document.createElement('img');
+      img.src = p.img;
+      img.alt = p.name;
+      img.className = 'pc-icon';
+      a.appendChild(img);
+    } else {
+      var em = document.createElement('span');
+      em.className = 'pc-emoji';
+      em.innerHTML = p.emoji;
+      a.appendChild(em);
+    }
+    var name = document.createElement('p');
+    name.className = 'pc-name';
+    name.textContent = p.name;
+    var desc = document.createElement('p');
+    desc.className = 'pc-desc';
+    desc.textContent = p.desc;
+    var tag = document.createElement('span');
+    tag.className = 'pc-tag';
+    tag.textContent = p.tag + ' →';
+    a.appendChild(name);
+    a.appendChild(desc);
+    a.appendChild(tag);
+    return a;
+  }
+
+  products.forEach(function(p) { track.appendChild(makeCard(p, false)); });
+  products.forEach(function(p) { track.appendChild(makeCard(p, true)); });
+
+  for (var i = 0; i < N; i++) {
+    (function(idx){
+      var d = document.createElement('button');
+      d.className = 'pc-dot';
+      d.setAttribute('aria-label', 'Go to ' + products[idx].name);
+      d.onclick = function() { goTo(idx, true); };
+      dotsEl.appendChild(d);
+    })(i);
+  }
+
+  function cardW() {
+    var c = track.querySelector('.pc-card');
+    return c ? c.getBoundingClientRect().width + 14 : 0;
+  }
+
+  function setPos(animated) {
+    track.style.transition = animated ? 'transform 0.45s cubic-bezier(0.4,0,0.2,1)' : 'none';
+    track.style.transform = 'translateX(-' + (current * cardW()) + 'px)';
+    dotsEl.querySelectorAll('.pc-dot').forEach(function(d, i) {
+      d.classList.toggle('pc-dot-on', i === current % N);
+    });
+  }
+
+  function goTo(idx, animated) {
+    current = idx;
+    setPos(animated !== false);
+  }
+
+  function next() { goTo(current + 1, true); }
+  function prev() { goTo(current - 1 + N, true); }
+
+  track.addEventListener('transitionend', function() {
+    if (current >= N) { current = current - N; setPos(false); }
+    if (current < 0)  { current = current + N; setPos(false); }
+  });
+
+  document.getElementById('pc-next').onclick = next;
+  document.getElementById('pc-prev').onclick = prev;
+
+  var timer = setInterval(next, 3000);
+  var wrap = document.getElementById('pc-wrap');
+  wrap.addEventListener('mouseenter', function() { clearInterval(timer); });
+  wrap.addEventListener('mouseleave', function() { timer = setInterval(next, 3000); });
+
+  setPos(false);
+})();
+</script>
 <hr>
 </section>
 <section id="news" class="level2">
@@ -500,7 +572,7 @@ window.Quarto = {
 <h3 data-anchor-id="tutorials">Tutorials</h3>
 <div id="listing-blog" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-1">
-<div class="g-col-1" data-index="0" data-categories="SW5mcmFzdHJ1Y3R1cmUlMkNEb2NrZXIlMkNQeXRob24lMkNSJTJDUmVwcm9kdWNpYmlsaXR5" data-listing-date-sort="1779321600000" data-listing-file-modified-sort="1779394687519" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1196">
+<div class="g-col-1" data-index="0" data-categories="SW5mcmFzdHJ1Y3R1cmUlMkNEb2NrZXIlMkNQeXRob24lMkNSJTJDUmVwcm9kdWNpYmlsaXR5" data-listing-date-sort="1779321600000" data-listing-file-modified-sort="1779980444548" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1196">
 <a href="./blog/circadiabase_docker/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -525,7 +597,7 @@ Setting up circadiaBase Docker
 <h3 data-anchor-id="publications">Publications</h3>
 <div id="listing-publication" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-1">
-<div class="g-col-1" data-index="0" data-categories="QXJ0aWNsZSUyQ2luZGlyZWN0JTIwY2Fsb3JpbWV0cnklMkNhY2NlbGVyb21ldGVyJTJDYWN0aXZpdHklMjBpbnRlbnNpdHk=" data-listing-date-sort="1778025600000" data-listing-file-modified-sort="1779394687562" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="226">
+<div class="g-col-1" data-index="0" data-categories="QXJ0aWNsZSUyQ2luZGlyZWN0JTIwY2Fsb3JpbWV0cnklMkNhY2NlbGVyb21ldGVyJTJDYWN0aXZpdHklMjBpbnRlbnNpdHk=" data-listing-date-sort="1778025600000" data-listing-file-modified-sort="1779980444583" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="226">
 <a href="./publications/batista2026/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">

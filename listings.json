@@ -1,5 +1,19 @@
 [
   {
+    "listing": "/projects.html",
+    "items": [
+      "/projects/pinetime/index.html",
+      "/projects/scoreme/index.html",
+      "/projects/tallier/index.html",
+      "/projects/actigraphy-clustering/index.html",
+      "/projects/sleep-diaries/index.html",
+      "/projects/slumbr/index.html",
+      "/projects/actt-validation/index.html",
+      "/projects/circadiabase-docker/index.html",
+      "/projects/cycling-entropy/index.html"
+    ]
+  },
+  {
     "listing": "/people.html",
     "items": [
       "/people/staff/lucas_franca.html",
@@ -17,6 +31,14 @@
     ]
   },
   {
+    "listing": "/blog.html",
+    "items": [
+      "/blog/circadiabase_docker/index.html",
+      "/blog/sleep_diaries_app/index.html",
+      "/blog/sleep_PSG/index.html"
+    ]
+  },
+  {
     "listing": "/publications.html",
     "items": [
       "/publications/batista2026/index.html",
@@ -27,14 +49,6 @@
       "/publications/nunes2024/index.html",
       "/publications/torres2024/index.html",
       "/publications/silva2023/index.html"
-    ]
-  },
-  {
-    "listing": "/blog.html",
-    "items": [
-      "/blog/circadiabase_docker/index.html",
-      "/blog/sleep_diaries_app/index.html",
-      "/blog/sleep_PSG/index.html"
     ]
   },
   {
@@ -51,20 +65,6 @@
       "/publications/nunes2024/index.html",
       "/publications/torres2024/index.html",
       "/publications/silva2023/index.html"
-    ]
-  },
-  {
-    "listing": "/projects.html",
-    "items": [
-      "/projects/pinetime/index.html",
-      "/projects/scoreme/index.html",
-      "/projects/tallier/index.html",
-      "/projects/actigraphy-clustering/index.html",
-      "/projects/sleep-diaries/index.html",
-      "/projects/slumbr/index.html",
-      "/projects/actt-validation/index.html",
-      "/projects/circadiabase-docker/index.html",
-      "/projects/cycling-entropy/index.html"
     ]
   }
 ]
