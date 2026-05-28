@@ -5,6 +5,9 @@ website:
   title: "Circadia"
   site-url: "https://circadia.bio"
   favicon: "logo.png"
+  resources:
+    - sleepdiaries-icon.png
+    - scoreme-icon.svg
   twitter-card: true
   image: "logo.png"
   open-graph: # https://quarto.org/docs/websites/website-tools.html#open-graph
