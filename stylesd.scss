@@ -143,6 +143,10 @@ div.quarto-about-trestles .about-entity {
   padding: 1.5rem;
 }
 
+div.quarto-about-trestles .about-contents {
+  border-left: none !important;
+}
+
 div.quarto-about-trestles .about-entity .about-links {
     display: flex !important;
     flex-direction: row !important;
