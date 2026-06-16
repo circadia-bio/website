@@ -141,6 +141,7 @@ div.quarto-about-trestles .about-entity {
   @include glass-dark(0.5, 16px, 0.15);
   border-radius: 22px;
   padding: 1.5rem;
+  align-self: start;
 }
 
 div.quarto-about-trestles .about-contents {
