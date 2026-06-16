@@ -367,9 +367,18 @@ hr {
   display: none;
 }
 
-/* Hide the margin sidebar only on the tutorials page */
+/* Tutorials page: pull sidebar above content as a pill row */
 .page-tutorials #quarto-margin-sidebar {
-  display: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  order: -1;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.page-tutorials .page-columns {
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 .quarto-listing-category.category-default {

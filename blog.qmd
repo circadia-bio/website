@@ -23,16 +23,3 @@ format:
     page-layout: full
 title-block-banner: false
 ---
-
-```{=html}
-<script>
-window['quarto-listing-loaded'] = function () {
-  var cats = document.querySelector('#quarto-margin-sidebar .quarto-listing-category');
-  var target = document.querySelector('#quarto-document-content');
-  if (!cats || !target) return;
-  var titleMeta = target.querySelector('.quarto-title-meta');
-  var anchor = titleMeta || target.firstChild;
-  target.insertBefore(cats, anchor.nextSibling);
-};
-</script>
-```
