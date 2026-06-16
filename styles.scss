@@ -413,6 +413,53 @@ hr {
   }
 }
 
+#listing-listing .quarto-post {
+  @include glass-light(0.5, 12px, 0.3);
+  border-radius: 18px !important;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  transition: box-shadow 0.2s;
+  border-top: none !important;
+  &:hover { box-shadow: 0 8px 32px rgba(27,103,153,0.14); }
+}
+
+#listing-listing .quarto-listing-default {
+  border-top: none !important;
+}
+
+/* ── Tutorials category pills ──────────────────────────────── */
+.quarto-listing-category-title {
+  display: none;
+}
+
+.quarto-listing-category.category-default {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0.5rem 0 1.25rem;
+  border: none !important;
+}
+
+.quarto-listing-category.category-default .category {
+  @include glass-light(0.5, 12px, 0.3);
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: box-shadow 0.2s, background 0.2s;
+  color: $body-color;
+  white-space: nowrap;
+  &:hover {
+    box-shadow: 0 4px 16px rgba(27,103,153,0.15);
+    background: rgba(255, 236, 212, 0.8) !important;
+  }
+  &.active {
+    background: rgba(27, 103, 153, 0.15) !important;
+    box-shadow: 0 4px 16px rgba(27,103,153,0.18);
+  }
+}
+
 /* News section — card title & description */
 #listing-blog .card,
 #listing-publication .card {
