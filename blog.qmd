@@ -23,3 +23,18 @@ format:
     page-layout: full
 title-block-banner: false
 ---
+
+```{=html}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var cats = document.querySelector('#quarto-margin-sidebar .quarto-listing-category');
+  var target = document.querySelector('#quarto-document-content');
+  if (cats && target) {
+    // Insert after the title block
+    var titleMeta = target.querySelector('.quarto-title-meta');
+    var anchor = titleMeta || target.firstChild;
+    target.insertBefore(cats, anchor.nextSibling);
+  }
+});
+</script>
+```
