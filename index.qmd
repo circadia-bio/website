@@ -164,8 +164,6 @@ The word *"Circadia"* derives from the Latin *"circa diem"* meaning "around the 
 </script>
 ```
 
----
-
 ## News
 
 :::: {.grid}
