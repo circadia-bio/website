@@ -22,18 +22,38 @@ about:
 
 ## Biography
 
-I can describe myself as a physiologist shaped by several years of intensive chronobiology. I am an Assistant Professor in Sleep Science at Northumbria University, where my research interests include the neurophysiology of sleep, circadian rhythms, and mental health. I am particularly focussed on developing new approaches to physiological and behavioural signal processing. 
+I can describe myself as a physiologist shaped by several years of intensive chronobiology. I am an Assistant Professor in Sleep Science at Northumbria University, where my research interests include the neurophysiology of sleep, circadian rhythms, mental health, and machine learning. I am particularly focussed on developing new approaches to physiological and behavioural signal processing.
+
+My work spans from the genetics and heritability of sleep architecture to actigraphy-based methods for measuring circadian organisation in diverse populations — including infants, children, and blind adults. I am also interested in the validation of consumer wearable devices for sleep research and the application of machine learning to chronobiology data.
 
 ## Education
 
-{{< fa graduation-cap >}} PhD in Human Physiology - Department of Physiology and Biophysics, University of São Paulo (São Paulo, Brazil - 2012)
+{{< fa graduation-cap >}} PhD in Human Physiology - *Time estimation in humans: ontogeny and circadian variation* - Department of Physiology and Biophysics, University of São Paulo (São Paulo, Brazil - 2012)
 
 {{< fa graduation-cap >}} MSc in Human Physiology - Department of Physiology and Biophysics, University of São Paulo (São Paulo, Brazil - 2006)
+
+{{< fa graduation-cap >}} BSc in Physiotherapy - Universidade Paulista (São Paulo, Brazil - 2002)
 
 ## Experience
 
 {{< fa vial >}} Assistant Professor in Sleep Sciences - Department of Psychology, Northumbria University (Newcastle upon Tyne, UK \| 2023 - Current)
 
-{{< fa vial >}} Adjunct Professor in Physiology and Chronobiology - Department of Physiology and Behaviour, Federal University of Rio Grande do Norte (Natal, Brazil \| 2013 - 2023)
+{{< fa vial >}} Adjunct Professor in Physiology and Chronobiology - Department of Physiology and Behaviour, Federal University of Rio Grande do Norte (Natal, Brazil \| 2014 - 2023)
+
+## Selected Publications
+
+{{< fa file-lines >}} Pugliane, K.C., França, L.G.S., Leocadio-Miguel, M.A. & Araújo, J.F. (2026). Low-latitude environmental regularity supports circadian organisation in blind adults. *Chronobiology International*.
+
+{{< fa file-lines >}} Batista, E.D.S., Silva Gomes, S.R.B., de Morais Ferreira, A.B., França, L.G.S., Araújo, J.F., Mortatti, A.L. & Leocadio-Miguel, M.A. (2026). From movement to METs: A validation of ActTrust® for energy expenditure estimation and physical activity classification in young adults. *PLoS One*, 21(5).
+
+{{< fa file-lines >}} Buest de Mesquita Silva, R., Holler Pykocz, A., Victoria Leal, H., Leocadio-Miguel, M.A. & Louzada, F.M. (2026). L5 onset as a proxy for circadian phase in infants. *Chronobiology International*.
+
+{{< fa file-lines >}} Leocadio-Miguel, M.A., Taporoski, T., Beijamini, F., Ruiz, F., Horimoto, A., Pereira, A., Knutson, K. & von Schantz, M. (2025). Heritability of sleep architecture based on home polysomnography. *Journal of Sleep Research*.
+
+{{< fa file-lines >}} Elder, G., Phillips, A., Voysey, Z., Leocadio-Miguel, M.A. & Hill, E. (2025). Consumer wearable devices for sleep measurement: ready for use in sleep research and medicine? *Advances in Clinical Neuroscience and Rehabilitation*.
+
+{{< fa file-lines >}} Silva, R., Schmidt, H., dos Santos, G., Leocadio-Miguel, M.A. & Louzada, F. (2025). Chronotype Profile in Children: A Systematic Review. *Sleep and Vigilance*.
+
+{{< fa file-lines >}} Palombini, L., Mello, L., Santos-Silva, R., Miguel, M., et al. (2024). 2024 Standardization of Polysomnography Reports — A Consensus of the Brazilian Sleep Association. *Sleep Science*.
 
 :::
