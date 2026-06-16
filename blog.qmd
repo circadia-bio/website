@@ -8,6 +8,7 @@ listing:
   sort: "date desc"
   type: default
   categories: true
+  categories-position: top
   sort-ui: false
   filter-ui: false
   fields: [title, author, categories, date, image, description]
