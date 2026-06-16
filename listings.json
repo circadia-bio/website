@@ -29,6 +29,7 @@
     "listing": "/projects.html",
     "items": [
       "/projects/pinetime/index.html",
+      "/projects/r-itable/index.html",
       "/projects/scoreme/index.html",
       "/projects/tallier/index.html",
       "/projects/actigraphy-clustering/index.html",

@@ -2,162 +2,166 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://circadia.bio/people.html</loc>
-    <lastmod>2026-06-16T19:12:24.924Z</lastmod>
+    <lastmod>2026-06-16T19:28:33.020Z</lastmod>
   </url>
   <url>
     <loc>https://circadia.bio/blog.html</loc>
-    <lastmod>2026-06-16T19:12:24.913Z</lastmod>
+    <lastmod>2026-06-16T19:28:33.010Z</lastmod>
   </url>
   <url>
     <loc>https://circadia.bio/publications/torres2024/index.html</loc>
-    <lastmod>2026-06-16T19:12:24.965Z</lastmod>
+    <lastmod>2026-06-16T19:28:33.062Z</lastmod>
   </url>
   <url>
     <loc>https://circadia.bio/publications/nunes2024/index.html</loc>
-    <lastmod>2026-06-16T19:12:24.962Z</lastmod>
+    <lastmod>2026-06-16T19:28:33.058Z</lastmod>
   </url>
   <url>
     <loc>https://circadia.bio/publications/silva2023/index.html</loc>
-    <lastmod>2026-06-16T19:12:24.964Z</lastmod>
+    <lastmod>2026-06-16T19:28:33.060Z</lastmod>
   </url>
   <url>
     <loc>https://circadia.bio/publications/batista2026/index.html</loc>
-    <lastmod>2026-06-16T19:12:24.949Z</lastmod>
+    <lastmod>2026-06-16T19:28:33.045Z</lastmod>
   </url>
   <url>
     <loc>https://circadia.bio/projects/cycling-entropy/index.html</loc>
-    <lastmod>2026-06-16T19:12:24.946Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/projects/actt-validation/index.html</loc>
-    <lastmod>2026-06-16T19:12:24.946Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/projects/scoreme/index.html</loc>
-    <lastmod>2026-06-16T19:12:24.947Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/projects/slumbr/index.html</loc>
-    <lastmod>2026-06-16T19:12:24.947Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/projects/pinetime/index.html</loc>
-    <lastmod>2026-06-16T19:12:24.947Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/people/staff/mario_miguel.html</loc>
-    <lastmod>2026-06-16T19:12:24.933Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/people/staff/julia_vallim.html</loc>
-    <lastmod>2026-06-16T19:12:24.933Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/people/students/karen_pugliane.html</loc>
-    <lastmod>2026-06-16T19:12:24.939Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/people/students/fernanda_diogo.html</loc>
-    <lastmod>2026-06-16T19:12:24.935Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/people/former/josh_penrhyn-jones.html</loc>
-    <lastmod>2026-06-16T19:12:24.931Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/people/collaborators/john_araujo.html</loc>
-    <lastmod>2026-06-16T19:12:24.925Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/people/collaborators/matthew_walker.html</loc>
-    <lastmod>2026-06-16T19:12:24.928Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/blog/sleep_PSG/index.html</loc>
-    <lastmod>2026-06-16T19:12:24.914Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/projects.html</loc>
-    <lastmod>2026-06-16T19:12:24.945Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/design.html</loc>
-    <lastmod>2026-06-16T19:12:24.918Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/blog/circadiabase_docker/index.html</loc>
-    <lastmod>2026-06-16T19:12:24.914Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/blog/sleep_diaries_app/index.html</loc>
-    <lastmod>2026-06-16T19:12:24.918Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/people/collaborators/nick_puts.html</loc>
-    <lastmod>2026-06-16T19:12:24.931Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/people/collaborators/yujiang_wang.html</loc>
-    <lastmod>2026-06-16T19:12:24.931Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/people/former/malcolm_schantz.html</loc>
-    <lastmod>2026-06-16T19:12:24.932Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/people/students/rebeca_buest.html</loc>
-    <lastmod>2026-06-16T19:12:24.940Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/people/staff/nayantara_santhi.html</loc>
-    <lastmod>2026-06-16T19:12:24.933Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/people/staff/lucas_franca.html</loc>
-    <lastmod>2026-06-16T19:12:24.933Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/join.html</loc>
-    <lastmod>2026-06-16T19:12:24.918Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/projects/sleep-diaries/index.html</loc>
-    <lastmod>2026-06-16T19:12:24.947Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/projects/tallier/index.html</loc>
-    <lastmod>2026-06-16T19:12:24.947Z</lastmod>
-  </url>
-  <url>
-    <loc>https://circadia.bio/projects/circadiabase-docker/index.html</loc>
-    <lastmod>2026-06-16T19:12:24.946Z</lastmod>
+    <lastmod>2026-06-16T19:28:33.043Z</lastmod>
   </url>
   <url>
     <loc>https://circadia.bio/projects/actigraphy-clustering/index.html</loc>
-    <lastmod>2026-06-16T19:12:24.946Z</lastmod>
+    <lastmod>2026-06-16T19:28:33.043Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/projects/circadiabase-docker/index.html</loc>
+    <lastmod>2026-06-16T19:28:33.043Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/projects/tallier/index.html</loc>
+    <lastmod>2026-06-16T19:28:33.044Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/projects/sleep-diaries/index.html</loc>
+    <lastmod>2026-06-16T19:28:33.044Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/join.html</loc>
+    <lastmod>2026-06-16T19:28:33.015Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/people/staff/lucas_franca.html</loc>
+    <lastmod>2026-06-16T19:28:33.030Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/people/staff/nayantara_santhi.html</loc>
+    <lastmod>2026-06-16T19:28:33.030Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/people/students/rebeca_buest.html</loc>
+    <lastmod>2026-06-16T19:28:33.036Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/people/former/malcolm_schantz.html</loc>
+    <lastmod>2026-06-16T19:28:33.029Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/people/collaborators/yujiang_wang.html</loc>
+    <lastmod>2026-06-16T19:28:33.027Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/people/collaborators/nick_puts.html</loc>
+    <lastmod>2026-06-16T19:28:33.027Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/blog/sleep_diaries_app/index.html</loc>
+    <lastmod>2026-06-16T19:28:33.014Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/blog/circadiabase_docker/index.html</loc>
+    <lastmod>2026-06-16T19:28:33.011Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/design.html</loc>
+    <lastmod>2026-06-16T19:28:33.015Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/projects.html</loc>
+    <lastmod>2026-06-16T19:28:33.042Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/blog/sleep_PSG/index.html</loc>
+    <lastmod>2026-06-16T19:28:33.011Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/people/collaborators/matthew_walker.html</loc>
+    <lastmod>2026-06-16T19:28:33.024Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/people/collaborators/john_araujo.html</loc>
+    <lastmod>2026-06-16T19:28:33.023Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/people/former/josh_penrhyn-jones.html</loc>
+    <lastmod>2026-06-16T19:28:33.027Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/people/students/fernanda_diogo.html</loc>
+    <lastmod>2026-06-16T19:28:33.031Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/people/students/karen_pugliane.html</loc>
+    <lastmod>2026-06-16T19:28:33.036Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/people/staff/julia_vallim.html</loc>
+    <lastmod>2026-06-16T19:28:33.030Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/people/staff/mario_miguel.html</loc>
+    <lastmod>2026-06-16T19:28:33.030Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/projects/pinetime/index.html</loc>
+    <lastmod>2026-06-16T19:28:33.043Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/projects/slumbr/index.html</loc>
+    <lastmod>2026-06-16T19:28:33.044Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/projects/scoreme/index.html</loc>
+    <lastmod>2026-06-16T19:28:33.044Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/projects/actt-validation/index.html</loc>
+    <lastmod>2026-06-16T19:28:33.043Z</lastmod>
+  </url>
+  <url>
+    <loc>https://circadia.bio/projects/r-itable/index.html</loc>
+    <lastmod>2026-06-16T19:28:33.043Z</lastmod>
   </url>
   <url>
     <loc>https://circadia.bio/publications.html</loc>
-    <lastmod>2026-06-16T19:12:24.948Z</lastmod>
+    <lastmod>2026-06-16T19:28:33.044Z</lastmod>
   </url>
   <url>
     <loc>https://circadia.bio/publications/miguel2024/index.html</loc>
-    <lastmod>2026-06-16T19:12:24.961Z</lastmod>
+    <lastmod>2026-06-16T19:28:33.057Z</lastmod>
   </url>
   <url>
     <loc>https://circadia.bio/publications/pugliane2026/index.html</loc>
-    <lastmod>2026-06-16T19:12:24.963Z</lastmod>
+    <lastmod>2026-06-16T19:28:33.059Z</lastmod>
   </url>
   <url>
     <loc>https://circadia.bio/publications/ferre2024/index.html</loc>
-    <lastmod>2026-06-16T19:12:24.952Z</lastmod>
+    <lastmod>2026-06-16T19:28:33.049Z</lastmod>
   </url>
   <url>
     <loc>https://circadia.bio/publications/franca2024/index.html</loc>
-    <lastmod>2026-06-16T19:12:24.953Z</lastmod>
+    <lastmod>2026-06-16T19:28:33.050Z</lastmod>
   </url>
   <url>
     <loc>https://circadia.bio/index.html</loc>
-    <lastmod>2026-06-16T19:12:24.918Z</lastmod>
+    <lastmod>2026-06-16T19:28:33.015Z</lastmod>
   </url>
 </urlset>

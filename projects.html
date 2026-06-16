@@ -47,9 +47,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-70d3262507abc8adc9edb3281a9bf5c6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-778f47615c62a7e11a26b62a88752769.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-70d3262507abc8adc9edb3281a9bf5c6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3d8659ad6544d1f85dddbb16cdfc8c6b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-dd0bf3b29d7bab0840842c953c50637f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-3d8659ad6544d1f85dddbb16cdfc8c6b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -87,9 +87,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -396,10 +396,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(9)</span></div><div class="category" data-category="QWN0aWdyYXBoeQ==">Actigraphy <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Q2hyb25vYmlvbG9neQ==">Chronobiology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RG9ja2Vy">Docker <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RUVH">EEG <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RmlybXdhcmU=">Firmware <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SW4lMjBEZXZlbG9wbWVudA==">In Development <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SW5mcmFzdHJ1Y3R1cmU=">Infrastructure <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TW9iaWxlJTIwQXBw">Mobile App <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T3BlbiUyMFNvdXJjZQ==">Open Source <span class="quarto-category-count">(4)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UXVlc3Rpb25uYWlyZXM=">Questionnaires <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UiUyMFBhY2thZ2U=">R Package <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UmVhY3QlMjBOYXRpdmU=">React Native <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UmVwcm9kdWNpYmxlJTIwUmVzZWFyY2g=">Reproducible Research <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UmVzZWFyY2glMjBQaXBlbGluZQ==">Research Pipeline <span class="quarto-category-count">(3)</span></div><div class="category" data-category="U2xlZXA=">Sleep <span class="quarto-category-count">(2)</span></div><div class="category" data-category="V2VhcmFibGVz">Wearables <span class="quarto-category-count">(1)</span></div><div class="category" data-category="V2ViJTIwQXBw">Web App <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -409,7 +408,7 @@ window.Quarto = {
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -425,316 +424,257 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="V2VhcmFibGVzJTJDRmlybXdhcmUlMkNJbiUyMERldmVsb3BtZW50" data-listing-date-sort="1748736000000" data-listing-file-modified-sort="1781637144947" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="237">
-<a href="./projects/pinetime/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/images/pinetime_research.svg" class="thumbnail-image card-img" style="height: 200;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-PineTime Research Platform
-</h5>
-<div class="listing-categories">
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-left" data-index="0" data-categories="V2VhcmFibGVzJTJDRmlybXdhcmUlMkNJbiUyMERldmVsb3BtZW50" data-listing-date-sort="1748736000000" data-listing-file-modified-sort="1781638113043" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="237">
+<div class="thumbnail"><a href="./projects/pinetime/index.html" class="no-external">
 
-<div class="listing-category" onclick="window.quartoListingCategory('V2VhcmFibGVz'); return false;">Wearables</div>
+<img loading="lazy" src="./projects/images/pinetime_research.svg" class="thumbnail-image" style="height: 10em;">
 
-<div class="listing-category" onclick="window.quartoListingCategory('RmlybXdhcmU='); return false;">Firmware</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SW4lMjBEZXZlbG9wbWVudA=='); return false;">In Development</div>
-
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./projects/pinetime/index.html" class="no-external">PineTime Research Platform</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./projects/pinetime/index.html" class="no-external">Open-source wearable platform for research</a>
 </div>
-<div class="card-text listing-description delink">
+<div class="delink listing-description"><a href="./projects/pinetime/index.html" class="no-external">
 <p>A custom InfiniTime firmware fork and companion web app for the PineTime smartwatch, optimised for research data collection. Currently in active development.</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
+<div class="metadata">
+<a href="./projects/pinetime/index.html" class="no-external">
 <div class="listing-date">
 Jun 1, 2025
 </div>
+</a>
 </div>
 </div>
-</div></a>
+<div class="quarto-post image-left" data-index="1" data-categories="UiUyMFBhY2thZ2UlMkNIZXJpdGFiaWxpdHklMkNPcGVuJTIwU291cmNl" data-listing-date-sort="1748736000000" data-listing-file-modified-sort="1781638113043" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="298">
+<div class="thumbnail"><a href="./projects/r-itable/index.html" class="no-external">
+
+<img loading="lazy" src="https://r-itable.circadia-lab.uk/logo.svg" class="thumbnail-image" style="height: 10em;">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./projects/r-itable/index.html" class="no-external">R-itable</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./projects/r-itable/index.html" class="no-external">Pedigree-based heritability estimation</a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="V2ViJTIwQXBwJTJDUXVlc3Rpb25uYWlyZXMlMkNPcGVuJTIwU291cmNl" data-listing-date-sort="1740787200000" data-listing-file-modified-sort="1781637144947" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="215">
-<a href="./projects/scoreme/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/images/scoreme_og.png" class="thumbnail-image card-img" style="height: 200;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-ScoreMe
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('V2ViJTIwQXBw'); return false;">Web App</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UXVlc3Rpb25uYWlyZXM='); return false;">Questionnaires</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3BlbiUyMFNvdXJjZQ=='); return false;">Open Source</div>
-
+<div class="delink listing-description"><a href="./projects/r-itable/index.html" class="no-external">
+<p>An R package for profile-likelihood variance-components heritability estimation in family cohort studies. No SOLAR Eclipse required.</p>
+</a></div>
 </div>
-<div class="card-text listing-description delink">
+<div class="metadata">
+<a href="./projects/r-itable/index.html" class="no-external">
+<div class="listing-date">
+Jun 1, 2025
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-left" data-index="2" data-categories="V2ViJTIwQXBwJTJDUXVlc3Rpb25uYWlyZXMlMkNPcGVuJTIwU291cmNl" data-listing-date-sort="1740787200000" data-listing-file-modified-sort="1781638113044" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="215">
+<div class="thumbnail"><a href="./projects/scoreme/index.html" class="no-external">
+
+<img loading="lazy" src="./projects/images/scoreme_og.png" class="thumbnail-image" style="height: 10em;">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./projects/scoreme/index.html" class="no-external">ScoreMe</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./projects/scoreme/index.html" class="no-external">Research questionnaire scorer</a>
+</div>
+<div class="delink listing-description"><a href="./projects/scoreme/index.html" class="no-external">
 <p>A lightweight web app for scoring validated research questionnaires in the browser. No installation required.</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
+<div class="metadata">
+<a href="./projects/scoreme/index.html" class="no-external">
 <div class="listing-date">
 Mar 1, 2025
 </div>
+</a>
 </div>
 </div>
-</div></a>
+<div class="quarto-post image-left" data-index="3" data-categories="UiUyMFBhY2thZ2UlMkNRdWVzdGlvbm5haXJlcyUyQ09wZW4lMjBTb3VyY2U=" data-listing-date-sort="1740787200000" data-listing-file-modified-sort="1781638113044" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="319">
+<div class="thumbnail"><a href="./projects/tallier/index.html" class="no-external">
+
+<img loading="lazy" src="./projects/images/tallier_logo.svg" class="thumbnail-image" style="height: 10em;">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./projects/tallier/index.html" class="no-external">tallieR</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./projects/tallier/index.html" class="no-external">R tools for ScoreMe questionnaire data</a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="UiUyMFBhY2thZ2UlMkNRdWVzdGlvbm5haXJlcyUyQ09wZW4lMjBTb3VyY2U=" data-listing-date-sort="1740787200000" data-listing-file-modified-sort="1781637144947" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="319">
-<a href="./projects/tallier/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/images/tallier_logo.svg" class="thumbnail-image card-img" style="height: 200;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-tallieR
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UiUyMFBhY2thZ2U='); return false;">R Package</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UXVlc3Rpb25uYWlyZXM='); return false;">Questionnaires</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3BlbiUyMFNvdXJjZQ=='); return false;">Open Source</div>
-
-</div>
-<div class="card-text listing-description delink">
+<div class="delink listing-description"><a href="./projects/tallier/index.html" class="no-external">
 <p>An R package for importing, re-scoring, and tidying questionnaire data collected with the ScoreMe app.</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
+<div class="metadata">
+<a href="./projects/tallier/index.html" class="no-external">
 <div class="listing-date">
 Mar 1, 2025
 </div>
+</a>
 </div>
 </div>
-</div></a>
+<div class="quarto-post image-left" data-index="4" data-categories="UmVzZWFyY2glMjBQaXBlbGluZSUyQ0FjdGlncmFwaHklMkNDaHJvbm9iaW9sb2d5JTJDUHl0aG9uJTJDUmVwcm9kdWNpYmxlJTIwUmVzZWFyY2g=" data-listing-date-sort="1738368000000" data-listing-file-modified-sort="1781638113043" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="433">
+<div class="thumbnail"><a href="./projects/actigraphy-clustering/index.html" class="no-external">
+
+<img loading="lazy" src="./projects/images/actigraphy_clustering.svg" class="thumbnail-image" style="height: 10em;">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./projects/actigraphy-clustering/index.html" class="no-external">Circadian Phenotyping in Visual Impairment</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./projects/actigraphy-clustering/index.html" class="no-external">Low-latitude environmental regularity sustains non-photic entrainment in blind adults</a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="UmVzZWFyY2glMjBQaXBlbGluZSUyQ0FjdGlncmFwaHklMkNDaHJvbm9iaW9sb2d5JTJDUHl0aG9uJTJDUmVwcm9kdWNpYmxlJTIwUmVzZWFyY2g=" data-listing-date-sort="1738368000000" data-listing-file-modified-sort="1781637144946" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="433">
-<a href="./projects/actigraphy-clustering/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/images/actigraphy_clustering.svg" class="thumbnail-image card-img" style="height: 200;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Circadian Phenotyping in Visual Impairment
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmVzZWFyY2glMjBQaXBlbGluZQ=='); return false;">Research Pipeline</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('QWN0aWdyYXBoeQ=='); return false;">Actigraphy</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q2hyb25vYmlvbG9neQ=='); return false;">Chronobiology</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmVwcm9kdWNpYmxlJTIwUmVzZWFyY2g='); return false;">Reproducible Research</div>
-
-</div>
-<div class="card-text listing-description delink">
+<div class="delink listing-description"><a href="./projects/actigraphy-clustering/index.html" class="no-external">
 <p>A data-driven framework for identifying circadian phenotypes in visually impaired participants using non-parametric actigraphy metrics, dimensionality reduction, clustering, and SHAP-based interpretation.</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
+<div class="metadata">
+<a href="./projects/actigraphy-clustering/index.html" class="no-external">
 <div class="listing-date">
 Feb 1, 2025
 </div>
+</a>
 </div>
 </div>
-</div></a>
+<div class="quarto-post image-left" data-index="5" data-categories="TW9iaWxlJTIwQXBwJTJDU2xlZXAlMkNPcGVuJTIwU291cmNlJTJDUmVhY3QlMjBOYXRpdmU=" data-listing-date-sort="1735689600000" data-listing-file-modified-sort="1781638113044" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="292">
+<div class="thumbnail"><a href="./projects/sleep-diaries/index.html" class="no-external">
+
+<img loading="lazy" src="./projects/images/sleepdiaries_social.png" class="thumbnail-image" style="height: 10em;">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./projects/sleep-diaries/index.html" class="no-external">Sleep Diaries</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./projects/sleep-diaries/index.html" class="no-external">Open-source sleep diary app for clinical research</a>
 </div>
-<div class="g-col-1" data-index="4" data-categories="TW9iaWxlJTIwQXBwJTJDU2xlZXAlMkNPcGVuJTIwU291cmNlJTJDUmVhY3QlMjBOYXRpdmU=" data-listing-date-sort="1735689600000" data-listing-file-modified-sort="1781637144947" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="292">
-<a href="./projects/sleep-diaries/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/images/sleepdiaries_social.png" class="thumbnail-image card-img" style="height: 200;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Sleep Diaries
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TW9iaWxlJTIwQXBw'); return false;">Mobile App</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U2xlZXA='); return false;">Sleep</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3BlbiUyMFNvdXJjZQ=='); return false;">Open Source</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmVhY3QlMjBOYXRpdmU='); return false;">React Native</div>
-
-</div>
-<div class="card-text listing-description delink">
+<div class="delink listing-description"><a href="./projects/sleep-diaries/index.html" class="no-external">
 <p>An open-source mobile app for collecting sleep diary data in clinical and research settings, built with React Native &amp; Expo.</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
+<div class="metadata">
+<a href="./projects/sleep-diaries/index.html" class="no-external">
 <div class="listing-date">
 Jan 1, 2025
 </div>
+</a>
 </div>
 </div>
-</div></a>
+<div class="quarto-post image-left" data-index="6" data-categories="UiUyMFBhY2thZ2UlMkNTbGVlcCUyQ09wZW4lMjBTb3VyY2U=" data-listing-date-sort="1735689600000" data-listing-file-modified-sort="1781638113044" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="323">
+<div class="thumbnail"><a href="./projects/slumbr/index.html" class="no-external">
+
+<img loading="lazy" src="./projects/images/slumbr_logo.svg" class="thumbnail-image" style="height: 10em;">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./projects/slumbr/index.html" class="no-external">slumbR</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./projects/slumbr/index.html" class="no-external">R tools for sleep diary research</a>
 </div>
-<div class="g-col-1" data-index="5" data-categories="UiUyMFBhY2thZ2UlMkNTbGVlcCUyQ09wZW4lMjBTb3VyY2U=" data-listing-date-sort="1735689600000" data-listing-file-modified-sort="1781637144947" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="323">
-<a href="./projects/slumbr/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/images/slumbr_logo.svg" class="thumbnail-image card-img" style="height: 200;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-slumbR
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UiUyMFBhY2thZ2U='); return false;">R Package</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U2xlZXA='); return false;">Sleep</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3BlbiUyMFNvdXJjZQ=='); return false;">Open Source</div>
-
-</div>
-<div class="card-text listing-description delink">
+<div class="delink listing-description"><a href="./projects/slumbr/index.html" class="no-external">
 <p>An R package for processing, scoring, and visualising sleep diary data collected with the Sleep Diaries app.</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
+<div class="metadata">
+<a href="./projects/slumbr/index.html" class="no-external">
 <div class="listing-date">
 Jan 1, 2025
 </div>
+</a>
 </div>
 </div>
-</div></a>
+<div class="quarto-post image-left" data-index="7" data-categories="UmVzZWFyY2glMjBQaXBlbGluZSUyQ0FjdGlncmFwaHklMkNSJTJDUmVwcm9kdWNpYmxlJTIwUmVzZWFyY2g=" data-listing-date-sort="1725148800000" data-listing-file-modified-sort="1781638113043" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="437">
+<div class="thumbnail"><a href="./projects/actt-validation/index.html" class="no-external">
+
+<img loading="lazy" src="./projects/images/actt_validation.svg" class="thumbnail-image" style="height: 10em;">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./projects/actt-validation/index.html" class="no-external">ACTT Validation Study</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./projects/actt-validation/index.html" class="no-external">From Movement to METs: Validating the ActTrust® actigraphy device</a>
 </div>
-<div class="g-col-1" data-index="6" data-categories="UmVzZWFyY2glMjBQaXBlbGluZSUyQ0FjdGlncmFwaHklMkNSJTJDUmVwcm9kdWNpYmxlJTIwUmVzZWFyY2g=" data-listing-date-sort="1725148800000" data-listing-file-modified-sort="1781637144946" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="437">
-<a href="./projects/actt-validation/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/images/actt_validation.svg" class="thumbnail-image card-img" style="height: 200;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-ACTT Validation Study
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmVzZWFyY2glMjBQaXBlbGluZQ=='); return false;">Research Pipeline</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('QWN0aWdyYXBoeQ=='); return false;">Actigraphy</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmVwcm9kdWNpYmxlJTIwUmVzZWFyY2g='); return false;">Reproducible Research</div>
-
-</div>
-<div class="card-text listing-description delink">
+<div class="delink listing-description"><a href="./projects/actt-validation/index.html" class="no-external">
 <p>A fully reproducible R/Quarto pipeline validating the ActTrust® device for energy expenditure and physical activity classification, benchmarked against the ActiGraph® GT3X+ and indirect calorimetry.</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
+<div class="metadata">
+<a href="./projects/actt-validation/index.html" class="no-external">
 <div class="listing-date">
 Sep 1, 2024
 </div>
+</a>
 </div>
 </div>
-</div></a>
+<div class="quarto-post image-left" data-index="8" data-categories="SW5mcmFzdHJ1Y3R1cmUlMkNEb2NrZXIlMkNQeXRob24lMkNS" data-listing-date-sort="1717200000000" data-listing-file-modified-sort="1781638113043" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="431">
+<div class="thumbnail"><a href="./projects/circadiabase-docker/index.html" class="no-external">
+
+<img loading="lazy" src="./projects/images/circadiabase_docker.svg" class="thumbnail-image" style="height: 10em;">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./projects/circadiabase-docker/index.html" class="no-external">circadiaBase Docker</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./projects/circadiabase-docker/index.html" class="no-external">Reproducible research environment for chronobiology</a>
 </div>
-<div class="g-col-1" data-index="7" data-categories="SW5mcmFzdHJ1Y3R1cmUlMkNEb2NrZXIlMkNQeXRob24lMkNS" data-listing-date-sort="1717200000000" data-listing-file-modified-sort="1781637144946" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="431">
-<a href="./projects/circadiabase-docker/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/images/circadiabase_docker.svg" class="thumbnail-image card-img" style="height: 200;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-circadiaBase Docker
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('SW5mcmFzdHJ1Y3R1cmU='); return false;">Infrastructure</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RG9ja2Vy'); return false;">Docker</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-</div>
-<div class="card-text listing-description delink">
+<div class="delink listing-description"><a href="./projects/circadiabase-docker/index.html" class="no-external">
 <p>A Docker template bundling a full chronobiology and actigraphy analysis stack — Jupyter + RStudio — launchable with a single command.</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
+<div class="metadata">
+<a href="./projects/circadiabase-docker/index.html" class="no-external">
 <div class="listing-date">
 Jun 1, 2024
 </div>
+</a>
 </div>
 </div>
-</div></a>
+<div class="quarto-post image-left" data-index="9" data-categories="UmVzZWFyY2glMjBQaXBlbGluZSUyQ0VFRyUyQ1IlMkNSZXByb2R1Y2libGUlMjBSZXNlYXJjaA==" data-listing-date-sort="1711929600000" data-listing-file-modified-sort="1781638113043" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="385">
+<div class="thumbnail"><a href="./projects/cycling-entropy/index.html" class="no-external">
+
+<img loading="lazy" src="./projects/images/cycling_entropy.svg" class="thumbnail-image" style="height: 10em;">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./projects/cycling-entropy/index.html" class="no-external">Cycling &amp; EEG Entropy</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./projects/cycling-entropy/index.html" class="no-external">Cycling reduces the entropy of neuronal activity in the human adult cortex</a>
 </div>
-<div class="g-col-1" data-index="8" data-categories="UmVzZWFyY2glMjBQaXBlbGluZSUyQ0VFRyUyQ1IlMkNSZXByb2R1Y2libGUlMjBSZXNlYXJjaA==" data-listing-date-sort="1711929600000" data-listing-file-modified-sort="1781637144946" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="385">
-<a href="./projects/cycling-entropy/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/images/cycling_entropy.svg" class="thumbnail-image card-img" style="height: 200;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Cycling &amp; EEG Entropy
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmVzZWFyY2glMjBQaXBlbGluZQ=='); return false;">Research Pipeline</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RUVH'); return false;">EEG</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmVwcm9kdWNpYmxlJTIwUmVzZWFyY2g='); return false;">Reproducible Research</div>
-
-</div>
-<div class="card-text listing-description delink">
+<div class="delink listing-description"><a href="./projects/cycling-entropy/index.html" class="no-external">
 <p>An R analysis pipeline examining recurrence-matrix entropy in scalp EEG signals recorded during cycling and rest across four behavioural conditions in healthy adults.</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
+<div class="metadata">
+<a href="./projects/cycling-entropy/index.html" class="no-external">
 <div class="listing-date">
 Apr 1, 2024
 </div>
+</a>
 </div>
-</div>
-</div></a>
 </div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
