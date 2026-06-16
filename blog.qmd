@@ -8,7 +8,6 @@ listing:
   sort: "date desc"
   type: default
   categories: true
-  categories-position: top
   sort-ui: false
   filter-ui: false
   fields: [title, author, categories, date, image, description]
@@ -18,6 +17,7 @@ listing:
 citation: false
 toc: false
 comments: false
+body-classes: page-tutorials
 format: 
   html: 
     page-layout: full

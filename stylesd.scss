@@ -367,6 +367,11 @@ hr {
   display: none;
 }
 
+/* Hide the margin sidebar only on the tutorials page */
+.page-tutorials #quarto-margin-sidebar {
+  display: none !important;
+}
+
 .quarto-listing-category.category-default {
   display: flex !important;
   flex-direction: row !important;
