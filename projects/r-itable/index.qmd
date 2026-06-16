@@ -1,0 +1,60 @@
+---
+title: "R-itable"
+subtitle: "Pedigree-based heritability estimation"
+description: "An R package for profile-likelihood variance-components heritability estimation in family cohort studies. No SOLAR Eclipse required."
+date: "2025-06-01"
+image: https://r-itable.circadia-lab.uk/logo.svg
+categories: [R Package, Heritability, Open Source]
+---
+
+## About
+
+R-itable (`library(Ritable)`) estimates narrow-sense heritability (h²) for quantitative traits in pedigree-based family cohort studies. It implements a profile-likelihood variance-components approach equivalent to SOLAR Eclipse — without any proprietary dependencies, compiled code, or external binaries.
+
+Built for neuroimaging and biomedical cohorts where you need to run heritability across dozens of traits and multiple covariate models, and get results you can trace back to first principles.
+
+## Features
+
+- **Profile-likelihood VC estimator** — eigendecomposition of the GRM, 1-D optimisation, exact LRT with one-sided χ²(1) boundary correction matching SOLAR.
+- **Profile-likelihood CIs** — proper asymmetric intervals via `uniroot()`, not Wald ±1.96 SE.
+- **INT transformation** — inverse-normal transform applied internally; also exported as `int_transform()` for use in other pipelines.
+- **Batch mode** — `herit_batch()` iterates over traits × covariate models and returns a tidy data frame ready for tables and figures.
+- **Forest plots** — `plot_forest()` for immediate visualisation of batch output.
+- **Minimal dependencies** — core functions require only base R, `kinship2`, `rlang`, and `cli`.
+
+## Basic Usage
+
+```r
+library(Ritable)
+
+# 1. Build GRM from pedigree
+A <- build_grm(my_pedigree, study_ids = my_data$IID)
+
+# 2. Single trait
+herit_vc("bmi", grm = A, data = my_data, covs = c("age", "sex"))
+
+# 3. Many traits × models → tidy data frame
+res <- herit_batch(
+  traits    = c("bmi", "hdl", "systolic_bp"),
+  grm       = A,
+  data      = my_data,
+  covs_list = list(
+    unadj = NULL,
+    cov1  = c("age", "sex"),
+    cov2  = c("age", "sex", "age2")
+  )
+)
+
+# 4. Forest plot
+plot_forest(res, model_filter = "cov2")
+```
+
+## Status
+
+R-itable is in early development. The API may change without notice and estimation results have not yet been validated against SOLAR Eclipse. Use with caution and verify outputs independently before using in any research context.
+
+## Links
+
+- 🌐 [Documentation](https://r-itable.circadia-lab.uk)
+- 📖 [Getting started vignette](https://r-itable.circadia-lab.uk/articles/getting-started)
+- 💻 [GitHub](https://github.com/circadia-bio/R-itable)
