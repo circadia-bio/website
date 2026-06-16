@@ -149,6 +149,7 @@ div.quarto-about-trestles .about-entity {
   @include glass-light(0.48, 16px, 0.3);
   border-radius: 22px;
   padding: 1.5rem;
+  align-self: start;
 }
 
 div.quarto-about-trestles .about-contents {
