@@ -316,6 +316,13 @@ hr {
     box-sizing: border-box;
   }
 
+  div.quarto-about-trestles .about-entity img {
+    max-width: 60% !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto;
+  }
+
   div.quarto-about-trestles .about-contents {
     max-width: 100% !important;
     width: 100% !important;
