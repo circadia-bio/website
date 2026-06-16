@@ -1,0 +1,61 @@
+---
+title: "Dr Nayantara Santhi"
+sortby: 3
+subtitle: "Researcher"
+image: no.jpg
+image-alt: "Photo of Dr Nayantara Santhi"
+toc: false
+about:
+  id: person-profile
+  template: trestles
+  image-width: 20em
+  links:
+    - icon: mortarboard
+      text: Scholar
+      href: https://scholar.google.com/citations?user=IWqu-9oAAAAJ&hl=en
+    - text: "{{< fa brands orcid >}} ORCID"
+      href: https://orcid.org/0000-0003-4568-1447
+---
+
+
+:::{#person-profile}
+
+## Biography
+
+I am an Associate Professor in the School of Psychology at Northumbria University, with a research career spanning the Surrey Sleep Research Centre and Harvard Medical School's Division of Sleep Medicine. My work sits at the intersection of chronobiology, sleep science, and individual differences, with a focus on how circadian timing and sleep are regulated across diverse populations. I am particularly interested in the non-visual effects of light, the role of temperature and behaviour as circadian timing cues, and the interaction between sleep homeostasis and the circadian clock in shaping cognition and mood.
+
+My current projects include work on light sensitivity in bipolar disorder (HELIOS-BD), sleep and circadian disruption in microgravity environments, insomnia interventions, and circadian regulation in people with visual impairments. I also contribute to international efforts to standardise light exposure research, including the ENLIGHT reporting checklist and wearable light dosimetry metadata standards.
+
+## Education
+
+{{< fa graduation-cap >}} PhD in Psychology - August 2000
+
+## Experience
+
+{{< fa vial >}} Associate Professor - School of Psychology, Northumbria University (Newcastle upon Tyne, UK \| Current)
+
+{{< fa vial >}} Researcher - Surrey Sleep Research Centre, University of Surrey (UK)
+
+{{< fa vial >}} Researcher - Division of Sleep Medicine, Brigham and Women's Hospital / Harvard Medical School (Boston, USA)
+
+## Selected Publications
+
+{{< fa file-lines >}} Lázár, A.S., Lazar, Z.I., Santhi, N., et al. (2025). Circadian and Sleep-Wake Modulation of Functional Connectivity Across Brain Oscillations and States Linked to Cognition in Humans. *Preprint*.
+
+{{< fa file-lines >}} Ball, D.M., Mann, S.S., Santhi, N., et al. (2025). Temperature as a circadian timing cue in the visually impaired. *Progress in Brain Research*, 292.
+
+{{< fa file-lines >}} Elder, G., Santhi, N., Robson, A., et al. (2024). An online behavioural self-help intervention rapidly improves acute insomnia severity and subjective mood during the COVID-19 pandemic. *Sleep*, 47(6).
+
+{{< fa file-lines >}} Bonmatí-Carrión, M.Á., Santhi, N., Atzori, G., et al. (2024). Effect of 60 days of head down tilt bed rest on amplitude and phase of rhythms in physiology and sleep in men. *npj Microgravity*, 10, 42.
+
+{{< fa file-lines >}} Spitschan, M., Hammad, G., Blume, C., Santhi, N., et al. (2024). Metadata recommendations for light logging and dosimetry datasets. *BMC Digital Health*.
+
+{{< fa file-lines >}} Roguski, A., Needham, N., MacGillivray, T., Santhi, N., et al. (2024). Investigating light sensitivity in bipolar disorder (HELIOS-BD). *Wellcome Open Research*.
+
+{{< fa file-lines >}} Spitschan, M., Kervezee, L., Lok, R., Santhi, N., et al. (2023). ENLIGHT: A consensus checklist for reporting laboratory-based studies on the non-visual effects of light in humans. *EBioMedicine*.
+
+{{< fa file-lines >}} Polasek, D., Santhi, N., Alfonso-Miller, P., et al. (2023). Nutritional interventions in treating menopause-related sleep disturbances: a systematic review. *Nutrition Reviews*.
+
+{{< fa file-lines >}} Groeger, J.A., Lo, J.C., Santhi, N., Lazar, A.S., Dijk, D.J. (2022). Contrasting Effects of Sleep Restriction, Total Sleep Deprivation, and Sleep Timing on Positive and Negative Affect. *Frontiers in Behavioral Neuroscience*.
+
+:::
