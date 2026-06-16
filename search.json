@@ -1,5 +1,124 @@
 [
   {
+    "objectID": "people.html",
+    "href": "people.html",
+    "title": "Circadia",
+    "section": "",
+    "text": "Co Lead\n\n\n\n\n\n\n\n\n\n\n\n\n\nCo Lead\n\n\n\n\n\n\n\n\n\n\n\n\n\nResearcher\n\n\n\n\n\n\n\n\n\n\n\n\n\nVisiting Research Fellow\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "people.html#research-staff",
+    "href": "people.html#research-staff",
+    "title": "Circadia",
+    "section": "",
+    "text": "Co Lead\n\n\n\n\n\n\n\n\n\n\n\n\n\nCo Lead\n\n\n\n\n\n\n\n\n\n\n\n\n\nResearcher\n\n\n\n\n\n\n\n\n\n\n\n\n\nVisiting Research Fellow\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "people.html#students",
+    "href": "people.html#students",
+    "title": "Circadia",
+    "section": "Students",
+    "text": "Students\n\n\n\n\n\n\n\n\n\n\nFernanda Diogo\n\n\nVisiting PhD Student\n\n\n\n\n\n\n\n\n\n\n\n\nKaren Pugliane\n\n\nVisiting PhD Student\n\n\n\n\n\n\n\n\n\n\n\n\nRebeca Buest de Mesquita Silva\n\n\nVisiting PhD Student\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "people.html#collaborators",
+    "href": "people.html#collaborators",
+    "title": "Circadia",
+    "section": "Collaborators",
+    "text": "Collaborators\n\n\n\n\n\n\n\n\n\n\nProf. John Araújo\n\n\nFederal University of Rio Grande do Norte\n\n\n\n\n\n\n\n\n\n\n\n\nDr Nick Puts\n\n\nKing’s College London\n\n\n\n\n\n\n\n\n\n\n\n\nProf. Matthew Walker\n\n\nUniversity College London\n\n\n\n\n\n\n\n\n\n\n\n\nProf. Yujiang Wang\n\n\nNewcastle University\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "people.html#former",
+    "href": "people.html#former",
+    "title": "Circadia",
+    "section": "Former Members",
+    "text": "Former Members\n\n\n\n\n\n\n\n\n\n\nProf. Malcolm von Schantz\n\n\nIn memoriam\n\n\n\n\n\n\n\n\n\n\n\n\nJosh Penrhyn-Jones\n\n\nFormer PhD Student\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Tutorials",
+    "section": "",
+    "text": "Setting up circadiaBase Docker\n\n\n\nInfrastructure\n\nDocker\n\nPython\n\nR\n\nReproducibility\n\n\n\nA step-by-step guide to spinning up the Circadia Lab’s reproducible research environment — JupyterLab and RStudio Server in a single Docker Compose stack — for chronobiology and actigraphy research.\n\n\n\n\n\nMay 21, 2026\n\n\nLucas França, Mario Leocadio-Miguel\n\n\n\n\n\n\n\n\n\n\n\n\nIntroducing Sleep Diaries: an open-source sleep diary app for research\n\n\n\nSleep\n\nOpen Source\n\nTools\n\n\n\nWe are releasing Sleep Diaries — a free, open-source, research-grade sleep diary app built with React Native and Expo. It runs on iOS, Android, and the web, and is designed to be easily adapted for clinical sleep research and personal use.\n\n\n\n\n\nApr 2, 2026\n\n\nLucas França, Mario Leocadio-Miguel\n\n\n\n\n\n\n\n\n\n\n\n\nSleep PSG validation\n\n\n\nSleep\n\nPSD\n\n\n\nThis post presents an analysis of sleep stage classification validation using polysomnography (PSG) as the ground truth and a headband-based device as the test instrument. The workflow includes generating synthetic sleep data, loading real-world datasets, and comparing sleep stage distributions between the two devices. The validation process includes Bland-Altman analysis, Pearson correlation, Cohen’s Kappa, and statistical measures of agreement. The results provide insight into the accuracy and bias of wearable sleep-tracking devices in sleep stage classification.\n\n\n\n\n\nMar 11, 2025\n\n\nMario Miguel\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "publications/torres2024/index.html",
+    "href": "publications/torres2024/index.html",
+    "title": "Use of sleep quality questionary and cortisol awakening response as complementary tools for the evaluation of major depression progression",
+    "section": "",
+    "text": "Abstract\nSleep disorders and changes in the profile of the cortisol awakening response (CAR) are potential predictive factors for the incidence of major depressive disorder (MDD). However, these parameters usually are evaluated separately, lacking information regarding the simultaneous association of sleep disorders and CAR, mainly throughout the MDD severity. This study addressed the relationship between sleep quality and CAR in patients with initial/mild depression (MD, n=30) versus advanced/treatment-resistant (TRD, n=28), compared with a group of healthy controls (CG, n=49), aiming to point out in a clinical perspective which alterations in sleep and CAR have been observed along major depression severity stages. TRD patients presented a blunted CAR and poorer sleep quality comparing MD and CG groups. Additionally, MD patients showed worse sleep quality and larger CAR than CG. Taken together, both sleep quality and CAR were correlated with MDD symptoms and predictors of MDD severity, with a greater classification power for sleep quality. From sleep quality, specifically, the use of sleep medication and sleep efficiency predicted depression severity, discriminating mild and treatment-resistant depression. These results show the importance of assessing sleep quality and CAR in patients with major depression when there is a need for evaluation of the disorder’s severity in a clinical context. CAR and sleep quality can be useful complementary tools to help in the clinical identification of major depression severity and the understanding of their impact on MDD may support further studies that aim to improve intervention strategies to increase the effectiveness of treatments."
+  },
+  {
+    "objectID": "publications/nunes2024/index.html",
+    "href": "publications/nunes2024/index.html",
+    "title": "Hemodialysis-induced chronodisruption and chronotype distribution in patients with chronic kidney disease",
+    "section": "",
+    "text": "Abstract\nChanges in circadian rhythms have been observed in patients with chronic kidney disease (CKD), and evidence suggests that these changes can have a negative impact on health. This study aimed to investigate the existence of hemodialysis-induced chronodisruption, the chronotype distribution, and their association with sleep quality and quality of life (QoL). This was a cross-sectional study that enrolled 165 patients (mean age: 51.1±12.5 y, 60.6% male) undergoing hemodialysis from three local units. The following instruments were used: the Morning-Eveningness Questionnaire (MEQ); a modified version of the Munich Chronotype Questionnaire (MCQT) to estimate hemodialysis-induced chronodisruption (HIC); the Kidney Disease QoL Short Form (KDQOL-SF); the Epworth Sleepiness Scale (ESS); the Pittsburgh Sleep Quality Index (PSQI) and the 10–Cognitive Screener (10-CS). HIC was present in 40.6% of CKD patients. Morning chronotype was prevalent in CKD patients (69%) compared to evening-type (17.1%) and significantly different from a paired sample from the general population (p&lt;0.001). HIC and chronotype were associated with different domains of QoL but not with sleep quality. This study suggests that there is a HIC and that morning chronotype is associated with CKD patients undergoing hemodialysis, with implications for QoL."
+  },
+  {
+    "objectID": "publications/silva2023/index.html",
+    "href": "publications/silva2023/index.html",
+    "title": "Blue light exposure-dependent improvement in robustness of circadian rest-activity rhythm in aged rats",
+    "section": "",
+    "text": "The aging effects on circadian rhythms have diverse implications including changes in the pattern of rhythmic expressions, such as a wide fragmentation of the rhythm of rest-activity and decrease in amplitude of activity regulated by the suprachiasmatic nucleus (SCN). The study of blue light on biological aspects has received great current interest due, among some aspects, to its positive effects on psychiatric disorders in humans. This study aims to evaluate the effect of blue light therapy on the SCN functional aspects, through the evaluation of the rest-activity rhythm, in aging rats. For this, 33 sixteen-months-old male Wistar rats underwent continuous records of locomotor activity and were exposed to periods of 6 hours of blue light during the first half of the light phase (Zeitgeber times 0–6) for 14 days. After this, the rats were maintained at 12h:12h light:dark cycle to check the long-term effect of blue light for 14 days. Blue light repeated exposure showed positive effects on the rhythmic variables of locomotor activity in aged rats, particularly the increase in amplitude, elevation of rhythmic robustness, phase advance in acrophase, and greater consolidation of the resting phase. This effect depends on the presence of daily blue light exposure. In conclusion, our results indicate that blue light is a reliable therapy to reduce circadian dysfunctions in aged rats, but other studies assessing how blue light modulates the neural components to modulate this response are still needed."
+  },
+  {
+    "objectID": "publications/batista2026/index.html",
+    "href": "publications/batista2026/index.html",
+    "title": "From Movement to METs: A Validation of ActTrust® for Energy Expenditure Estimation and Physical Activity Classification in Young Adults",
+    "section": "",
+    "text": "Abstract\nPhysical activity (PA) is recognised for providing several health benefits in humans, mainly preventing and controlling chronic non-communicable diseases. However estimating PA is a challenging and expensive task. An alternative would be to devise a model to estimate PA using actigraphy devices calibrated from an initially validated model. This has been previously done to a number of devices, including ActiGraph® GT3X+. In this study we aimed at validating ActTrust® against the widely used GT3X+ and comparing activity counts to metabolic equivalents (METs) derived from indirect calorimetry during treadmill walking and running. Fifty-six young adults (34 men, 22 women) participated in controlled effort exercises including light, moderate, vigorous, and very vigorous activity intensities. We developed a general linear model to estimate energy expenditure (EE) from movement count of combinations of GT3X+ and ActTrust devices placed at hip or wrist. We then estimated cut-off points for each intensity range. Our results showed correlations between treadmill speed, METs, and movement counts across all devices and placements combinations. Our proposed model performed well with balanced accuracies above 0.77 for all intensity ranges and over 0.9 for light and moderate activity. This is the first study to model estimate and validate PA intensity thresholds on ActTrust® devices. Our findings support the use of ActTrust® devices in PA estimation as a low complexity and cost approach to allow 24-hour assessments of EE."
+  },
+  {
+    "objectID": "projects/cycling-entropy/index.html",
+    "href": "projects/cycling-entropy/index.html",
+    "title": "Cycling & EEG Entropy",
+    "section": "",
+    "text": "This repository contains all data and analysis code for a study examining how physical activity modulates the complexity of cortical neural signals, using recurrence-matrix entropy (S_Max) computed from scalp EEG.\nThe analysis pipeline is fully implemented in R and renders a self-contained HTML report. Raw EEG and pre-computed entropy data are archived on OSF.\n\nFerré IBS, Corso G, dos Santos Lima GZ, Lopes SR, Leocadio-Miguel MA, França LGS, de Lima Prado T, Araújo JF (2024). Cycling reduces the entropy of neuronal activity in the human adult cortex. PLOS ONE, 19(10): e0298703. doi:10.1371/journal.pone.0298703"
+  },
+  {
+    "objectID": "projects/cycling-entropy/index.html#about",
+    "href": "projects/cycling-entropy/index.html#about",
+    "title": "Cycling & EEG Entropy",
+    "section": "",
+    "text": "This repository contains all data and analysis code for a study examining how physical activity modulates the complexity of cortical neural signals, using recurrence-matrix entropy (S_Max) computed from scalp EEG.\nThe analysis pipeline is fully implemented in R and renders a self-contained HTML report. Raw EEG and pre-computed entropy data are archived on OSF.\n\nFerré IBS, Corso G, dos Santos Lima GZ, Lopes SR, Leocadio-Miguel MA, França LGS, de Lima Prado T, Araújo JF (2024). Cycling reduces the entropy of neuronal activity in the human adult cortex. PLOS ONE, 19(10): e0298703. doi:10.1371/journal.pone.0298703"
+  },
+  {
+    "objectID": "projects/cycling-entropy/index.html#study-design",
+    "href": "projects/cycling-entropy/index.html#study-design",
+    "title": "Cycling & EEG Entropy",
+    "section": "Study Design",
+    "text": "Study Design\n24 healthy adults (13 women, 11 men; mean age ~21 years) performed four behavioural conditions — resting eyes open, resting eyes closed, cycling eyes open, and cycling eyes closed — on a horizontal stationary bicycle. EEG was recorded from eight bimodal electrode pairs covering frontal, central, parietal, and occipital scalp regions. Recurrence-matrix entropy (S_Max) was computed for each 300-sample window across the 2-minute recordings, producing 100 time points per condition per electrode."
+  },
+  {
+    "objectID": "projects/cycling-entropy/index.html#key-findings",
+    "href": "projects/cycling-entropy/index.html#key-findings",
+    "title": "Cycling & EEG Entropy",
+    "section": "Key Findings",
+    "text": "Key Findings\nCycling was associated with significantly reduced cortical entropy across all eight electrode sites compared to rest (all p ≤ 0.042), suggesting that physical activity organises neural dynamics toward lower complexity. A further entropy reduction was observed when cycling with eyes closed, most prominently at right occipital (p = 0.045) and left parietal (p = 0.006) sites.\nThe eyes-open vs eyes-closed comparison at rest confirmed the expected entropy reduction in the occipital region (t = −2.657, p = 0.015) — consistent with well-established alpha-rhythm physiology and serving as a validation of the method."
+  },
+  {
+    "objectID": "projects/cycling-entropy/index.html#statistical-approach",
+    "href": "projects/cycling-entropy/index.html#statistical-approach",
+    "title": "Cycling & EEG Entropy",
+    "section": "Statistical Approach",
+    "text": "Statistical Approach\nAll models are generalised linear mixed models (GLMMs) with participant as a random effect, tested using 10,000-repetition two-sided permutation tests via the ptestR package:\n# Main effect: cycling vs resting\nmed_entr ~ State + (1|sub)\n\n# Interaction: State × Eyes\nmed_entr ~ State * Eyes + (1|sub)"
+  },
+  {
+    "objectID": "projects/cycling-entropy/index.html#analysis-pipeline",
+    "href": "projects/cycling-entropy/index.html#analysis-pipeline",
+    "title": "Cycling & EEG Entropy",
+    "section": "Analysis Pipeline",
+    "text": "Analysis Pipeline\nThe pre-computed entropy data in data/ are the output of circadia-bio/maxEntropy, a Julia script that computes S_Max from the raw EEG recordings. The R analysis then:\n\nLoads and reshapes all 32 entropy files (8 electrodes × 4 conditions) via src/legacy.R\nFits permutation GLMMs per electrode in translating.Rmd\nGenerates topographic scalp maps via topoplots.Rmd\n\nThe environment can be reproduced via Docker (docker-compose up) or locally in R ≥ 4.3."
+  },
+  {
+    "objectID": "projects/cycling-entropy/index.html#links",
+    "href": "projects/cycling-entropy/index.html#links",
+    "title": "Cycling & EEG Entropy",
+    "section": "Links",
+    "text": "Links\n\n💻 GitHub\n📄 Published paper (PLOS ONE)\n🗄️ Data (OSF)\n🔗 maxEntropy — entropy computation script"
+  },
+  {
     "objectID": "projects/actt-validation/index.html",
     "href": "projects/actt-validation/index.html",
     "title": "ACTT Validation Study",
@@ -47,111 +166,6 @@
     "title": "ACTT Validation Study",
     "section": "Links",
     "text": "Links\n\n💻 GitHub\n📄 Preprint (bioRxiv)\n🗄️ Data (Zenodo)"
-  },
-  {
-    "objectID": "projects/pinetime/index.html",
-    "href": "projects/pinetime/index.html",
-    "title": "PineTime Research Platform",
-    "section": "",
-    "text": "The PineTime Research Platform is an open-source wearable data collection system built on the PineTime smartwatch — an affordable (~$27), open-hardware device designed for hacking and research. The platform aims to provide chronobiology researchers with a low-cost, fully transparent wrist-worn sensor for continuous data collection in naturalistic settings.\nThe project comprises two components: a custom firmware fork optimised for research data collection, and a companion web app for wireless device configuration and data offload.\nThis project is currently in active development."
-  },
-  {
-    "objectID": "projects/pinetime/index.html#about",
-    "href": "projects/pinetime/index.html#about",
-    "title": "PineTime Research Platform",
-    "section": "",
-    "text": "The PineTime Research Platform is an open-source wearable data collection system built on the PineTime smartwatch — an affordable (~$27), open-hardware device designed for hacking and research. The platform aims to provide chronobiology researchers with a low-cost, fully transparent wrist-worn sensor for continuous data collection in naturalistic settings.\nThe project comprises two components: a custom firmware fork optimised for research data collection, and a companion web app for wireless device configuration and data offload.\nThis project is currently in active development."
-  },
-  {
-    "objectID": "projects/pinetime/index.html#components",
-    "href": "projects/pinetime/index.html#components",
-    "title": "PineTime Research Platform",
-    "section": "Components",
-    "text": "Components\npinetime-research-firmware\nA fork of InfiniTime — the primary open-source firmware for the PineTime — with modifications oriented toward research use. The PineTime hardware includes a triaxial accelerometer (BMA425), heart rate sensor (HRS3300), and Bluetooth Low Energy radio, making it a capable platform for continuous actigraphy, heart rate monitoring, and step counting in free-living conditions.\ninfinitime-webapp\nA companion web app that communicates with the PineTime over BLE using the Web Bluetooth API. It allows researchers to configure the device remotely (sampling rates, recording windows, participant IDs) and offload collected data without requiring any native software installation."
-  },
-  {
-    "objectID": "projects/pinetime/index.html#why-pinetime",
-    "href": "projects/pinetime/index.html#why-pinetime",
-    "title": "PineTime Research Platform",
-    "section": "Why PineTime?",
-    "text": "Why PineTime?\nCommercial research-grade actigraphy devices are expensive, closed-source, and often require proprietary software for data export. The PineTime offers an open alternative: the hardware schematics and firmware are fully open, the device is inexpensive enough to deploy at scale, and the community ecosystem means firmware modifications are well-documented and maintainable."
-  },
-  {
-    "objectID": "projects/pinetime/index.html#links",
-    "href": "projects/pinetime/index.html#links",
-    "title": "PineTime Research Platform",
-    "section": "Links",
-    "text": "Links\n\n💻 Firmware — GitHub\n💻 Web app — GitHub\n🔗 InfiniTime upstream\n🔗 PineTime hardware"
-  },
-  {
-    "objectID": "projects/circadiabase-docker/index.html",
-    "href": "projects/circadiabase-docker/index.html",
-    "title": "circadiaBase Docker",
-    "section": "",
-    "text": "circadiaBase Docker is a reproducible containerised research environment for the Circadia Lab. It packages a fully pinned Python and R stack into two Docker services — JupyterLab and RStudio Server — that share the same project volume and can be launched together with a single command. The goal is to eliminate “works on my machine” problems across collaborators, operating systems, and time.\nThe environment includes condor_pipeline, the Circadia Lab’s core actigraphy sleep analysis library, installed in editable mode so that changes to the source are reflected immediately without rebuilding the image."
-  },
-  {
-    "objectID": "projects/circadiabase-docker/index.html#about",
-    "href": "projects/circadiabase-docker/index.html#about",
-    "title": "circadiaBase Docker",
-    "section": "",
-    "text": "circadiaBase Docker is a reproducible containerised research environment for the Circadia Lab. It packages a fully pinned Python and R stack into two Docker services — JupyterLab and RStudio Server — that share the same project volume and can be launched together with a single command. The goal is to eliminate “works on my machine” problems across collaborators, operating systems, and time.\nThe environment includes condor_pipeline, the Circadia Lab’s core actigraphy sleep analysis library, installed in editable mode so that changes to the source are reflected immediately without rebuilding the image."
-  },
-  {
-    "objectID": "projects/circadiabase-docker/index.html#services",
-    "href": "projects/circadiabase-docker/index.html#services",
-    "title": "circadiaBase Docker",
-    "section": "Services",
-    "text": "Services\n\n\n\n\n\n\n\n\nService\nURL\nDescription\n\n\n\n\nJupyterLab\nlocalhost:8889\nPython 3.11 environment for actigraphy, EEG, entropy, and circadian modelling\n\n\nRStudio Server\nlocalhost:8787\nR 4.4 environment for sleep and circadian statistical analyses\n\n\n\nBoth services share the same mounted volume, so notebooks and scripts can read and write the same files regardless of which interface they are opened in."
-  },
-  {
-    "objectID": "projects/circadiabase-docker/index.html#quick-start",
-    "href": "projects/circadiabase-docker/index.html#quick-start",
-    "title": "circadiaBase Docker",
-    "section": "Quick Start",
-    "text": "Quick Start\ngit clone https://github.com/circadia-bio/circadiaBase_Docker.git\ncd circadiaBase_Docker\ncp .env.example .env\ndocker-compose up --build"
-  },
-  {
-    "objectID": "projects/circadiabase-docker/index.html#python-stack",
-    "href": "projects/circadiabase-docker/index.html#python-stack",
-    "title": "circadiaBase Docker",
-    "section": "Python Stack",
-    "text": "Python Stack\n\n\n\n\n\n\n\nPackage\nPurpose\n\n\n\n\npyActigraphy\nActigraphy parsing and non-parametric metrics (IS, IV, RA, M10, L5, SRI, cosinor, SSA)\n\n\nMNE\nEEG and MEG signal processing\n\n\nYASA\nAutomatic sleep staging from EEG\n\n\nEntropyHub\nEntropy methods for physiological time series\n\n\nscikit-learn\nMachine learning (clustering, classification, dimensionality reduction)\n\n\nnumpy, scipy, pandas, matplotlib, seaborn, statsmodels, plotly\nCore scientific stack\n\n\n\nNote on Python version: pyActigraphy’s accelerometer dependency requires Python &lt; 3.12, making 3.11 the effective ceiling for this environment."
-  },
-  {
-    "objectID": "projects/circadiabase-docker/index.html#r-stack",
-    "href": "projects/circadiabase-docker/index.html#r-stack",
-    "title": "circadiaBase Docker",
-    "section": "R Stack",
-    "text": "R Stack\nggplot2 extensions — ggpubr, ggrepel, ggridges, patchwork, cowplot, viridis\nStatistics — lme4, lmerTest, emmeans, MuMIn, effectsize, performance\nBayesian — brms, rstanarm, bayesplot, tidybayes (full profile)\nSleep & circadian — GGIR, ActCR, circacompare, cosinor, cosinor2, lunaR"
-  },
-  {
-    "objectID": "projects/circadiabase-docker/index.html#build-profiles",
-    "href": "projects/circadiabase-docker/index.html#build-profiles",
-    "title": "circadiaBase Docker",
-    "section": "Build Profiles",
-    "text": "Build Profiles\nThe RStudio service supports three build profiles selectable via RSTUDIO_PROFILE in .env:\n\n\n\nProfile\nStan\nlunaR\nBuild time\n\n\n\n\nminimal\n❌\n❌\n~5–8 min\n\n\nno-stan\n❌\n✅\n~10–15 min\n\n\nfull\n✅\n✅\n~30–40 min"
-  },
-  {
-    "objectID": "projects/circadiabase-docker/index.html#condor_pipeline",
-    "href": "projects/circadiabase-docker/index.html#condor_pipeline",
-    "title": "circadiaBase Docker",
-    "section": "condor_pipeline",
-    "text": "condor_pipeline\nThe environment includes condor_pipeline, the Circadia Lab’s internal actigraphy sleep analysis library. It provides a high-level SleepPipeline orchestrator for single-file and batch processing of ActTrust and Actiwatch data, with modules for off-wrist detection, sleep period detection, WASO estimation, and actogram visualisation.\nfrom condor_pipeline.pipeline import SleepPipeline\n\npipe = SleepPipeline(\"data/raw/subject_01.txt\", device=\"acttrust\")\nresult = pipe.run()\nresult.plot()"
-  },
-  {
-    "objectID": "projects/circadiabase-docker/index.html#github-actions",
-    "href": "projects/circadiabase-docker/index.html#github-actions",
-    "title": "circadiaBase Docker",
-    "section": "GitHub Actions",
-    "text": "GitHub Actions\nA bundled workflow auto-generates .env from the repository name on every push to main, so collaborators forking or templating the repo never need to configure the image name manually. On the first push to a new repo, the workflow also resets the README to a Circadia Lab stub template."
-  },
-  {
-    "objectID": "projects/circadiabase-docker/index.html#links",
-    "href": "projects/circadiabase-docker/index.html#links",
-    "title": "circadiaBase Docker",
-    "section": "Links",
-    "text": "Links\n\n💻 GitHub"
   },
   {
     "objectID": "projects/scoreme/index.html",
@@ -245,81 +259,39 @@
     "text": "Links\n\n🌐 Documentation\n📖 Getting started vignette\n💻 GitHub\n📱 Sleep Diaries app"
   },
   {
-    "objectID": "people/collaborators/matthew_walker.html",
-    "href": "people/collaborators/matthew_walker.html",
-    "title": "Prof. Matthew Walker",
+    "objectID": "projects/pinetime/index.html",
+    "href": "projects/pinetime/index.html",
+    "title": "PineTime Research Platform",
     "section": "",
-    "text": "Scholar\n  \n  \n      ORCID\n  \n\n  \n  \n\n\nProfessor Matthew Walker is a distinguished neurologist specialising in epilepsy and neurological sleep disorders. He holds the position of Professor of Neurology at the UCL Queen Square Institute of Neurology and serves as a Consultant Neurologist at the National Hospital for Neurology and Neurosurgery in London.\nProfessor Walker completed his medical studies at Cambridge University and St Thomas’ Hospital. He earned a PhD from University College London, focusing on the treatment of status epilepticus. His research interests encompass the mechanisms, diagnosis, and treatment of epilepsy, and he has published over 200 scientific articles, chapters, and books.\nIn addition to his clinical and research roles, Professor Walker has held several prominent positions:\n\nPresident of the British Branch of the International League Against Epilepsy (ILAE).\nSecretary of ILAE-Europe.\nChair of the Trustees of Epilepsy Research UK.\n\nHe was honored with the ILAE Ambassador for Epilepsy award in 2013. Professor Walker is a Fellow of the Royal College of Physicians and the American Epilepsy Society. He is an associate editor of Therapeutic Advances in Neurological Disorders and was previously an associate editor for the journals, Epilepsia and Brain."
+    "text": "The PineTime Research Platform is an open-source wearable data collection system built on the PineTime smartwatch — an affordable (~$27), open-hardware device designed for hacking and research. The platform aims to provide chronobiology researchers with a low-cost, fully transparent wrist-worn sensor for continuous data collection in naturalistic settings.\nThe project comprises two components: a custom firmware fork optimised for research data collection, and a companion web app for wireless device configuration and data offload.\nThis project is currently in active development."
   },
   {
-    "objectID": "people/collaborators/matthew_walker.html#biography",
-    "href": "people/collaborators/matthew_walker.html#biography",
-    "title": "Prof. Matthew Walker",
+    "objectID": "projects/pinetime/index.html#about",
+    "href": "projects/pinetime/index.html#about",
+    "title": "PineTime Research Platform",
     "section": "",
-    "text": "Professor Matthew Walker is a distinguished neurologist specialising in epilepsy and neurological sleep disorders. He holds the position of Professor of Neurology at the UCL Queen Square Institute of Neurology and serves as a Consultant Neurologist at the National Hospital for Neurology and Neurosurgery in London.\nProfessor Walker completed his medical studies at Cambridge University and St Thomas’ Hospital. He earned a PhD from University College London, focusing on the treatment of status epilepticus. His research interests encompass the mechanisms, diagnosis, and treatment of epilepsy, and he has published over 200 scientific articles, chapters, and books.\nIn addition to his clinical and research roles, Professor Walker has held several prominent positions:\n\nPresident of the British Branch of the International League Against Epilepsy (ILAE).\nSecretary of ILAE-Europe.\nChair of the Trustees of Epilepsy Research UK.\n\nHe was honored with the ILAE Ambassador for Epilepsy award in 2013. Professor Walker is a Fellow of the Royal College of Physicians and the American Epilepsy Society. He is an associate editor of Therapeutic Advances in Neurological Disorders and was previously an associate editor for the journals, Epilepsia and Brain."
+    "text": "The PineTime Research Platform is an open-source wearable data collection system built on the PineTime smartwatch — an affordable (~$27), open-hardware device designed for hacking and research. The platform aims to provide chronobiology researchers with a low-cost, fully transparent wrist-worn sensor for continuous data collection in naturalistic settings.\nThe project comprises two components: a custom firmware fork optimised for research data collection, and a companion web app for wireless device configuration and data offload.\nThis project is currently in active development."
   },
   {
-    "objectID": "people/collaborators/yujiang_wang.html",
-    "href": "people/collaborators/yujiang_wang.html",
-    "title": "Prof. Yujiang Wang",
-    "section": "",
-    "text": "Website\n  \n  \n    \n     Scholar\n  \n  \n      ORCID\n  \n\n  \n  \n\n\nProf. Yujiang Wang is a Professor in Computational Neuroscience at Newcastle University, affiliated with the School of Computing. She completed a double-degree in Mathematics and Molecular Biotechnology at the University of Heidelberg, Germany, where her interest in interdisciplinary research began. She then moved to the UK to pursue a PhD in Systems Biology, specializing in Computational Neuroscience.\nProf. Wang leads the Computational Neurology and Psychiatry Lab (CNNP Lab) at Newcastle University, focusing on quantitative, computational, and mathematical methods to gain new perspectives and understanding in neurological conditions. Her research primarily centers on mathematical and computational modeling, as well as advanced data analytics in neurological disorders, with a particular emphasis on epilepsy. Her wider research interests include neuroimaging and neuromorphology in both health and disease.\nIn recognition of her contributions to the field, Prof. Wang was awarded a Future Leaders Fellowship. Her fellowship project, titled “Assessing and Controlling Seizure-Modulating Fluctuations (ACORN),” leverages the latest wearable and environmental sensor technology, combining it with signal and statistical analytics to investigate chronobiological rhythms and states in epilepsy.\nProf. Wang has an extensive publication record, with her work being cited over 2,400 times, reflecting her significant impact on the field of computational neuroscience."
+    "objectID": "projects/pinetime/index.html#components",
+    "href": "projects/pinetime/index.html#components",
+    "title": "PineTime Research Platform",
+    "section": "Components",
+    "text": "Components\npinetime-research-firmware\nA fork of InfiniTime — the primary open-source firmware for the PineTime — with modifications oriented toward research use. The PineTime hardware includes a triaxial accelerometer (BMA425), heart rate sensor (HRS3300), and Bluetooth Low Energy radio, making it a capable platform for continuous actigraphy, heart rate monitoring, and step counting in free-living conditions.\ninfinitime-webapp\nA companion web app that communicates with the PineTime over BLE using the Web Bluetooth API. It allows researchers to configure the device remotely (sampling rates, recording windows, participant IDs) and offload collected data without requiring any native software installation."
   },
   {
-    "objectID": "people/collaborators/yujiang_wang.html#biography",
-    "href": "people/collaborators/yujiang_wang.html#biography",
-    "title": "Prof. Yujiang Wang",
-    "section": "",
-    "text": "Prof. Yujiang Wang is a Professor in Computational Neuroscience at Newcastle University, affiliated with the School of Computing. She completed a double-degree in Mathematics and Molecular Biotechnology at the University of Heidelberg, Germany, where her interest in interdisciplinary research began. She then moved to the UK to pursue a PhD in Systems Biology, specializing in Computational Neuroscience.\nProf. Wang leads the Computational Neurology and Psychiatry Lab (CNNP Lab) at Newcastle University, focusing on quantitative, computational, and mathematical methods to gain new perspectives and understanding in neurological conditions. Her research primarily centers on mathematical and computational modeling, as well as advanced data analytics in neurological disorders, with a particular emphasis on epilepsy. Her wider research interests include neuroimaging and neuromorphology in both health and disease.\nIn recognition of her contributions to the field, Prof. Wang was awarded a Future Leaders Fellowship. Her fellowship project, titled “Assessing and Controlling Seizure-Modulating Fluctuations (ACORN),” leverages the latest wearable and environmental sensor technology, combining it with signal and statistical analytics to investigate chronobiological rhythms and states in epilepsy.\nProf. Wang has an extensive publication record, with her work being cited over 2,400 times, reflecting her significant impact on the field of computational neuroscience."
+    "objectID": "projects/pinetime/index.html#why-pinetime",
+    "href": "projects/pinetime/index.html#why-pinetime",
+    "title": "PineTime Research Platform",
+    "section": "Why PineTime?",
+    "text": "Why PineTime?\nCommercial research-grade actigraphy devices are expensive, closed-source, and often require proprietary software for data export. The PineTime offers an open alternative: the hardware schematics and firmware are fully open, the device is inexpensive enough to deploy at scale, and the community ecosystem means firmware modifications are well-documented and maintainable."
   },
   {
-    "objectID": "people/students/karen_pugliane.html",
-    "href": "people/students/karen_pugliane.html",
-    "title": "Karen Pugliane",
-    "section": "",
-    "text": "vitae\n  \n\n  \n  \n\n\nI’m a PhD candidate in Psychobiology at UFRN, and my passion for building knowledge through science began when I was 16 years old. I discovered chronobiology in 2014 and have been dedicated to researching biological rhythms ever since. With a background in Psychology, Neuroscience, and Food Technology, I’ve integrated behavior, physiology, and data science throughout my academic journey, gaining experience in animal models, human studies, and Python-based analysis. Currently, I study circadian rhythms in blind individuals living in Northeast Brazil. As a visiting scholar at Northumbria University, I further developed my skills in data analysis with a focus on chronobiology, exploring new tools and methodologies to investigate biological rhythms. My main interest focuses on understanding circadian rhythmicity through a multidisciplinary perspective.\n\n\n\n PhD in Psychobiology, Federal University of Rio Grande do Norte (Natal, BR - Current)\n MSc in Cognitive and Behavioral Neuroscience, Federal University of Paraíba (João Pessoa, Paraíba - 2021)\n BSc in Psychology, Federal University of Paraíba (João Pessoa, Paraíba - 2018)"
-  },
-  {
-    "objectID": "people/students/karen_pugliane.html#biography",
-    "href": "people/students/karen_pugliane.html#biography",
-    "title": "Karen Pugliane",
-    "section": "",
-    "text": "I’m a PhD candidate in Psychobiology at UFRN, and my passion for building knowledge through science began when I was 16 years old. I discovered chronobiology in 2014 and have been dedicated to researching biological rhythms ever since. With a background in Psychology, Neuroscience, and Food Technology, I’ve integrated behavior, physiology, and data science throughout my academic journey, gaining experience in animal models, human studies, and Python-based analysis. Currently, I study circadian rhythms in blind individuals living in Northeast Brazil. As a visiting scholar at Northumbria University, I further developed my skills in data analysis with a focus on chronobiology, exploring new tools and methodologies to investigate biological rhythms. My main interest focuses on understanding circadian rhythmicity through a multidisciplinary perspective."
-  },
-  {
-    "objectID": "people/students/karen_pugliane.html#education",
-    "href": "people/students/karen_pugliane.html#education",
-    "title": "Karen Pugliane",
-    "section": "",
-    "text": "PhD in Psychobiology, Federal University of Rio Grande do Norte (Natal, BR - Current)\n MSc in Cognitive and Behavioral Neuroscience, Federal University of Paraíba (João Pessoa, Paraíba - 2021)\n BSc in Psychology, Federal University of Paraíba (João Pessoa, Paraíba - 2018)"
-  },
-  {
-    "objectID": "people/former/josh_penrhyn-jones.html",
-    "href": "people/former/josh_penrhyn-jones.html",
-    "title": "Josh Penrhyn-Jones",
-    "section": "",
-    "text": "vitae\n  \n\n  \n  \n\n\nHaving previously worked in education, I rediscovered the joys of research while completing my master’s degree. I am currently studying for my PhD in Computer Science at Northumbria University, investigating how actigraphy can be used to provide contextual information for neuroimaging. My research interests include wearable sensors and the impact of sleep on the brain.\n\n\n\n PhD in Computer Science – Northumbria University (Newcastle upon Tyne, UK - Current)\n MSc in Computer Science – Northumbria University (Newcastle upon Tyne, UK - 2024)\n PGCE (Science with Chemistry Education) – University of Sunderland (Sunderland, UK - 2015)\n BSc in Zoology – University of Leeds (Leeds, UK - 2011)\n\n\n\n Research Assistant – Northumbria University (Newcastle upon Tyne, UK | 2024 – 2024)\n Teacher of Science – Cramlington Learning Village (Cramlington, UK | 2016 – 2022)"
-  },
-  {
-    "objectID": "people/former/josh_penrhyn-jones.html#biography",
-    "href": "people/former/josh_penrhyn-jones.html#biography",
-    "title": "Josh Penrhyn-Jones",
-    "section": "",
-    "text": "Having previously worked in education, I rediscovered the joys of research while completing my master’s degree. I am currently studying for my PhD in Computer Science at Northumbria University, investigating how actigraphy can be used to provide contextual information for neuroimaging. My research interests include wearable sensors and the impact of sleep on the brain."
-  },
-  {
-    "objectID": "people/former/josh_penrhyn-jones.html#education",
-    "href": "people/former/josh_penrhyn-jones.html#education",
-    "title": "Josh Penrhyn-Jones",
-    "section": "",
-    "text": "PhD in Computer Science – Northumbria University (Newcastle upon Tyne, UK - Current)\n MSc in Computer Science – Northumbria University (Newcastle upon Tyne, UK - 2024)\n PGCE (Science with Chemistry Education) – University of Sunderland (Sunderland, UK - 2015)\n BSc in Zoology – University of Leeds (Leeds, UK - 2011)"
-  },
-  {
-    "objectID": "people/former/josh_penrhyn-jones.html#expetience",
-    "href": "people/former/josh_penrhyn-jones.html#expetience",
-    "title": "Josh Penrhyn-Jones",
-    "section": "",
-    "text": "Research Assistant – Northumbria University (Newcastle upon Tyne, UK | 2024 – 2024)\n Teacher of Science – Cramlington Learning Village (Cramlington, UK | 2016 – 2022)"
+    "objectID": "projects/pinetime/index.html#links",
+    "href": "projects/pinetime/index.html#links",
+    "title": "PineTime Research Platform",
+    "section": "Links",
+    "text": "Links\n\n💻 Firmware — GitHub\n💻 Web app — GitHub\n🔗 InfiniTime upstream\n🔗 PineTime hardware"
   },
   {
     "objectID": "people/staff/mario_miguel.html",
@@ -378,6 +350,111 @@
     "text": "Postdoctoral Research Fellow - Federal University of São Paulo (São Paulo, BR | 2022 - Current)"
   },
   {
+    "objectID": "people/students/karen_pugliane.html",
+    "href": "people/students/karen_pugliane.html",
+    "title": "Karen Pugliane",
+    "section": "",
+    "text": "vitae\n  \n\n  \n  \n\n\nI’m a PhD candidate in Psychobiology at UFRN, and my passion for building knowledge through science began when I was 16 years old. I discovered chronobiology in 2014 and have been dedicated to researching biological rhythms ever since. With a background in Psychology, Neuroscience, and Food Technology, I’ve integrated behavior, physiology, and data science throughout my academic journey, gaining experience in animal models, human studies, and Python-based analysis. Currently, I study circadian rhythms in blind individuals living in Northeast Brazil. As a visiting scholar at Northumbria University, I further developed my skills in data analysis with a focus on chronobiology, exploring new tools and methodologies to investigate biological rhythms. My main interest focuses on understanding circadian rhythmicity through a multidisciplinary perspective.\n\n\n\n PhD in Psychobiology, Federal University of Rio Grande do Norte (Natal, BR - Current)\n MSc in Cognitive and Behavioral Neuroscience, Federal University of Paraíba (João Pessoa, Paraíba - 2021)\n BSc in Psychology, Federal University of Paraíba (João Pessoa, Paraíba - 2018)"
+  },
+  {
+    "objectID": "people/students/karen_pugliane.html#biography",
+    "href": "people/students/karen_pugliane.html#biography",
+    "title": "Karen Pugliane",
+    "section": "",
+    "text": "I’m a PhD candidate in Psychobiology at UFRN, and my passion for building knowledge through science began when I was 16 years old. I discovered chronobiology in 2014 and have been dedicated to researching biological rhythms ever since. With a background in Psychology, Neuroscience, and Food Technology, I’ve integrated behavior, physiology, and data science throughout my academic journey, gaining experience in animal models, human studies, and Python-based analysis. Currently, I study circadian rhythms in blind individuals living in Northeast Brazil. As a visiting scholar at Northumbria University, I further developed my skills in data analysis with a focus on chronobiology, exploring new tools and methodologies to investigate biological rhythms. My main interest focuses on understanding circadian rhythmicity through a multidisciplinary perspective."
+  },
+  {
+    "objectID": "people/students/karen_pugliane.html#education",
+    "href": "people/students/karen_pugliane.html#education",
+    "title": "Karen Pugliane",
+    "section": "",
+    "text": "PhD in Psychobiology, Federal University of Rio Grande do Norte (Natal, BR - Current)\n MSc in Cognitive and Behavioral Neuroscience, Federal University of Paraíba (João Pessoa, Paraíba - 2021)\n BSc in Psychology, Federal University of Paraíba (João Pessoa, Paraíba - 2018)"
+  },
+  {
+    "objectID": "people/students/fernanda_diogo.html",
+    "href": "people/students/fernanda_diogo.html",
+    "title": "Fernanda Diogo",
+    "section": "",
+    "text": "vitae\n  \n\n  \n  \n\n\nA biomedical scientist, specialist in clinical analysis and microbiology, and a proud researcher from Brazil’s Northeast. My work focus on sex differences, biological rhythms and mental health.\n\n\n\n PhD in Physiology, Federal University of Rio Grande do Norte (Natal, BR - Current)\n MSc in Physiology, Federal University of Rio Grande do Norte (Natal, BR - 2021)\n BSc in Biomedicine, Federal University of Rio Grande do Norte (Natal, BR - 2018)\n\n\n\n Biomedical scientist – State University of Rio Grande do Norte (Natal. BR | Current)"
+  },
+  {
+    "objectID": "people/students/fernanda_diogo.html#biography",
+    "href": "people/students/fernanda_diogo.html#biography",
+    "title": "Fernanda Diogo",
+    "section": "",
+    "text": "A biomedical scientist, specialist in clinical analysis and microbiology, and a proud researcher from Brazil’s Northeast. My work focus on sex differences, biological rhythms and mental health."
+  },
+  {
+    "objectID": "people/students/fernanda_diogo.html#education",
+    "href": "people/students/fernanda_diogo.html#education",
+    "title": "Fernanda Diogo",
+    "section": "",
+    "text": "PhD in Physiology, Federal University of Rio Grande do Norte (Natal, BR - Current)\n MSc in Physiology, Federal University of Rio Grande do Norte (Natal, BR - 2021)\n BSc in Biomedicine, Federal University of Rio Grande do Norte (Natal, BR - 2018)"
+  },
+  {
+    "objectID": "people/students/fernanda_diogo.html#experience",
+    "href": "people/students/fernanda_diogo.html#experience",
+    "title": "Fernanda Diogo",
+    "section": "",
+    "text": "Biomedical scientist – State University of Rio Grande do Norte (Natal. BR | Current)"
+  },
+  {
+    "objectID": "people/former/josh_penrhyn-jones.html",
+    "href": "people/former/josh_penrhyn-jones.html",
+    "title": "Josh Penrhyn-Jones",
+    "section": "",
+    "text": "vitae\n  \n\n  \n  \n\n\nHaving previously worked in education, I rediscovered the joys of research while completing my master’s degree. I am currently studying for my PhD in Computer Science at Northumbria University, investigating how actigraphy can be used to provide contextual information for neuroimaging. My research interests include wearable sensors and the impact of sleep on the brain.\n\n\n\n PhD in Computer Science – Northumbria University (Newcastle upon Tyne, UK - Current)\n MSc in Computer Science – Northumbria University (Newcastle upon Tyne, UK - 2024)\n PGCE (Science with Chemistry Education) – University of Sunderland (Sunderland, UK - 2015)\n BSc in Zoology – University of Leeds (Leeds, UK - 2011)\n\n\n\n Research Assistant – Northumbria University (Newcastle upon Tyne, UK | 2024 – 2024)\n Teacher of Science – Cramlington Learning Village (Cramlington, UK | 2016 – 2022)"
+  },
+  {
+    "objectID": "people/former/josh_penrhyn-jones.html#biography",
+    "href": "people/former/josh_penrhyn-jones.html#biography",
+    "title": "Josh Penrhyn-Jones",
+    "section": "",
+    "text": "Having previously worked in education, I rediscovered the joys of research while completing my master’s degree. I am currently studying for my PhD in Computer Science at Northumbria University, investigating how actigraphy can be used to provide contextual information for neuroimaging. My research interests include wearable sensors and the impact of sleep on the brain."
+  },
+  {
+    "objectID": "people/former/josh_penrhyn-jones.html#education",
+    "href": "people/former/josh_penrhyn-jones.html#education",
+    "title": "Josh Penrhyn-Jones",
+    "section": "",
+    "text": "PhD in Computer Science – Northumbria University (Newcastle upon Tyne, UK - Current)\n MSc in Computer Science – Northumbria University (Newcastle upon Tyne, UK - 2024)\n PGCE (Science with Chemistry Education) – University of Sunderland (Sunderland, UK - 2015)\n BSc in Zoology – University of Leeds (Leeds, UK - 2011)"
+  },
+  {
+    "objectID": "people/former/josh_penrhyn-jones.html#expetience",
+    "href": "people/former/josh_penrhyn-jones.html#expetience",
+    "title": "Josh Penrhyn-Jones",
+    "section": "",
+    "text": "Research Assistant – Northumbria University (Newcastle upon Tyne, UK | 2024 – 2024)\n Teacher of Science – Cramlington Learning Village (Cramlington, UK | 2016 – 2022)"
+  },
+  {
+    "objectID": "people/collaborators/john_araujo.html",
+    "href": "people/collaborators/john_araujo.html",
+    "title": "Prof. John Araújo",
+    "section": "",
+    "text": "Scholar\n  \n\n  \n  \n\n\nProfessor John Fontenele Araújo is a distinguished neuroscientist and educator affiliated with the Federal University of Rio Grande do Norte (UFRN). He completed his medical degree at the Federal University of Piauí, followed by a master’s and a doctorate in Neurobiology and Behavior from the University of São Paulo. He further enhanced his expertise with postdoctoral research in Chronobiology at the University of Barcelona and at institutions in Lisbon.\nAt UFRN, Professor Araújo serves as a full professor in the Department of Physiology and Behavior, where he teaches neurophysiology and conducts research in chronobiology. Prof. Araújo has been a faculty member at UFRN since 2000, where he has been instrumental in the development of the Graduate Program in Neuroscience. His research interests encompass biological rhythms, sleep, learning, memory, affective disorders, and primate vocalization. His scholarly contributions have been widely recognized, with his publications cited over 4,500 times, reflecting his significant impact in the fields of chronobiology, neuroscience, physiology, medical education, and sleep medicine.\nHe is a member of the Brazilian Society of Physiology, the Brazilian Sleep Society, the Brazilian Academy of Sciences and the World Federation of Sleep Research. Beyond academia, Professor Araújo is an avid cyclist and actively promotes cycling mobility and tourism."
+  },
+  {
+    "objectID": "people/collaborators/john_araujo.html#biography",
+    "href": "people/collaborators/john_araujo.html#biography",
+    "title": "Prof. John Araújo",
+    "section": "",
+    "text": "Professor John Fontenele Araújo is a distinguished neuroscientist and educator affiliated with the Federal University of Rio Grande do Norte (UFRN). He completed his medical degree at the Federal University of Piauí, followed by a master’s and a doctorate in Neurobiology and Behavior from the University of São Paulo. He further enhanced his expertise with postdoctoral research in Chronobiology at the University of Barcelona and at institutions in Lisbon.\nAt UFRN, Professor Araújo serves as a full professor in the Department of Physiology and Behavior, where he teaches neurophysiology and conducts research in chronobiology. Prof. Araújo has been a faculty member at UFRN since 2000, where he has been instrumental in the development of the Graduate Program in Neuroscience. His research interests encompass biological rhythms, sleep, learning, memory, affective disorders, and primate vocalization. His scholarly contributions have been widely recognized, with his publications cited over 4,500 times, reflecting his significant impact in the fields of chronobiology, neuroscience, physiology, medical education, and sleep medicine.\nHe is a member of the Brazilian Society of Physiology, the Brazilian Sleep Society, the Brazilian Academy of Sciences and the World Federation of Sleep Research. Beyond academia, Professor Araújo is an avid cyclist and actively promotes cycling mobility and tourism."
+  },
+  {
+    "objectID": "people/collaborators/matthew_walker.html",
+    "href": "people/collaborators/matthew_walker.html",
+    "title": "Prof. Matthew Walker",
+    "section": "",
+    "text": "Scholar\n  \n  \n      ORCID\n  \n\n  \n  \n\n\nProfessor Matthew Walker is a distinguished neurologist specialising in epilepsy and neurological sleep disorders. He holds the position of Professor of Neurology at the UCL Queen Square Institute of Neurology and serves as a Consultant Neurologist at the National Hospital for Neurology and Neurosurgery in London.\nProfessor Walker completed his medical studies at Cambridge University and St Thomas’ Hospital. He earned a PhD from University College London, focusing on the treatment of status epilepticus. His research interests encompass the mechanisms, diagnosis, and treatment of epilepsy, and he has published over 200 scientific articles, chapters, and books.\nIn addition to his clinical and research roles, Professor Walker has held several prominent positions:\n\nPresident of the British Branch of the International League Against Epilepsy (ILAE).\nSecretary of ILAE-Europe.\nChair of the Trustees of Epilepsy Research UK.\n\nHe was honored with the ILAE Ambassador for Epilepsy award in 2013. Professor Walker is a Fellow of the Royal College of Physicians and the American Epilepsy Society. He is an associate editor of Therapeutic Advances in Neurological Disorders and was previously an associate editor for the journals, Epilepsia and Brain."
+  },
+  {
+    "objectID": "people/collaborators/matthew_walker.html#biography",
+    "href": "people/collaborators/matthew_walker.html#biography",
+    "title": "Prof. Matthew Walker",
+    "section": "",
+    "text": "Professor Matthew Walker is a distinguished neurologist specialising in epilepsy and neurological sleep disorders. He holds the position of Professor of Neurology at the UCL Queen Square Institute of Neurology and serves as a Consultant Neurologist at the National Hospital for Neurology and Neurosurgery in London.\nProfessor Walker completed his medical studies at Cambridge University and St Thomas’ Hospital. He earned a PhD from University College London, focusing on the treatment of status epilepticus. His research interests encompass the mechanisms, diagnosis, and treatment of epilepsy, and he has published over 200 scientific articles, chapters, and books.\nIn addition to his clinical and research roles, Professor Walker has held several prominent positions:\n\nPresident of the British Branch of the International League Against Epilepsy (ILAE).\nSecretary of ILAE-Europe.\nChair of the Trustees of Epilepsy Research UK.\n\nHe was honored with the ILAE Ambassador for Epilepsy award in 2013. Professor Walker is a Fellow of the Royal College of Physicians and the American Epilepsy Society. He is an associate editor of Therapeutic Advances in Neurological Disorders and was previously an associate editor for the journals, Epilepsia and Brain."
+  },
+  {
     "objectID": "blog/sleep_PSG/index.html",
     "href": "blog/sleep_PSG/index.html",
     "title": "Sleep PSG validation",
@@ -392,207 +469,11 @@
     "text": "PineTime Research Platform\n\n\n\nWearables\n\nFirmware\n\nIn Development\n\n\n\nA custom InfiniTime firmware fork and companion web app for the PineTime smartwatch, optimised for research data collection. Currently in active development.\n\n\n\n\n\n\nJun 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nScoreMe\n\n\n\nWeb App\n\nQuestionnaires\n\nOpen Source\n\n\n\nA lightweight web app for scoring validated research questionnaires in the browser. No installation required.\n\n\n\n\n\n\nMar 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\ntallieR\n\n\n\nR Package\n\nQuestionnaires\n\nOpen Source\n\n\n\nAn R package for importing, re-scoring, and tidying questionnaire data collected with the ScoreMe app.\n\n\n\n\n\n\nMar 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nCircadian Phenotyping in Visual Impairment\n\n\n\nResearch Pipeline\n\nActigraphy\n\nChronobiology\n\nPython\n\nReproducible Research\n\n\n\nA data-driven framework for identifying circadian phenotypes in visually impaired participants using non-parametric actigraphy metrics, dimensionality reduction, clustering, and SHAP-based interpretation.\n\n\n\n\n\n\nFeb 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nSleep Diaries\n\n\n\nMobile App\n\nSleep\n\nOpen Source\n\nReact Native\n\n\n\nAn open-source mobile app for collecting sleep diary data in clinical and research settings, built with React Native & Expo.\n\n\n\n\n\n\nJan 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nslumbR\n\n\n\nR Package\n\nSleep\n\nOpen Source\n\n\n\nAn R package for processing, scoring, and visualising sleep diary data collected with the Sleep Diaries app.\n\n\n\n\n\n\nJan 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nACTT Validation Study\n\n\n\nResearch Pipeline\n\nActigraphy\n\nR\n\nReproducible Research\n\n\n\nA fully reproducible R/Quarto pipeline validating the ActTrust® device for energy expenditure and physical activity classification, benchmarked against the ActiGraph® GT3X+ and indirect calorimetry.\n\n\n\n\n\n\nSep 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\ncircadiaBase Docker\n\n\n\nInfrastructure\n\nDocker\n\nPython\n\nR\n\n\n\nA Docker template bundling a full chronobiology and actigraphy analysis stack — Jupyter + RStudio — launchable with a single command.\n\n\n\n\n\n\nJun 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nCycling & EEG Entropy\n\n\n\nResearch Pipeline\n\nEEG\n\nR\n\nReproducible Research\n\n\n\nAn R analysis pipeline examining recurrence-matrix entropy in scalp EEG signals recorded during cycling and rest across four behavioural conditions in healthy adults.\n\n\n\n\n\n\nApr 1, 2024\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "join.html",
-    "href": "join.html",
-    "title": "Join us/Visit",
-    "section": "",
-    "text": "If you are interested in visiting the lab for a short stay, please get in touch via lucas.franca and mario.miguel (at) northumbria.ac.uk. We are always looking for motivated people to work with.\nIf you are interested in doing a PhD or postdoc with us, please contact us to discuss possible projects and information on potential funding streams."
-  },
-  {
     "objectID": "design.html",
     "href": "design.html",
     "title": "Design",
     "section": "",
     "text": "The colours in this page were inspired by Hiroshige’s woodblock print Sailing Boats Returning to Yabase, Lake Biwa.\n Sailing Boats Returning to Yabase, Lake Biwa. Utagawa Hiroshige (Japanese). ca. 1835\nThe picture is composed by yellow and blue tones, which are relevant in the context of rhythmicity and chronobiology. We derived six tones on a divergent palette from Hiroshige’s print. The palette is shown below.\n\n\n      \n      \n\nOur logo also explores the dychotomy between day and night, light and darkness, yellow and blue light - linking these to circadian rhythms, with a wave-like symbol often used to illustrate ‘zeitgebers’ (synchronisers). The logo is shown below."
-  },
-  {
-    "objectID": "publications/batista2026/index.html",
-    "href": "publications/batista2026/index.html",
-    "title": "From Movement to METs: A Validation of ActTrust® for Energy Expenditure Estimation and Physical Activity Classification in Young Adults",
-    "section": "",
-    "text": "Abstract\nPhysical activity (PA) is recognised for providing several health benefits in humans, mainly preventing and controlling chronic non-communicable diseases. However estimating PA is a challenging and expensive task. An alternative would be to devise a model to estimate PA using actigraphy devices calibrated from an initially validated model. This has been previously done to a number of devices, including ActiGraph® GT3X+. In this study we aimed at validating ActTrust® against the widely used GT3X+ and comparing activity counts to metabolic equivalents (METs) derived from indirect calorimetry during treadmill walking and running. Fifty-six young adults (34 men, 22 women) participated in controlled effort exercises including light, moderate, vigorous, and very vigorous activity intensities. We developed a general linear model to estimate energy expenditure (EE) from movement count of combinations of GT3X+ and ActTrust devices placed at hip or wrist. We then estimated cut-off points for each intensity range. Our results showed correlations between treadmill speed, METs, and movement counts across all devices and placements combinations. Our proposed model performed well with balanced accuracies above 0.77 for all intensity ranges and over 0.9 for light and moderate activity. This is the first study to model estimate and validate PA intensity thresholds on ActTrust® devices. Our findings support the use of ActTrust® devices in PA estimation as a low complexity and cost approach to allow 24-hour assessments of EE."
-  },
-  {
-    "objectID": "publications/franca2024/index.html",
-    "href": "publications/franca2024/index.html",
-    "title": "Neonatal brain dynamic functional connectivity in term and preterm infants and its association with early childhood neurodevelopment",
-    "section": "",
-    "text": "Abstract\nBrain dynamic functional connectivity characterises transient connections between brain regions. Features of brain dynamics have been linked to emotion and cognition in adult individuals, and atypical patterns have been associated with neurodevelopmental conditions such as autism. Although reliable functional brain networks have been consistently identified in neonates, little is known about the early development of dynamic functional connectivity. In this study we characterise dynamic functional connectivity with functional magnetic resonance imaging (fMRI) in the first few weeks of postnatal life in term-born (n=324) and preterm-born (n=66) individuals. We show that a dynamic landscape of brain connectivity is already established by the time of birth in the human brain, characterised by six transient states of neonatal functional connectivity with changing dynamics through the neonatal period. The pattern of dynamic connectivity is atypical in preterm-born infants, and associated with atypical social, sensory, and repetitive behaviours measured by the Quantitative Checklist for Autism in Toddlers (Q-CHAT) scores at 18 months of age."
-  },
-  {
-    "objectID": "publications/ferre2024/index.html",
-    "href": "publications/ferre2024/index.html",
-    "title": "Cycling reduces the entropy of neuronal activity in the human adult cortex",
-    "section": "",
-    "text": "Abstract\nBrain Complexity (BC) have successfully been applied to study the brain electroencephalographic signal (EEG) in health and disease. In this study, we employed recurrence entropy to quantify BC associated with the neurophysiology of movement by comparing BC in both resting state and cycling movement. We measured EEG in 24 healthy adults and placed the electrodes on occipital, parietal, temporal and frontal sites on both the right and left sides of the brain. We computed the recurrence entropy from EEG measurements during cycling and resting states. Entropy is higher in the resting state than in the cycling state for all brain regions analysed. This reduction in complexity is a result of the repetitive movements that occur during cycling. These movements lead to continuous sensorial feedback, resulting in reduced entropy and sensorimotor processing."
-  },
-  {
-    "objectID": "publications/torres2024/index.html",
-    "href": "publications/torres2024/index.html",
-    "title": "Use of sleep quality questionary and cortisol awakening response as complementary tools for the evaluation of major depression progression",
-    "section": "",
-    "text": "Abstract\nSleep disorders and changes in the profile of the cortisol awakening response (CAR) are potential predictive factors for the incidence of major depressive disorder (MDD). However, these parameters usually are evaluated separately, lacking information regarding the simultaneous association of sleep disorders and CAR, mainly throughout the MDD severity. This study addressed the relationship between sleep quality and CAR in patients with initial/mild depression (MD, n=30) versus advanced/treatment-resistant (TRD, n=28), compared with a group of healthy controls (CG, n=49), aiming to point out in a clinical perspective which alterations in sleep and CAR have been observed along major depression severity stages. TRD patients presented a blunted CAR and poorer sleep quality comparing MD and CG groups. Additionally, MD patients showed worse sleep quality and larger CAR than CG. Taken together, both sleep quality and CAR were correlated with MDD symptoms and predictors of MDD severity, with a greater classification power for sleep quality. From sleep quality, specifically, the use of sleep medication and sleep efficiency predicted depression severity, discriminating mild and treatment-resistant depression. These results show the importance of assessing sleep quality and CAR in patients with major depression when there is a need for evaluation of the disorder’s severity in a clinical context. CAR and sleep quality can be useful complementary tools to help in the clinical identification of major depression severity and the understanding of their impact on MDD may support further studies that aim to improve intervention strategies to increase the effectiveness of treatments."
-  },
-  {
-    "objectID": "people.html",
-    "href": "people.html",
-    "title": "Circadia",
-    "section": "",
-    "text": "Co Lead\n\n\n\n\n\n\n\n\n\n\n\n\n\nCo Lead\n\n\n\n\n\n\n\n\n\n\n\n\n\nVisiting Research Fellow\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "people.html#research-staff",
-    "href": "people.html#research-staff",
-    "title": "Circadia",
-    "section": "",
-    "text": "Co Lead\n\n\n\n\n\n\n\n\n\n\n\n\n\nCo Lead\n\n\n\n\n\n\n\n\n\n\n\n\n\nVisiting Research Fellow\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "people.html#students",
-    "href": "people.html#students",
-    "title": "Circadia",
-    "section": "Students",
-    "text": "Students\n\n\n\n\n\n\n\n\n\n\nFernanda Diogo\n\n\nVisiting PhD Student\n\n\n\n\n\n\n\n\n\n\n\n\nKaren Pugliane\n\n\nVisiting PhD Student\n\n\n\n\n\n\n\n\n\n\n\n\nRebeca Buest de Mesquita Silva\n\n\nVisiting PhD Student\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "people.html#collaborators",
-    "href": "people.html#collaborators",
-    "title": "Circadia",
-    "section": "Collaborators",
-    "text": "Collaborators\n\n\n\n\n\n\n\n\n\n\nProf. John Araújo\n\n\nFederal University of Rio Grande do Norte\n\n\n\n\n\n\n\n\n\n\n\n\nDr Nick Puts\n\n\nKing’s College London\n\n\n\n\n\n\n\n\n\n\n\n\nProf. Matthew Walker\n\n\nUniversity College London\n\n\n\n\n\n\n\n\n\n\n\n\nProf. Yujiang Wang\n\n\nNewcastle University\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "people.html#former",
-    "href": "people.html#former",
-    "title": "Circadia",
-    "section": "Former Members",
-    "text": "Former Members\n\n\n\n\n\n\n\n\n\n\nProf. Malcolm von Schantz\n\n\nIn memoriam\n\n\n\n\n\n\n\n\n\n\n\n\nJosh Penrhyn-Jones\n\n\nFormer PhD Student\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Tutorials",
-    "section": "",
-    "text": "Setting up circadiaBase Docker\n\n\n\nInfrastructure\n\nDocker\n\nPython\n\nR\n\nReproducibility\n\n\n\nA step-by-step guide to spinning up the Circadia Lab’s reproducible research environment — JupyterLab and RStudio Server in a single Docker Compose stack — for chronobiology and actigraphy research.\n\n\n\n\n\nMay 21, 2026\n\n\nLucas França, Mario Leocadio-Miguel\n\n\n\n\n\n\n\n\n\n\n\n\nIntroducing Sleep Diaries: an open-source sleep diary app for research\n\n\n\nSleep\n\nOpen Source\n\nTools\n\n\n\nWe are releasing Sleep Diaries — a free, open-source, research-grade sleep diary app built with React Native and Expo. It runs on iOS, Android, and the web, and is designed to be easily adapted for clinical sleep research and personal use.\n\n\n\n\n\nApr 2, 2026\n\n\nLucas França, Mario Leocadio-Miguel\n\n\n\n\n\n\n\n\n\n\n\n\nSleep PSG validation\n\n\n\nSleep\n\nPSD\n\n\n\nThis post presents an analysis of sleep stage classification validation using polysomnography (PSG) as the ground truth and a headband-based device as the test instrument. The workflow includes generating synthetic sleep data, loading real-world datasets, and comparing sleep stage distributions between the two devices. The validation process includes Bland-Altman analysis, Pearson correlation, Cohen’s Kappa, and statistical measures of agreement. The results provide insight into the accuracy and bias of wearable sleep-tracking devices in sleep stage classification.\n\n\n\n\n\nMar 11, 2025\n\n\nMario Miguel\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "publications/miguel2024/index.html",
-    "href": "publications/miguel2024/index.html",
-    "title": "Heritability of sleep architecture based on home polysomnography",
-    "section": "",
-    "text": "Abstract\nWe aimed to establish the heritability of polysomnography measures through the analysis of home polysomnography recordings from 648 participants in the Baependi Heart Study, a rural, family-based, genetically admixed cohort based in the southeast of Brazil. Sleep polysomnography staging variables were computed, and narrow-sense heritability values were derived. The heritability (h2) of polysomnography total sleep time was 0.18±0.08 (p=0.007). Including age and sex did not change the heritability estimates of the model. Wake after sleep onset did not show significant heritability (h2=0.02±0.07, p=0.39). The unadjusted model for N1 resulted in a heritability estimate of 0.22±0.10 (p&lt;0.003), and of 0.26±0.10 (p=0.003) in the adjusted model. Time spent in N2 had an unadjusted heritability of 0.18±0.09 (p=0.01) and adjusted h2 of 0.22±0.10 (p=0.007). The heritability of the total time spent in N3 was 0.35±0.09 (p&lt;0.001) in the unadjusted and 0.38±0.09 (p&lt;0.001) when sex, age and age*age were considered in the model. By contrast, no variance in the total time spent in rapid eye movement could be significantly attributed to genetic variance. In terms of the heritability of the apnea–hypopnea index, 17% of its variance could be attributed to genetic factors (0.17±0.08, p=0.02). This is the first report of heritability of electroencephalographic-derived sleep parameters from a larger population sample, and the first one performed in a population with a majority above 25 years of age. Our findings indicate the potential feasibility of future genome-wide association studies of non-rapid eye movement sleep stages in pooled population samples."
-  },
-  {
-    "objectID": "publications/nunes2024/index.html",
-    "href": "publications/nunes2024/index.html",
-    "title": "Hemodialysis-induced chronodisruption and chronotype distribution in patients with chronic kidney disease",
-    "section": "",
-    "text": "Abstract\nChanges in circadian rhythms have been observed in patients with chronic kidney disease (CKD), and evidence suggests that these changes can have a negative impact on health. This study aimed to investigate the existence of hemodialysis-induced chronodisruption, the chronotype distribution, and their association with sleep quality and quality of life (QoL). This was a cross-sectional study that enrolled 165 patients (mean age: 51.1±12.5 y, 60.6% male) undergoing hemodialysis from three local units. The following instruments were used: the Morning-Eveningness Questionnaire (MEQ); a modified version of the Munich Chronotype Questionnaire (MCQT) to estimate hemodialysis-induced chronodisruption (HIC); the Kidney Disease QoL Short Form (KDQOL-SF); the Epworth Sleepiness Scale (ESS); the Pittsburgh Sleep Quality Index (PSQI) and the 10–Cognitive Screener (10-CS). HIC was present in 40.6% of CKD patients. Morning chronotype was prevalent in CKD patients (69%) compared to evening-type (17.1%) and significantly different from a paired sample from the general population (p&lt;0.001). HIC and chronotype were associated with different domains of QoL but not with sleep quality. This study suggests that there is a HIC and that morning chronotype is associated with CKD patients undergoing hemodialysis, with implications for QoL."
-  },
-  {
-    "objectID": "publications/pugliane2026/index.html",
-    "href": "publications/pugliane2026/index.html",
-    "title": "Low-latitude environmental regularity sustains non-photic entrainment in blind adults",
-    "section": "",
-    "text": "Abstract\nThe light–dark cycle shaped by Earth’s rotation provided the evolutionary conditions under which circadian rhythms emerged. Consistent with this, previous studies indicate that less than 40% of totally blind individuals, who lack photic input, entrain to the 24-h cycle, further evidencing the critical role of light as the dominant zeitgeber for circadian alignment. However, this assumption has been tested almost exclusively in temperate, high-latitude regions, where environmental cues vary seasonally. Near the equator, by contrast, photoperiod and temperature cycles remain exceptionally stable. This highlights a fundamental gap: can circadian rhythms in humans remain synchronised without light when environmental temporal cues are highly regular? We addressed this question in 58 blind adults (21–77 years; 43.1% female) living near the equator in Rio Grande do Norte, Brazil (~5°S), who wore wrist actigraphy continuously for four weeks. Light sensitivity was assessed through the pupillary light reflex (PLR; 22 PLR-reactive, 36 non-reactive). Applying a semi-supervised machine learning approach to uncover multidimensional patterns without prior categorisation, we identified two distinct phenotypes: a Higher Circadian Stability (HCS; 72%, n = 42) and a Lower Circadian Stability group (LCS; 28%, n = 16). Notably, 64% of PLR-non-reactive individuals (23 of 36) were classified within the HCS group, a proportion approximately 1.6 times higher than previously reported for blind cohorts. These findings demonstrate that, under exceptionally regular equatorial conditions, non-photic cues can sustain a robust circadian entrainment even in the absence of photic input. We propose that environmental regularity promotes the synergy of non-photic timing signals, underscoring ecological context as a key determinant of human circadian temporal organisation."
-  },
-  {
-    "objectID": "publications/silva2023/index.html",
-    "href": "publications/silva2023/index.html",
-    "title": "Blue light exposure-dependent improvement in robustness of circadian rest-activity rhythm in aged rats",
-    "section": "",
-    "text": "The aging effects on circadian rhythms have diverse implications including changes in the pattern of rhythmic expressions, such as a wide fragmentation of the rhythm of rest-activity and decrease in amplitude of activity regulated by the suprachiasmatic nucleus (SCN). The study of blue light on biological aspects has received great current interest due, among some aspects, to its positive effects on psychiatric disorders in humans. This study aims to evaluate the effect of blue light therapy on the SCN functional aspects, through the evaluation of the rest-activity rhythm, in aging rats. For this, 33 sixteen-months-old male Wistar rats underwent continuous records of locomotor activity and were exposed to periods of 6 hours of blue light during the first half of the light phase (Zeitgeber times 0–6) for 14 days. After this, the rats were maintained at 12h:12h light:dark cycle to check the long-term effect of blue light for 14 days. Blue light repeated exposure showed positive effects on the rhythmic variables of locomotor activity in aged rats, particularly the increase in amplitude, elevation of rhythmic robustness, phase advance in acrophase, and greater consolidation of the resting phase. This effect depends on the presence of daily blue light exposure. In conclusion, our results indicate that blue light is a reliable therapy to reduce circadian dysfunctions in aged rats, but other studies assessing how blue light modulates the neural components to modulate this response are still needed."
-  },
-  {
-    "objectID": "publications.html",
-    "href": "publications.html",
-    "title": "Publications",
-    "section": "",
-    "text": "From Movement to METs: A Validation of ActTrust® for Energy Expenditure Estimation and Physical Activity Classification in Young Adults\n\n\n\nArticle\n\nindirect calorimetry\n\naccelerometer\n\nactivity intensity\n\n\n\nPhysical activity (PA) is recognised for providing several health benefits in humans, mainly preventing and controlling chronic non-communicable diseases. However estimating PA is a challenging and expensive task. An alternative would be to devise a model to estimate PA using actigraphy devices calibrated from an initially validated model. This has been previously done to a number of devices, including ActiGraph® GT3X+. In this study we aimed at validating ActTrust® against the widely used GT3X+ and comparing activity counts to metabolic equivalents (METs) derived from indirect calorimetry during treadmill walking and running. Fifty-six young adults (34 men, 22 women) participated in controlled effort exercises including light, moderate, vigorous, and very vigorous activity intensities. We developed a general linear model to estimate energy expenditure (EE) from movement count of combinations of GT3X+ and ActTrust devices placed at hip or wrist. We then estimated cut-off points for each intensity range. Our results showed correlations between treadmill speed, METs, and movement counts across all devices and placements combinations. Our proposed model performed well with balanced accuracies above 0.77 for all intensity ranges and over 0.9 for light and moderate activity. This is the first study to model estimate and validate PA intensity thresholds on ActTrust® devices. Our findings support the use of ActTrust® devices in PA estimation as a low complexity and cost approach to allow 24-hour assessments of EE.\n\n\n\n\n\nMay 6, 2026\n\n\nElias dos Santos Batista, Stephania Ruth Basilio Gomes, Ayrton Bruno de Morais Ferreira, Lucas G. S. França, John Fontenele Araújo, Arnaldo Luis Mortatti, Mário A. Leocadio-Miguel\n\n\n\n\n\n\n\n\n\n\n\n\nLow-latitude environmental regularity sustains non-photic entrainment in blind adults\n\n\n\nPreprint\n\ncircadian\n\nactigraphy\n\nblindness\n\nmachine learning\n\n\n\nUsing wrist actigraphy and machine learning in 58 blind adults living near the equator in Brazil, this study shows that circadian rest–activity rhythms can remain stably entrained even without photic input. Two distinct circadian phenotypes were identified: 72% of participants showed Higher Circadian Stability, a proportion far exceeding previous reports in blind cohorts, suggesting that environmental regularity at low latitudes supports non-photic circadian entrainment.\n\n\n\n\n\nMar 21, 2026\n\n\nKaren C. Pugliane, Lucas G. S. França, Mario Leocadio-Miguel, John F. Araújo\n\n\n\n\n\n\n\n\n\n\n\n\nHeritability of sleep architecture based on home polysomnography\n\n\n\nArticle\n\nheritability\n\nsleep\n\nPSG\n\n\n\nThis study assessed the heritability of polysomnography sleep measures in 648 participants from the Baependi Heart Study in Brazil. It found that genetic factors influence total sleep time, non-REM sleep stages (especially N3), and the apnea-hypopnea index, but not REM sleep. These findings support the feasibility of future genetic studies on sleep traits.\n\n\n\n\n\nDec 29, 2024\n\n\nMário A. Leocadio-Miguel, Tâmara P Taporoski, Felipe Beijamini, Francieli S Ruiz, Andrea RVR Horimoto, Alexandre C Pereira, Kristen L Knutson, Malcolm von Schantz\n\n\n\n\n\n\n\n\n\n\n\n\nCycling reduces the entropy of neuronal activity in the human adult cortex\n\n\n\nArticle\n\nentropy\n\ncortical activity\n\nEEG\n\n\n\nThis study used recurrence entropy to assess brain complexity (BC) in EEG signals during rest and cycling in 24 healthy adults. Results showed lower entropy during cycling, suggesting that repetitive movement reduces brain complexity due to continuous sensory feedback and streamlined sensorimotor processing.\n\n\n\n\n\nOct 2, 2024\n\n\nIara Beatriz Silva Ferré, Gilberto Corso, Gustavo Zampier dos Santos Lima, Sergio Roberto Lopes, Mario André Leocadio-Miguel, Lucas G. S. França, Thiago de Lima Prado, John Fontenele Araújo\n\n\n\n\n\n\n\n\n\n\n\n\nNeonatal brain dynamic functional connectivity in term and preterm infants and its association with early childhood neurodevelopment\n\n\n\nArticle\n\nbrain\n\nMRI\n\ndynamics\n\n\n\nThis study examines dynamic functional connectivity in newborns using fMRI, revealing six transient brain connectivity states present at birth. It finds that preterm infants exhibit atypical connectivity patterns, which are linked to social, sensory, and repetitive behaviors at 18 months, suggesting early neurodevelopmental differences.\n\n\n\n\n\nFeb 8, 2024\n\n\nLucas G. S. França, Judit Ciarrusta, Oliver Gale-Grant, Sunniva Fenn-Moltu, Sean Fitzgibbon, Andrew Chew, Shona Falconer, Ralica Dimitrova, Lucilio Cordero-Grande, Anthony N. Price, Emer Hughes, Jonathan O’Muircheartaigh, Eugene Duff, Jetro J. Tuulari, Gustavo Deco, Serena J. Counsell, Joseph V. Hajnal, Chiara Nosarti, Tomoki Arichi, A. David Edwards, Grainne McAlonan, Dafnis Batalle\n\n\n\n\n\n\n\n\n\n\n\n\nHemodialysis-induced chronodisruption and chronotype distribution in patients with chronic kidney disease\n\n\n\nArticle\n\nhemodialisis\n\nsleep\n\n\n\nThis study examined circadian rhythm disruptions in 165 hemodialysis patients, finding that 40.6% experienced hemodialysis-induced chronodisruption (HIC). A morning chronotype was more prevalent in CKD patients than in the general population. HIC and chronotype were linked to quality of life but not sleep quality, highlighting potential implications for patient well-being.\n\n\n\n\n\nFeb 1, 2024\n\n\nPatrícia Pereira Nunes, Caroline Meneses Resende, Ellen Dayanne Barros Silva, Deryc Cleyner Piones Bastos, Max Luiz Mendes Ramires Filho, Mário A. Leocadio-Miguel, Mario Pedrazzoli, Manoel Alves Sobreira-Neto, Tiago Gomes de Andrade, Lívia Leite Góes Gitaí, Flávio Teles\n\n\n\n\n\n\n\n\n\n\n\n\nUse of sleep quality questionary and cortisol awakening response as complementary tools for the evaluation of major depression progression\n\n\n\nArticle\n\ncortisol\n\nsleep\n\nmajor depression\n\n\n\nThis study examined the relationship between sleep quality and cortisol awakening response (CAR) across major depression severity. Patients with treatment-resistant depression had poorer sleep and a blunted CAR, while those with mild depression showed worse sleep but an elevated CAR compared to healthy controls. Sleep quality, particularly sleep medication use and sleep efficiency, was a strong predictor of depression severity, highlighting its clinical relevance for assessing and managing major depressive disorder.\n\n\n\n\n\nFeb 1, 2024\n\n\nLucas Henrique Sousa Freitas Torres, Ysla Kallena Macedo Medeiros, Geovan Menezes de Sousa, Hector Quinones Vargas, Ana Cecília de Menezes Galvão, Raíssa Nóbrega de Almeida, Mário A. Leocadio-Miguel, Bruno Lobão-Soares, Fernanda Palhano-Fontes, Dráulio Barros de Araujo, Nicole Leite Galvão-Coelho\n\n\n\n\n\n\n\n\n\n\n\n\nBlue light exposure-dependent improvement in robustness of circadian rest-activity rhythm in aged rats\n\n\n\nArticle\n\naging\n\nSCN\n\nRest-activity rhythm\n\n\n\nThis study investigated the effects of blue light therapy on circadian rhythms in aging rats. Exposure to blue light for 14 days improved locomotor rhythmicity, increasing amplitude, robustness, and phase advance while enhancing rest-phase consolidation. However, these benefits required continuous exposure. The findings suggest that blue light may help mitigate age-related circadian dysfunctions, though further research is needed to understand the underlying neural mechanisms.\n\n\n\n\n\nOct 4, 2023\n\n\nEryck Holmes A. Silva, Nelyane Nayara M. Santana, Narita Renata M. Seixas, Lyzandro Lucas F. Bezerra, Maria Milena O. Silva, Sâmarah F. Santos, Jeferson S. Cavalcante, Mário A. Leocadio-Miguel, Rovena Clara Engelberth\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Circadia",
-    "section": "",
-    "text": "We are an interdisciplinary group spanning the School of Computer Science and the School of Psychology at Northumbria University. Our research focusses on the intersection of physics, computer science, physiology and chronobiology. We are particularly interested in sleep, rhythmicity, and medical signals of various modalities.\nThe word “Circadia” derives from the Latin “circa diem” meaning “around the day”, a reference to the circadian rhythms that govern our lives and the focus of our research. It also rhymes with “arcadia” - a place for exploration, discovery and learning."
-  },
-  {
-    "objectID": "index.html#about-us",
-    "href": "index.html#about-us",
-    "title": "Circadia",
-    "section": "",
-    "text": "We are an interdisciplinary group spanning the School of Computer Science and the School of Psychology at Northumbria University. Our research focusses on the intersection of physics, computer science, physiology and chronobiology. We are particularly interested in sleep, rhythmicity, and medical signals of various modalities.\nThe word “Circadia” derives from the Latin “circa diem” meaning “around the day”, a reference to the circadian rhythms that govern our lives and the focus of our research. It also rhymes with “arcadia” - a place for exploration, discovery and learning."
-  },
-  {
-    "objectID": "index.html#our-tools-software",
-    "href": "index.html#our-tools-software",
-    "title": "Circadia",
-    "section": "Our tools & software",
-    "text": "Our tools & software\n\n  ‹\n  \n    \n  \n  ›"
-  },
-  {
-    "objectID": "index.html#news",
-    "href": "index.html#news",
-    "title": "Circadia",
-    "section": "News",
-    "text": "News\n\n\nTutorials\n\n\n\n\n\n\n\n\n\n\nSetting up circadiaBase Docker\n\n\nA step-by-step guide to spinning up the Circadia Lab’s reproducible research environment — JupyterLab and RStudio Server in a single Docker Compose stack — for chronobiology and actigraphy research.\n\n\n\n\n\nNo matching items\n\nSee all →\n\n\nPublications\n\n\n\n\n\n\n\n\n\n\nFrom Movement to METs: A Validation of ActTrust® for Energy Expenditure Estimation and Physical Activity Classification in Young Adults\n\n\nPhysical activity (PA) is recognised for providing several health benefits in humans, mainly preventing and controlling chronic non-communicable diseases. However estimating PA is a challenging and expensive task. An alternative would be to devise a model to estimate PA using actigraphy devices…\n\n\n\n\n\nNo matching items\n\nSee all →"
-  },
-  {
-    "objectID": "blog/sleep_diaries_app/index.html",
-    "href": "blog/sleep_diaries_app/index.html",
-    "title": "Introducing Sleep Diaries: an open-source sleep diary app for research",
-    "section": "",
-    "text": "Self-reported sleep data remains one of the most widely used instruments in both clinical practice and sleep research. Sleep diaries have been validated against polysomnography and actigraphy and are often the most practical way to capture subjective sleep quality and patterns over time.\nDespite their importance, most sleep diary solutions available to researchers are either proprietary, difficult to adapt, or require participants to fill in paper forms. We wanted something that was free, open, easily customisable, and could run on the devices participants already carry in their pockets.\nSleep Diaries is our answer to that. It is a cross-platform mobile and web app implementing the Consensus Sleep Diary (CSD) with a clean, accessible interface and a fully open codebase."
-  },
-  {
-    "objectID": "blog/sleep_diaries_app/index.html#why-a-sleep-diary-app",
-    "href": "blog/sleep_diaries_app/index.html#why-a-sleep-diary-app",
-    "title": "Introducing Sleep Diaries: an open-source sleep diary app for research",
-    "section": "",
-    "text": "Self-reported sleep data remains one of the most widely used instruments in both clinical practice and sleep research. Sleep diaries have been validated against polysomnography and actigraphy and are often the most practical way to capture subjective sleep quality and patterns over time.\nDespite their importance, most sleep diary solutions available to researchers are either proprietary, difficult to adapt, or require participants to fill in paper forms. We wanted something that was free, open, easily customisable, and could run on the devices participants already carry in their pockets.\nSleep Diaries is our answer to that. It is a cross-platform mobile and web app implementing the Consensus Sleep Diary (CSD) with a clean, accessible interface and a fully open codebase."
-  },
-  {
-    "objectID": "blog/sleep_diaries_app/index.html#what-does-it-do",
-    "href": "blog/sleep_diaries_app/index.html#what-does-it-do",
-    "title": "Introducing Sleep Diaries: an open-source sleep diary app for research",
-    "section": "What does it do?",
-    "text": "What does it do?\nThe app guides participants through two brief structured questionnaires each day:\n\nMorning entry (13 questions): bedtime, sleep onset latency, night wakings, final awakening, total time in bed, sleep quality, restedness, and more.\nEvening entry (5 questions): naps, caffeine intake, exercise, and medication.\n\nInput types go beyond simple text boxes: there is a 24-hour time stepper, a duration stepper, yes/no buttons, a 1–5 rating scale, a number counter, a medication tracker with dose and time, and free-text comments. Conditional follow-up questions appear automatically based on prior answers — for example, a waking count question only appears if the participant reports having woken during the night.\nAfter 14 morning entries, a final report unlocks and automatically computes:\n\n\n\nMetric\nHow it is calculated\n\n\n\n\nTotal sleep time\nTime in bed − sleep onset latency − WASO\n\n\nSleep efficiency\nTotal sleep time ÷ time in bed × 100%\n\n\nSleep onset latency\nAverage time to fall asleep\n\n\nWASO\nWake after sleep onset\n\n\nSleep quality\nAverage of 1–5 ratings\n\n\nRestedness\nAverage of 1–5 ratings\n\n\n\nAll entries are stored locally on the device — no data is ever sent to a server. Participants can export their data as CSV or JSON at any time, and JSON exports can be imported back into the app (with merge or replace options) to restore a backup or migrate between devices."
-  },
-  {
-    "objectID": "blog/sleep_diaries_app/index.html#designed-for-research",
-    "href": "blog/sleep_diaries_app/index.html#designed-for-research",
-    "title": "Introducing Sleep Diaries: an open-source sleep diary app for research",
-    "section": "Designed for research",
-    "text": "Designed for research\nA key feature for study use is the optional research code field at onboarding. Researchers can assign each participant a unique identifier at enrolment; it is saved locally and included in all data exports. This makes it straightforward to link app data to other study measures.\nThe app also includes daily push notification reminders (for iOS and Android versions only. 8am and 9pm by default), a scrollable entry history, a live stats dashboard (streak, entry counts, sleep metrics), and a profile screen where participants can update their name and research code."
-  },
-  {
-    "objectID": "blog/sleep_diaries_app/index.html#open-source-and-customisable",
-    "href": "blog/sleep_diaries_app/index.html#open-source-and-customisable",
-    "title": "Introducing Sleep Diaries: an open-source sleep diary app for research",
-    "section": "Open source and customisable",
-    "text": "Open source and customisable\nThe entire codebase is on GitHub:\n🔗 github.com/circadia-bio/SleepDiaries\nThe question set lives in a single file — data/questions.js — making it straightforward to add, remove, or reorder items without touching the navigation or UI logic. New input types can be added in app/questionnaire.jsx, and the colour themes (amber for morning, blue for evening) are defined in a single THEME object at the top of the same file.\nThe app is built with React Native + Expo (SDK 55) and uses expo-router for file-based navigation. It also ships as a Progressive Web App (PWA) — participants can install it directly to their home screen from the browser on iOS, Android, or desktop without going through an app store.\nFor researchers who want to connect a backend or integrate with an existing data pipeline, the storage/storage.js file contains all AsyncStorage calls in one place, making it easy to swap in API calls."
-  },
-  {
-    "objectID": "blog/sleep_diaries_app/index.html#try-it-now",
-    "href": "blog/sleep_diaries_app/index.html#try-it-now",
-    "title": "Introducing Sleep Diaries: an open-source sleep diary app for research",
-    "section": "Try it now",
-    "text": "Try it now\nThe web version is live and installable — no account or App Store needed:\n📱sleepdiaries.circadia-lab.uk\nTo install it as an app on your phone, open the link in Safari (iOS) or Chrome (Android) and use Add to Home Screen."
-  },
-  {
-    "objectID": "blog/sleep_diaries_app/index.html#get-involved",
-    "href": "blog/sleep_diaries_app/index.html#get-involved",
-    "title": "Introducing Sleep Diaries: an open-source sleep diary app for research",
-    "section": "Get involved",
-    "text": "Get involved\nIf you are a sleep researcher, clinician, or developer interested in using or adapting Sleep Diaries for your study, we would love to hear from you. You can:\n\nFork the repository and adapt it to your study’s questionnaire\nOpen an issue if you encounter a bug or have a feature request\nOpen a pull request if you have an improvement to share back\n\nThe app is released under the MIT Licence — free to use, adapt, and redistribute for any purpose, including commercial research."
-  },
-  {
-    "objectID": "blog/sleep_diaries_app/index.html#acknowledgements",
-    "href": "blog/sleep_diaries_app/index.html#acknowledgements",
-    "title": "Introducing Sleep Diaries: an open-source sleep diary app for research",
-    "section": "Acknowledgements",
-    "text": "Acknowledgements\nThe app design was created by exchange students — Bri Baehl, Jacob Howard, Frederic Kussow, and Yuliana Luna Colón — as part of the 7th Annual Digital Civics Exchange (DCX), an international programme connecting students across disciplines to co-design civic technologies.\nDevelopment was led by Lucas França and Mario Leocadio-Miguel, at the Circadia Lab, Northumbria University."
   },
   {
     "objectID": "blog/circadiabase_docker/index.html",
@@ -686,6 +567,160 @@
     "text": "Further Reading\n\npyActigraphy documentation\nMNE-Python documentation\nYASA documentation\nGGIR documentation\ncircacompare on CRAN\ncircadiaBase_Docker on GitHub"
   },
   {
+    "objectID": "blog/sleep_diaries_app/index.html",
+    "href": "blog/sleep_diaries_app/index.html",
+    "title": "Introducing Sleep Diaries: an open-source sleep diary app for research",
+    "section": "",
+    "text": "Self-reported sleep data remains one of the most widely used instruments in both clinical practice and sleep research. Sleep diaries have been validated against polysomnography and actigraphy and are often the most practical way to capture subjective sleep quality and patterns over time.\nDespite their importance, most sleep diary solutions available to researchers are either proprietary, difficult to adapt, or require participants to fill in paper forms. We wanted something that was free, open, easily customisable, and could run on the devices participants already carry in their pockets.\nSleep Diaries is our answer to that. It is a cross-platform mobile and web app implementing the Consensus Sleep Diary (CSD) with a clean, accessible interface and a fully open codebase."
+  },
+  {
+    "objectID": "blog/sleep_diaries_app/index.html#why-a-sleep-diary-app",
+    "href": "blog/sleep_diaries_app/index.html#why-a-sleep-diary-app",
+    "title": "Introducing Sleep Diaries: an open-source sleep diary app for research",
+    "section": "",
+    "text": "Self-reported sleep data remains one of the most widely used instruments in both clinical practice and sleep research. Sleep diaries have been validated against polysomnography and actigraphy and are often the most practical way to capture subjective sleep quality and patterns over time.\nDespite their importance, most sleep diary solutions available to researchers are either proprietary, difficult to adapt, or require participants to fill in paper forms. We wanted something that was free, open, easily customisable, and could run on the devices participants already carry in their pockets.\nSleep Diaries is our answer to that. It is a cross-platform mobile and web app implementing the Consensus Sleep Diary (CSD) with a clean, accessible interface and a fully open codebase."
+  },
+  {
+    "objectID": "blog/sleep_diaries_app/index.html#what-does-it-do",
+    "href": "blog/sleep_diaries_app/index.html#what-does-it-do",
+    "title": "Introducing Sleep Diaries: an open-source sleep diary app for research",
+    "section": "What does it do?",
+    "text": "What does it do?\nThe app guides participants through two brief structured questionnaires each day:\n\nMorning entry (13 questions): bedtime, sleep onset latency, night wakings, final awakening, total time in bed, sleep quality, restedness, and more.\nEvening entry (5 questions): naps, caffeine intake, exercise, and medication.\n\nInput types go beyond simple text boxes: there is a 24-hour time stepper, a duration stepper, yes/no buttons, a 1–5 rating scale, a number counter, a medication tracker with dose and time, and free-text comments. Conditional follow-up questions appear automatically based on prior answers — for example, a waking count question only appears if the participant reports having woken during the night.\nAfter 14 morning entries, a final report unlocks and automatically computes:\n\n\n\nMetric\nHow it is calculated\n\n\n\n\nTotal sleep time\nTime in bed − sleep onset latency − WASO\n\n\nSleep efficiency\nTotal sleep time ÷ time in bed × 100%\n\n\nSleep onset latency\nAverage time to fall asleep\n\n\nWASO\nWake after sleep onset\n\n\nSleep quality\nAverage of 1–5 ratings\n\n\nRestedness\nAverage of 1–5 ratings\n\n\n\nAll entries are stored locally on the device — no data is ever sent to a server. Participants can export their data as CSV or JSON at any time, and JSON exports can be imported back into the app (with merge or replace options) to restore a backup or migrate between devices."
+  },
+  {
+    "objectID": "blog/sleep_diaries_app/index.html#designed-for-research",
+    "href": "blog/sleep_diaries_app/index.html#designed-for-research",
+    "title": "Introducing Sleep Diaries: an open-source sleep diary app for research",
+    "section": "Designed for research",
+    "text": "Designed for research\nA key feature for study use is the optional research code field at onboarding. Researchers can assign each participant a unique identifier at enrolment; it is saved locally and included in all data exports. This makes it straightforward to link app data to other study measures.\nThe app also includes daily push notification reminders (for iOS and Android versions only. 8am and 9pm by default), a scrollable entry history, a live stats dashboard (streak, entry counts, sleep metrics), and a profile screen where participants can update their name and research code."
+  },
+  {
+    "objectID": "blog/sleep_diaries_app/index.html#open-source-and-customisable",
+    "href": "blog/sleep_diaries_app/index.html#open-source-and-customisable",
+    "title": "Introducing Sleep Diaries: an open-source sleep diary app for research",
+    "section": "Open source and customisable",
+    "text": "Open source and customisable\nThe entire codebase is on GitHub:\n🔗 github.com/circadia-bio/SleepDiaries\nThe question set lives in a single file — data/questions.js — making it straightforward to add, remove, or reorder items without touching the navigation or UI logic. New input types can be added in app/questionnaire.jsx, and the colour themes (amber for morning, blue for evening) are defined in a single THEME object at the top of the same file.\nThe app is built with React Native + Expo (SDK 55) and uses expo-router for file-based navigation. It also ships as a Progressive Web App (PWA) — participants can install it directly to their home screen from the browser on iOS, Android, or desktop without going through an app store.\nFor researchers who want to connect a backend or integrate with an existing data pipeline, the storage/storage.js file contains all AsyncStorage calls in one place, making it easy to swap in API calls."
+  },
+  {
+    "objectID": "blog/sleep_diaries_app/index.html#try-it-now",
+    "href": "blog/sleep_diaries_app/index.html#try-it-now",
+    "title": "Introducing Sleep Diaries: an open-source sleep diary app for research",
+    "section": "Try it now",
+    "text": "Try it now\nThe web version is live and installable — no account or App Store needed:\n📱sleepdiaries.circadia-lab.uk\nTo install it as an app on your phone, open the link in Safari (iOS) or Chrome (Android) and use Add to Home Screen."
+  },
+  {
+    "objectID": "blog/sleep_diaries_app/index.html#get-involved",
+    "href": "blog/sleep_diaries_app/index.html#get-involved",
+    "title": "Introducing Sleep Diaries: an open-source sleep diary app for research",
+    "section": "Get involved",
+    "text": "Get involved\nIf you are a sleep researcher, clinician, or developer interested in using or adapting Sleep Diaries for your study, we would love to hear from you. You can:\n\nFork the repository and adapt it to your study’s questionnaire\nOpen an issue if you encounter a bug or have a feature request\nOpen a pull request if you have an improvement to share back\n\nThe app is released under the MIT Licence — free to use, adapt, and redistribute for any purpose, including commercial research."
+  },
+  {
+    "objectID": "blog/sleep_diaries_app/index.html#acknowledgements",
+    "href": "blog/sleep_diaries_app/index.html#acknowledgements",
+    "title": "Introducing Sleep Diaries: an open-source sleep diary app for research",
+    "section": "Acknowledgements",
+    "text": "Acknowledgements\nThe app design was created by exchange students — Bri Baehl, Jacob Howard, Frederic Kussow, and Yuliana Luna Colón — as part of the 7th Annual Digital Civics Exchange (DCX), an international programme connecting students across disciplines to co-design civic technologies.\nDevelopment was led by Lucas França and Mario Leocadio-Miguel, at the Circadia Lab, Northumbria University."
+  },
+  {
+    "objectID": "people/collaborators/nick_puts.html",
+    "href": "people/collaborators/nick_puts.html",
+    "title": "Dr Nick Puts",
+    "section": "",
+    "text": "Website\n  \n  \n    \n     Scholar\n  \n  \n      ORCID\n  \n\n  \n  \n\n\nDr. Nick (Nicolaas) Puts is a Senior Lecturer in the Department of Forensic and Neurodevelopmental Sciences at the Institute of Psychiatry, Psychology & Neuroscience, King’s College London. He leads the “Sensory InPuts” lab, focusing on sensory processing in both typical and atypical neurodevelopment. The lab employs methods such as psychophysics and Magnetic Resonance Spectroscopy (MRS) to study sensory processing differences in children with neurodevelopmental conditions, including autism, ADHD, and Tourette syndrome. The ultimate goal is to understand the biological nature of sensory difficulties and identify biomarkers that could inform personalized diagnosis, support, and intervention strategies.\nDr. Puts completed his BSc in Biology and MSc in Cognitive Neuroscience at Utrecht University in the Netherlands. He earned his PhD at Cardiff University, UK. Following his doctoral studies, he worked as a postdoctoral fellow and later as an Assistant Professor in the Department of Radiology at Johns Hopkins University in the USA. He joined King’s College London in January 2020.\nBeyond his research, Dr. Puts is committed to supporting junior scientists in their career development. He developed an Individual Development Plan and served as the first appointed Postdoc Program Director in his department at Johns Hopkins University. At King’s College London, he directs the Health Science Doctoral Training Centre and is actively involved in mentorship and professional development initiatives within the Institute of Psychiatry, Psychology & Neuroscience."
+  },
+  {
+    "objectID": "people/collaborators/nick_puts.html#biography",
+    "href": "people/collaborators/nick_puts.html#biography",
+    "title": "Dr Nick Puts",
+    "section": "",
+    "text": "Dr. Nick (Nicolaas) Puts is a Senior Lecturer in the Department of Forensic and Neurodevelopmental Sciences at the Institute of Psychiatry, Psychology & Neuroscience, King’s College London. He leads the “Sensory InPuts” lab, focusing on sensory processing in both typical and atypical neurodevelopment. The lab employs methods such as psychophysics and Magnetic Resonance Spectroscopy (MRS) to study sensory processing differences in children with neurodevelopmental conditions, including autism, ADHD, and Tourette syndrome. The ultimate goal is to understand the biological nature of sensory difficulties and identify biomarkers that could inform personalized diagnosis, support, and intervention strategies.\nDr. Puts completed his BSc in Biology and MSc in Cognitive Neuroscience at Utrecht University in the Netherlands. He earned his PhD at Cardiff University, UK. Following his doctoral studies, he worked as a postdoctoral fellow and later as an Assistant Professor in the Department of Radiology at Johns Hopkins University in the USA. He joined King’s College London in January 2020.\nBeyond his research, Dr. Puts is committed to supporting junior scientists in their career development. He developed an Individual Development Plan and served as the first appointed Postdoc Program Director in his department at Johns Hopkins University. At King’s College London, he directs the Health Science Doctoral Training Centre and is actively involved in mentorship and professional development initiatives within the Institute of Psychiatry, Psychology & Neuroscience."
+  },
+  {
+    "objectID": "people/collaborators/yujiang_wang.html",
+    "href": "people/collaborators/yujiang_wang.html",
+    "title": "Prof. Yujiang Wang",
+    "section": "",
+    "text": "Website\n  \n  \n    \n     Scholar\n  \n  \n      ORCID\n  \n\n  \n  \n\n\nProf. Yujiang Wang is a Professor in Computational Neuroscience at Newcastle University, affiliated with the School of Computing. She completed a double-degree in Mathematics and Molecular Biotechnology at the University of Heidelberg, Germany, where her interest in interdisciplinary research began. She then moved to the UK to pursue a PhD in Systems Biology, specializing in Computational Neuroscience.\nProf. Wang leads the Computational Neurology and Psychiatry Lab (CNNP Lab) at Newcastle University, focusing on quantitative, computational, and mathematical methods to gain new perspectives and understanding in neurological conditions. Her research primarily centers on mathematical and computational modeling, as well as advanced data analytics in neurological disorders, with a particular emphasis on epilepsy. Her wider research interests include neuroimaging and neuromorphology in both health and disease.\nIn recognition of her contributions to the field, Prof. Wang was awarded a Future Leaders Fellowship. Her fellowship project, titled “Assessing and Controlling Seizure-Modulating Fluctuations (ACORN),” leverages the latest wearable and environmental sensor technology, combining it with signal and statistical analytics to investigate chronobiological rhythms and states in epilepsy.\nProf. Wang has an extensive publication record, with her work being cited over 2,400 times, reflecting her significant impact on the field of computational neuroscience."
+  },
+  {
+    "objectID": "people/collaborators/yujiang_wang.html#biography",
+    "href": "people/collaborators/yujiang_wang.html#biography",
+    "title": "Prof. Yujiang Wang",
+    "section": "",
+    "text": "Prof. Yujiang Wang is a Professor in Computational Neuroscience at Newcastle University, affiliated with the School of Computing. She completed a double-degree in Mathematics and Molecular Biotechnology at the University of Heidelberg, Germany, where her interest in interdisciplinary research began. She then moved to the UK to pursue a PhD in Systems Biology, specializing in Computational Neuroscience.\nProf. Wang leads the Computational Neurology and Psychiatry Lab (CNNP Lab) at Newcastle University, focusing on quantitative, computational, and mathematical methods to gain new perspectives and understanding in neurological conditions. Her research primarily centers on mathematical and computational modeling, as well as advanced data analytics in neurological disorders, with a particular emphasis on epilepsy. Her wider research interests include neuroimaging and neuromorphology in both health and disease.\nIn recognition of her contributions to the field, Prof. Wang was awarded a Future Leaders Fellowship. Her fellowship project, titled “Assessing and Controlling Seizure-Modulating Fluctuations (ACORN),” leverages the latest wearable and environmental sensor technology, combining it with signal and statistical analytics to investigate chronobiological rhythms and states in epilepsy.\nProf. Wang has an extensive publication record, with her work being cited over 2,400 times, reflecting her significant impact on the field of computational neuroscience."
+  },
+  {
+    "objectID": "people/former/malcolm_schantz.html",
+    "href": "people/former/malcolm_schantz.html",
+    "title": "Prof. Malcolm von Schantz",
+    "section": "",
+    "text": "Scholar\n  \n\n  \n  \nIn memory of Prof. Malcolm von Schantz, who dedicated his career to the study of chronobiology and inspired a generation of researchers, including several of us. He would always have had something characteristically sharp to say.\n\n\nMalcolm von Schantz was an internationally recognised researcher and an experienced educator, who received his training in Sweden, the United States, and the UK. He joined Northumbria from the University of Surrey, where he also served in leadership positions as Associate Dean (International) and acting Pro-Vice Chancellor (International Relations). He was also an Honorary Professor at the University of the Witwatersrand, South Africa. He received over £6.4 million in research funding from public and private sources including MRC, Wellcome Trust, British Heart Foundation, and US Air Force Office of Scientific Research. His research was published in high-impact international journals and presented both at major scientific conferences and in broadcast, print, and web-based media worldwide."
+  },
+  {
+    "objectID": "people/former/malcolm_schantz.html#biography",
+    "href": "people/former/malcolm_schantz.html#biography",
+    "title": "Prof. Malcolm von Schantz",
+    "section": "",
+    "text": "Malcolm von Schantz was an internationally recognised researcher and an experienced educator, who received his training in Sweden, the United States, and the UK. He joined Northumbria from the University of Surrey, where he also served in leadership positions as Associate Dean (International) and acting Pro-Vice Chancellor (International Relations). He was also an Honorary Professor at the University of the Witwatersrand, South Africa. He received over £6.4 million in research funding from public and private sources including MRC, Wellcome Trust, British Heart Foundation, and US Air Force Office of Scientific Research. His research was published in high-impact international journals and presented both at major scientific conferences and in broadcast, print, and web-based media worldwide."
+  },
+  {
+    "objectID": "people/students/rebeca_buest.html",
+    "href": "people/students/rebeca_buest.html",
+    "title": "Rebeca Buest de Mesquita Silva",
+    "section": "",
+    "text": "I am a PhD student at the Federal University of Paraná, specialising in chronobiology and children’s rhythms. Passionate about research, I explore how biological rhythms influence child development.\n\n\n\n PhD in Physiology, Federal University of Paraná (Curitiba, BR - Current)\n MSc in Physiology, Federal University of Paraná (Curitiba, BR - 2019)\n BSc in Biomedical Science, Positivo University (Curitiba, BR - 2015)"
+  },
+  {
+    "objectID": "people/students/rebeca_buest.html#biography",
+    "href": "people/students/rebeca_buest.html#biography",
+    "title": "Rebeca Buest de Mesquita Silva",
+    "section": "",
+    "text": "I am a PhD student at the Federal University of Paraná, specialising in chronobiology and children’s rhythms. Passionate about research, I explore how biological rhythms influence child development."
+  },
+  {
+    "objectID": "people/students/rebeca_buest.html#education",
+    "href": "people/students/rebeca_buest.html#education",
+    "title": "Rebeca Buest de Mesquita Silva",
+    "section": "",
+    "text": "PhD in Physiology, Federal University of Paraná (Curitiba, BR - Current)\n MSc in Physiology, Federal University of Paraná (Curitiba, BR - 2019)\n BSc in Biomedical Science, Positivo University (Curitiba, BR - 2015)"
+  },
+  {
+    "objectID": "people/staff/nayantara_santhi.html",
+    "href": "people/staff/nayantara_santhi.html",
+    "title": "Dr Nayantara Santhi",
+    "section": "",
+    "text": "Scholar\n  \n  \n      ORCID\n  \n\n  \n  \n\n\nI am an Associate Professor in the School of Psychology at Northumbria University, with a research career spanning the Surrey Sleep Research Centre and Harvard Medical School’s Division of Sleep Medicine. My work sits at the intersection of chronobiology, sleep science, and individual differences, with a focus on how circadian timing and sleep are regulated across diverse populations. I am particularly interested in the non-visual effects of light, the role of temperature and behaviour as circadian timing cues, and the interaction between sleep homeostasis and the circadian clock in shaping cognition and mood.\nMy current projects include work on light sensitivity in bipolar disorder (HELIOS-BD), sleep and circadian disruption in microgravity environments, insomnia interventions, and circadian regulation in people with visual impairments. I also contribute to international efforts to standardise light exposure research, including the ENLIGHT reporting checklist and wearable light dosimetry metadata standards.\n\n\n\n PhD in Psychology - August 2000\n\n\n\n Associate Professor - School of Psychology, Northumbria University (Newcastle upon Tyne, UK | Current)\n Researcher - Surrey Sleep Research Centre, University of Surrey (UK)\n Researcher - Division of Sleep Medicine, Brigham and Women’s Hospital / Harvard Medical School (Boston, USA)\n\n\n\n Lázár, A.S., Lazar, Z.I., Santhi, N., et al. (2025). Circadian and Sleep-Wake Modulation of Functional Connectivity Across Brain Oscillations and States Linked to Cognition in Humans. Preprint.\n Ball, D.M., Mann, S.S., Santhi, N., et al. (2025). Temperature as a circadian timing cue in the visually impaired. Progress in Brain Research, 292.\n Elder, G., Santhi, N., Robson, A., et al. (2024). An online behavioural self-help intervention rapidly improves acute insomnia severity and subjective mood during the COVID-19 pandemic. Sleep, 47(6).\n Bonmatí-Carrión, M.Á., Santhi, N., Atzori, G., et al. (2024). Effect of 60 days of head down tilt bed rest on amplitude and phase of rhythms in physiology and sleep in men. npj Microgravity, 10, 42.\n Spitschan, M., Hammad, G., Blume, C., Santhi, N., et al. (2024). Metadata recommendations for light logging and dosimetry datasets. BMC Digital Health.\n Roguski, A., Needham, N., MacGillivray, T., Santhi, N., et al. (2024). Investigating light sensitivity in bipolar disorder (HELIOS-BD). Wellcome Open Research.\n Spitschan, M., Kervezee, L., Lok, R., Santhi, N., et al. (2023). ENLIGHT: A consensus checklist for reporting laboratory-based studies on the non-visual effects of light in humans. EBioMedicine.\n Polasek, D., Santhi, N., Alfonso-Miller, P., et al. (2023). Nutritional interventions in treating menopause-related sleep disturbances: a systematic review. Nutrition Reviews.\n Groeger, J.A., Lo, J.C., Santhi, N., Lazar, A.S., Dijk, D.J. (2022). Contrasting Effects of Sleep Restriction, Total Sleep Deprivation, and Sleep Timing on Positive and Negative Affect. Frontiers in Behavioral Neuroscience."
+  },
+  {
+    "objectID": "people/staff/nayantara_santhi.html#biography",
+    "href": "people/staff/nayantara_santhi.html#biography",
+    "title": "Dr Nayantara Santhi",
+    "section": "",
+    "text": "I am an Associate Professor in the School of Psychology at Northumbria University, with a research career spanning the Surrey Sleep Research Centre and Harvard Medical School’s Division of Sleep Medicine. My work sits at the intersection of chronobiology, sleep science, and individual differences, with a focus on how circadian timing and sleep are regulated across diverse populations. I am particularly interested in the non-visual effects of light, the role of temperature and behaviour as circadian timing cues, and the interaction between sleep homeostasis and the circadian clock in shaping cognition and mood.\nMy current projects include work on light sensitivity in bipolar disorder (HELIOS-BD), sleep and circadian disruption in microgravity environments, insomnia interventions, and circadian regulation in people with visual impairments. I also contribute to international efforts to standardise light exposure research, including the ENLIGHT reporting checklist and wearable light dosimetry metadata standards."
+  },
+  {
+    "objectID": "people/staff/nayantara_santhi.html#education",
+    "href": "people/staff/nayantara_santhi.html#education",
+    "title": "Dr Nayantara Santhi",
+    "section": "",
+    "text": "PhD in Psychology - August 2000"
+  },
+  {
+    "objectID": "people/staff/nayantara_santhi.html#experience",
+    "href": "people/staff/nayantara_santhi.html#experience",
+    "title": "Dr Nayantara Santhi",
+    "section": "",
+    "text": "Associate Professor - School of Psychology, Northumbria University (Newcastle upon Tyne, UK | Current)\n Researcher - Surrey Sleep Research Centre, University of Surrey (UK)\n Researcher - Division of Sleep Medicine, Brigham and Women’s Hospital / Harvard Medical School (Boston, USA)"
+  },
+  {
+    "objectID": "people/staff/nayantara_santhi.html#selected-publications",
+    "href": "people/staff/nayantara_santhi.html#selected-publications",
+    "title": "Dr Nayantara Santhi",
+    "section": "",
+    "text": "Lázár, A.S., Lazar, Z.I., Santhi, N., et al. (2025). Circadian and Sleep-Wake Modulation of Functional Connectivity Across Brain Oscillations and States Linked to Cognition in Humans. Preprint.\n Ball, D.M., Mann, S.S., Santhi, N., et al. (2025). Temperature as a circadian timing cue in the visually impaired. Progress in Brain Research, 292.\n Elder, G., Santhi, N., Robson, A., et al. (2024). An online behavioural self-help intervention rapidly improves acute insomnia severity and subjective mood during the COVID-19 pandemic. Sleep, 47(6).\n Bonmatí-Carrión, M.Á., Santhi, N., Atzori, G., et al. (2024). Effect of 60 days of head down tilt bed rest on amplitude and phase of rhythms in physiology and sleep in men. npj Microgravity, 10, 42.\n Spitschan, M., Hammad, G., Blume, C., Santhi, N., et al. (2024). Metadata recommendations for light logging and dosimetry datasets. BMC Digital Health.\n Roguski, A., Needham, N., MacGillivray, T., Santhi, N., et al. (2024). Investigating light sensitivity in bipolar disorder (HELIOS-BD). Wellcome Open Research.\n Spitschan, M., Kervezee, L., Lok, R., Santhi, N., et al. (2023). ENLIGHT: A consensus checklist for reporting laboratory-based studies on the non-visual effects of light in humans. EBioMedicine.\n Polasek, D., Santhi, N., Alfonso-Miller, P., et al. (2023). Nutritional interventions in treating menopause-related sleep disturbances: a systematic review. Nutrition Reviews.\n Groeger, J.A., Lo, J.C., Santhi, N., Lazar, A.S., Dijk, D.J. (2022). Contrasting Effects of Sleep Restriction, Total Sleep Deprivation, and Sleep Timing on Positive and Negative Affect. Frontiers in Behavioral Neuroscience."
+  },
+  {
     "objectID": "people/staff/lucas_franca.html",
     "href": "people/staff/lucas_franca.html",
     "title": "Dr Lucas França",
@@ -714,144 +749,11 @@
     "text": "Assistant Professor in Computer and Information Sciences - Northumbria University (Newcastle upon Tyne, UK | 2023 - Current)\n Research Associate - King’s College London (London, UK | 2020 - 2023)\n Research Assistant - King’s College London (London, UK | 2020 - 2020)"
   },
   {
-    "objectID": "people/former/malcolm_schantz.html",
-    "href": "people/former/malcolm_schantz.html",
-    "title": "Prof. Malcolm von Schantz",
+    "objectID": "join.html",
+    "href": "join.html",
+    "title": "Join us/Visit",
     "section": "",
-    "text": "Scholar\n  \n\n  \n  \nIn memory of Prof. Malcolm von Schantz, who dedicated his career to the study of chronobiology and inspired a generation of researchers, including several of us. He would always have had something characteristically sharp to say.\n\n\nMalcolm von Schantz was an internationally recognised researcher and an experienced educator, who received his training in Sweden, the United States, and the UK. He joined Northumbria from the University of Surrey, where he also served in leadership positions as Associate Dean (International) and acting Pro-Vice Chancellor (International Relations). He was also an Honorary Professor at the University of the Witwatersrand, South Africa. He received over £6.4 million in research funding from public and private sources including MRC, Wellcome Trust, British Heart Foundation, and US Air Force Office of Scientific Research. His research was published in high-impact international journals and presented both at major scientific conferences and in broadcast, print, and web-based media worldwide."
-  },
-  {
-    "objectID": "people/former/malcolm_schantz.html#biography",
-    "href": "people/former/malcolm_schantz.html#biography",
-    "title": "Prof. Malcolm von Schantz",
-    "section": "",
-    "text": "Malcolm von Schantz was an internationally recognised researcher and an experienced educator, who received his training in Sweden, the United States, and the UK. He joined Northumbria from the University of Surrey, where he also served in leadership positions as Associate Dean (International) and acting Pro-Vice Chancellor (International Relations). He was also an Honorary Professor at the University of the Witwatersrand, South Africa. He received over £6.4 million in research funding from public and private sources including MRC, Wellcome Trust, British Heart Foundation, and US Air Force Office of Scientific Research. His research was published in high-impact international journals and presented both at major scientific conferences and in broadcast, print, and web-based media worldwide."
-  },
-  {
-    "objectID": "people/students/fernanda_diogo.html",
-    "href": "people/students/fernanda_diogo.html",
-    "title": "Fernanda Diogo",
-    "section": "",
-    "text": "vitae\n  \n\n  \n  \n\n\nA biomedical scientist, specialist in clinical analysis and microbiology, and a proud researcher from Brazil’s Northeast. My work focus on sex differences, biological rhythms and mental health.\n\n\n\n PhD in Physiology, Federal University of Rio Grande do Norte (Natal, BR - Current)\n MSc in Physiology, Federal University of Rio Grande do Norte (Natal, BR - 2021)\n BSc in Biomedicine, Federal University of Rio Grande do Norte (Natal, BR - 2018)\n\n\n\n Biomedical scientist – State University of Rio Grande do Norte (Natal. BR | Current)"
-  },
-  {
-    "objectID": "people/students/fernanda_diogo.html#biography",
-    "href": "people/students/fernanda_diogo.html#biography",
-    "title": "Fernanda Diogo",
-    "section": "",
-    "text": "A biomedical scientist, specialist in clinical analysis and microbiology, and a proud researcher from Brazil’s Northeast. My work focus on sex differences, biological rhythms and mental health."
-  },
-  {
-    "objectID": "people/students/fernanda_diogo.html#education",
-    "href": "people/students/fernanda_diogo.html#education",
-    "title": "Fernanda Diogo",
-    "section": "",
-    "text": "PhD in Physiology, Federal University of Rio Grande do Norte (Natal, BR - Current)\n MSc in Physiology, Federal University of Rio Grande do Norte (Natal, BR - 2021)\n BSc in Biomedicine, Federal University of Rio Grande do Norte (Natal, BR - 2018)"
-  },
-  {
-    "objectID": "people/students/fernanda_diogo.html#experience",
-    "href": "people/students/fernanda_diogo.html#experience",
-    "title": "Fernanda Diogo",
-    "section": "",
-    "text": "Biomedical scientist – State University of Rio Grande do Norte (Natal. BR | Current)"
-  },
-  {
-    "objectID": "people/students/rebeca_buest.html",
-    "href": "people/students/rebeca_buest.html",
-    "title": "Rebeca Buest de Mesquita Silva",
-    "section": "",
-    "text": "I am a PhD student at the Federal University of Paraná, specialising in chronobiology and children’s rhythms. Passionate about research, I explore how biological rhythms influence child development.\n\n\n\n PhD in Physiology, Federal University of Paraná (Curitiba, BR - Current)\n MSc in Physiology, Federal University of Paraná (Curitiba, BR - 2019)\n BSc in Biomedical Science, Positivo University (Curitiba, BR - 2015)"
-  },
-  {
-    "objectID": "people/students/rebeca_buest.html#biography",
-    "href": "people/students/rebeca_buest.html#biography",
-    "title": "Rebeca Buest de Mesquita Silva",
-    "section": "",
-    "text": "I am a PhD student at the Federal University of Paraná, specialising in chronobiology and children’s rhythms. Passionate about research, I explore how biological rhythms influence child development."
-  },
-  {
-    "objectID": "people/students/rebeca_buest.html#education",
-    "href": "people/students/rebeca_buest.html#education",
-    "title": "Rebeca Buest de Mesquita Silva",
-    "section": "",
-    "text": "PhD in Physiology, Federal University of Paraná (Curitiba, BR - Current)\n MSc in Physiology, Federal University of Paraná (Curitiba, BR - 2019)\n BSc in Biomedical Science, Positivo University (Curitiba, BR - 2015)"
-  },
-  {
-    "objectID": "people/collaborators/nick_puts.html",
-    "href": "people/collaborators/nick_puts.html",
-    "title": "Dr Nick Puts",
-    "section": "",
-    "text": "Website\n  \n  \n    \n     Scholar\n  \n  \n      ORCID\n  \n\n  \n  \n\n\nDr. Nick (Nicolaas) Puts is a Senior Lecturer in the Department of Forensic and Neurodevelopmental Sciences at the Institute of Psychiatry, Psychology & Neuroscience, King’s College London. He leads the “Sensory InPuts” lab, focusing on sensory processing in both typical and atypical neurodevelopment. The lab employs methods such as psychophysics and Magnetic Resonance Spectroscopy (MRS) to study sensory processing differences in children with neurodevelopmental conditions, including autism, ADHD, and Tourette syndrome. The ultimate goal is to understand the biological nature of sensory difficulties and identify biomarkers that could inform personalized diagnosis, support, and intervention strategies.\nDr. Puts completed his BSc in Biology and MSc in Cognitive Neuroscience at Utrecht University in the Netherlands. He earned his PhD at Cardiff University, UK. Following his doctoral studies, he worked as a postdoctoral fellow and later as an Assistant Professor in the Department of Radiology at Johns Hopkins University in the USA. He joined King’s College London in January 2020.\nBeyond his research, Dr. Puts is committed to supporting junior scientists in their career development. He developed an Individual Development Plan and served as the first appointed Postdoc Program Director in his department at Johns Hopkins University. At King’s College London, he directs the Health Science Doctoral Training Centre and is actively involved in mentorship and professional development initiatives within the Institute of Psychiatry, Psychology & Neuroscience."
-  },
-  {
-    "objectID": "people/collaborators/nick_puts.html#biography",
-    "href": "people/collaborators/nick_puts.html#biography",
-    "title": "Dr Nick Puts",
-    "section": "",
-    "text": "Dr. Nick (Nicolaas) Puts is a Senior Lecturer in the Department of Forensic and Neurodevelopmental Sciences at the Institute of Psychiatry, Psychology & Neuroscience, King’s College London. He leads the “Sensory InPuts” lab, focusing on sensory processing in both typical and atypical neurodevelopment. The lab employs methods such as psychophysics and Magnetic Resonance Spectroscopy (MRS) to study sensory processing differences in children with neurodevelopmental conditions, including autism, ADHD, and Tourette syndrome. The ultimate goal is to understand the biological nature of sensory difficulties and identify biomarkers that could inform personalized diagnosis, support, and intervention strategies.\nDr. Puts completed his BSc in Biology and MSc in Cognitive Neuroscience at Utrecht University in the Netherlands. He earned his PhD at Cardiff University, UK. Following his doctoral studies, he worked as a postdoctoral fellow and later as an Assistant Professor in the Department of Radiology at Johns Hopkins University in the USA. He joined King’s College London in January 2020.\nBeyond his research, Dr. Puts is committed to supporting junior scientists in their career development. He developed an Individual Development Plan and served as the first appointed Postdoc Program Director in his department at Johns Hopkins University. At King’s College London, he directs the Health Science Doctoral Training Centre and is actively involved in mentorship and professional development initiatives within the Institute of Psychiatry, Psychology & Neuroscience."
-  },
-  {
-    "objectID": "people/collaborators/john_araujo.html",
-    "href": "people/collaborators/john_araujo.html",
-    "title": "Prof. John Araújo",
-    "section": "",
-    "text": "Scholar\n  \n\n  \n  \n\n\nProfessor John Fontenele Araújo is a distinguished neuroscientist and educator affiliated with the Federal University of Rio Grande do Norte (UFRN). He completed his medical degree at the Federal University of Piauí, followed by a master’s and a doctorate in Neurobiology and Behavior from the University of São Paulo. He further enhanced his expertise with postdoctoral research in Chronobiology at the University of Barcelona and at institutions in Lisbon.\nAt UFRN, Professor Araújo serves as a full professor in the Department of Physiology and Behavior, where he teaches neurophysiology and conducts research in chronobiology. Prof. Araújo has been a faculty member at UFRN since 2000, where he has been instrumental in the development of the Graduate Program in Neuroscience. His research interests encompass biological rhythms, sleep, learning, memory, affective disorders, and primate vocalization. His scholarly contributions have been widely recognized, with his publications cited over 4,500 times, reflecting his significant impact in the fields of chronobiology, neuroscience, physiology, medical education, and sleep medicine.\nHe is a member of the Brazilian Society of Physiology, the Brazilian Sleep Society, the Brazilian Academy of Sciences and the World Federation of Sleep Research. Beyond academia, Professor Araújo is an avid cyclist and actively promotes cycling mobility and tourism."
-  },
-  {
-    "objectID": "people/collaborators/john_araujo.html#biography",
-    "href": "people/collaborators/john_araujo.html#biography",
-    "title": "Prof. John Araújo",
-    "section": "",
-    "text": "Professor John Fontenele Araújo is a distinguished neuroscientist and educator affiliated with the Federal University of Rio Grande do Norte (UFRN). He completed his medical degree at the Federal University of Piauí, followed by a master’s and a doctorate in Neurobiology and Behavior from the University of São Paulo. He further enhanced his expertise with postdoctoral research in Chronobiology at the University of Barcelona and at institutions in Lisbon.\nAt UFRN, Professor Araújo serves as a full professor in the Department of Physiology and Behavior, where he teaches neurophysiology and conducts research in chronobiology. Prof. Araújo has been a faculty member at UFRN since 2000, where he has been instrumental in the development of the Graduate Program in Neuroscience. His research interests encompass biological rhythms, sleep, learning, memory, affective disorders, and primate vocalization. His scholarly contributions have been widely recognized, with his publications cited over 4,500 times, reflecting his significant impact in the fields of chronobiology, neuroscience, physiology, medical education, and sleep medicine.\nHe is a member of the Brazilian Society of Physiology, the Brazilian Sleep Society, the Brazilian Academy of Sciences and the World Federation of Sleep Research. Beyond academia, Professor Araújo is an avid cyclist and actively promotes cycling mobility and tourism."
-  },
-  {
-    "objectID": "projects/cycling-entropy/index.html",
-    "href": "projects/cycling-entropy/index.html",
-    "title": "Cycling & EEG Entropy",
-    "section": "",
-    "text": "This repository contains all data and analysis code for a study examining how physical activity modulates the complexity of cortical neural signals, using recurrence-matrix entropy (S_Max) computed from scalp EEG.\nThe analysis pipeline is fully implemented in R and renders a self-contained HTML report. Raw EEG and pre-computed entropy data are archived on OSF.\n\nFerré IBS, Corso G, dos Santos Lima GZ, Lopes SR, Leocadio-Miguel MA, França LGS, de Lima Prado T, Araújo JF (2024). Cycling reduces the entropy of neuronal activity in the human adult cortex. PLOS ONE, 19(10): e0298703. doi:10.1371/journal.pone.0298703"
-  },
-  {
-    "objectID": "projects/cycling-entropy/index.html#about",
-    "href": "projects/cycling-entropy/index.html#about",
-    "title": "Cycling & EEG Entropy",
-    "section": "",
-    "text": "This repository contains all data and analysis code for a study examining how physical activity modulates the complexity of cortical neural signals, using recurrence-matrix entropy (S_Max) computed from scalp EEG.\nThe analysis pipeline is fully implemented in R and renders a self-contained HTML report. Raw EEG and pre-computed entropy data are archived on OSF.\n\nFerré IBS, Corso G, dos Santos Lima GZ, Lopes SR, Leocadio-Miguel MA, França LGS, de Lima Prado T, Araújo JF (2024). Cycling reduces the entropy of neuronal activity in the human adult cortex. PLOS ONE, 19(10): e0298703. doi:10.1371/journal.pone.0298703"
-  },
-  {
-    "objectID": "projects/cycling-entropy/index.html#study-design",
-    "href": "projects/cycling-entropy/index.html#study-design",
-    "title": "Cycling & EEG Entropy",
-    "section": "Study Design",
-    "text": "Study Design\n24 healthy adults (13 women, 11 men; mean age ~21 years) performed four behavioural conditions — resting eyes open, resting eyes closed, cycling eyes open, and cycling eyes closed — on a horizontal stationary bicycle. EEG was recorded from eight bimodal electrode pairs covering frontal, central, parietal, and occipital scalp regions. Recurrence-matrix entropy (S_Max) was computed for each 300-sample window across the 2-minute recordings, producing 100 time points per condition per electrode."
-  },
-  {
-    "objectID": "projects/cycling-entropy/index.html#key-findings",
-    "href": "projects/cycling-entropy/index.html#key-findings",
-    "title": "Cycling & EEG Entropy",
-    "section": "Key Findings",
-    "text": "Key Findings\nCycling was associated with significantly reduced cortical entropy across all eight electrode sites compared to rest (all p ≤ 0.042), suggesting that physical activity organises neural dynamics toward lower complexity. A further entropy reduction was observed when cycling with eyes closed, most prominently at right occipital (p = 0.045) and left parietal (p = 0.006) sites.\nThe eyes-open vs eyes-closed comparison at rest confirmed the expected entropy reduction in the occipital region (t = −2.657, p = 0.015) — consistent with well-established alpha-rhythm physiology and serving as a validation of the method."
-  },
-  {
-    "objectID": "projects/cycling-entropy/index.html#statistical-approach",
-    "href": "projects/cycling-entropy/index.html#statistical-approach",
-    "title": "Cycling & EEG Entropy",
-    "section": "Statistical Approach",
-    "text": "Statistical Approach\nAll models are generalised linear mixed models (GLMMs) with participant as a random effect, tested using 10,000-repetition two-sided permutation tests via the ptestR package:\n# Main effect: cycling vs resting\nmed_entr ~ State + (1|sub)\n\n# Interaction: State × Eyes\nmed_entr ~ State * Eyes + (1|sub)"
-  },
-  {
-    "objectID": "projects/cycling-entropy/index.html#analysis-pipeline",
-    "href": "projects/cycling-entropy/index.html#analysis-pipeline",
-    "title": "Cycling & EEG Entropy",
-    "section": "Analysis Pipeline",
-    "text": "Analysis Pipeline\nThe pre-computed entropy data in data/ are the output of circadia-bio/maxEntropy, a Julia script that computes S_Max from the raw EEG recordings. The R analysis then:\n\nLoads and reshapes all 32 entropy files (8 electrodes × 4 conditions) via src/legacy.R\nFits permutation GLMMs per electrode in translating.Rmd\nGenerates topographic scalp maps via topoplots.Rmd\n\nThe environment can be reproduced via Docker (docker-compose up) or locally in R ≥ 4.3."
-  },
-  {
-    "objectID": "projects/cycling-entropy/index.html#links",
-    "href": "projects/cycling-entropy/index.html#links",
-    "title": "Cycling & EEG Entropy",
-    "section": "Links",
-    "text": "Links\n\n💻 GitHub\n📄 Published paper (PLOS ONE)\n🗄️ Data (OSF)\n🔗 maxEntropy — entropy computation script"
+    "text": "If you are interested in visiting the lab for a short stay, please get in touch via lucas.franca and mario.miguel (at) northumbria.ac.uk. We are always looking for motivated people to work with.\nIf you are interested in doing a PhD or postdoc with us, please contact us to discuss possible projects and information on potential funding streams."
   },
   {
     "objectID": "projects/sleep-diaries/index.html",
@@ -952,6 +854,76 @@
     "text": "Links\n\n🌐 Documentation\n📖 Getting started vignette\n💻 GitHub\n🖥️ ScoreMe web app"
   },
   {
+    "objectID": "projects/circadiabase-docker/index.html",
+    "href": "projects/circadiabase-docker/index.html",
+    "title": "circadiaBase Docker",
+    "section": "",
+    "text": "circadiaBase Docker is a reproducible containerised research environment for the Circadia Lab. It packages a fully pinned Python and R stack into two Docker services — JupyterLab and RStudio Server — that share the same project volume and can be launched together with a single command. The goal is to eliminate “works on my machine” problems across collaborators, operating systems, and time.\nThe environment includes condor_pipeline, the Circadia Lab’s core actigraphy sleep analysis library, installed in editable mode so that changes to the source are reflected immediately without rebuilding the image."
+  },
+  {
+    "objectID": "projects/circadiabase-docker/index.html#about",
+    "href": "projects/circadiabase-docker/index.html#about",
+    "title": "circadiaBase Docker",
+    "section": "",
+    "text": "circadiaBase Docker is a reproducible containerised research environment for the Circadia Lab. It packages a fully pinned Python and R stack into two Docker services — JupyterLab and RStudio Server — that share the same project volume and can be launched together with a single command. The goal is to eliminate “works on my machine” problems across collaborators, operating systems, and time.\nThe environment includes condor_pipeline, the Circadia Lab’s core actigraphy sleep analysis library, installed in editable mode so that changes to the source are reflected immediately without rebuilding the image."
+  },
+  {
+    "objectID": "projects/circadiabase-docker/index.html#services",
+    "href": "projects/circadiabase-docker/index.html#services",
+    "title": "circadiaBase Docker",
+    "section": "Services",
+    "text": "Services\n\n\n\n\n\n\n\n\nService\nURL\nDescription\n\n\n\n\nJupyterLab\nlocalhost:8889\nPython 3.11 environment for actigraphy, EEG, entropy, and circadian modelling\n\n\nRStudio Server\nlocalhost:8787\nR 4.4 environment for sleep and circadian statistical analyses\n\n\n\nBoth services share the same mounted volume, so notebooks and scripts can read and write the same files regardless of which interface they are opened in."
+  },
+  {
+    "objectID": "projects/circadiabase-docker/index.html#quick-start",
+    "href": "projects/circadiabase-docker/index.html#quick-start",
+    "title": "circadiaBase Docker",
+    "section": "Quick Start",
+    "text": "Quick Start\ngit clone https://github.com/circadia-bio/circadiaBase_Docker.git\ncd circadiaBase_Docker\ncp .env.example .env\ndocker-compose up --build"
+  },
+  {
+    "objectID": "projects/circadiabase-docker/index.html#python-stack",
+    "href": "projects/circadiabase-docker/index.html#python-stack",
+    "title": "circadiaBase Docker",
+    "section": "Python Stack",
+    "text": "Python Stack\n\n\n\n\n\n\n\nPackage\nPurpose\n\n\n\n\npyActigraphy\nActigraphy parsing and non-parametric metrics (IS, IV, RA, M10, L5, SRI, cosinor, SSA)\n\n\nMNE\nEEG and MEG signal processing\n\n\nYASA\nAutomatic sleep staging from EEG\n\n\nEntropyHub\nEntropy methods for physiological time series\n\n\nscikit-learn\nMachine learning (clustering, classification, dimensionality reduction)\n\n\nnumpy, scipy, pandas, matplotlib, seaborn, statsmodels, plotly\nCore scientific stack\n\n\n\nNote on Python version: pyActigraphy’s accelerometer dependency requires Python &lt; 3.12, making 3.11 the effective ceiling for this environment."
+  },
+  {
+    "objectID": "projects/circadiabase-docker/index.html#r-stack",
+    "href": "projects/circadiabase-docker/index.html#r-stack",
+    "title": "circadiaBase Docker",
+    "section": "R Stack",
+    "text": "R Stack\nggplot2 extensions — ggpubr, ggrepel, ggridges, patchwork, cowplot, viridis\nStatistics — lme4, lmerTest, emmeans, MuMIn, effectsize, performance\nBayesian — brms, rstanarm, bayesplot, tidybayes (full profile)\nSleep & circadian — GGIR, ActCR, circacompare, cosinor, cosinor2, lunaR"
+  },
+  {
+    "objectID": "projects/circadiabase-docker/index.html#build-profiles",
+    "href": "projects/circadiabase-docker/index.html#build-profiles",
+    "title": "circadiaBase Docker",
+    "section": "Build Profiles",
+    "text": "Build Profiles\nThe RStudio service supports three build profiles selectable via RSTUDIO_PROFILE in .env:\n\n\n\nProfile\nStan\nlunaR\nBuild time\n\n\n\n\nminimal\n❌\n❌\n~5–8 min\n\n\nno-stan\n❌\n✅\n~10–15 min\n\n\nfull\n✅\n✅\n~30–40 min"
+  },
+  {
+    "objectID": "projects/circadiabase-docker/index.html#condor_pipeline",
+    "href": "projects/circadiabase-docker/index.html#condor_pipeline",
+    "title": "circadiaBase Docker",
+    "section": "condor_pipeline",
+    "text": "condor_pipeline\nThe environment includes condor_pipeline, the Circadia Lab’s internal actigraphy sleep analysis library. It provides a high-level SleepPipeline orchestrator for single-file and batch processing of ActTrust and Actiwatch data, with modules for off-wrist detection, sleep period detection, WASO estimation, and actogram visualisation.\nfrom condor_pipeline.pipeline import SleepPipeline\n\npipe = SleepPipeline(\"data/raw/subject_01.txt\", device=\"acttrust\")\nresult = pipe.run()\nresult.plot()"
+  },
+  {
+    "objectID": "projects/circadiabase-docker/index.html#github-actions",
+    "href": "projects/circadiabase-docker/index.html#github-actions",
+    "title": "circadiaBase Docker",
+    "section": "GitHub Actions",
+    "text": "GitHub Actions\nA bundled workflow auto-generates .env from the repository name on every push to main, so collaborators forking or templating the repo never need to configure the image name manually. On the first push to a new repo, the workflow also resets the README to a Circadia Lab stub template."
+  },
+  {
+    "objectID": "projects/circadiabase-docker/index.html#links",
+    "href": "projects/circadiabase-docker/index.html#links",
+    "title": "circadiaBase Docker",
+    "section": "Links",
+    "text": "Links\n\n💻 GitHub"
+  },
+  {
     "objectID": "projects/actigraphy-clustering/index.html",
     "href": "projects/actigraphy-clustering/index.html",
     "title": "Circadian Phenotyping in Visual Impairment",
@@ -999,5 +971,68 @@
     "title": "Circadian Phenotyping in Visual Impairment",
     "section": "Links",
     "text": "Links\n\n💻 GitHub\n📄 Preprint (bioRxiv)\n🗄️ Software archive (Zenodo)\n☁️ Run in Google Colab"
+  },
+  {
+    "objectID": "publications.html",
+    "href": "publications.html",
+    "title": "Publications",
+    "section": "",
+    "text": "From Movement to METs: A Validation of ActTrust® for Energy Expenditure Estimation and Physical Activity Classification in Young Adults\n\n\n\nArticle\n\nindirect calorimetry\n\naccelerometer\n\nactivity intensity\n\n\n\nPhysical activity (PA) is recognised for providing several health benefits in humans, mainly preventing and controlling chronic non-communicable diseases. However estimating PA is a challenging and expensive task. An alternative would be to devise a model to estimate PA using actigraphy devices calibrated from an initially validated model. This has been previously done to a number of devices, including ActiGraph® GT3X+. In this study we aimed at validating ActTrust® against the widely used GT3X+ and comparing activity counts to metabolic equivalents (METs) derived from indirect calorimetry during treadmill walking and running. Fifty-six young adults (34 men, 22 women) participated in controlled effort exercises including light, moderate, vigorous, and very vigorous activity intensities. We developed a general linear model to estimate energy expenditure (EE) from movement count of combinations of GT3X+ and ActTrust devices placed at hip or wrist. We then estimated cut-off points for each intensity range. Our results showed correlations between treadmill speed, METs, and movement counts across all devices and placements combinations. Our proposed model performed well with balanced accuracies above 0.77 for all intensity ranges and over 0.9 for light and moderate activity. This is the first study to model estimate and validate PA intensity thresholds on ActTrust® devices. Our findings support the use of ActTrust® devices in PA estimation as a low complexity and cost approach to allow 24-hour assessments of EE.\n\n\n\n\n\nMay 6, 2026\n\n\nElias dos Santos Batista, Stephania Ruth Basilio Gomes, Ayrton Bruno de Morais Ferreira, Lucas G. S. França, John Fontenele Araújo, Arnaldo Luis Mortatti, Mário A. Leocadio-Miguel\n\n\n\n\n\n\n\n\n\n\n\n\nLow-latitude environmental regularity sustains non-photic entrainment in blind adults\n\n\n\nPreprint\n\ncircadian\n\nactigraphy\n\nblindness\n\nmachine learning\n\n\n\nUsing wrist actigraphy and machine learning in 58 blind adults living near the equator in Brazil, this study shows that circadian rest–activity rhythms can remain stably entrained even without photic input. Two distinct circadian phenotypes were identified: 72% of participants showed Higher Circadian Stability, a proportion far exceeding previous reports in blind cohorts, suggesting that environmental regularity at low latitudes supports non-photic circadian entrainment.\n\n\n\n\n\nMar 21, 2026\n\n\nKaren C. Pugliane, Lucas G. S. França, Mario Leocadio-Miguel, John F. Araújo\n\n\n\n\n\n\n\n\n\n\n\n\nHeritability of sleep architecture based on home polysomnography\n\n\n\nArticle\n\nheritability\n\nsleep\n\nPSG\n\n\n\nThis study assessed the heritability of polysomnography sleep measures in 648 participants from the Baependi Heart Study in Brazil. It found that genetic factors influence total sleep time, non-REM sleep stages (especially N3), and the apnea-hypopnea index, but not REM sleep. These findings support the feasibility of future genetic studies on sleep traits.\n\n\n\n\n\nDec 29, 2024\n\n\nMário A. Leocadio-Miguel, Tâmara P Taporoski, Felipe Beijamini, Francieli S Ruiz, Andrea RVR Horimoto, Alexandre C Pereira, Kristen L Knutson, Malcolm von Schantz\n\n\n\n\n\n\n\n\n\n\n\n\nCycling reduces the entropy of neuronal activity in the human adult cortex\n\n\n\nArticle\n\nentropy\n\ncortical activity\n\nEEG\n\n\n\nThis study used recurrence entropy to assess brain complexity (BC) in EEG signals during rest and cycling in 24 healthy adults. Results showed lower entropy during cycling, suggesting that repetitive movement reduces brain complexity due to continuous sensory feedback and streamlined sensorimotor processing.\n\n\n\n\n\nOct 2, 2024\n\n\nIara Beatriz Silva Ferré, Gilberto Corso, Gustavo Zampier dos Santos Lima, Sergio Roberto Lopes, Mario André Leocadio-Miguel, Lucas G. S. França, Thiago de Lima Prado, John Fontenele Araújo\n\n\n\n\n\n\n\n\n\n\n\n\nNeonatal brain dynamic functional connectivity in term and preterm infants and its association with early childhood neurodevelopment\n\n\n\nArticle\n\nbrain\n\nMRI\n\ndynamics\n\n\n\nThis study examines dynamic functional connectivity in newborns using fMRI, revealing six transient brain connectivity states present at birth. It finds that preterm infants exhibit atypical connectivity patterns, which are linked to social, sensory, and repetitive behaviors at 18 months, suggesting early neurodevelopmental differences.\n\n\n\n\n\nFeb 8, 2024\n\n\nLucas G. S. França, Judit Ciarrusta, Oliver Gale-Grant, Sunniva Fenn-Moltu, Sean Fitzgibbon, Andrew Chew, Shona Falconer, Ralica Dimitrova, Lucilio Cordero-Grande, Anthony N. Price, Emer Hughes, Jonathan O’Muircheartaigh, Eugene Duff, Jetro J. Tuulari, Gustavo Deco, Serena J. Counsell, Joseph V. Hajnal, Chiara Nosarti, Tomoki Arichi, A. David Edwards, Grainne McAlonan, Dafnis Batalle\n\n\n\n\n\n\n\n\n\n\n\n\nHemodialysis-induced chronodisruption and chronotype distribution in patients with chronic kidney disease\n\n\n\nArticle\n\nhemodialisis\n\nsleep\n\n\n\nThis study examined circadian rhythm disruptions in 165 hemodialysis patients, finding that 40.6% experienced hemodialysis-induced chronodisruption (HIC). A morning chronotype was more prevalent in CKD patients than in the general population. HIC and chronotype were linked to quality of life but not sleep quality, highlighting potential implications for patient well-being.\n\n\n\n\n\nFeb 1, 2024\n\n\nPatrícia Pereira Nunes, Caroline Meneses Resende, Ellen Dayanne Barros Silva, Deryc Cleyner Piones Bastos, Max Luiz Mendes Ramires Filho, Mário A. Leocadio-Miguel, Mario Pedrazzoli, Manoel Alves Sobreira-Neto, Tiago Gomes de Andrade, Lívia Leite Góes Gitaí, Flávio Teles\n\n\n\n\n\n\n\n\n\n\n\n\nUse of sleep quality questionary and cortisol awakening response as complementary tools for the evaluation of major depression progression\n\n\n\nArticle\n\ncortisol\n\nsleep\n\nmajor depression\n\n\n\nThis study examined the relationship between sleep quality and cortisol awakening response (CAR) across major depression severity. Patients with treatment-resistant depression had poorer sleep and a blunted CAR, while those with mild depression showed worse sleep but an elevated CAR compared to healthy controls. Sleep quality, particularly sleep medication use and sleep efficiency, was a strong predictor of depression severity, highlighting its clinical relevance for assessing and managing major depressive disorder.\n\n\n\n\n\nFeb 1, 2024\n\n\nLucas Henrique Sousa Freitas Torres, Ysla Kallena Macedo Medeiros, Geovan Menezes de Sousa, Hector Quinones Vargas, Ana Cecília de Menezes Galvão, Raíssa Nóbrega de Almeida, Mário A. Leocadio-Miguel, Bruno Lobão-Soares, Fernanda Palhano-Fontes, Dráulio Barros de Araujo, Nicole Leite Galvão-Coelho\n\n\n\n\n\n\n\n\n\n\n\n\nBlue light exposure-dependent improvement in robustness of circadian rest-activity rhythm in aged rats\n\n\n\nArticle\n\naging\n\nSCN\n\nRest-activity rhythm\n\n\n\nThis study investigated the effects of blue light therapy on circadian rhythms in aging rats. Exposure to blue light for 14 days improved locomotor rhythmicity, increasing amplitude, robustness, and phase advance while enhancing rest-phase consolidation. However, these benefits required continuous exposure. The findings suggest that blue light may help mitigate age-related circadian dysfunctions, though further research is needed to understand the underlying neural mechanisms.\n\n\n\n\n\nOct 4, 2023\n\n\nEryck Holmes A. Silva, Nelyane Nayara M. Santana, Narita Renata M. Seixas, Lyzandro Lucas F. Bezerra, Maria Milena O. Silva, Sâmarah F. Santos, Jeferson S. Cavalcante, Mário A. Leocadio-Miguel, Rovena Clara Engelberth\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "publications/miguel2024/index.html",
+    "href": "publications/miguel2024/index.html",
+    "title": "Heritability of sleep architecture based on home polysomnography",
+    "section": "",
+    "text": "Abstract\nWe aimed to establish the heritability of polysomnography measures through the analysis of home polysomnography recordings from 648 participants in the Baependi Heart Study, a rural, family-based, genetically admixed cohort based in the southeast of Brazil. Sleep polysomnography staging variables were computed, and narrow-sense heritability values were derived. The heritability (h2) of polysomnography total sleep time was 0.18±0.08 (p=0.007). Including age and sex did not change the heritability estimates of the model. Wake after sleep onset did not show significant heritability (h2=0.02±0.07, p=0.39). The unadjusted model for N1 resulted in a heritability estimate of 0.22±0.10 (p&lt;0.003), and of 0.26±0.10 (p=0.003) in the adjusted model. Time spent in N2 had an unadjusted heritability of 0.18±0.09 (p=0.01) and adjusted h2 of 0.22±0.10 (p=0.007). The heritability of the total time spent in N3 was 0.35±0.09 (p&lt;0.001) in the unadjusted and 0.38±0.09 (p&lt;0.001) when sex, age and age*age were considered in the model. By contrast, no variance in the total time spent in rapid eye movement could be significantly attributed to genetic variance. In terms of the heritability of the apnea–hypopnea index, 17% of its variance could be attributed to genetic factors (0.17±0.08, p=0.02). This is the first report of heritability of electroencephalographic-derived sleep parameters from a larger population sample, and the first one performed in a population with a majority above 25 years of age. Our findings indicate the potential feasibility of future genome-wide association studies of non-rapid eye movement sleep stages in pooled population samples."
+  },
+  {
+    "objectID": "publications/pugliane2026/index.html",
+    "href": "publications/pugliane2026/index.html",
+    "title": "Low-latitude environmental regularity sustains non-photic entrainment in blind adults",
+    "section": "",
+    "text": "Abstract\nThe light–dark cycle shaped by Earth’s rotation provided the evolutionary conditions under which circadian rhythms emerged. Consistent with this, previous studies indicate that less than 40% of totally blind individuals, who lack photic input, entrain to the 24-h cycle, further evidencing the critical role of light as the dominant zeitgeber for circadian alignment. However, this assumption has been tested almost exclusively in temperate, high-latitude regions, where environmental cues vary seasonally. Near the equator, by contrast, photoperiod and temperature cycles remain exceptionally stable. This highlights a fundamental gap: can circadian rhythms in humans remain synchronised without light when environmental temporal cues are highly regular? We addressed this question in 58 blind adults (21–77 years; 43.1% female) living near the equator in Rio Grande do Norte, Brazil (~5°S), who wore wrist actigraphy continuously for four weeks. Light sensitivity was assessed through the pupillary light reflex (PLR; 22 PLR-reactive, 36 non-reactive). Applying a semi-supervised machine learning approach to uncover multidimensional patterns without prior categorisation, we identified two distinct phenotypes: a Higher Circadian Stability (HCS; 72%, n = 42) and a Lower Circadian Stability group (LCS; 28%, n = 16). Notably, 64% of PLR-non-reactive individuals (23 of 36) were classified within the HCS group, a proportion approximately 1.6 times higher than previously reported for blind cohorts. These findings demonstrate that, under exceptionally regular equatorial conditions, non-photic cues can sustain a robust circadian entrainment even in the absence of photic input. We propose that environmental regularity promotes the synergy of non-photic timing signals, underscoring ecological context as a key determinant of human circadian temporal organisation."
+  },
+  {
+    "objectID": "publications/ferre2024/index.html",
+    "href": "publications/ferre2024/index.html",
+    "title": "Cycling reduces the entropy of neuronal activity in the human adult cortex",
+    "section": "",
+    "text": "Abstract\nBrain Complexity (BC) have successfully been applied to study the brain electroencephalographic signal (EEG) in health and disease. In this study, we employed recurrence entropy to quantify BC associated with the neurophysiology of movement by comparing BC in both resting state and cycling movement. We measured EEG in 24 healthy adults and placed the electrodes on occipital, parietal, temporal and frontal sites on both the right and left sides of the brain. We computed the recurrence entropy from EEG measurements during cycling and resting states. Entropy is higher in the resting state than in the cycling state for all brain regions analysed. This reduction in complexity is a result of the repetitive movements that occur during cycling. These movements lead to continuous sensorial feedback, resulting in reduced entropy and sensorimotor processing."
+  },
+  {
+    "objectID": "publications/franca2024/index.html",
+    "href": "publications/franca2024/index.html",
+    "title": "Neonatal brain dynamic functional connectivity in term and preterm infants and its association with early childhood neurodevelopment",
+    "section": "",
+    "text": "Abstract\nBrain dynamic functional connectivity characterises transient connections between brain regions. Features of brain dynamics have been linked to emotion and cognition in adult individuals, and atypical patterns have been associated with neurodevelopmental conditions such as autism. Although reliable functional brain networks have been consistently identified in neonates, little is known about the early development of dynamic functional connectivity. In this study we characterise dynamic functional connectivity with functional magnetic resonance imaging (fMRI) in the first few weeks of postnatal life in term-born (n=324) and preterm-born (n=66) individuals. We show that a dynamic landscape of brain connectivity is already established by the time of birth in the human brain, characterised by six transient states of neonatal functional connectivity with changing dynamics through the neonatal period. The pattern of dynamic connectivity is atypical in preterm-born infants, and associated with atypical social, sensory, and repetitive behaviours measured by the Quantitative Checklist for Autism in Toddlers (Q-CHAT) scores at 18 months of age."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Circadia",
+    "section": "",
+    "text": "We are an interdisciplinary group spanning the School of Computer Science and the School of Psychology at Northumbria University. Our research focusses on the intersection of physics, computer science, physiology and chronobiology. We are particularly interested in sleep, rhythmicity, and medical signals of various modalities.\nThe word “Circadia” derives from the Latin “circa diem” meaning “around the day”, a reference to the circadian rhythms that govern our lives and the focus of our research. It also rhymes with “arcadia” - a place for exploration, discovery and learning."
+  },
+  {
+    "objectID": "index.html#about-us",
+    "href": "index.html#about-us",
+    "title": "Circadia",
+    "section": "",
+    "text": "We are an interdisciplinary group spanning the School of Computer Science and the School of Psychology at Northumbria University. Our research focusses on the intersection of physics, computer science, physiology and chronobiology. We are particularly interested in sleep, rhythmicity, and medical signals of various modalities.\nThe word “Circadia” derives from the Latin “circa diem” meaning “around the day”, a reference to the circadian rhythms that govern our lives and the focus of our research. It also rhymes with “arcadia” - a place for exploration, discovery and learning."
+  },
+  {
+    "objectID": "index.html#our-tools-software",
+    "href": "index.html#our-tools-software",
+    "title": "Circadia",
+    "section": "Our tools & software",
+    "text": "Our tools & software\n\n  ‹\n  \n    \n  \n  ›"
+  },
+  {
+    "objectID": "index.html#news",
+    "href": "index.html#news",
+    "title": "Circadia",
+    "section": "News",
+    "text": "News\n\n\nTutorials\n\n\n\n\n\n\n\n\n\n\nSetting up circadiaBase Docker\n\n\nA step-by-step guide to spinning up the Circadia Lab’s reproducible research environment — JupyterLab and RStudio Server in a single Docker Compose stack — for chronobiology and actigraphy research.\n\n\n\n\n\nNo matching items\n\nSee all →\n\n\nPublications\n\n\n\n\n\n\n\n\n\n\nFrom Movement to METs: A Validation of ActTrust® for Energy Expenditure Estimation and Physical Activity Classification in Young Adults\n\n\nPhysical activity (PA) is recognised for providing several health benefits in humans, mainly preventing and controlling chronic non-communicable diseases. However estimating PA is a challenging and expensive task. An alternative would be to devise a model to estimate PA using actigraphy devices…\n\n\n\n\n\nNo matching items\n\nSee all →"
   }
 ]
