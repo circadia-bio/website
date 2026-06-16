@@ -6,13 +6,14 @@ listing:
     - "blog/*/index.md"
     - "blog/*/index.ipynb"
   sort: "date desc"
-  type: default
-  categories: false
+  type: grid
+  grid-columns: 3
+  categories: true
   sort-ui: false
   filter-ui: false
   fields: [title, author, categories, date, image, description]
-  image-align: right
-  # page-size: 5
+  image-height: "220px"
+  max-description-length: 250
   feed: true
 citation: false
 toc: false
