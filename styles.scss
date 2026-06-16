@@ -180,6 +180,11 @@ div.quarto-about-trestles .about-entity .about-links .about-link {
     }
 }
 
+#listing-listing .quarto-post .thumbnail img {
+  object-fit: contain !important;
+  background: transparent;
+}
+
 /* Projects listing */
 #listing-listing .card {
   @include glass-light(0.5, 12px, 0.3);
