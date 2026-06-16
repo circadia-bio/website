@@ -432,18 +432,14 @@ hr {
   display: none;
 }
 
-/* Tutorials page: pull sidebar above content as a pill row */
+/* Tutorials page: reflow category pills below the title */
 .page-tutorials #quarto-margin-sidebar {
+  grid-column: page-start / page-end !important;
+  grid-row: content-top / content-top !important;
   width: 100% !important;
-  max-width: 100% !important;
-  order: -1;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-.page-tutorials .page-columns {
-  display: flex !important;
-  flex-direction: column !important;
+  padding: 0 1rem 0.25rem !important;
+  margin-top: 3.5rem !important; /* push below the title block */
+  z-index: 0 !important;
 }
 
 .quarto-listing-category.category-default {
