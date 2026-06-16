@@ -7,7 +7,7 @@ listing:
     - "blog/*/index.ipynb"
   sort: "date desc"
   type: default
-  categories: true
+  categories: false
   sort-ui: false
   filter-ui: false
   fields: [title, author, categories, date, image, description]
