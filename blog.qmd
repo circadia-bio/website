@@ -17,7 +17,6 @@ listing:
 citation: false
 toc: false
 comments: false
-body-classes: page-tutorials
 format: 
   html: 
     page-layout: full

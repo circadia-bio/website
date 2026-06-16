@@ -367,34 +367,23 @@ hr {
   display: none;
 }
 
-/* Tutorials page: reflow category pills below the title */
-.page-tutorials #quarto-margin-sidebar {
-  grid-column: page-start / page-end !important;
-  grid-row: content-top / content-top !important;
-  width: 100% !important;
-  padding: 0 1rem 0.25rem !important;
-  margin-top: 3.5rem !important;
-  z-index: 0 !important;
-}
-
 .quarto-listing-category.category-default {
   display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 0.5rem 0 1.25rem;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0.5rem 0;
   border: none !important;
 }
 
 .quarto-listing-category.category-default .category {
   @include glass-dark(0.5, 12px, 0.15);
   border-radius: 999px;
-  padding: 4px 14px;
+  padding: 5px 16px;
   font-size: 0.78rem;
   cursor: pointer;
   transition: box-shadow 0.2s, background 0.2s;
   color: $body-color;
-  white-space: nowrap;
+  text-align: center;
   &:hover {
     box-shadow: 0 4px 16px rgba(0,0,0,0.25);
     background: rgba(1, 67, 112, 0.75) !important;
@@ -402,6 +391,7 @@ hr {
   &.active {
     background: rgba(155, 223, 226, 0.15) !important;
     box-shadow: 0 4px 16px rgba(155,223,226,0.15);
+    font-weight: 600;
   }
 }
 
