@@ -285,7 +285,8 @@ hr {
 .tag-infra { color: lighten($link-color, 20%); }
 
 /* Per-post category tags */
-.listing-category {
+.listing-category,
+.quarto-category {
   @include glass-dark(0.5, 12px, 0.15);
   border-radius: 999px !important;
   padding: 3px 12px !important;
