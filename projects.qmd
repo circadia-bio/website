@@ -2,13 +2,14 @@
 title: Projects
 listing:
   contents: projects/*/index.qmd
-  type: grid
+  type: default
   max-description-length: 250
   categories: false
   sort: "date desc"
   sort-ui: false
   filter-ui: false
-  image-height: "200"
+  image-height: 10em
+  image-align: left
 toc: false
 title-block-banner: false
 format:
