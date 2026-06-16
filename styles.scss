@@ -363,6 +363,31 @@ hr {
   object-position: center;
 }
 
+/* ── Mobile overrides ──────────────────────────────────────── */
+@media (max-width: 600px) {
+  :root {
+    font-size: 16px;
+  }
+
+  .pc-card {
+    flex: 0 0 calc((100% - 14px) / 2);
+  }
+
+  #news .g-col-6 {
+    grid-column: span 12;
+  }
+
+  #listing-blog h5.listing-title,
+  #listing-publication h5.listing-title {
+    font-size: 0.85rem !important;
+  }
+
+  #listing-blog .listing-description,
+  #listing-publication .listing-description {
+    font-size: 0.7rem !important;
+  }
+}
+
 /* News section — card title & description */
 #listing-blog .card,
 #listing-publication .card {

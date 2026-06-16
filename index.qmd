@@ -72,7 +72,7 @@ The word *"Circadia"* derives from the Latin *"circa diem"* meaning "around the 
     { href: "https://github.com/circadia-bio/circadiaBase_Docker", img: null, emoji: "&#x1F433;", name: "Circadia Docker", desc: "Reproducible research environment for chronobiology", tag: "Infra" }
   ];
 
-  var VISIBLE = 5;
+  var VISIBLE = window.innerWidth < 600 ? 2 : 5;
   var N = products.length;
   var track = document.getElementById('pc-track');
   var dotsEl = document.getElementById('pc-dots');
