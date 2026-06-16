@@ -26,15 +26,23 @@ title-block-banner: false
 
 ```{=html}
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  var cats = document.querySelector('#quarto-margin-sidebar .quarto-listing-category');
-  var target = document.querySelector('#quarto-document-content');
-  if (cats && target) {
-    // Insert after the title block
+(function () {
+  function moveCats() {
+    var cats = document.querySelector('#quarto-margin-sidebar .quarto-listing-category');
+    var target = document.querySelector('#quarto-document-content');
+    if (!cats || !target) return false;
     var titleMeta = target.querySelector('.quarto-title-meta');
     var anchor = titleMeta || target.firstChild;
     target.insertBefore(cats, anchor.nextSibling);
+    return true;
   }
-});
+
+  if (!moveCats()) {
+    var observer = new MutationObserver(function () {
+      if (moveCats()) observer.disconnect();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+})();
 </script>
 ```
