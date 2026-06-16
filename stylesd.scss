@@ -304,6 +304,24 @@ hr {
     font-size: 16px;
   }
 
+  /* Prevent hero panel overflowing viewport */
+  div.quarto-about-trestles {
+    flex-direction: column !important;
+    overflow-x: hidden;
+  }
+
+  div.quarto-about-trestles .about-entity {
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  div.quarto-about-trestles .about-contents {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+  }
+
   .pc-card {
     flex: 0 0 100%;
   }
