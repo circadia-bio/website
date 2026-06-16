@@ -279,6 +279,22 @@ hr {
 .tag-pkg   { color: lighten($link-color, 10%); }
 .tag-infra { color: lighten($link-color, 20%); }
 
+/* Per-post category tags */
+.listing-category {
+  @include glass-dark(0.5, 12px, 0.15);
+  border-radius: 999px !important;
+  padding: 3px 12px !important;
+  font-size: 0.65rem !important;
+  cursor: pointer;
+  transition: box-shadow 0.2s, background 0.2s;
+  color: $body-color !important;
+  border: none !important;
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    background: rgba(1, 67, 112, 0.75) !important;
+  }
+}
+
 /* News section — column layout */
 #news .g-col-6 {
   display: flex;

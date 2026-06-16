@@ -344,6 +344,22 @@ hr {
   }
 }
 
+/* Per-post category tags */
+.listing-category {
+  @include glass-light(0.5, 12px, 0.3);
+  border-radius: 999px !important;
+  padding: 3px 12px !important;
+  font-size: 0.65rem !important;
+  cursor: pointer;
+  transition: box-shadow 0.2s, background 0.2s;
+  color: $body-color !important;
+  border: none !important;
+  &:hover {
+    box-shadow: 0 4px 16px rgba(27,103,153,0.15);
+    background: rgba(255, 236, 212, 0.85) !important;
+  }
+}
+
 /* News section — column layout */
 #news .g-col-6 {
   display: flex;
