@@ -6,13 +6,13 @@
       version="2.0">
 <channel>
 <title>Circadia</title>
-<link>https://circadia.bio/blog.html</link>
-<atom:link href="https://circadia.bio/blog.xml" rel="self" type="application/rss+xml"/>
+<link>https://circadia-lab.uk/blog.html</link>
+<atom:link href="https://circadia-lab.uk/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <image>
-<url>https://circadia.bio/logo.png</url>
+<url>https://circadia-lab.uk/logo.png</url>
 <title>Circadia</title>
-<link>https://circadia.bio/blog.html</link>
+<link>https://circadia-lab.uk/blog.html</link>
 <height>144</height>
 <width>144</width>
 </image>
@@ -22,7 +22,7 @@
   <title>Setting up circadiaBase Docker</title>
   <dc:creator>Lucas França</dc:creator>
   <dc:creator>Mario Leocadio-Miguel</dc:creator>
-  <link>https://circadia.bio/blog/circadiabase_docker/</link>
+  <link>https://circadia-lab.uk/blog/circadiabase_docker/</link>
   <description><![CDATA[ 
 
 
@@ -529,15 +529,15 @@ font-style: inherit;">   # use any free port</span></span></code></pre></div></d
   <category>Python</category>
   <category>R</category>
   <category>Reproducibility</category>
-  <guid>https://circadia.bio/blog/circadiabase_docker/</guid>
+  <guid>https://circadia-lab.uk/blog/circadiabase_docker/</guid>
   <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
-  <media:content url="https://circadia.bio/blog/circadiabase_docker/cover.svg" medium="image" type="image/svg+xml"/>
+  <media:content url="https://circadia-lab.uk/blog/circadiabase_docker/cover.svg" medium="image" type="image/svg+xml"/>
 </item>
 <item>
   <title>Introducing Sleep Diaries: an open-source sleep diary app for research</title>
   <dc:creator>Lucas França</dc:creator>
   <dc:creator>Mario Leocadio-Miguel</dc:creator>
-  <link>https://circadia.bio/blog/sleep_diaries_app/</link>
+  <link>https://circadia-lab.uk/blog/sleep_diaries_app/</link>
   <description><![CDATA[ 
 
 
@@ -642,14 +642,14 @@ font-style: inherit;">   # use any free port</span></span></code></pre></div></d
   <category>Sleep</category>
   <category>Open Source</category>
   <category>Tools</category>
-  <guid>https://circadia.bio/blog/sleep_diaries_app/</guid>
+  <guid>https://circadia-lab.uk/blog/sleep_diaries_app/</guid>
   <pubDate>Thu, 02 Apr 2026 00:00:00 GMT</pubDate>
-  <media:content url="https://circadia.bio/blog/sleep_diaries_app/cover.png" medium="image" type="image/png" height="72" width="144"/>
+  <media:content url="https://circadia-lab.uk/blog/sleep_diaries_app/cover.png" medium="image" type="image/png" height="72" width="144"/>
 </item>
 <item>
   <title>Sleep PSG validation</title>
   <dc:creator>Mario Miguel</dc:creator>
-  <link>https://circadia.bio/blog/sleep_PSG/</link>
+  <link>https://circadia-lab.uk/blog/sleep_PSG/</link>
   <description><![CDATA[ 
 
 
@@ -1731,7 +1731,7 @@ font-style: inherit;">"none"</span>)</span></code></pre></div></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-7-1.png" class="img-fluid figure-img"></p>
+<p><img src="https://circadia-lab.uk/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-7-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1926,7 +1926,7 @@ font-style: inherit;">theme_minimal</span>()</span></code></pre></div></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-8-1.png" class="img-fluid figure-img"></p>
+<p><img src="https://circadia-lab.uk/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-8-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -2380,7 +2380,7 @@ font-style: inherit;">print</span>(ba_plot)</span>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-10-1.png" class="img-fluid figure-img"></p>
+<p><img src="https://circadia-lab.uk/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-10-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -2393,7 +2393,7 @@ Use of `plot.data$y.axis` is discouraged.
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-10-2.png" class="img-fluid figure-img"></p>
+<p><img src="https://circadia-lab.uk/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-10-2.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -2406,7 +2406,7 @@ Use of `plot.data$y.axis` is discouraged.
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-10-3.png" class="img-fluid figure-img"></p>
+<p><img src="https://circadia-lab.uk/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-10-3.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -2419,7 +2419,7 @@ Use of `plot.data$y.axis` is discouraged.
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-10-4.png" class="img-fluid figure-img"></p>
+<p><img src="https://circadia-lab.uk/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-10-4.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -2432,7 +2432,7 @@ Use of `plot.data$y.axis` is discouraged.
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-10-5.png" class="img-fluid figure-img"></p>
+<p><img src="https://circadia-lab.uk/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-10-5.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -2648,35 +2648,35 @@ font-style: inherit;">print</span>(p)</span>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-11-1.png" class="img-fluid figure-img"></p>
+<p><img src="https://circadia-lab.uk/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-11-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-11-2.png" class="img-fluid figure-img"></p>
+<p><img src="https://circadia-lab.uk/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-11-2.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-11-3.png" class="img-fluid figure-img"></p>
+<p><img src="https://circadia-lab.uk/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-11-3.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-11-4.png" class="img-fluid figure-img"></p>
+<p><img src="https://circadia-lab.uk/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-11-4.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-11-5.png" class="img-fluid figure-img"></p>
+<p><img src="https://circadia-lab.uk/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-11-5.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -3745,7 +3745,7 @@ font-style: inherit;">theme_minimal</span>()</span></code></pre></div></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-18-1.png" class="img-fluid figure-img"></p>
+<p><img src="https://circadia-lab.uk/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-18-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -3920,7 +3920,7 @@ font-style: inherit;"># Print AUC on the plot</span></span>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://circadia.bio/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-19-1.png" class="img-fluid figure-img"></p>
+<p><img src="https://circadia-lab.uk/blog/sleep_PSG/index_files/figure-markdown/unnamed-chunk-19-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -3932,9 +3932,9 @@ font-style: inherit;"># Print AUC on the plot</span></span>
  ]]></description>
   <category>Sleep</category>
   <category>PSD</category>
-  <guid>https://circadia.bio/blog/sleep_PSG/</guid>
+  <guid>https://circadia-lab.uk/blog/sleep_PSG/</guid>
   <pubDate>Tue, 11 Mar 2025 00:00:00 GMT</pubDate>
-  <media:content url="https://circadia.bio/blog/sleep_PSG/cover.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://circadia-lab.uk/blog/sleep_PSG/cover.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

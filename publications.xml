@@ -6,13 +6,13 @@
       version="2.0">
 <channel>
 <title>Circadia</title>
-<link>https://circadia.bio/publications.html</link>
-<atom:link href="https://circadia.bio/publications.xml" rel="self" type="application/rss+xml"/>
+<link>https://circadia-lab.uk/publications.html</link>
+<atom:link href="https://circadia-lab.uk/publications.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <image>
-<url>https://circadia.bio/logo.png</url>
+<url>https://circadia-lab.uk/logo.png</url>
 <title>Circadia</title>
-<link>https://circadia.bio/publications.html</link>
+<link>https://circadia-lab.uk/publications.html</link>
 <height>144</height>
 <width>144</width>
 </image>
@@ -27,7 +27,7 @@
   <dc:creator>John Fontenele Araújo</dc:creator>
   <dc:creator>Arnaldo Luis Mortatti</dc:creator>
   <dc:creator>Mário A. Leocadio-Miguel</dc:creator>
-  <link>https://circadia.bio/publications/batista2026/</link>
+  <link>https://circadia-lab.uk/publications/batista2026/</link>
   <description><![CDATA[ 
 
 
@@ -46,9 +46,9 @@
   <category>indirect calorimetry</category>
   <category>accelerometer</category>
   <category>activity intensity</category>
-  <guid>https://circadia.bio/publications/batista2026/</guid>
+  <guid>https://circadia-lab.uk/publications/batista2026/</guid>
   <pubDate>Wed, 06 May 2026 00:00:00 GMT</pubDate>
-  <media:content url="https://circadia.bio/publications/batista2026/featured.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://circadia-lab.uk/publications/batista2026/featured.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Low-latitude environmental regularity sustains non-photic entrainment in blind adults</title>
@@ -56,7 +56,7 @@
   <dc:creator>Lucas G. S. França</dc:creator>
   <dc:creator>Mario Leocadio-Miguel</dc:creator>
   <dc:creator>John F. Araújo</dc:creator>
-  <link>https://circadia.bio/publications/pugliane2026/</link>
+  <link>https://circadia-lab.uk/publications/pugliane2026/</link>
   <description><![CDATA[ 
 
 
@@ -76,9 +76,9 @@
   <category>actigraphy</category>
   <category>blindness</category>
   <category>machine learning</category>
-  <guid>https://circadia.bio/publications/pugliane2026/</guid>
+  <guid>https://circadia-lab.uk/publications/pugliane2026/</guid>
   <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-  <media:content url="https://circadia.bio/publications/pugliane2026/featured.png" medium="image" type="image/png" height="132" width="144"/>
+  <media:content url="https://circadia-lab.uk/publications/pugliane2026/featured.png" medium="image" type="image/png" height="132" width="144"/>
 </item>
 <item>
   <title>Heritability of sleep architecture based on home polysomnography</title>
@@ -90,7 +90,7 @@
   <dc:creator>Alexandre C Pereira</dc:creator>
   <dc:creator>Kristen L Knutson</dc:creator>
   <dc:creator>Malcolm von Schantz</dc:creator>
-  <link>https://circadia.bio/publications/miguel2024/</link>
+  <link>https://circadia-lab.uk/publications/miguel2024/</link>
   <description><![CDATA[ 
 
 
@@ -109,9 +109,9 @@
   <category>heritability</category>
   <category>sleep</category>
   <category>PSG</category>
-  <guid>https://circadia.bio/publications/miguel2024/</guid>
+  <guid>https://circadia-lab.uk/publications/miguel2024/</guid>
   <pubDate>Sun, 29 Dec 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://circadia.bio/publications/miguel2024/featured.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://circadia-lab.uk/publications/miguel2024/featured.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Cycling reduces the entropy of neuronal activity in the human adult cortex</title>
@@ -123,7 +123,7 @@
   <dc:creator>Lucas G. S. França</dc:creator>
   <dc:creator>Thiago de Lima Prado</dc:creator>
   <dc:creator>John Fontenele Araújo</dc:creator>
-  <link>https://circadia.bio/publications/ferre2024/</link>
+  <link>https://circadia-lab.uk/publications/ferre2024/</link>
   <description><![CDATA[ 
 
 
@@ -142,9 +142,9 @@
   <category>entropy</category>
   <category>cortical activity</category>
   <category>EEG</category>
-  <guid>https://circadia.bio/publications/ferre2024/</guid>
+  <guid>https://circadia-lab.uk/publications/ferre2024/</guid>
   <pubDate>Wed, 02 Oct 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://circadia.bio/publications/ferre2024/featured.png" medium="image" type="image/png" height="167" width="144"/>
+  <media:content url="https://circadia-lab.uk/publications/ferre2024/featured.png" medium="image" type="image/png" height="167" width="144"/>
 </item>
 <item>
   <title>Neonatal brain dynamic functional connectivity in term and preterm infants and its association with early childhood neurodevelopment</title>
@@ -170,7 +170,7 @@
   <dc:creator>A. David Edwards</dc:creator>
   <dc:creator>Grainne McAlonan</dc:creator>
   <dc:creator>Dafnis Batalle</dc:creator>
-  <link>https://circadia.bio/publications/franca2024/</link>
+  <link>https://circadia-lab.uk/publications/franca2024/</link>
   <description><![CDATA[ 
 
 
@@ -189,9 +189,9 @@
   <category>brain</category>
   <category>MRI</category>
   <category>dynamics</category>
-  <guid>https://circadia.bio/publications/franca2024/</guid>
+  <guid>https://circadia-lab.uk/publications/franca2024/</guid>
   <pubDate>Thu, 08 Feb 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://circadia.bio/publications/franca2024/featured.png" medium="image" type="image/png" height="137" width="144"/>
+  <media:content url="https://circadia-lab.uk/publications/franca2024/featured.png" medium="image" type="image/png" height="137" width="144"/>
 </item>
 <item>
   <title>Hemodialysis-induced chronodisruption and chronotype distribution in patients with chronic kidney disease</title>
@@ -206,7 +206,7 @@
   <dc:creator>Tiago Gomes de Andrade</dc:creator>
   <dc:creator>Lívia Leite Góes Gitaí</dc:creator>
   <dc:creator>Flávio Teles</dc:creator>
-  <link>https://circadia.bio/publications/nunes2024/</link>
+  <link>https://circadia-lab.uk/publications/nunes2024/</link>
   <description><![CDATA[ 
 
 
@@ -224,9 +224,9 @@
   <category>Article</category>
   <category>hemodialisis</category>
   <category>sleep</category>
-  <guid>https://circadia.bio/publications/nunes2024/</guid>
+  <guid>https://circadia-lab.uk/publications/nunes2024/</guid>
   <pubDate>Thu, 01 Feb 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://circadia.bio/publications/nunes2024/featured.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://circadia-lab.uk/publications/nunes2024/featured.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Use of sleep quality questionary and cortisol awakening response as complementary tools for the evaluation of major depression progression</title>
@@ -241,7 +241,7 @@
   <dc:creator>Fernanda Palhano-Fontes</dc:creator>
   <dc:creator>Dráulio Barros de Araujo</dc:creator>
   <dc:creator>Nicole Leite Galvão-Coelho</dc:creator>
-  <link>https://circadia.bio/publications/torres2024/</link>
+  <link>https://circadia-lab.uk/publications/torres2024/</link>
   <description><![CDATA[ 
 
 
@@ -260,9 +260,9 @@
   <category>cortisol</category>
   <category>sleep</category>
   <category>major depression</category>
-  <guid>https://circadia.bio/publications/torres2024/</guid>
+  <guid>https://circadia-lab.uk/publications/torres2024/</guid>
   <pubDate>Thu, 01 Feb 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://circadia.bio/publications/torres2024/featured.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://circadia-lab.uk/publications/torres2024/featured.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Blue light exposure-dependent improvement in robustness of circadian rest-activity rhythm in aged rats</title>
@@ -275,7 +275,7 @@
   <dc:creator>Jeferson S. Cavalcante</dc:creator>
   <dc:creator>Mário A. Leocadio-Miguel</dc:creator>
   <dc:creator>Rovena Clara Engelberth</dc:creator>
-  <link>https://circadia.bio/publications/silva2023/</link>
+  <link>https://circadia-lab.uk/publications/silva2023/</link>
   <description><![CDATA[ 
 
 
@@ -291,9 +291,9 @@
   <category>aging</category>
   <category>SCN</category>
   <category>Rest-activity rhythm</category>
-  <guid>https://circadia.bio/publications/silva2023/</guid>
+  <guid>https://circadia-lab.uk/publications/silva2023/</guid>
   <pubDate>Wed, 04 Oct 2023 00:00:00 GMT</pubDate>
-  <media:content url="https://circadia.bio/publications/silva2023/featured.png" medium="image" type="image/png" height="145" width="144"/>
+  <media:content url="https://circadia-lab.uk/publications/silva2023/featured.png" medium="image" type="image/png" height="145" width="144"/>
 </item>
 </channel>
 </rss>
