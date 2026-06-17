@@ -3,7 +3,7 @@ title: "PineTime Research Platform"
 subtitle: "Open-source wearable platform for research"
 description: "A custom InfiniTime firmware fork and companion web app for the PineTime smartwatch, optimised for research data collection. Currently in active development."
 date: "2025-06-01"
-image: ../images/pinetime_research.svg
+image: ../images/pinetime_research_og.png
 categories: [Wearables, Firmware, In Development]
 ---
 

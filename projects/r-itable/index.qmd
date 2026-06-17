@@ -3,7 +3,7 @@ title: "R-itable"
 subtitle: "Pedigree-based heritability estimation"
 description: "An R package for profile-likelihood variance-components heritability estimation in family cohort studies. No SOLAR Eclipse required."
 date: "2025-06-01"
-image: https://r-itable.circadia-lab.uk/logo.svg
+image: ../images/r-itable_og.png
 categories: [R Package, Heritability, Open Source]
 ---
 

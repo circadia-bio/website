@@ -3,7 +3,7 @@ title: "tallieR"
 subtitle: "R tools for ScoreMe questionnaire data"
 description: "An R package for importing, re-scoring, and tidying questionnaire data collected with the ScoreMe app."
 date: "2025-03-01"
-image: ../images/tallier_logo.svg
+image: ../images/tallier_logo_og.png
 categories: [R Package, Questionnaires, Open Source]
 ---
 

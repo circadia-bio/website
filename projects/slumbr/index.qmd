@@ -3,7 +3,7 @@ title: "slumbR"
 subtitle: "R tools for sleep diary research"
 description: "An R package for processing, scoring, and visualising sleep diary data collected with the Sleep Diaries app."
 date: "2025-01-01"
-image: ../images/slumbr_logo.svg
+image: ../images/slumbr_logo_og.png
 categories: [R Package, Sleep, Open Source]
 ---
 

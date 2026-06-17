@@ -3,7 +3,7 @@ title: "Cycling & EEG Entropy"
 subtitle: "Cycling reduces the entropy of neuronal activity in the human adult cortex"
 description: "An R analysis pipeline examining recurrence-matrix entropy in scalp EEG signals recorded during cycling and rest across four behavioural conditions in healthy adults."
 date: "2024-04-01"
-image: ../images/cycling_entropy.svg
+image: ../images/cycling_entropy_og.png
 categories: [Research Pipeline, EEG, R, Reproducible Research]
 ---
 

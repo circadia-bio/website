@@ -3,7 +3,7 @@ title: "ACTT Validation Study"
 subtitle: "From Movement to METs: Validating the ActTrust® actigraphy device"
 description: "A fully reproducible R/Quarto pipeline validating the ActTrust® device for energy expenditure and physical activity classification, benchmarked against the ActiGraph® GT3X+ and indirect calorimetry."
 date: "2024-09-01"
-image: ../images/actt_validation.svg
+image: ../images/actt_validation_og.png
 categories: [Research Pipeline, Actigraphy, R, Reproducible Research]
 ---
 

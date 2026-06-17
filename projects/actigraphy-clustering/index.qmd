@@ -3,7 +3,7 @@ title: "Circadian Phenotyping in Visual Impairment"
 subtitle: "Low-latitude environmental regularity sustains non-photic entrainment in blind adults"
 description: "A data-driven framework for identifying circadian phenotypes in visually impaired participants using non-parametric actigraphy metrics, dimensionality reduction, clustering, and SHAP-based interpretation."
 date: "2025-02-01"
-image: ../images/actigraphy_clustering.svg
+image: ../images/actigraphy_clustering_og.png
 categories: [Research Pipeline, Actigraphy, Chronobiology, Python, Reproducible Research]
 ---
 
