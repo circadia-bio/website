@@ -1,6 +1,7 @@
 ---
 title: "Tutorials"
 listing: 
+  id: listing-tutorials
   contents: 
     - "blog/*/index.qmd"
     - "blog/*/index.md"
