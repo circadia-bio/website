@@ -180,11 +180,6 @@ div.quarto-about-trestles .about-entity .about-links .about-link {
     }
 }
 
-#listing-listing .quarto-post .thumbnail img {
-  object-fit: contain !important;
-  background: transparent;
-}
-
 /* Projects listing */
 #listing-listing .card {
   @include glass-light(0.5, 12px, 0.3);
@@ -579,50 +574,9 @@ hr {
   }
 }
 
-/* Tutorials listing page */
-#listing-tutorials .quarto-post {
-  @include glass-light(0.5, 12px, 0.3);
-  border-radius: 18px !important;
-  padding: 1rem 1.25rem;
-  margin-bottom: 1rem;
-  transition: box-shadow 0.2s;
-  border-top: none !important;
-  &:hover { box-shadow: 0 8px 32px rgba(27,103,153,0.14); }
-}
-
-#listing-tutorials .quarto-listing-default {
-  border-top: none !important;
-}
-
-#listing-tutorials .quarto-post .thumbnail img {
-  border-radius: 12px !important;
-  object-fit: contain !important;
-  background: transparent;
-}
-
-/* Publications listing */
-#listing-publications .quarto-post {
-  @include glass-light(0.5, 12px, 0.3);
-  border-radius: 18px !important;
-  padding: 1rem 1.25rem;
-  margin-bottom: 1rem;
-  transition: box-shadow 0.2s;
-  border-top: none !important;
-  &:hover { box-shadow: 0 8px 32px rgba(27,103,153,0.14); }
-}
-
-#listing-publications .quarto-listing-default {
-  border-top: none !important;
-}
-
-#listing-publications .quarto-post .thumbnail img {
-  border-radius: 12px !important;
-  object-fit: contain !important;
-  background: transparent;
-  height: 16em !important;
-  width: 16em !important;
-}
-
+/* Tutorials, Publications, and Projects listing pages */
+#listing-listing-tutorials .quarto-post,
+#listing-listing-publications .quarto-post,
 #listing-listing .quarto-post {
   @include glass-light(0.5, 12px, 0.3);
   border-radius: 18px !important;
@@ -633,8 +587,23 @@ hr {
   &:hover { box-shadow: 0 8px 32px rgba(27,103,153,0.14); }
 }
 
+#listing-listing-tutorials .quarto-listing-default,
+#listing-listing-publications .quarto-listing-default,
 #listing-listing .quarto-listing-default {
   border-top: none !important;
+}
+
+#listing-listing-tutorials .thumbnail,
+#listing-listing-publications .thumbnail {
+  overflow: hidden;
+  border-radius: 12px !important;
+}
+
+#listing-listing-tutorials .thumbnail-image,
+#listing-listing-publications .thumbnail-image {
+  border-radius: 12px !important;
+  object-fit: contain !important;
+  background: transparent;
 }
 
 /* News carousel */
