@@ -181,14 +181,14 @@ div.quarto-about-trestles .about-entity .about-links .about-link {
 }
 
 /* Projects listing */
-#listing-listing .card {
+#listing-listing-projects .card {
   @include glass-light(0.5, 12px, 0.3);
   border-radius: 18px !important;
   transition: box-shadow 0.2s;
   &:hover { box-shadow: 0 8px 32px rgba(27,103,153,0.14); }
 }
 
-#listing-listing .quarto-grid-item img {
+#listing-listing-projects .quarto-grid-item img {
     border-radius: 30px;
     padding: 20px;
 }
@@ -577,7 +577,7 @@ hr {
 /* Tutorials, Publications, and Projects listing pages */
 #listing-listing-tutorials .quarto-post,
 #listing-listing-publications .quarto-post,
-#listing-listing .quarto-post {
+#listing-listing-projects .quarto-post {
   @include glass-light(0.5, 12px, 0.3);
   border-radius: 18px !important;
   padding: 1rem 1.25rem;
@@ -589,7 +589,7 @@ hr {
 
 #listing-listing-tutorials .quarto-listing-default,
 #listing-listing-publications .quarto-listing-default,
-#listing-listing .quarto-listing-default {
+#listing-listing-projects .quarto-listing-default {
   border-top: none !important;
 }
 

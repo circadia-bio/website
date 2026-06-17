@@ -13,7 +13,7 @@ listing:
   filter-ui: false
   fields: [title, author, categories, date, image, description]
   image-align: right
-  image-height: "10em"
+  # image-height: "10em"
   feed: true
 citation: false
 toc: false
@@ -21,5 +21,6 @@ comments: false
 format: 
   html: 
     page-layout: full
+    css: tutorials-style.css
 title-block-banner: false
 ---

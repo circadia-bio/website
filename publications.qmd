@@ -12,12 +12,13 @@ listing:
   filter-ui: false
   fields: [image, title, author, categories, date, description]
   image-align: left
-  image-height: 10em
+  # image-height: 10em
   # page-size: 5
   
 
 format: 
   html: 
     page-layout: full
+    css: publications-style.css
 title-block-banner: false
 ---

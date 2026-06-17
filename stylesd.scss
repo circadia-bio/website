@@ -372,7 +372,8 @@ hr {
 
 #listing-listing .quarto-post,
 #listing-listing-tutorials .quarto-post,
-#listing-listing-publications .quarto-post {
+#listing-listing-publications .quarto-post,
+#listing-listing-projects .quarto-post {
   @include glass-dark(0.5, 12px, 0.15);
   border-radius: 18px !important;
   padding: 1rem 1.25rem;
@@ -384,13 +385,19 @@ hr {
 
 #listing-listing .quarto-listing-default,
 #listing-listing-tutorials .quarto-listing-default,
-#listing-listing-publications .quarto-listing-default {
+#listing-listing-publications .quarto-listing-default,
+#listing-listing-projects .quarto-listing-default {
   border-top: none !important;
 }
 
 #listing-listing-tutorials .thumbnail,
 #listing-listing-publications .thumbnail {
   overflow: hidden;
+  border-radius: 12px !important;
+}
+
+#listing-listing-tutorials .thumbnail *,
+#listing-listing-publications .thumbnail * {
   border-radius: 12px !important;
 }
 
