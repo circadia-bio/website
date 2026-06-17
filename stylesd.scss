@@ -452,3 +452,37 @@ hr {
   background: rgba(155, 223, 226, 0.25);
   &.nc-dot-on { background: $link-color; }
 }
+
+/* Products carousel — dark mode */
+.pc-card {
+  background: rgba(1, 43, 70, 0.82) !important;
+  border-color: rgba(155, 223, 226, 0.15) !important;
+  &:hover {
+    background: rgba(1, 43, 70, 0.95) !important;
+    border-color: rgba($link-color, 0.5) !important;
+  }
+}
+
+.pc-name {
+  color: $body-color;
+}
+
+.pc-desc {
+  color: rgba(255, 220, 180, 0.7);
+}
+
+.pc-tag {
+  color: $link-color;
+}
+
+.pc-btn {
+  background: rgba(1, 43, 70, 0.6);
+  border-color: rgba(155, 223, 226, 0.2);
+  color: $body-color;
+  &:hover { border-color: $link-color; color: $link-color; }
+}
+
+.pc-dot {
+  background: rgba(155, 223, 226, 0.25);
+  &.pc-dot-on { background: $link-color; }
+}
