@@ -388,6 +388,12 @@ hr {
   border-top: none !important;
 }
 
+#listing-listing-tutorials .thumbnail,
+#listing-listing-publications .thumbnail {
+  overflow: hidden;
+  border-radius: 12px !important;
+}
+
 #listing-listing-tutorials .thumbnail-image,
 #listing-listing-publications .thumbnail-image {
   border-radius: 12px !important;
