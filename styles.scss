@@ -580,8 +580,8 @@ hr {
 }
 
 /* Tutorials, Publications, and Projects listing pages */
-#listing-tutorials .quarto-post,
-#listing-publications .quarto-post,
+#listing-listing-tutorials .quarto-post,
+#listing-listing-publications .quarto-post,
 #listing-listing .quarto-post {
   @include glass-light(0.5, 12px, 0.3);
   border-radius: 18px !important;
@@ -592,20 +592,20 @@ hr {
   &:hover { box-shadow: 0 8px 32px rgba(27,103,153,0.14); }
 }
 
-#listing-tutorials .quarto-listing-default,
-#listing-publications .quarto-listing-default,
+#listing-listing-tutorials .quarto-listing-default,
+#listing-listing-publications .quarto-listing-default,
 #listing-listing .quarto-listing-default {
   border-top: none !important;
 }
 
-#listing-tutorials .quarto-post .thumbnail img,
-#listing-publications .quarto-post .thumbnail img {
+#listing-listing-tutorials .quarto-post .thumbnail img,
+#listing-listing-publications .quarto-post .thumbnail img {
   border-radius: 12px !important;
   object-fit: contain !important;
   background: transparent;
 }
 
-#listing-publications .quarto-post .thumbnail img {
+#listing-listing-publications .quarto-post .thumbnail img {
   height: 16em !important;
   width: 16em !important;
 }
