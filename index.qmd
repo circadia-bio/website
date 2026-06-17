@@ -140,7 +140,10 @@ The word *"Circadia"* derives from the Latin *"circa diem"* meaning "around the 
 ```{=html}
 <div class="nc-wrap">
 
-  <h2 class="nc-section-title">Tutorials</h2>
+  <div class="nc-header">
+    <span class="nc-section-title">Tutorials</span>
+    <a href="blog.html" class="news-see-all">See all</a>
+  </div>
   <div class="nc-carousel" id="nc-tutorials">
     <div class="nc-track">
 
@@ -176,11 +179,13 @@ The word *"Circadia"* derives from the Latin *"circa diem"* meaning "around the 
       <button class="nc-btn nc-prev" aria-label="Previous">&#8249;</button>
       <div class="nc-dots"></div>
       <button class="nc-btn nc-next" aria-label="Next">&#8250;</button>
-      <a href="blog.html" class="news-see-all">See all</a>
     </div>
   </div>
 
-  <h2 class="nc-section-title">Publications</h2>
+  <div class="nc-header">
+    <span class="nc-section-title">Publications</span>
+    <a href="publications.html" class="news-see-all">See all</a>
+  </div>
   <div class="nc-carousel" id="nc-publications">
     <div class="nc-track">
 
@@ -261,7 +266,6 @@ The word *"Circadia"* derives from the Latin *"circa diem"* meaning "around the 
       <button class="nc-btn nc-prev" aria-label="Previous">&#8249;</button>
       <div class="nc-dots"></div>
       <button class="nc-btn nc-next" aria-label="Next">&#8250;</button>
-      <a href="publications.html" class="news-see-all">See all</a>
     </div>
   </div>
 
