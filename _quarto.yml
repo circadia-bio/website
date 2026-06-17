@@ -11,7 +11,6 @@ website:
   twitter-card: true
   image: "logo.png"
   open-graph: # https://quarto.org/docs/websites/website-tools.html#open-graph
-    title: "Circadia"
     site-name: "Circadia"
     locale: "en_GB"
     description: "We are an interdisciplinary team researching the intersection of physics, computer science, and physiology, with a focus on sleep, rhythmicity, and medical signals."
