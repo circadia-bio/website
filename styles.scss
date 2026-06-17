@@ -500,7 +500,42 @@ hr {
     font-size: 16px;
   }
 
-  /* Prevent hero panel overflowing viewport */
+  /* News carousel — stack vertically on mobile */
+  .nc-track {
+    height: auto !important;
+  }
+
+  .nc-slide {
+    flex-direction: column !important;
+    position: relative !important;
+    opacity: 0;
+    transform: none !important;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: opacity 0.45s ease !important;
+    &.nc-active {
+      opacity: 1;
+      height: auto;
+      overflow: visible;
+      pointer-events: auto;
+    }
+  }
+
+  .nc-slide-flip {
+    flex-direction: column !important;
+  }
+
+  .nc-image {
+    flex: none !important;
+    width: 100% !important;
+    height: 200px !important;
+    img { height: 200px !important; }
+  }
+
+  .nc-body {
+    padding: 1.25rem 1.25rem !important;
+  }
   div.quarto-about-trestles {
     flex-direction: column !important;
     overflow-x: hidden;
