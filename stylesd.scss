@@ -370,7 +370,9 @@ hr {
   }
 }
 
-#listing-listing .quarto-post {
+#listing-listing .quarto-post,
+#listing-tutorials .quarto-post,
+#listing-publications .quarto-post {
   @include glass-dark(0.5, 12px, 0.15);
   border-radius: 18px !important;
   padding: 1rem 1.25rem;
@@ -380,8 +382,17 @@ hr {
   &:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
 }
 
-#listing-listing .quarto-listing-default {
+#listing-listing .quarto-listing-default,
+#listing-tutorials .quarto-listing-default,
+#listing-publications .quarto-listing-default {
   border-top: none !important;
+}
+
+#listing-tutorials .quarto-post .thumbnail img,
+#listing-publications .quarto-post .thumbnail img {
+  border-radius: 12px !important;
+  object-fit: contain !important;
+  background: transparent;
 }
 
 /* News section — card title & description */
