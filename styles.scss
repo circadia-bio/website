@@ -559,11 +559,26 @@ hr {
 }
 
 /* News carousel */
-#news-carousel {
+.nc-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   margin-top: 0.5rem;
 }
 
-#nc-track {
+.nc-section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.6rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.nc-carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.nc-track {
   position: relative;
   border-radius: 18px;
   overflow: hidden;
@@ -617,13 +632,6 @@ hr {
   overflow: hidden;
 }
 
-.nc-label {
-  font-family: "Playfair Display", serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: $body-color;
-}
-
 .nc-title {
   font-family: "Playfair Display", serif;
   font-size: 1rem;
@@ -649,17 +657,11 @@ hr {
   overflow: hidden;
 }
 
-.nc-body .news-see-all {
-  margin-top: auto;
-  align-self: flex-start;
-}
-
-#nc-controls {
+.nc-controls {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  margin-top: 0.75rem;
 }
 
 .nc-btn {
@@ -681,7 +683,7 @@ hr {
   &:hover { border-color: $link-color; color: $link-color; }
 }
 
-#nc-dots {
+.nc-dots {
   display: flex;
   gap: 6px;
 }
