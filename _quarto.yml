@@ -7,6 +7,7 @@ project:
 website:
   title: "Circadia"
   site-url: "https://circadia-lab.uk"
+  description: "We are an interdisciplinary team researching the intersection of physics, computer science, and physiology, with a focus on sleep, rhythmicity, and medical signals."
   favicon: "favicon.png"
   twitter-card: true
   image: "logo.png"
