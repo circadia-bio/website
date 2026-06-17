@@ -40,26 +40,12 @@ EXTERNAL_SVGS = [
 
 
 def svg_to_og_png(svg_bytes: bytes, output_path: Path):
-    """Convert SVG bytes to a 1200x630 OG PNG with white background."""
+    """Convert SVG bytes to PNG at natural resolution with transparency."""
     png_bytes = cairosvg.svg2png(bytestring=svg_bytes, output_width=600, output_height=600)
 
-    logo = Image.open(io.BytesIO(png_bytes)).convert("RGBA")
-
-    # Scale logo to fit within padded OG canvas
-    max_h = OG_HEIGHT - PADDING * 2
-    max_w = OG_WIDTH - PADDING * 2
-    logo.thumbnail((max_w, max_h), Image.LANCZOS)
-
-    # White background
-    canvas = Image.new("RGBA", (OG_WIDTH, OG_HEIGHT), (255, 255, 255, 255))
-
-    # Centre the logo
-    x = (OG_WIDTH - logo.width) // 2
-    y = (OG_HEIGHT - logo.height) // 2
-    canvas.paste(logo, (x, y), logo)
-
-    canvas.convert("RGB").save(output_path, "PNG", optimize=True)
-    print(f"  ✅ {output_path.name} ({logo.width}×{logo.height} logo on {OG_WIDTH}×{OG_HEIGHT} canvas)")
+    img = Image.open(io.BytesIO(png_bytes)).convert("RGBA")
+    img.save(output_path, "PNG", optimize=True)
+    print(f"  ✅ {output_path.name} ({img.width}×{img.height})")
 
 
 def main():
