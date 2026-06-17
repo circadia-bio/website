@@ -1,0 +1,5 @@
+/* Tutorials listing — rounded images */
+div#listing-listing-tutorials .thumbnail-image {
+  border-radius: 36px !important;
+  padding: 20px !important;
+}
