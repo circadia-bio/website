@@ -5,15 +5,12 @@ subtitle: "Former PhD Student"
 image: jpj.jpg
 toc: false
 started: "Autumn 2024"
-ended: "Current"
+ended: "2025"
 about:
   id: person-profile
   template: trestles
   image-width: 20em
-  links:
-    - icon: file-earmark-text
-      text: vitae
-      href: about:blank
+  links: []
 ---
 
 :::{#person-profile}
@@ -24,7 +21,7 @@ Having previously worked in education, I rediscovered the joys of research while
 
 ## Education
 
-{{< fa graduation-cap >}} PhD in Computer Science – Northumbria University (Newcastle upon Tyne, UK - Current)
+{{< fa graduation-cap >}} PhD in Computer Science – Northumbria University (Newcastle upon Tyne, UK - 2025)
 
 {{< fa graduation-cap >}} MSc in Computer Science – Northumbria University (Newcastle upon Tyne, UK - 2024)
 
