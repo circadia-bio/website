@@ -14,6 +14,7 @@ website:
   open-graph: # https://quarto.org/docs/websites/website-tools.html#open-graph
     site-name: "Circadia"
     locale: "en_GB"
+  include-in-header: _fathom.html
   page-footer: "Made with ❤️ and Quarto. © 2026. This work is openly licensed via CC BY 4.0"
   navbar:
     logo: "logo.png"
