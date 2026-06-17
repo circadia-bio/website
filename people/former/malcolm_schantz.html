@@ -44,9 +44,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-b73d7397e3c760f70e73e7fdd826c471.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-354b54e364faf30d3bfa2e57d2dd2768.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-b73d7397e3c760f70e73e7fdd826c471.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-764c3370c23ffa9aa02ef41bb151433e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-7d58badd89fc8078501f482df86fd37e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-764c3370c23ffa9aa02ef41bb151433e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,13 +80,13 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="Prof.&nbsp;Malcolm von Schantz – Circadia">
-<meta property="og:description" content="In memoriam">
+<meta property="og:description" content="In Memoriam">
 <meta property="og:image" content="https://circadia-lab.uk/people/former/malcolm.jpg">
 <meta property="og:site_name" content="Circadia">
 <meta property="og:locale" content="en_GB">
 <meta property="og:image:alt" content="Photo of Malcolm von Schantz">
 <meta name="twitter:title" content="Prof.&nbsp;Malcolm von Schantz – Circadia">
-<meta name="twitter:description" content="In memoriam">
+<meta name="twitter:description" content="In Memoriam">
 <meta name="twitter:image" content="https://circadia-lab.uk/people/former/malcolm.jpg">
 <meta name="twitter:image:alt" content="Photo of Malcolm von Schantz">
 <meta name="twitter:card" content="summary_large_image">
@@ -346,6 +346,16 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var dates = document.querySelector(".memorial-dates");
+  var entity = document.querySelector(".about-entity");
+  if (dates && entity) {
+    var links = entity.querySelector(".about-links");
+    if (links) { entity.insertBefore(dates, links); } else { entity.appendChild(dates); }
+  }
+});
+</script>
 <div class="quarto-about-trestles column-page">
   <div class="about-entity">
     <img src="malcolm.jpg" alt="Photo of Malcolm von Schantz" class="about-image
@@ -353,7 +363,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Prof.&nbsp;Malcolm von Schantz</h1>
-<p class="subtitle lead">In memoriam</p>
+<p class="subtitle lead">In Memoriam</p>
 </div>
 <div class="quarto-title-meta column-page">
   </div>
@@ -366,6 +376,9 @@ ul.task-list li input[type="checkbox"] {
 </div>
   </div>
   <div class="about-contents"><div id="person-profile">
+<div class="memorial-dates">
+<p><span>* 24 May 1966</span> <span class="memorial-separator">–</span> <span>† 24 Oct 2025</span></p>
+</div>
 <p><em>In memory of Prof.&nbsp;Malcolm von Schantz, who dedicated his career to the study of chronobiology and inspired a generation of researchers, including several of us. He would always have had something characteristically sharp to say.</em></p>
 <section id="biography" class="level2">
 <h2 data-anchor-id="biography">Biography</h2>
