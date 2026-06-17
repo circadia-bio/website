@@ -773,6 +773,24 @@ hr {
   gap: 6px;
 }
 
+// Memorial dates display
+.memorial-dates {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  color: lighten($body-color, 20%);
+  letter-spacing: 0.01em;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  width: 100%;
+
+  .memorial-separator {
+    opacity: 0.5;
+  }
+}
+
 .nc-dot {
   width: 6px;
   height: 6px;

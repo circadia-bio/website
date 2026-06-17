@@ -1,7 +1,7 @@
 ---
 title: "Prof. Malcolm von Schantz"
 sortby: 1
-subtitle: "In memoriam"
+subtitle: "In Memoriam"
 image: malcolm.jpg
 image-alt: "Photo of Malcolm von Schantz"
 toc: false
@@ -15,7 +15,24 @@ about:
       href: https://scholar.google.com/citations?user=ww4dEJgAAAAJ
 ---
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var dates = document.querySelector(".memorial-dates");
+  var entity = document.querySelector(".about-entity");
+  if (dates && entity) {
+    var links = entity.querySelector(".about-links");
+    if (links) { entity.insertBefore(dates, links); } else { entity.appendChild(dates); }
+  }
+});
+</script>
+
 :::{#person-profile}
+
+<div class="memorial-dates">
+  <span>&#42; 24 May 1966</span>
+  <span class="memorial-separator">&ndash;</span>
+  <span>&#8224; 24 Oct 2025</span>
+</div>
 
 *In memory of Prof. Malcolm von Schantz, who dedicated his career to the study of chronobiology and inspired a generation of researchers, including several of us. He would always have had something characteristically sharp to say.*
 
