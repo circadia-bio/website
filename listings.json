@@ -52,21 +52,5 @@
       "/publications/torres2024/index.html",
       "/publications/silva2023/index.html"
     ]
-  },
-  {
-    "listing": "/index.html",
-    "items": [
-      "/blog/circadiabase_docker/index.html",
-      "/blog/sleep_diaries_app/index.html",
-      "/blog/sleep_PSG/index.html",
-      "/publications/batista2026/index.html",
-      "/publications/pugliane2026/index.html",
-      "/publications/miguel2024/index.html",
-      "/publications/ferre2024/index.html",
-      "/publications/franca2024/index.html",
-      "/publications/nunes2024/index.html",
-      "/publications/torres2024/index.html",
-      "/publications/silva2023/index.html"
-    ]
   }
 ]

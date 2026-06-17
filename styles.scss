@@ -349,6 +349,74 @@ hr {
   }
 }
 
+/* News "See all" pill */
+.news-see-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  margin-top: 0.9rem;
+  padding: 0.4em 1.1em;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  color: $link-color !important;
+  background: rgba(255, 236, 212, 0.55);
+  border: 1px solid rgba($link-color, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.18s, border-color 0.18s, box-shadow 0.18s;
+
+  &::after {
+    content: "→";
+    font-style: normal;
+    transition: transform 0.18s;
+  }
+
+  &:hover {
+    background: rgba($link-color, 0.08);
+    border-color: rgba($link-color, 0.55);
+    box-shadow: 0 4px 16px rgba($link-color, 0.12);
+    &::after { transform: translateX(3px); }
+  }
+}
+
+/* News "See all" pill */
+.news-see-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  margin-top: 0.9rem;
+  padding: 0.4em 1.1em;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  color: $link-color !important;
+  background: rgba(255, 236, 212, 0.55);
+  border: 1px solid rgba($link-color, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.18s, border-color 0.18s, box-shadow 0.18s;
+
+  &::after {
+    content: "\2192";
+    font-style: normal;
+    transition: transform 0.18s;
+  }
+
+  &:hover {
+    background: rgba($link-color, 0.08);
+    border-color: rgba($link-color, 0.55);
+    box-shadow: 0 4px 16px rgba($link-color, 0.12);
+    &::after { transform: translateX(3px); }
+  }
+}
+
 /* Per-post category tags */
 .listing-category,
 .quarto-category {
@@ -366,23 +434,64 @@ hr {
   }
 }
 
-/* News section — column layout */
-#news .g-col-6 {
+/* News section — equal-height cards */
+
+// Make both columns stretch to the same height
+#news {
+  align-items: stretch;
+}
+
+// Thread the height down to the card itself
+#news .g-col-6,
+#listing-blog,
+#listing-publication {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#listing-blog .quarto-listing-container,
+#listing-publication .quarto-listing-container {
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-#news .g-col-6 > p:last-child {
-  margin-top: auto;
-  padding-top: 0.5rem;
+#listing-blog .quarto-grid.list,
+#listing-publication .quarto-grid.list {
+  flex: 1;
+  display: flex !important;
+  flex-direction: column;
 }
 
+#listing-blog .quarto-grid-item,
+#listing-publication .quarto-grid-item {
+  flex: 1;
+  display: flex !important;
+  flex-direction: column;
+}
+
+#listing-blog .quarto-grid-item .card-body,
+#listing-publication .quarto-grid-item .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#listing-blog .quarto-grid-item .listing-description,
+#listing-publication .quarto-grid-item .listing-description {
+  flex: 1;
+}
+
+// Taller images so the full figure is visible
 #listing-blog .thumbnail-image,
-#listing-publication .thumbnail-image {
-  height: 220px !important;
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
+#listing-publication .thumbnail-image,
+#listing-blog .card-img-top img,
+#listing-publication .card-img-top img {
+  height: 320px !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  object-position: top !important;
 }
 
 /* ── Mobile overrides ──────────────────────────────────────── */
@@ -391,7 +500,42 @@ hr {
     font-size: 16px;
   }
 
-  /* Prevent hero panel overflowing viewport */
+  /* News carousel — stack vertically on mobile */
+  .nc-track {
+    height: auto !important;
+  }
+
+  .nc-slide {
+    flex-direction: column !important;
+    position: relative !important;
+    opacity: 0;
+    transform: none !important;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: opacity 0.45s ease !important;
+    &.nc-active {
+      opacity: 1;
+      height: auto;
+      overflow: visible;
+      pointer-events: auto;
+    }
+  }
+
+  .nc-slide-flip {
+    flex-direction: column !important;
+  }
+
+  .nc-image {
+    flex: none !important;
+    width: 100% !important;
+    height: 200px !important;
+    img { height: 200px !important; }
+  }
+
+  .nc-body {
+    padding: 1.25rem 1.25rem !important;
+  }
   div.quarto-about-trestles {
     flex-direction: column !important;
     overflow-x: hidden;
@@ -449,29 +593,188 @@ hr {
   border-top: none !important;
 }
 
-/* News section — card title & description */
-#listing-blog .card,
-#listing-publication .card {
-  @include glass-light(0.45, 12px, 0.28);
-  border-radius: 18px !important;
-  transition: box-shadow 0.2s;
-  &:hover { box-shadow: 0 8px 32px rgba(27,103,153,0.14); }
+/* News carousel */
+.nc-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 0.5rem;
 }
 
-#listing-blog h5.listing-title,
-#listing-publication h5.listing-title {
+.nc-section-title {
+  display: none;
+}
+
+.nc-label-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.nc-label-row .news-see-all {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $link-color !important;
+  text-decoration: none !important;
+  border: 1px solid rgba($link-color, 0.4) !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border-radius: 999px;
+  padding: 0.2em 0.8em !important;
+  white-space: nowrap;
+  opacity: 0.8;
+  transition: opacity 0.15s, border-color 0.15s;
+  &:hover { opacity: 1; border-color: $link-color !important; }
+}
+
+.nc-carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.nc-track {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  height: 340px;
+}
+
+.nc-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: row;
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.55s cubic-bezier(0.4,0,0.2,1),
+              transform 0.55s cubic-bezier(0.4,0,0.2,1);
+  pointer-events: none;
+  @include glass-light(0.45, 12px, 0.28);
+}
+
+.nc-slide-flip {
+  flex-direction: row-reverse;
+  transform: translateX(-40px);
+}
+
+.nc-slide.nc-active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.nc-image {
+  flex: 0 0 42%;
+  display: block;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+}
+
+.nc-body {
+  flex: 1;
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.55rem;
+  overflow: hidden;
+}
+
+.nc-label {
   font-family: "Playfair Display", serif;
-  font-size: 0.95rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: $body-color;
+}
+
+.nc-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
   font-weight: 600;
   color: $body-color;
   line-height: 1.4;
-  margin-bottom: 0.4rem;
+  text-decoration: none;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  &:hover { color: $link-color; }
 }
 
-#listing-blog .listing-description,
-#listing-publication .listing-description {
-  font-size: 0.72rem;
+.nc-journal {
+  font-size: 0.68rem;
+  color: $link-color;
+  margin: 0;
+  opacity: 0.85;
+}
+
+.nc-desc {
+  font-size: 0.7rem;
   color: lighten($body-color, 20%);
   line-height: 1.55;
-  margin-top: 0;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
 }
+
+.nc-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.nc-btn {
+  background: rgba(255,236,212,0.55);
+  border: 1px solid rgba(255,255,255,0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: $body-color;
+  transition: border-color 0.15s, color 0.15s;
+  padding: 0;
+  &:hover { border-color: $link-color; color: $link-color; }
+}
+
+.nc-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.nc-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: darken($body-bg, 15%);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  &.nc-dot-on {
+    background: $link-color;
+    transform: scale(1.35);
+  }
+}
+
+
+
+
