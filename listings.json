@@ -26,6 +26,22 @@
     ]
   },
   {
+    "listing": "/publications.html",
+    "items": [
+      "/publications/buest2026/index.html",
+      "/publications/batista2026/index.html",
+      "/publications/pugliane2026/index.html",
+      "/publications/silva2025/index.html",
+      "/publications/miguel2024/index.html",
+      "/publications/palombini2024/index.html",
+      "/publications/ferre2024/index.html",
+      "/publications/franca2024/index.html",
+      "/publications/nunes2024/index.html",
+      "/publications/torres2024/index.html",
+      "/publications/silva2023/index.html"
+    ]
+  },
+  {
     "listing": "/projects.html",
     "items": [
       "/projects/pinetime/index.html",
@@ -38,19 +54,6 @@
       "/projects/actt-validation/index.html",
       "/projects/circadiabase-docker/index.html",
       "/projects/cycling-entropy/index.html"
-    ]
-  },
-  {
-    "listing": "/publications.html",
-    "items": [
-      "/publications/batista2026/index.html",
-      "/publications/pugliane2026/index.html",
-      "/publications/miguel2024/index.html",
-      "/publications/ferre2024/index.html",
-      "/publications/franca2024/index.html",
-      "/publications/nunes2024/index.html",
-      "/publications/torres2024/index.html",
-      "/publications/silva2023/index.html"
     ]
   }
 ]

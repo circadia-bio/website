@@ -17,7 +17,35 @@
 <width>144</width>
 </image>
 <generator>quarto-1.9.38</generator>
-<lastBuildDate>Wed, 06 May 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 05 Jun 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>L5 onset as a proxy for circadian phase in infants</title>
+  <dc:creator>Rebeca Buest de Mesquita Silva</dc:creator>
+  <dc:creator>Adrielle Holler Pykocz</dc:creator>
+  <dc:creator>Hanna Victoria Leal</dc:creator>
+  <dc:creator>Mário A. Leocadio-Miguel</dc:creator>
+  <dc:creator>Fernando M. Louzada</dc:creator>
+  <link>https://circadia-lab.uk/publications/buest2026/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Chronotype is commonly assessed using the mid-sleep point as an indicator of circadian phase. In infants, however, this assessment typically relies on actigraphy, and most available sleep-scoring algorithms have been developed and validated for adolescents and adults, limiting their applicability in early childhood. The aim of this study was to examine the relationship between the mid-sleep point and L5 onset, a nonparametric measure derived from rest–activity rhythms that reflects the start of the least active 5-hour period. A total of 502 nights from 81 six-month-old infants were analysed. Sleep onset and offset were determined by visual inspection of actograms, and the mid-sleep point was subsequently calculated. A positive correlation was observed between mid-sleep point and L5 onset (r = 0.22, p &lt; 0.001), supporting L5 onset as a practical proxy for circadian phase assessment in infants.</p>
+
+
+
+ ]]></description>
+  <category>Article</category>
+  <category>infants</category>
+  <category>actigraphy</category>
+  <category>circadian phase</category>
+  <category>chronotype</category>
+  <guid>https://circadia-lab.uk/publications/buest2026/</guid>
+  <pubDate>Fri, 05 Jun 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://circadia-lab.uk/publications/buest2026/featured.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>From Movement to METs: A Validation of ActTrust® for Energy Expenditure Estimation and Physical Activity Classification in Young Adults</title>
   <dc:creator>Elias dos Santos Batista</dc:creator>
@@ -81,6 +109,33 @@
   <media:content url="https://circadia-lab.uk/publications/pugliane2026/featured.png" medium="image" type="image/png" height="132" width="144"/>
 </item>
 <item>
+  <title>Chronotype Profile in Children: A Systematic Review</title>
+  <dc:creator>Rebeca Buest de Mesquita Silva</dc:creator>
+  <dc:creator>Helena Schmidt</dc:creator>
+  <dc:creator>Gustavo David dos Santos</dc:creator>
+  <dc:creator>Mário A. Leocadio-Miguel</dc:creator>
+  <dc:creator>Fernando M. Louzada</dc:creator>
+  <link>https://circadia-lab.uk/publications/silva2025/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>The chronotype profile of children has been described over the years, but the data regarding the subject is inconsistent in the literature. Some studies have shown that the morning type is the predominant chronotype in children, while others have indicated that neither or evening type children are the majority. To our knowledge, no systematic reviews concerning chronotype in children had previously been performed. PRISMA guidelines were followed in conducting this review. The literature search targeted studies describing children’s chronotype in PubMed, Embase, Web of Science, LILACS, and SciELO. Eligibility criteria included studies assessing chronotype — either objectively or subjectively, via mid-sleep point or circadian preference — among children aged 0–10 years. The review synthesises the available evidence and discusses the methodological heterogeneity that contributes to conflicting findings in this area.</p>
+
+
+
+ ]]></description>
+  <category>Review</category>
+  <category>chronotype</category>
+  <category>children</category>
+  <category>systematic review</category>
+  <guid>https://circadia-lab.uk/publications/silva2025/</guid>
+  <pubDate>Mon, 10 Nov 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://circadia-lab.uk/publications/silva2025/featured.png" medium="image" type="image/png" height="42" width="144"/>
+</item>
+<item>
   <title>Heritability of sleep architecture based on home polysomnography</title>
   <dc:creator>Mário A. Leocadio-Miguel</dc:creator>
   <dc:creator>Tâmara P Taporoski</dc:creator>
@@ -112,6 +167,58 @@
   <guid>https://circadia-lab.uk/publications/miguel2024/</guid>
   <pubDate>Sun, 29 Dec 2024 00:00:00 GMT</pubDate>
   <media:content url="https://circadia-lab.uk/publications/miguel2024/featured.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>2024 Standardization of Polysomnography Reports — A Consensus of the Brazilian Sleep Association</title>
+  <dc:creator>Luciane Bizari Coin Palombini</dc:creator>
+  <dc:creator>Luciana Oliveira Mello</dc:creator>
+  <dc:creator>Rogerio Santos-Silva</dc:creator>
+  <dc:creator>Marcos Assis</dc:creator>
+  <dc:creator>Tatiana Cunha</dc:creator>
+  <dc:creator>Luciano F. Drager</dc:creator>
+  <dc:creator>Edilson Zancanella</dc:creator>
+  <dc:creator>Regina Alves</dc:creator>
+  <dc:creator>Andrea Bacelar</dc:creator>
+  <dc:creator>Márcia Bagnato</dc:creator>
+  <dc:creator>Renata Balsalobre</dc:creator>
+  <dc:creator>Eloisa Bianchini</dc:creator>
+  <dc:creator>Eduardo Brasil</dc:creator>
+  <dc:creator>Fernando Coelho</dc:creator>
+  <dc:creator>Bruno Duarte</dc:creator>
+  <dc:creator>Alan Eckeli</dc:creator>
+  <dc:creator>Cid Fabbro</dc:creator>
+  <dc:creator>André Franco</dc:creator>
+  <dc:creator>Pedro Genta</dc:creator>
+  <dc:creator>Laís Giannasi</dc:creator>
+  <dc:creator>Mário A. Leocadio-Miguel</dc:creator>
+  <dc:creator>Gustavo Moreira</dc:creator>
+  <dc:creator>Maria Claudia Naufel</dc:creator>
+  <dc:creator>Luciana Pereira</dc:creator>
+  <dc:creator>Dalva Poyares</dc:creator>
+  <dc:creator>Márcia Pradella-Hallinan</dc:creator>
+  <dc:creator>Clélia Soares</dc:creator>
+  <dc:creator>Leticia Soster</dc:creator>
+  <dc:creator>Marcio Zanini</dc:creator>
+  <dc:creator>Gabriel Natan Pires</dc:creator>
+  <link>https://circadia-lab.uk/publications/palombini2024/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>This consensus document from the Brazilian Sleep Association presents updated standardisation guidelines for polysomnography (PSG) reports. It provides recommendations on scoring rules, technical specifications, and reporting conventions, with the aim of improving consistency and comparability across clinical and research sleep studies in Brazil. The document reflects a collaborative effort across leading sleep medicine centres and researchers in the country, and is intended to serve as a practical reference for sleep technologists, clinicians, and researchers conducting and interpreting PSG studies.</p>
+
+
+
+ ]]></description>
+  <category>Consensus</category>
+  <category>polysomnography</category>
+  <category>sleep medicine</category>
+  <category>standards</category>
+  <guid>https://circadia-lab.uk/publications/palombini2024/</guid>
+  <pubDate>Tue, 17 Dec 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://circadia-lab.uk/publications/palombini2024/featured.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Cycling reduces the entropy of neuronal activity in the human adult cortex</title>
