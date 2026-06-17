@@ -1,5 +1,5 @@
 ---
-title: "Join us/Visit"
+title: "Join us / Visit"
 citation: false
 toc: false
 comments: false
@@ -9,6 +9,28 @@ format:
 title-block-banner: false
 ---
 
-If you are interested in visiting the lab for a short stay, please get in touch via `lucas.franca` and `mario.miguel` (at) northumbria.ac.uk. We are always looking for motivated people to work with.
+We are always looking for motivated people to work with. The Circadia Lab sits at the intersection of chronobiology, neuroimaging, signal processing, and open research infrastructure — if that sounds like your kind of problem space, we'd love to hear from you.
 
-If you are interested in doing a PhD or postdoc with us, please contact us to discuss possible projects and information on potential funding streams.
+## PhD opportunities
+
+We welcome applications from prospective PhD students interested in chronobiology, sleep science, neuroimaging, actigraphy-based methods, or the development of open research software. Projects typically combine data analysis and software development with a substantive scientific question, and we place a strong emphasis on reproducible, open research practice.
+
+We welcome applications from candidates with their own funding or who are applying to external schemes. We strongly encourage informal contact before submitting a formal application — please get in touch to discuss whether your interests align with current lab directions.
+
+## Postdoctoral fellowships
+
+We do not routinely advertise postdoctoral positions, but we actively support strong candidates in applying for independent fellowship funding to join the lab. Relevant schemes include:
+
+- [Marie Skłodowska-Curie Postdoctoral Fellowships](https://marie-sklodowska-curie-actions.ec.europa.eu/actions/postdoctoral-fellowships) (EU/international)
+- [Leverhulme Early Career Fellowships](https://www.leverhulme.ac.uk/early-career-fellowships)
+- [BBSRC](https://www.ukri.org/councils/bbsrc/), [MRC](https://www.ukri.org/councils/mrc/), and [EPSRC](https://www.ukri.org/councils/epsrc/) fellowship schemes
+
+If you are interested in developing a fellowship application with us as the host institution, please reach out with your CV and a brief outline of your research interests.
+
+## Visiting researchers
+
+We welcome visiting students and researchers for short stays. If you are interested in a research visit, please contact us to discuss logistics and possible collaborative projects.
+
+## Get in touch
+
+Reach us at `lucas.franca` and `mario.miguel` (at) northumbria.ac.uk.
