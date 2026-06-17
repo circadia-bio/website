@@ -1,6 +1,7 @@
 ---
 title: "Publications" 
 listing: 
+  id: listing-publications
   contents: 
     - "publications/**/index.qmd"
   feed: true

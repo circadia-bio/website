@@ -579,6 +579,29 @@ hr {
   }
 }
 
+/* Publications listing */
+#listing-publications .quarto-post {
+  @include glass-light(0.5, 12px, 0.3);
+  border-radius: 18px !important;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  transition: box-shadow 0.2s;
+  border-top: none !important;
+  &:hover { box-shadow: 0 8px 32px rgba(27,103,153,0.14); }
+}
+
+#listing-publications .quarto-listing-default {
+  border-top: none !important;
+}
+
+#listing-publications .quarto-post .thumbnail img {
+  border-radius: 12px !important;
+  object-fit: contain !important;
+  background: transparent;
+  height: 16em !important;
+  width: 16em !important;
+}
+
 #listing-listing .quarto-post {
   @include glass-light(0.5, 12px, 0.3);
   border-radius: 18px !important;
