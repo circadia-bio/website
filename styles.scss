@@ -570,24 +570,15 @@ hr {
   display: none;
 }
 
-.nc-header {
+.nc-label-row {
   display: flex;
   align-items: baseline;
+  justify-content: space-between;
   gap: 0.75rem;
-  margin-bottom: 0.4rem;
 }
 
-.nc-header .nc-section-title {
-  display: block;
-  font-family: "Playfair Display", serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: $body-color;
-  margin: 0;
-}
-
-.nc-header .news-see-all {
-  font-size: 0.62rem;
+.nc-label-row .news-see-all {
+  font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -597,7 +588,8 @@ hr {
   background: transparent !important;
   backdrop-filter: none !important;
   border-radius: 999px;
-  padding: 0.2em 0.75em !important;
+  padding: 0.2em 0.8em !important;
+  white-space: nowrap;
   opacity: 0.8;
   transition: opacity 0.15s, border-color 0.15s;
   &:hover { opacity: 1; border-color: $link-color !important; }
