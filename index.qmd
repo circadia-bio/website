@@ -7,36 +7,7 @@ about: # https://quarto.org/docs/websites/website-about.html
   template: trestles
   id: main
   image-width: 20em
-listing: 
-- id: blog
-  contents: 
-    - "blog/*/index.qmd"
-    - "blog/*/index.md"
-    - "/blog/*/index.ipynb"
-  sort: date desc
-  type: grid
-  grid-columns: 1
-  categories: false
-  sort-ui: false
-  filter-ui: false
-  fields: [title, subtitle, image, description]
-  max-items: 1
-  max-description-length: 300
-  image-height: "200"
-- id: publication
-  contents: 
-    - "publications/*/index.qmd"
-  sort: date desc
-  type: grid
-  grid-columns: 1
-  categories: false
-  sort-ui: false
-  filter-ui: false
-  fields: [title, image, description]
-  max-items: 1
-  max-description-length: 300
-  image-height: "200"
-  image-placeholder: ../publication/featured.jpg
+listing: []
 ---
 
 :::{#main}
@@ -166,21 +137,32 @@ The word *"Circadia"* derives from the Latin *"circa diem"* meaning "around the 
 
 ## News
 
-:::: {.grid}
+```{=html}
+<div class="news-section">
 
+  <div class="news-card">
+    <a href="blog/circadiabase_docker/index.html" class="news-card-image">
+      <img src="blog/circadiabase_docker/cover.svg" alt="Setting up circadiaBase Docker">
+    </a>
+    <div class="news-card-body">
+      <span class="news-card-label">Tutorials</span>
+      <a href="blog/circadiabase_docker/index.html" class="news-card-title">Setting up circadiaBase Docker</a>
+      <p class="news-card-desc">A step-by-step guide to spinning up the Circadia Lab&#8217;s reproducible research environment&#8202;&mdash;&#8202;JupyterLab and RStudio Server in a single Docker Compose stack&#8202;&mdash;&#8202;for chronobiology and actigraphy research.</p>
+      <a href="blog.html" class="news-see-all">See all</a>
+    </div>
+  </div>
 
-::: {.g-col-6}
-### Tutorials
-::: {#blog}
-:::
-[See all &rarr;](blog.html){.about-links .subtitle}
-:::
+  <div class="news-card news-card-flip">
+    <a href="publications/batista2026/index.html" class="news-card-image">
+      <img src="publications/batista2026/featured.jpg" alt="From Movement to METs">
+    </a>
+    <div class="news-card-body">
+      <span class="news-card-label">Publications</span>
+      <a href="publications/batista2026/index.html" class="news-card-title">From Movement to METs: A Validation of ActTrust&#174; for Energy Expenditure Estimation and Physical Activity Classification in Young Adults</a>
+      <p class="news-card-desc">Physical activity (PA) is recognised for providing several health benefits in humans, mainly preventing and controlling chronic non-communicable diseases. However estimating PA is a challenging and expensive task&#8230;</p>
+      <a href="publications.html" class="news-see-all">See all</a>
+    </div>
+  </div>
 
-::: {.g-col-6}
-### Publications
-::: {#publication}
-:::
-[See all &rarr;](publications.html){.about-links .subtitle}
-:::
-
-::::
+</div>
+```
