@@ -579,6 +579,27 @@ hr {
   }
 }
 
+/* Tutorials listing page */
+#listing-tutorials .quarto-post {
+  @include glass-light(0.5, 12px, 0.3);
+  border-radius: 18px !important;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  transition: box-shadow 0.2s;
+  border-top: none !important;
+  &:hover { box-shadow: 0 8px 32px rgba(27,103,153,0.14); }
+}
+
+#listing-tutorials .quarto-listing-default {
+  border-top: none !important;
+}
+
+#listing-tutorials .quarto-post .thumbnail img {
+  border-radius: 12px !important;
+  object-fit: contain !important;
+  background: transparent;
+}
+
 /* Publications listing */
 #listing-publications .quarto-post {
   @include glass-light(0.5, 12px, 0.3);
