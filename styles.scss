@@ -180,11 +180,6 @@ div.quarto-about-trestles .about-entity .about-links .about-link {
     }
 }
 
-#listing-listing .quarto-post .thumbnail img {
-  object-fit: contain !important;
-  background: transparent;
-}
-
 /* Projects listing */
 #listing-listing .card {
   @include glass-light(0.5, 12px, 0.3);
@@ -609,11 +604,6 @@ hr {
   border-radius: 12px !important;
   object-fit: contain !important;
   background: transparent;
-}
-
-#listing-listing-publications .thumbnail-image {
-  height: 16em !important;
-  width: 16em !important;
 }
 
 /* News carousel */
