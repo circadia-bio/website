@@ -138,31 +138,83 @@ The word *"Circadia"* derives from the Latin *"circa diem"* meaning "around the 
 ## News
 
 ```{=html}
-<div class="news-section">
+<div id="news-carousel">
+  <div id="nc-track">
 
-  <div class="news-card">
-    <a href="blog/circadiabase_docker/index.html" class="news-card-image">
-      <img src="blog/circadiabase_docker/cover.svg" alt="Setting up circadiaBase Docker">
-    </a>
-    <div class="news-card-body">
-      <span class="news-card-label">Tutorials</span>
-      <a href="blog/circadiabase_docker/index.html" class="news-card-title">Setting up circadiaBase Docker</a>
-      <p class="news-card-desc">A step-by-step guide to spinning up the Circadia Lab&#8217;s reproducible research environment&#8202;&mdash;&#8202;JupyterLab and RStudio Server in a single Docker Compose stack&#8202;&mdash;&#8202;for chronobiology and actigraphy research.</p>
-      <a href="blog.html" class="news-see-all">See all</a>
+    <div class="nc-slide">
+      <a href="blog/circadiabase_docker/index.html" class="nc-image">
+        <img src="blog/circadiabase_docker/cover.svg" alt="Setting up circadiaBase Docker">
+      </a>
+      <div class="nc-body">
+        <span class="nc-label">Tutorials</span>
+        <a href="blog/circadiabase_docker/index.html" class="nc-title">Setting up circadiaBase Docker</a>
+        <p class="nc-desc">A step-by-step guide to spinning up the Circadia Lab&#8217;s reproducible research environment&#8202;&mdash;&#8202;JupyterLab and RStudio Server in a single Docker Compose stack&#8202;&mdash;&#8202;for chronobiology and actigraphy research.</p>
+        <a href="blog.html" class="news-see-all">See all</a>
+      </div>
     </div>
+
+    <div class="nc-slide nc-slide-flip">
+      <a href="publications/batista2026/index.html" class="nc-image">
+        <img src="publications/batista2026/featured.jpg" alt="From Movement to METs">
+      </a>
+      <div class="nc-body">
+        <span class="nc-label">Publications</span>
+        <a href="publications/batista2026/index.html" class="nc-title">From Movement to METs: A Validation of ActTrust&#174; for Energy Expenditure Estimation and Physical Activity Classification in Young Adults</a>
+        <p class="nc-desc">Physical activity (PA) is recognised for providing several health benefits in humans, mainly preventing and controlling chronic non-communicable diseases. However estimating PA is a challenging and expensive task&#8230;</p>
+        <a href="publications.html" class="news-see-all">See all</a>
+      </div>
+    </div>
+
   </div>
 
-  <div class="news-card news-card-flip">
-    <a href="publications/batista2026/index.html" class="news-card-image">
-      <img src="publications/batista2026/featured.jpg" alt="From Movement to METs">
-    </a>
-    <div class="news-card-body">
-      <span class="news-card-label">Publications</span>
-      <a href="publications/batista2026/index.html" class="news-card-title">From Movement to METs: A Validation of ActTrust&#174; for Energy Expenditure Estimation and Physical Activity Classification in Young Adults</a>
-      <p class="news-card-desc">Physical activity (PA) is recognised for providing several health benefits in humans, mainly preventing and controlling chronic non-communicable diseases. However estimating PA is a challenging and expensive task&#8230;</p>
-      <a href="publications.html" class="news-see-all">See all</a>
-    </div>
+  <div id="nc-controls">
+    <button class="nc-btn" id="nc-prev" aria-label="Previous">&#8249;</button>
+    <div id="nc-dots"></div>
+    <button class="nc-btn" id="nc-next" aria-label="Next">&#8250;</button>
   </div>
-
 </div>
+
+<script>
+(function(){
+  var track  = document.getElementById('nc-track');
+  var slides = track.querySelectorAll('.nc-slide');
+  var dotsEl = document.getElementById('nc-dots');
+  var N = slides.length;
+  var current = 0;
+  var timer;
+
+  // Build dots
+  slides.forEach(function(_, i) {
+    var d = document.createElement('button');
+    d.className = 'nc-dot';
+    d.setAttribute('aria-label', 'Slide ' + (i + 1));
+    d.onclick = function() { goTo(i); };
+    dotsEl.appendChild(d);
+  });
+
+  function goTo(idx) {
+    slides[current].classList.remove('nc-active');
+    dotsEl.children[current].classList.remove('nc-dot-on');
+    current = (idx + N) % N;
+    slides[current].classList.add('nc-active');
+    dotsEl.children[current].classList.add('nc-dot-on');
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  document.getElementById('nc-next').onclick = next;
+  document.getElementById('nc-prev').onclick = prev;
+
+  function startTimer() { timer = setInterval(next, 4000); }
+  function stopTimer()  { clearInterval(timer); }
+
+  document.getElementById('news-carousel').addEventListener('mouseenter', stopTimer);
+  document.getElementById('news-carousel').addEventListener('mouseleave', startTimer);
+
+  // Init
+  goTo(0);
+  startTimer();
+})();
+</script>
 ```
