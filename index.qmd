@@ -18,6 +18,8 @@ We are an interdisciplinary group spanning the [School of Computer Science](http
 
 The word *"Circadia"* derives from the Latin *"circa diem"* meaning "around the day", a reference to the circadian rhythms that govern our lives and the focus of our research. It also rhymes with *"arcadia"* - a place for exploration, discovery and learning.
 
+Interested in working with us? Visit our [Join us](/join.html) page.
+
 ::: 
 
 ## Our tools & software
