@@ -676,6 +676,13 @@ hr {
   &:hover { color: $link-color; }
 }
 
+.nc-journal {
+  font-size: 0.68rem;
+  color: $link-color;
+  margin: 0;
+  opacity: 0.85;
+}
+
 .nc-desc {
   font-size: 0.7rem;
   color: lighten($body-color, 20%);
