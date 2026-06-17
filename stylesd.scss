@@ -410,3 +410,45 @@ hr {
   line-height: 1.55;
   margin-top: 0;
 }
+
+/* News carousel — dark mode */
+.nc-slide {
+  background: rgba(1, 43, 70, 0.82) !important;
+  border: 1px solid rgba(155, 223, 226, 0.15) !important;
+}
+
+.nc-label {
+  color: $body-color;
+}
+
+.nc-title {
+  color: $body-color !important;
+  &:hover { color: $link-color !important; }
+}
+
+.nc-journal {
+  color: $link-color;
+  opacity: 1;
+}
+
+.nc-desc {
+  color: rgba(255, 220, 180, 0.75) !important;
+}
+
+.nc-label-row .news-see-all {
+  color: $link-color !important;
+  border-color: rgba($link-color, 0.45) !important;
+  &:hover { border-color: $link-color !important; }
+}
+
+.nc-btn {
+  background: rgba(1, 43, 70, 0.6);
+  border-color: rgba(155, 223, 226, 0.2);
+  color: $body-color;
+  &:hover { border-color: $link-color; color: $link-color; }
+}
+
+.nc-dot {
+  background: rgba(155, 223, 226, 0.25);
+  &.nc-dot-on { background: $link-color; }
+}
