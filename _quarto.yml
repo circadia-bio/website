@@ -55,5 +55,6 @@ format:
     theme:
       light: [cosmo, styles.scss]
       dark: [cosmo, stylesd.scss]
+    default-dark-mode: system
     highlight-style: arrow
     page-layout: full
