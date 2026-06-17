@@ -1,0 +1,24 @@
+---
+title: "L5 onset as a proxy for circadian phase in infants"
+subtitle: "*Chronobiology International*"
+author:
+- Rebeca Buest de Mesquita Silva
+- Adrielle Holler Pykocz
+- Hanna Victoria Leal
+- name: Mário A. Leocadio-Miguel
+  orcid: 0000-0002-7248-3529
+- Fernando M. Louzada
+description: "This study examined whether L5 onset — the start of the least active 5-hour period derived from rest–activity rhythms — can serve as a proxy for circadian phase in six-month-old infants, where standard sleep-scoring algorithms validated for adults have limited applicability. Analysing 502 nights from 81 infants, a significant positive correlation was found between mid-sleep point and L5 onset, supporting L5 onset as a practical, non-invasive circadian phase marker in early childhood."
+date: '2026-06-05'
+slug: l5-onset-infants
+image: featured.jpg
+categories:
+  - Article
+  - infants
+  - actigraphy
+  - circadian phase
+  - chronotype
+doi: 10.1080/07420528.2026.2681616
+---
+
+Chronotype is commonly assessed using the mid-sleep point as an indicator of circadian phase. In infants, however, this assessment typically relies on actigraphy, and most available sleep-scoring algorithms have been developed and validated for adolescents and adults, limiting their applicability in early childhood. The aim of this study was to examine the relationship between the mid-sleep point and L5 onset, a nonparametric measure derived from rest–activity rhythms that reflects the start of the least active 5-hour period. A total of 502 nights from 81 six-month-old infants were analysed. Sleep onset and offset were determined by visual inspection of actograms, and the mid-sleep point was subsequently calculated. A positive correlation was observed between mid-sleep point and L5 onset (r = 0.22, p < 0.001), supporting L5 onset as a practical proxy for circadian phase assessment in infants.

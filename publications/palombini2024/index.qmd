@@ -1,0 +1,47 @@
+---
+title: "2024 Standardization of Polysomnography Reports — A Consensus of the Brazilian Sleep Association"
+subtitle: "*Sleep Science*"
+author:
+- Luciane Bizari Coin Palombini
+- Luciana Oliveira Mello
+- Rogerio Santos-Silva
+- Marcos Assis
+- Tatiana Cunha
+- Luciano F. Drager
+- Edilson Zancanella
+- Regina Alves
+- Andrea Bacelar
+- Márcia Bagnato
+- Renata Balsalobre
+- Eloisa Bianchini
+- Eduardo Brasil
+- Fernando Coelho
+- Bruno Duarte
+- Alan Eckeli
+- Cid Fabbro
+- André Franco
+- Pedro Genta
+- Laís Giannasi
+- name: Mário A. Leocadio-Miguel
+  orcid: 0000-0002-7248-3529
+- Gustavo Moreira
+- Maria Claudia Naufel
+- Luciana Pereira
+- Dalva Poyares
+- Márcia Pradella-Hallinan
+- Clélia Soares
+- Leticia Soster
+- Marcio Zanini
+- Gabriel Natan Pires
+description: "A consensus document from the Brazilian Sleep Association establishing standardised reporting guidelines for polysomnography, covering scoring rules, technical specifications, and reporting conventions to improve consistency and comparability of sleep studies across Brazilian clinical and research settings."
+date: '2024-12-17'
+slug: psg-standardization-brazil
+image: featured.jpg
+categories:
+  - Consensus
+  - polysomnography
+  - sleep medicine
+  - standards
+---
+
+This consensus document from the Brazilian Sleep Association presents updated standardisation guidelines for polysomnography (PSG) reports. It provides recommendations on scoring rules, technical specifications, and reporting conventions, with the aim of improving consistency and comparability across clinical and research sleep studies in Brazil. The document reflects a collaborative effort across leading sleep medicine centres and researchers in the country, and is intended to serve as a practical reference for sleep technologists, clinicians, and researchers conducting and interpreting PSG studies.

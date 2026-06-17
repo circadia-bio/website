@@ -1,0 +1,23 @@
+---
+title: "Chronotype Profile in Children: A Systematic Review"
+subtitle: "*Sleep and Vigilance*"
+author:
+- Rebeca Buest de Mesquita Silva
+- Helena Schmidt
+- Gustavo David dos Santos
+- name: Mário A. Leocadio-Miguel
+  orcid: 0000-0002-7248-3529
+- Fernando M. Louzada
+description: "The first systematic review of chronotype profiling in children aged 0–10 years, conducted following PRISMA guidelines across five databases. The review finds inconsistent evidence on whether morning chronotype predominates in children, highlights the heterogeneity of measurement approaches used across studies, and identifies key gaps in the literature on circadian preference in early childhood."
+date: '2025-11-10'
+slug: chronotype-children-review
+image: featured.png
+categories:
+  - Review
+  - chronotype
+  - children
+  - systematic review
+doi: 10.1007/s41782-025-00324-8
+---
+
+The chronotype profile of children has been described over the years, but the data regarding the subject is inconsistent in the literature. Some studies have shown that the morning type is the predominant chronotype in children, while others have indicated that neither or evening type children are the majority. To our knowledge, no systematic reviews concerning chronotype in children had previously been performed. PRISMA guidelines were followed in conducting this review. The literature search targeted studies describing children's chronotype in PubMed, Embase, Web of Science, LILACS, and SciELO. Eligibility criteria included studies assessing chronotype — either objectively or subjectively, via mid-sleep point or circadian preference — among children aged 0–10 years. The review synthesises the available evidence and discusses the methodological heterogeneity that contributes to conflicting findings in this area.
