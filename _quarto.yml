@@ -7,7 +7,7 @@ project:
 website:
   title: "Circadia"
   site-url: "https://circadia-lab.uk"
-  favicon: "logo.png"
+  favicon: "favicon.png"
   twitter-card: true
   image: "logo.png"
   open-graph: # https://quarto.org/docs/websites/website-tools.html#open-graph
