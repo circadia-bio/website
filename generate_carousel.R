@@ -178,7 +178,6 @@ js <- '
 </script>'
 
 output <- paste(
-  '```{=html}',
   '<div class="nc-wrap">',
   '',
   carousel_html("nc-tutorials",    tut_slides),
@@ -187,11 +186,10 @@ output <- paste(
   '',
   '</div>',
   js,
-  '```',
   sep = "\n"
 )
 
-writeLines(output, "_news-carousel.qmd")
-message("✓ _news-carousel.qmd generated (",
+writeLines(output, "_news-carousel.html")
+message("✓ _news-carousel.html generated (",
         length(tut_slides), " tutorials, ",
         length(pub_slides), " publications)")
