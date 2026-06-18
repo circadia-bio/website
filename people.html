@@ -47,9 +47,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d7a5a7e2850f6e316de01d8cf44987c9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-7d58badd89fc8078501f482df86fd37e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-d7a5a7e2850f6e316de01d8cf44987c9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-681ebcd6bbd855087cd434c31b5a7695.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-b930bda4e217681943592ad1fa8f41c1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-681ebcd6bbd855087cd434c31b5a7695.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,34 +80,6 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-research-staff .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-subtitle',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-research-staff'] = new List('listing-research-staff', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-students .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
@@ -122,34 +94,6 @@ ul.task-list li input[type="checkbox"] {
 
     window['quarto-listings'] = window['quarto-listings'] || {};
     window['quarto-listings']['listing-students'] = new List('listing-students', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-collaborators .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-subtitle',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-collaborators'] = new List('listing-collaborators', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -492,81 +436,204 @@ window.Quarto = {
 
 <section id="research-staff" class="level2">
 <h2 class="anchored" data-anchor-id="research-staff">Research Staff</h2>
-<div id="listing-research-staff" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1781742620224" data-listing-reading-time-sort="3" data-listing-word-count-sort="485">
-<a href="./people/staff/lucas_franca.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-center">
-<p class="card-img-top">
-<img loading="lazy" src="./people/staff/lucas.jpg" class="thumbnail-image card-img" style="height: 200px;" alt="Photo of Lucas França">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Dr Lucas França
-</h5>
-<div class="card-subtitle listing-subtitle">
-Co Lead
+<!-- STAFF:START -->
+<div id="rs-wrap">
+  <div id="rs-track">
+
+    <div class="rs-slide rs-active">
+      <a class="rs-img-col" href="people/staff/lucas_franca.html">
+        <img src="people/staff/lucas.jpg" alt="Photo of Lucas França">
+      </a>
+      <div class="rs-body">
+        <p class="rs-role">Co-Lead</p>
+        <h3 class="rs-name anchored">Dr Lucas França</h3>
+        <p class="rs-bio">A physicist by choice, a neuroscientist by fate, and a computer scientist by accident. Assistant Professor in Computer and Information Sciences at Northumbria University, with research spanning complex systems, computational neuroscience, and machine learning applied to sleep and circadian science.</p>
+        <a href="people/staff/lucas_franca.html" class="rs-link">View profile →</a>
+      </div>
+    </div>
+
+    <div class="rs-slide">
+      <a class="rs-img-col" href="people/staff/mario_miguel.html">
+        <img src="people/staff/mario.jpg" alt="Photo of Dr Mario Miguel">
+      </a>
+      <div class="rs-body">
+        <p class="rs-role">Co-Lead</p>
+        <h3 class="rs-name anchored">Dr Mario Miguel</h3>
+        <p class="rs-bio">A physiologist shaped by years of intensive chronobiology. Assistant Professor in Sleep Science at Northumbria University, with interests spanning sleep neurophysiology, circadian rhythms, mental health, and machine learning for physiological and behavioural signal processing.</p>
+        <a href="people/staff/mario_miguel.html" class="rs-link">View profile →</a>
+      </div>
+    </div>
+
+    <div class="rs-slide">
+      <a class="rs-img-col" href="people/staff/nayantara_santhi.html">
+        <img src="people/staff/no.jpg" alt="Photo of Dr Nayantara Santhi">
+      </a>
+      <div class="rs-body">
+        <p class="rs-role">Researcher</p>
+        <h3 class="rs-name anchored">Dr Nayantara Santhi</h3>
+        <p class="rs-bio">Associate Professor in the School of Psychology at Northumbria University. Research spans non-visual effects of light, circadian timing and temperature as zeitgebers, insomnia interventions, and sleep in microgravity. Previously at Surrey Sleep Research Centre and Harvard Medical School.</p>
+        <a href="people/staff/nayantara_santhi.html" class="rs-link">View profile →</a>
+      </div>
+    </div>
+
+    <div class="rs-slide">
+      <a class="rs-img-col" href="people/staff/julia_vallim.html">
+        <img src="people/staff/julia.jpg" alt="Photo of Dr Julia Vallim">
+      </a>
+      <div class="rs-body">
+        <p class="rs-role">Visiting Research Fellow</p>
+        <h3 class="rs-name anchored">Dr Julia Vallim</h3>
+        <p class="rs-bio">Postdoctoral research fellow at the Federal University of São Paulo, focusing on how circadian rhythms influence health and disease. Specialises in actigraphy data analysis for predicting health outcomes and has experience with wearable sleep technology.</p>
+        <a href="people/staff/julia_vallim.html" class="rs-link">View profile →</a>
+      </div>
+    </div>
+
+  </div>
+  <div id="rs-controls">
+    <button class="rs-btn" id="rs-prev" aria-label="Previous">‹</button>
+    <div id="rs-dots"></div>
+    <button class="rs-btn" id="rs-next" aria-label="Next">›</button>
+  </div>
 </div>
+
+<script>
+(function(){
+  var slides = document.querySelectorAll('#rs-track .rs-slide');
+  var dotsEl = document.getElementById('rs-dots');
+  var N = slides.length;
+  var cur = 0;
+  var timer;
+
+  slides.forEach(function(_, i){
+    var d = document.createElement('button');
+    d.className = 'rs-dot' + (i === 0 ? ' rs-dot-on' : '');
+    d.setAttribute('aria-label', 'Slide ' + (i + 1));
+    d.onclick = function(){ goTo(i); };
+    dotsEl.appendChild(d);
+  });
+
+  function goTo(i){
+    slides[cur].classList.remove('rs-active');
+    dotsEl.children[cur].classList.remove('rs-dot-on');
+    cur = (i + N) % N;
+    slides[cur].classList.add('rs-active');
+    dotsEl.children[cur].classList.add('rs-dot-on');
+  }
+
+  function startTimer(){ timer = setInterval(function(){ goTo(cur + 1); }, 4000); }
+  function stopTimer(){ clearInterval(timer); }
+
+  document.getElementById('rs-prev').onclick = function(){ stopTimer(); goTo(cur - 1); startTimer(); };
+  document.getElementById('rs-next').onclick = function(){ stopTimer(); goTo(cur + 1); startTimer(); };
+
+  var wrap = document.getElementById('rs-wrap');
+  wrap.addEventListener('mouseenter', stopTimer);
+  wrap.addEventListener('mouseleave', startTimer);
+
+  startTimer();
+})();
+</script>
+<!-- STAFF:END -->
+</section>
+<section id="collaborators" class="level2">
+<h2 class="anchored" data-anchor-id="collaborators">Collaborators</h2>
+<!-- COLLABORATORS:START -->
+<div id="co-wrap">
+  <div id="co-viewport">
+    <div id="co-track">
+
+      <a class="co-card" href="people/collaborators/john_araujo.html">
+        <img src="people/collaborators/john.jpg" alt="Photo of John Araújo">
+        <p class="co-name">Prof. John Araújo</p>
+        <p class="co-inst">Federal University of Rio Grande do Norte</p>
+      </a>
+
+      <a class="co-card" href="people/collaborators/nick_puts.html">
+        <img src="people/collaborators/nick.png" alt="Photo of Nick Puts">
+        <p class="co-name">Dr Nick Puts</p>
+        <p class="co-inst">King's College London</p>
+      </a>
+
+      <a class="co-card" href="people/collaborators/matthew_walker.html">
+        <img src="people/collaborators/matthew.png" alt="Photo of Matthew Walker">
+        <p class="co-name">Prof. Matthew Walker</p>
+        <p class="co-inst">University College London</p>
+      </a>
+
+      <a class="co-card" href="people/collaborators/yujiang_wang.html">
+        <img src="people/collaborators/yujiang.jpg" alt="Photo of Yujiang Wang">
+        <p class="co-name">Prof. Yujiang Wang</p>
+        <p class="co-inst">Newcastle University</p>
+      </a>
+
+    </div>
+  </div>
 </div>
-</div></a>
+<div id="co-dots">
+  <button class="co-btn" id="co-prev" aria-label="Previous">‹</button>
+  <div id="co-dot-list"></div>
+  <button class="co-btn" id="co-next" aria-label="Next">›</button>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1781742620224" data-listing-reading-time-sort="3" data-listing-word-count-sort="450">
-<a href="./people/staff/mario_miguel.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-center">
-<p class="card-img-top">
-<img loading="lazy" src="./people/staff/mario.jpg" class="thumbnail-image card-img" style="height: 200px;" alt="Photo of Dr Mario Miguel">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Dr Mario Miguel
-</h5>
-<div class="card-subtitle listing-subtitle">
-Co Lead
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1781742620224" data-listing-reading-time-sort="3" data-listing-word-count-sort="469">
-<a href="./people/staff/nayantara_santhi.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-center">
-<p class="card-img-top">
-<img loading="lazy" src="./people/staff/no.jpg" class="thumbnail-image card-img" style="height: 200px;" alt="Photo of Dr Nayantara Santhi">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Dr Nayantara Santhi
-</h5>
-<div class="card-subtitle listing-subtitle">
-Researcher
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1781742620224" data-listing-reading-time-sort="1" data-listing-word-count-sort="121">
-<a href="./people/staff/julia_vallim.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-center">
-<p class="card-img-top">
-<img loading="lazy" src="./people/staff/julia.jpg" class="thumbnail-image card-img" style="height: 200px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Dr Julia Vallim
-</h5>
-<div class="card-subtitle listing-subtitle">
-Visiting Research Fellow
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
+
+<script>
+(function(){
+  var track = document.getElementById('co-track');
+  var dotsEl = document.getElementById('co-dot-list');
+  var VISIBLE = window.innerWidth < 600 ? 1 : 3;
+  var origCards = Array.from(track.querySelectorAll('.co-card'));
+  var N = origCards.length;
+  var cur = 0;
+
+  // clone for infinite loop
+  origCards.forEach(function(c){ track.appendChild(c.cloneNode(true)); });
+
+  // dots (one per original card)
+  for(var i = 0; i < N; i++){
+    (function(idx){
+      var d = document.createElement('button');
+      d.className = 'co-dot' + (idx === 0 ? ' co-dot-on' : '');
+      d.setAttribute('aria-label', 'Go to collaborator ' + (idx + 1));
+      d.onclick = function(){ goTo(idx); };
+      dotsEl.appendChild(d);
+    })(i);
+  }
+
+  function cardW(){
+    var c = track.querySelector('.co-card');
+    return c ? c.getBoundingClientRect().width + 14 : 0;
+  }
+
+  function setPos(animated){
+    track.style.transition = animated ? 'transform 0.4s cubic-bezier(0.4,0,0.2,1)' : 'none';
+    track.style.transform = 'translateX(-' + (cur * cardW()) + 'px)';
+    dotsEl.querySelectorAll('.co-dot').forEach(function(d, i){
+      d.classList.toggle('co-dot-on', i === cur % N);
+    });
+  }
+
+  function goTo(i){ cur = i; setPos(true); }
+
+  function next(){ cur++; setPos(true); }
+  function prev(){ cur--; setPos(true); }
+
+  track.addEventListener('transitionend', function(){
+    if(cur >= N){ cur = cur - N; setPos(false); }
+    if(cur < 0){  cur = cur + N; setPos(false); }
+  });
+
+  document.getElementById('co-prev').onclick = prev;
+  document.getElementById('co-next').onclick = next;
+
+  setPos(false);
+})();
+</script>
+<!-- COLLABORATORS:END -->
 </section>
 <section id="students" class="level2">
 <h2 class="anchored" data-anchor-id="students">Students</h2>
 <div id="listing-students" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1781742620225" data-listing-reading-time-sort="1" data-listing-word-count-sort="97">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1781770838231" data-listing-reading-time-sort="1" data-listing-word-count-sort="97">
 <a href="./people/students/fernanda_diogo.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-center">
 <p class="card-img-top">
@@ -582,7 +649,7 @@ Visiting PhD Student
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1781742620229" data-listing-reading-time-sort="1" data-listing-word-count-sort="175">
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1781770838236" data-listing-reading-time-sort="1" data-listing-word-count-sort="175">
 <a href="./people/students/karen_pugliane.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-center">
 <p class="card-img-top">
@@ -598,7 +665,7 @@ Visiting PhD Student
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1781742620230" data-listing-reading-time-sort="1" data-listing-word-count-sort="72">
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1781770838236" data-listing-reading-time-sort="1" data-listing-word-count-sort="72">
 <a href="./people/students/rebeca_buest.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-center">
 <p class="card-img-top">
@@ -618,83 +685,11 @@ Visiting PhD Student
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
 </section>
-<section id="collaborators" class="level2">
-<h2 class="anchored" data-anchor-id="collaborators">Collaborators</h2>
-<div id="listing-collaborators" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1781742620217" data-listing-reading-time-sort="2" data-listing-word-count-sort="203">
-<a href="./people/collaborators/john_araujo.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-center">
-<p class="card-img-top">
-<img loading="lazy" src="./people/collaborators/john.jpg" class="thumbnail-image card-img" style="height: 200px;" alt="Photo of John Araújo">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Prof.&nbsp;John Araújo
-</h5>
-<div class="card-subtitle listing-subtitle">
-Federal University of Rio Grande do Norte
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1781742620221" data-listing-reading-time-sort="2" data-listing-word-count-sort="222">
-<a href="./people/collaborators/nick_puts.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-center">
-<p class="card-img-top">
-<img loading="lazy" src="./people/collaborators/nick.png" class="thumbnail-image card-img" style="height: 200px;" alt="Photo of Nick Puts">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Dr Nick Puts
-</h5>
-<div class="card-subtitle listing-subtitle">
-King’s College London
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1781742620218" data-listing-reading-time-sort="1" data-listing-word-count-sort="182">
-<a href="./people/collaborators/matthew_walker.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-center">
-<p class="card-img-top">
-<img loading="lazy" src="./people/collaborators/matthew.png" class="thumbnail-image card-img" style="height: 200px;" alt="Photo of Matthew Walker">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Prof.&nbsp;Matthew Walker
-</h5>
-<div class="card-subtitle listing-subtitle">
-University College London
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1781742620221" data-listing-reading-time-sort="1" data-listing-word-count-sort="195">
-<a href="./people/collaborators/yujiang_wang.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-center">
-<p class="card-img-top">
-<img loading="lazy" src="./people/collaborators/yujiang.jpg" class="thumbnail-image card-img" style="height: 200px;" alt="Photo of Yujiang Wang">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Prof.&nbsp;Yujiang Wang
-</h5>
-<div class="card-subtitle listing-subtitle">
-Newcastle University
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-</section>
-<section id="former" class="level2">
-<h2 class="anchored" data-anchor-id="former">Former Members</h2>
+<section id="former-members" class="level2">
+<h2 class="anchored" data-anchor-id="former-members">Former Members</h2>
 <div id="listing-former" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1781742620223" data-listing-reading-time-sort="2" data-listing-word-count-sort="204">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1781770838229" data-listing-reading-time-sort="2" data-listing-word-count-sort="204">
 <a href="./people/former/malcolm_schantz.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-center">
 <p class="card-img-top">
@@ -710,7 +705,7 @@ In Memoriam
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1781742620221" data-listing-reading-time-sort="1" data-listing-word-count-sort="156">
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1781770838228" data-listing-reading-time-sort="1" data-listing-word-count-sort="156">
 <a href="./people/former/josh_penrhyn-jones.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-center">
 <p class="card-img-top">

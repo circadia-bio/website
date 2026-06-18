@@ -2,17 +2,9 @@
   {
     "listing": "/people.html",
     "items": [
-      "/people/staff/lucas_franca.html",
-      "/people/staff/mario_miguel.html",
-      "/people/staff/nayantara_santhi.html",
-      "/people/staff/julia_vallim.html",
       "/people/students/fernanda_diogo.html",
       "/people/students/karen_pugliane.html",
       "/people/students/rebeca_buest.html",
-      "/people/collaborators/john_araujo.html",
-      "/people/collaborators/nick_puts.html",
-      "/people/collaborators/matthew_walker.html",
-      "/people/collaborators/yujiang_wang.html",
       "/people/former/malcolm_schantz.html",
       "/people/former/josh_penrhyn-jones.html"
     ]
