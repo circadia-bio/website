@@ -947,20 +947,18 @@ hr {
   align-items: center;
   gap: 8px;
   margin: 0 0 1.5rem;
-  padding: 0.75rem 0.25rem;
 }
 
 #co-viewport {
   flex: 1;
   overflow: hidden;
-  padding: 0.75rem 0;
-  margin: -0.75rem 0;
 }
 
 #co-track {
   display: flex;
   gap: 14px;
   will-change: transform;
+  padding: 1rem 0.5rem;
 }
 
 .co-card {
