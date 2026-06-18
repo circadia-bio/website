@@ -964,12 +964,12 @@ hr {
   flex: 0 0 calc((100% - 42px) / 3);
   @include glass-light(0.5, 12px, 0.3);
   border-radius: 18px;
-  padding: 1.25rem 1rem 1rem;
+  padding: 1.5rem 1rem 1.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 8px;
+  gap: 10px;
   text-decoration: none !important;
   color: $body-color;
   transition: border-color 0.18s, background 0.18s, box-shadow 0.18s;
@@ -979,8 +979,8 @@ hr {
   }
 
   img {
-    width: 80px;
-    height: 80px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     object-fit: cover;
     transition: transform 0.5s;
@@ -991,14 +991,14 @@ hr {
 
 .co-name {
   font-family: "Playfair Display", serif;
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: $body-color;
   margin: 0.2rem 0 0;
 }
 
 .co-inst {
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   color: lighten($body-color, 20%);
   margin: 0;
   line-height: 1.4;
@@ -1022,6 +1022,29 @@ hr {
   transition: border-color 0.15s, color 0.15s;
   padding: 0;
   &:hover { border-color: $link-color; color: $link-color; }
+}
+
+#co-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.co-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: darken($body-bg, 15%);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  &.co-dot-on {
+    background: $link-color;
+    transform: scale(1.35);
+  }
 }
 
 // Memorial dates display
