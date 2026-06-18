@@ -5,15 +5,19 @@ div#listing-listing-publications .thumbnail-image {
 }
 
 /* Journal subtitle line */
-#listing-publications .listing-subtitle {
+#listing-publications .listing-subtitle,
+#listing-publications a .listing-subtitle,
+#listing-publications .quarto-post a .listing-subtitle {
   font-size: 0.72rem;
   font-style: italic;
-  color: #fc544a;
+  color: #fc544a !important;
   opacity: 0.85;
   margin: 0.1rem 0 0.4rem;
   display: block;
 }
 
-body.quarto-dark #listing-publications .listing-subtitle {
-  color: #9bdfe2;
+body.quarto-dark #listing-publications .listing-subtitle,
+body.quarto-dark #listing-publications a .listing-subtitle,
+body.quarto-dark #listing-publications .quarto-post a .listing-subtitle {
+  color: #9bdfe2 !important;
 }
