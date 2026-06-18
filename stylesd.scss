@@ -514,3 +514,49 @@ hr {
 .memorial-dates {
   color: rgba(255, 255, 255, 0.5);
 }
+
+/* ── Research Staff spotlight — dark mode ───────────────── */
+
+#rs-track {
+  background: rgba(1, 43, 70, 0.75) !important;
+  border: 1px solid rgba(155, 223, 226, 0.15) !important;
+}
+
+.rs-img-col {
+  background: rgba(1, 43, 70, 0.4) !important;
+}
+
+.rs-name { color: $body-color !important; }
+.rs-role { color: $link-color !important; }
+.rs-bio  { color: rgba(255, 220, 180, 0.75) !important; }
+.rs-link { color: $link-color !important; }
+
+.rs-btn {
+  background: rgba(1, 43, 70, 0.6);
+  border-color: rgba(155, 223, 226, 0.2);
+  color: $body-color;
+  &:hover { border-color: $link-color; color: $link-color; }
+}
+
+.rs-dot {
+  background: rgba(155, 223, 226, 0.25);
+  &.rs-dot-on { background: $link-color; }
+}
+
+/* ── Collaborators strip — dark mode ─────────────────────── */
+
+.co-card {
+  background: rgba(1, 43, 70, 0.75) !important;
+  border: 1px solid rgba(155, 223, 226, 0.15) !important;
+  &:hover { box-shadow: 0 6px 28px rgba(0,0,0,0.28) !important; }
+}
+
+.co-name { color: $body-color; }
+.co-inst { color: rgba(255, 220, 180, 0.6); }
+
+.co-btn {
+  background: rgba(1, 43, 70, 0.6);
+  border-color: rgba(155, 223, 226, 0.2);
+  color: $body-color;
+  &:hover { border-color: $link-color; color: $link-color; }
+}
