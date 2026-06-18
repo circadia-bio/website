@@ -5,3 +5,5 @@
 .Rhistory
 _site/*
 .Rproj.user
+_news-carousel.qmd
+_news-carousel.html
