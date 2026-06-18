@@ -14,6 +14,6 @@ div#listing-listing-publications .thumbnail-image {
   display: block;
 }
 
-.quarto-dark #listing-publications .listing-subtitle {
+body.quarto-dark #listing-publications .listing-subtitle {
   color: #9bdfe2;
 }
