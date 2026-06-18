@@ -263,6 +263,36 @@ Interested in working with us? Visit our [Join us](/join.html) page.
         </div>
       </div>
 
+      <div class="nc-slide">
+        <a href="publications/buest2026/index.html" class="nc-image"><img src="publications/buest2026/featured.jpg" alt="L5 onset as a proxy for circadian phase in infants"></a>
+        <div class="nc-body">
+          <div class="nc-label-row"><span class="nc-label">Publications</span><a href="publications.html" class="news-see-all">See all</a></div>
+          <a href="publications/buest2026/index.html" class="nc-title">L5 onset as a proxy for circadian phase in infants</a>
+          <p class="nc-journal"><em>Chronobiology International</em> &middot; 2026</p>
+          <p class="nc-desc">L5 onset correlates significantly with mid-sleep point across 502 nights from 81 six-month-old infants, supporting it as a practical, non-invasive circadian phase marker in early childhood.</p>
+        </div>
+      </div>
+
+      <div class="nc-slide nc-slide-flip">
+        <a href="publications/silva2025/index.html" class="nc-image"><img src="publications/silva2025/featured.png" alt="Chronotype Profile in Children"></a>
+        <div class="nc-body">
+          <div class="nc-label-row"><span class="nc-label">Publications</span><a href="publications.html" class="news-see-all">See all</a></div>
+          <a href="publications/silva2025/index.html" class="nc-title">Chronotype Profile in Children: A Systematic Review</a>
+          <p class="nc-journal"><em>Sleep and Vigilance</em> &middot; 2025</p>
+          <p class="nc-desc">The first systematic review of chronotype profiling in children aged 0–10 years. Finds inconsistent evidence on whether morning chronotype predominates, and highlights heterogeneity of measurement approaches across studies.</p>
+        </div>
+      </div>
+
+      <div class="nc-slide">
+        <a href="publications/palombini2024/index.html" class="nc-image"><img src="publications/palombini2024/featured.jpg" alt="PSG Standardization Brazil"></a>
+        <div class="nc-body">
+          <div class="nc-label-row"><span class="nc-label">Publications</span><a href="publications.html" class="news-see-all">See all</a></div>
+          <a href="publications/palombini2024/index.html" class="nc-title">2024 Standardization of Polysomnography Reports — A Consensus of the Brazilian Sleep Association</a>
+          <p class="nc-journal"><em>Sleep Science</em> &middot; 2024</p>
+          <p class="nc-desc">Consensus guidelines for PSG reporting covering scoring rules, technical specifications, and reporting conventions to improve consistency across Brazilian clinical and research sleep studies.</p>
+        </div>
+      </div>
+
     </div>
     <div class="nc-controls">
       <button class="nc-btn nc-prev" aria-label="Previous">&#8249;</button>
