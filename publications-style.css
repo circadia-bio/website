@@ -3,3 +3,13 @@ div#listing-listing-publications .thumbnail-image {
   border-radius: 36px !important;
   padding: 20px !important;
 }
+
+/* Journal subtitle line */
+#listing-publications .listing-subtitle {
+  font-size: 0.72rem;
+  font-style: italic;
+  color: #fc544a;
+  opacity: 0.9;
+  margin: 0.1rem 0 0.4rem;
+  display: block;
+}
