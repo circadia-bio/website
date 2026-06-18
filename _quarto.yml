@@ -1,6 +1,8 @@
 project:
   type: website
-  pre-render: generate_carousel.py
+  pre-render:
+    - generate_carousel.py
+    - generate_people.py
   resources:
     - sleepdiaries-icon.png
     - scoreme-icon.svg

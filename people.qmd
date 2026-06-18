@@ -39,7 +39,7 @@ format:
         <img src="people/staff/lucas.jpg" alt="Photo of Lucas França">
       </a>
       <div class="rs-body">
-        <p class="rs-role">Co-Lead</p>
+        <p class="rs-role">Co Lead</p>
         <h3 class="rs-name">Dr Lucas França</h3>
         <p class="rs-bio">A physicist by choice, a neuroscientist by fate, and a computer scientist by accident. Assistant Professor in Computer and Information Sciences at Northumbria University, with research spanning complex systems, computational neuroscience, and machine learning applied to sleep and circadian science.</p>
         <a href="people/staff/lucas_franca.html" class="rs-link">View profile →</a>
@@ -51,7 +51,7 @@ format:
         <img src="people/staff/mario.jpg" alt="Photo of Dr Mario Miguel">
       </a>
       <div class="rs-body">
-        <p class="rs-role">Co-Lead</p>
+        <p class="rs-role">Co Lead</p>
         <h3 class="rs-name">Dr Mario Miguel</h3>
         <p class="rs-bio">A physiologist shaped by years of intensive chronobiology. Assistant Professor in Sleep Science at Northumbria University, with interests spanning sleep neurophysiology, circadian rhythms, mental health, and machine learning for physiological and behavioural signal processing.</p>
         <a href="people/staff/mario_miguel.html" class="rs-link">View profile →</a>
@@ -180,45 +180,47 @@ format:
   var N = origCards.length;
   var cur = 0;
 
-  // clone for infinite loop
   origCards.forEach(function(c){ track.appendChild(c.cloneNode(true)); });
 
-  // dots (one per original card)
-  for(var i = 0; i < N; i++){
-    (function(idx){
+  for (var i = 0; i < N; i++) {
+    (function(idx) {
       var d = document.createElement('button');
       d.className = 'co-dot' + (idx === 0 ? ' co-dot-on' : '');
       d.setAttribute('aria-label', 'Go to collaborator ' + (idx + 1));
-      d.onclick = function(){ goTo(idx); };
+      d.onclick = function() { goTo(idx); };
       dotsEl.appendChild(d);
     })(i);
   }
 
-  function cardW(){
+  function cardW() {
     var c = track.querySelector('.co-card');
     return c ? c.getBoundingClientRect().width + 14 : 0;
   }
 
-  function setPos(animated){
+  function setPos(animated) {
     track.style.transition = animated ? 'transform 0.4s cubic-bezier(0.4,0,0.2,1)' : 'none';
     track.style.transform = 'translateX(-' + (cur * cardW()) + 'px)';
-    dotsEl.querySelectorAll('.co-dot').forEach(function(d, i){
+    dotsEl.querySelectorAll('.co-dot').forEach(function(d, i) {
       d.classList.toggle('co-dot-on', i === cur % N);
     });
   }
 
-  function goTo(i){ cur = i; setPos(true); }
+  function goTo(i) { cur = i; setPos(true); }
+  function next() { cur++; setPos(true); }
+  function prev() { cur--; setPos(true); }
 
-  function next(){ cur++; setPos(true); }
-  function prev(){ cur--; setPos(true); }
-
-  track.addEventListener('transitionend', function(){
-    if(cur >= N){ cur = cur - N; setPos(false); }
-    if(cur < 0){  cur = cur + N; setPos(false); }
+  track.addEventListener('transitionend', function() {
+    if (cur >= N) { cur = cur - N; setPos(false); }
+    if (cur < 0)  { cur = cur + N; setPos(false); }
   });
 
   document.getElementById('co-prev').onclick = prev;
   document.getElementById('co-next').onclick = next;
+
+  var timer = setInterval(next, 3500);
+  var wrap = document.getElementById('co-wrap');
+  wrap.addEventListener('mouseenter', function() { clearInterval(timer); });
+  wrap.addEventListener('mouseleave', function() { timer = setInterval(next, 3500); });
 
   setPos(false);
 })();
