@@ -9,7 +9,11 @@ div#listing-listing-publications .thumbnail-image {
   font-size: 0.72rem;
   font-style: italic;
   color: #fc544a;
-  opacity: 0.9;
+  opacity: 0.85;
   margin: 0.1rem 0 0.4rem;
   display: block;
+}
+
+.quarto-dark #listing-publications .listing-subtitle {
+  color: #9bdfe2;
 }
