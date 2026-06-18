@@ -5,9 +5,8 @@ div#listing-listing-publications .thumbnail-image {
 }
 
 /* Journal subtitle line */
-#listing-publications .listing-subtitle,
-#listing-publications a .listing-subtitle,
-#listing-publications .quarto-post a .listing-subtitle {
+div.listing-subtitle,
+div.listing-subtitle a {
   font-size: 0.72rem;
   font-style: italic;
   color: #fc544a !important;
@@ -16,8 +15,7 @@ div#listing-listing-publications .thumbnail-image {
   display: block;
 }
 
-body.quarto-dark #listing-publications .listing-subtitle,
-body.quarto-dark #listing-publications a .listing-subtitle,
-body.quarto-dark #listing-publications .quarto-post a .listing-subtitle {
+body.quarto-dark div.listing-subtitle,
+body.quarto-dark div.listing-subtitle a {
   color: #9bdfe2 !important;
 }
