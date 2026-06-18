@@ -210,14 +210,10 @@ hr {
 
 /* Products carousel */
 #pc-wrap {
-  display: flex;
-  align-items: center;
-  gap: 8px;
   margin: 1.5rem 0 0.75rem;
 }
 
 #pc-viewport {
-  flex: 1;
   overflow: hidden;
 }
 
@@ -226,6 +222,14 @@ hr {
   gap: 14px;
   will-change: transform;
   padding: 1rem 0.5rem;
+}
+
+#pc-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .pc-card {
@@ -324,9 +328,8 @@ hr {
 
 #pc-dots {
   display: flex;
-  justify-content: center;
   gap: 6px;
-  margin-bottom: 1.5rem;
+  align-items: center;
 }
 
 .pc-dot {
