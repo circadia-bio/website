@@ -1027,10 +1027,17 @@ hr {
 
 #co-dots {
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 0.75rem;
   margin-top: 0.75rem;
   margin-bottom: 1.5rem;
+}
+
+#co-dot-list {
+  display: flex;
+  gap: 6px;
+  align-items: center;
 }
 
 .co-dot {

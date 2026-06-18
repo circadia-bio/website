@@ -132,7 +132,6 @@ format:
 
 ```{=html}
 <div id="co-wrap">
-  <button class="co-btn" id="co-prev" aria-label="Previous">&#8249;</button>
   <div id="co-viewport">
     <div id="co-track">
 
@@ -162,14 +161,17 @@ format:
 
     </div>
   </div>
+</div>
+<div id="co-dots">
+  <button class="co-btn" id="co-prev" aria-label="Previous">&#8249;</button>
+  <div id="co-dot-list"></div>
   <button class="co-btn" id="co-next" aria-label="Next">&#8250;</button>
 </div>
-<div id="co-dots"></div>
 
 <script>
 (function(){
   var track = document.getElementById('co-track');
-  var dotsEl = document.getElementById('co-dots');
+  var dotsEl = document.getElementById('co-dot-list');
   var VISIBLE = window.innerWidth < 600 ? 1 : 3;
   var origCards = Array.from(track.querySelectorAll('.co-card'));
   var N = origCards.length;
