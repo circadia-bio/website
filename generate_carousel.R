@@ -189,7 +189,29 @@ output <- paste(
   sep = "\n"
 )
 
-writeLines(output, "_news-carousel.html")
-message("✓ _news-carousel.html generated (",
+# ── Inject into index.qmd ─────────────────────────────────────────────────────
+
+injected <- paste0(
+  "```{=html}\n",
+  output,
+  "\n```"
+)
+
+index_path <- "index.qmd"
+index      <- readLines(index_path, warn = FALSE)
+start      <- which(index == "<!-- NEWS:START -->")
+end        <- which(index == "<!-- NEWS:END -->")
+
+if (length(start) != 1 || length(end) != 1)
+  stop("Could not find NEWS:START / NEWS:END sentinels in index.qmd")
+
+new_index <- c(
+  index[seq_len(start)],           # keep the START sentinel
+  strsplit(injected, "\n")[[1]],
+  index[end:length(index)]          # keep the END sentinel
+)
+
+writeLines(new_index, index_path)
+message("✓ index.qmd news section updated (",
         length(tut_slides), " tutorials, ",
         length(pub_slides), " publications)")
