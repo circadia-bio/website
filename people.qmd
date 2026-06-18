@@ -128,11 +128,6 @@ format:
 </script>
 ```
 
-## Students
-
-:::{#students}
-:::
-
 ## Collaborators
 
 ```{=html}
@@ -191,6 +186,11 @@ format:
 })();
 </script>
 ```
+
+## Students
+
+:::{#students}
+:::
 
 ## Former Members
 
