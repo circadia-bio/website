@@ -29,6 +29,7 @@ format:
 
 ## Research Staff
 
+<!-- STAFF:START -->
 ```{=html}
 <div id="rs-wrap">
   <div id="rs-track">
@@ -127,9 +128,11 @@ format:
 })();
 </script>
 ```
+<!-- STAFF:END -->
 
 ## Collaborators
 
+<!-- COLLABORATORS:START -->
 ```{=html}
 <div id="co-wrap">
   <div id="co-viewport">
@@ -221,6 +224,7 @@ format:
 })();
 </script>
 ```
+<!-- COLLABORATORS:END -->
 
 ## Students
 

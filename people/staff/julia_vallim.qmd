@@ -1,5 +1,6 @@
 ---
 title: "Dr Julia Vallim"
+description: "Postdoctoral research fellow at the Federal University of São Paulo, focusing on how circadian rhythms influence health and disease. Specialises in actigraphy data analysis for predicting health outcomes and has experience with wearable sleep technology."
 sortby: 4
 subtitle: "Visiting Research Fellow"
 image: julia.jpg

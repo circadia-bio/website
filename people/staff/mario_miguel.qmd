@@ -1,5 +1,6 @@
 ---
 title: "Dr Mario Miguel"
+description: "A physiologist shaped by years of intensive chronobiology. Assistant Professor in Sleep Science at Northumbria University, with interests spanning sleep neurophysiology, circadian rhythms, mental health, and machine learning for physiological and behavioural signal processing."
 sortby: 2
 subtitle: "Co Lead"
 image: mario.jpg

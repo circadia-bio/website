@@ -1,5 +1,6 @@
 ---
 title: "Dr Nayantara Santhi"
+description: "Associate Professor in the School of Psychology at Northumbria University. Research spans non-visual effects of light, circadian timing and temperature as zeitgebers, insomnia interventions, and sleep in microgravity. Previously at Surrey Sleep Research Centre and Harvard Medical School."
 sortby: 3
 subtitle: "Researcher"
 image: no.jpg

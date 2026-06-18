@@ -1,5 +1,6 @@
 ---
 title: "Dr Lucas França"
+description: "A physicist by choice, a neuroscientist by fate, and a computer scientist by accident. Assistant Professor in Computer and Information Sciences at Northumbria University, with research spanning complex systems, computational neuroscience, and machine learning applied to sleep and circadian science."
 sortby: 1
 subtitle: "Co Lead"
 image: lucas.jpg
