@@ -261,6 +261,11 @@ collabs_html = f"""<div id="co-wrap">
   document.getElementById('co-prev').onclick = prev;
   document.getElementById('co-next').onclick = next;
 
+  var timer = setInterval(next, 3500);
+  var wrap = document.getElementById('co-wrap');
+  wrap.addEventListener('mouseenter', function() {{ clearInterval(timer); }});
+  wrap.addEventListener('mouseleave', function() {{ timer = setInterval(next, 3500); }});
+
   setPos(false);
 }})();
 </script>"""
