@@ -337,9 +337,19 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#colour-palette" id="toc-colour-palette" class="nav-link active" data-scroll-target="#colour-palette">Colour palette</a></li>
+  <li><a href="#logo" id="toc-logo" class="nav-link" data-scroll-target="#logo">Logo</a></li>
+  <li><a href="#typeset" id="toc-typeset" class="nav-link" data-scroll-target="#typeset">Typeset</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -349,7 +359,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -361,19 +371,111 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The colours in this page were inspired by Hiroshige’s woodblock print <em>Sailing Boats Returning to Yabase, Lake Biwa</em>.</p>
+<p>This page documents the Circadia Lab’s visual identity — colours, logo, and typeset. It is intended as a reference for students, research assistants, and collaborators contributing to the website or producing lab materials.</p>
+<section id="colour-palette" class="level2">
+<h2 class="anchored" data-anchor-id="colour-palette">Colour palette</h2>
+<p>The lab’s colour palette was inspired by Hiroshige’s woodblock print <em>Sailing Boats Returning to Yabase, Lake Biwa</em>.</p>
 <p><img src="design.jpeg" class="img-fluid"> <em>Sailing Boats Returning to Yabase, Lake Biwa. Utagawa Hiroshige (Japanese). ca. 1835</em></p>
-<p>The picture is composed by yellow and blue tones, which are relevant in the context of rhythmicity and chronobiology. We derived six tones on a divergent palette from Hiroshige’s print. The palette is shown below.</p>
+<p>The picture is composed of yellow and blue tones, which are particularly relevant in the context of rhythmicity and chronobiology — blue and yellow light play central roles in circadian entrainment. We derived six tones on a divergent palette from Hiroshige’s print.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>Name</th>
+<th>Hex</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Primary dark</td>
+<td>Deep blue</td>
+<td><code>#014370</code></td>
+</tr>
+<tr class="even">
+<td>Primary accent</td>
+<td>Coral red</td>
+<td><code>#FC544A</code></td>
+</tr>
+<tr class="odd">
+<td>Secondary</td>
+<td>Mid blue</td>
+<td><code>#1B6799</code></td>
+</tr>
+<tr class="even">
+<td>Secondary accent</td>
+<td>Amber</td>
+<td><code>#FFA75D</code></td>
+</tr>
+<tr class="odd">
+<td>Highlight</td>
+<td>Sky teal</td>
+<td><code>#9BDFE2</code></td>
+</tr>
+<tr class="even">
+<td>Background</td>
+<td>Antique white</td>
+<td><code>#FFECD4</code></td>
+</tr>
+</tbody>
+</table>
+<p>When creating figures, slides, or any lab materials, please draw from this palette rather than introducing new colours. The interactive widget below shows the full palette.</p>
 <p><br></p>
 <!-- Coolors Palette Widget -->
       <script src="https://coolors.co/palette-widget/widget.js"></script>
       <script data-id="06047768881598022">new CoolorsPaletteWidget("06047768881598022", ["014370","fc544a","1b6799","ffa75d","9bdfe2","ffecd4"]); </script>
 <p><br></p>
-<p>Our logo also explores the dychotomy between day and night, light and darkness, yellow and blue light - linking these to circadian rhythms, with a wave-like symbol often used to illustrate <em>‘zeitgebers’</em> (synchronisers). The logo is shown below.</p>
+</section>
+<section id="logo" class="level2">
+<h2 class="anchored" data-anchor-id="logo">Logo</h2>
+<p>The logo explores the dichotomy between day and night, light and darkness, yellow and blue light — linking these to circadian rhythms. It incorporates a wave-like symbol often used to illustrate <em>zeitgebers</em> (environmental synchronisers of the biological clock).</p>
 <p><br></p>
 <p><img src="logo_large.png" class="img-fluid"></p>
+<p><br></p>
+<p>The logo files are stored in the website repository root (<code>logo.png</code> for small use, <code>logo_large.png</code> for display). Use the PNG files as provided — do not recolour or modify the logo.</p>
+</section>
+<section id="typeset" class="level2">
+<h2 class="anchored" data-anchor-id="typeset">Typeset</h2>
+<p>The website uses two typefaces, both sourced from <a href="https://fonts.google.com">Google Fonts</a> and loaded via <code>styles.scss</code>. They are applied globally and should not be overridden in individual pages.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Typeface</th>
+<th>Role</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://fonts.google.com/specimen/Playfair+Display">Playfair Display</a></td>
+<td>Headings</td>
+<td><code>h1</code>, <code>h2</code>, <code>h3</code> — weight 700</td>
+</tr>
+<tr class="even">
+<td><a href="https://fonts.google.com/specimen/Alice">Alice</a></td>
+<td>Body</td>
+<td>All running text — base size 22 px</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Playfair Display</strong> is a transitional serif designed for display use, with high-contrast strokes and elegant proportions. Its classical character complements the lab’s visual identity rooted in historical art.</p>
+<p><strong>Alice</strong> is a bookish serif optimised for long-form reading on screen. Its sturdy letterforms and generous x-height keep body copy comfortable at the site’s 22 px base size.</p>
+<p>If you are producing slide decks or posters for the lab, please use the same typefaces. Both are freely available on Google Fonts and can be downloaded for use in PowerPoint, Keynote, or other tools.</p>
+<p><br></p>
+<div style="font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: #014370; line-height: 1.2; margin-bottom: 0.25rem;">
+  Playfair Display
+</div>
+<div style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #1b6799; letter-spacing: 0.02em; margin-bottom: 2rem;">
+  ABCDEFGHIJKLMNOPQRSTUVWXYZ &nbsp; abcdefghijklmnopqrstuvwxyz &nbsp; 0123456789
+</div>
+<div style="font-family: 'Alice', serif; font-size: 1.8rem; color: #014370; line-height: 1.2; margin-bottom: 0.25rem;">
+  Alice
+</div>
+<div style="font-family: 'Alice', serif; font-size: 1.1rem; color: #1b6799; letter-spacing: 0.02em;">
+  ABCDEFGHIJKLMNOPQRSTUVWXYZ &nbsp; abcdefghijklmnopqrstuvwxyz &nbsp; 0123456789
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
