@@ -27,7 +27,7 @@ format:
     css: styles.scss
 ---
 
-## Research Staff
+## Members
 
 <!-- STAFF:START -->
 ```{=html}
