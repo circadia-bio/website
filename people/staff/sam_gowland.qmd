@@ -3,7 +3,7 @@ title: "Sam Gowland"
 description: "An engineer turned computer scientist, prototyping hardware devices for Circadia Lab projects. Brings a hands-on, hardware-aware perspective to digital and computational problems at the intersection of engineering and sleep research."
 sortby: 5
 subtitle: "Engineer"
-image: no.jpg
+image: sam.jpg
 toc: false
 started: "2023"
 ended: "Current"
