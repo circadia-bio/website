@@ -83,18 +83,6 @@ format:
     </div>
 
 
-    <div class="rs-slide">
-      <a class="rs-img-col" href="people/staff/sam_gowland.html">
-        <img src="people/staff/no.jpg" alt="Photo of Sam Gowland">
-      </a>
-      <div class="rs-body">
-        <p class="rs-role">Engineer</p>
-        <h3 class="rs-name">Sam Gowland</h3>
-        <p class="rs-bio">An engineer turned computer scientist, prototyping hardware devices for Circadia Lab projects. Brings a hands-on, hardware-aware perspective to digital and computational problems at the intersection of engineering and sleep research.</p>
-        <a href="people/staff/sam_gowland.html" class="rs-link">View profile →</a>
-      </div>
-    </div>
-
   </div>
   <div id="rs-controls">
     <button class="rs-btn" id="rs-prev" aria-label="Previous">&#8249;</button>
