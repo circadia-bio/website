@@ -5,7 +5,7 @@ sortby: 5
 subtitle: "Engineer"
 image: sam.jpg
 toc: false
-started: "2023"
+started: "2026"
 ended: "Current"
 about:
   id: person-profile
@@ -29,8 +29,5 @@ At the Circadia Lab, I prototype devices for ongoing research projects, sitting 
 
 {{< fa graduation-cap >}} BEng in Electrical and Electronic Engineering, Northumbria University (2022)
 
-## Experience
-
-{{< fa wrench >}} Automotive Engineer (2017 - 2022)
 
 :::
