@@ -74,9 +74,9 @@ def carousel_html(carousel_id, slides):
         f'{track}\n\n'
         f'    </div>\n'
         f'    <div class="nc-controls">\n'
-        f'      <button class="nc-btn nc-prev" aria-label="Previous">&#8249;</button>\n'
+        f'      <button class="nc-btn nc-prev" aria-label="Previous"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 18 11 12 17 6"/></svg></button>\n'
         f'      <div class="nc-dots"></div>\n'
-        f'      <button class="nc-btn nc-next" aria-label="Next">&#8250;</button>\n'
+        f'      <button class="nc-btn nc-next" aria-label="Next"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 18 13 12 7 6"/></svg></button>\n'
         f'    </div>\n'
         f'  </div>'
     )

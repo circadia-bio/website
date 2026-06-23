@@ -147,9 +147,9 @@ staff_html = (
     + staff_slides_html
     + '\n\n  </div>\n'
     '  <div id="rs-controls">\n'
-    '    <button class="rs-btn" id="rs-prev" aria-label="Previous">&#8249;</button>\n'
+    '    <button class="rs-btn" id="rs-prev" aria-label="Previous"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 18 11 12 17 6"/></svg></button>\n'
     '    <div id="rs-dots"></div>\n'
-    '    <button class="rs-btn" id="rs-next" aria-label="Next">&#8250;</button>\n'
+    '    <button class="rs-btn" id="rs-next" aria-label="Next"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 18 13 12 7 6"/></svg></button>\n'
     '  </div>\n'
     '</div>\n\n'
     '<script>\n' + STAFF_JS + '\n</script>'
@@ -263,9 +263,9 @@ collabs_html = (
     '  </div>\n'
     '</div>\n'
     '<div id="co-dots">\n'
-    '  <button class="co-btn" id="co-prev" aria-label="Previous">&#8249;</button>\n'
+    '  <button class="co-btn" id="co-prev" aria-label="Previous"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 18 11 12 17 6"/></svg></button>\n'
     '  <div id="co-dot-list"></div>\n'
-    '  <button class="co-btn" id="co-next" aria-label="Next">&#8250;</button>\n'
+    '  <button class="co-btn" id="co-next" aria-label="Next"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 18 13 12 7 6"/></svg></button>\n'
     '</div>\n\n'
     '<script>\n' + COLLABS_JS + '\n</script>'
 )
