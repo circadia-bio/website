@@ -1,0 +1,78 @@
+---
+title: "zeitR"
+subtitle: "Actigraphy parsing and sleep pipeline analysis for R"
+description: "An R package for importing raw actigraphy recordings and running a complete rest–activity pipeline — off-wrist detection, sleep period identification, WASO computation, and non-parametric circadian rhythm analysis."
+date: "2026-06-01"
+image: ../images/zeitr_logo.png
+categories: [R Package, Actigraphy, Sleep, Open Source]
+---
+
+## About
+
+zeitR is an R package for importing, parsing, and analysing raw actigraphy recordings from wrist-worn devices. It runs a full rest–activity pipeline — off-wrist detection, main sleep period identification, nap detection, and WASO computation — and computes standard non-parametric circadian rhythm variables (IS, IV, RA, L5, M10), returning tidy data frames ready for downstream chronobiological analysis.
+
+zeitR is designed to complement [slumbR](https://slumbr.circadia-lab.uk) in the Circadia Lab ecosystem: slumbR handles sleep diary and questionnaire data, zeitR handles the actigraphy side of a study, and both speak the same tidy, pipeline-friendly R idioms.
+
+## Validation
+
+The zeitR pipeline has been validated **epoch-for-epoch** against the Condor circadiaBase Python reference pipeline on an ActTrust recording — `0 / 76,196` epoch mismatches across off-wrist detection, sleep detection, nap detection, and WASO computation. The package ships with end-to-end parity regression tests that lock this agreement against the Python reference outputs.
+
+## Workflow
+
+```r
+library(zeitR)
+
+# Single recording
+rec <- read_actigraphy("recordings/P001.txt", tz = "America/Sao_Paulo")
+rec$epochs    # tidy epoch-level tibble
+rec$metadata  # device info, firmware, epoch length
+
+# Full pipeline in one call
+result <- run_pipeline("recordings/P001.txt", tz = "America/Sao_Paulo")
+result$nights  # nightly sleep statistics
+result$data    # epoch-level tibble with state, sleep, offwrist columns
+```
+
+## Pipeline Stages
+
+| Function | Stage |
+|---|---|
+| `read_actigraphy()` / `read_actigraphy_dir()` | Device file → tidy `zeitr_recording` / `zeitr_study` |
+| `check_consistency()` | Flag timestamp gaps, backward jumps, firmware year artefacts |
+| `detect_offwrist_bimodal()` | Condor bimodal activity/temperature off-wrist detection |
+| `detect_sleep_crespo()` | Main sleep period detection (Crespo et al., 2012) |
+| `detect_naps_crespo()` | Secondary sleep period (nap) detection |
+| `score_epochs_cole_kripke()` | Epoch-level wake/sleep scoring (Cole & Kripke, 1992) |
+| `compute_waso()` | Nightly TBT, TST, WASO, SOL, SOI, awakenings, sleep efficiency |
+| `compute_npcra()` | Non-parametric circadian rhythm analysis: IS, IV, RA, L5, M10 |
+
+## Device Configuration
+
+The pipeline ships with ActTrust-validated defaults via `acttrust_params()`. To adapt for a different device, copy and modify the preset:
+
+```r
+p <- acttrust_params()
+p$sleep$sleep_quantile <- 1/3   # original Crespo (2012) threshold
+
+result <- run_pipeline("recordings/P001.txt", params = p)
+```
+
+## Features
+
+- Import raw actigraphy files — single file or full study directory
+- Full sleep pipeline validated epoch-for-epoch against the Condor Python reference
+- Non-parametric circadian rhythm analysis (IS, IV, RA, L5, M10)
+- Device parameter presets, swappable to adapt to other actigraphs
+- Participant-level NPCRA summary via `study_summary()`
+- Tidy output compatible with the tidyverse and standard modelling functions
+
+## Status
+
+zeitR is in early development. While the pipeline has been validated epoch-for-epoch against the Condor circadiaBase Python reference on an ActTrust recording, the package has not undergone formal peer review. Verify outputs independently before using in any research context.
+
+## Links
+
+- 🌐 [Documentation](https://zeitr.circadia-lab.uk)
+- 💻 [GitHub](https://github.com/circadia-bio/zeitR)
+- 📦 [slumbR](https://slumbr.circadia-lab.uk) — sleep diary companion
+- 🐳 [circadiaBase Docker](https://github.com/circadia-bio/circadiaBase_Docker) — reference Python pipeline

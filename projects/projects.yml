@@ -18,6 +18,17 @@
   categories: [R Package, Sleep, Open Source]
   date: 2025-01-01
 
+- title: "zeitR"
+  path: projects/zeitr/index.qmd
+  image: projects/images/zeitr_logo.png
+  description: >
+    An R package for importing raw actigraphy recordings and running a complete
+    rest–activity pipeline — off-wrist detection, sleep and nap detection, WASO,
+    and non-parametric circadian rhythm analysis. Validated epoch-for-epoch against
+    the Condor circadiaBase Python reference.
+  categories: [R Package, Actigraphy, Sleep, Open Source]
+  date: 2026-06-01
+
 - title: "ScoreMe"
   path: projects/scoreme/index.qmd
   image: projects/images/scoreme_og.png
