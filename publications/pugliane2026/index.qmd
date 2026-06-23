@@ -4,7 +4,7 @@ subtitle: "*Chronobiology International*"
 author:
 - name: Karen C. Pugliane
 - name: Lucas G. S. França
-  orcid: 0000-0003-1031-4267
+  orcid: 0000-0003-0853-1319
 - name: Mario Leocadio-Miguel
   orcid: 0000-0002-7248-3529
 - name: John F. Araújo
