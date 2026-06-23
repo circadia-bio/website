@@ -1,0 +1,33 @@
+---
+title: "Sam Gowland"
+description: "An engineer turned computer scientist, prototyping hardware devices for Circadia Lab projects. Brings a hands-on, hardware-aware perspective to digital and computational problems at the intersection of engineering and sleep research."
+sortby: 5
+subtitle: "Engineer"
+image: sam.jpg
+toc: false
+started: "2026"
+ended: "Current"
+about:
+  id: person-profile
+  template: trestles
+  image-width: 20em
+---
+
+:::{#person-profile}
+
+## Biography
+
+I am an engineer and computer scientist with a background that spans automotive engineering, electrical engineering, and computer science. My path into research has been shaped by a hands-on, hardware-aware perspective — I like building things, and I bring that instinct to digital and computational problems.
+
+At the Circadia Lab, I prototype devices for ongoing research projects, sitting at the intersection of engineering and circadian science. My doctoral work takes a different but complementary direction: my thesis, *Cyberspace as a Mediator for Human-Wildlife Interactions*, examines how social media and AI represent, bias, and mediate the relationship between people and wildlife. Alongside this, I have a long-standing interest in how digital technology can support sleep research and improve everyday life in ways that go beyond the obvious applications.
+
+## Education
+
+{{< fa graduation-cap >}} PhD in Computer Science, Northumbria University (2023 - Current)
+
+{{< fa graduation-cap >}} MSc in Computer Science, Northumbria University (2023)
+
+{{< fa graduation-cap >}} BEng in Electrical and Electronic Engineering, Northumbria University (2022)
+
+
+:::

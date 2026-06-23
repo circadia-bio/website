@@ -27,7 +27,7 @@ format:
     css: styles.scss
 ---
 
-## Research Staff
+## Members
 
 <!-- STAFF:START -->
 ```{=html}
@@ -81,6 +81,7 @@ format:
         <a href="people/staff/julia_vallim.html" class="rs-link">View profile →</a>
       </div>
     </div>
+
 
   </div>
   <div id="rs-controls">
