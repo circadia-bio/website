@@ -36,6 +36,7 @@
   {
     "listing": "/projects.html",
     "items": [
+      "/projects/zeitr/index.html",
       "/projects/pinetime/index.html",
       "/projects/r-itable/index.html",
       "/projects/scoreme/index.html",
