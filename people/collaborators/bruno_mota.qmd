@@ -28,10 +28,42 @@ about:
 
 ## Biography
 
-Prof. Bruno Mota is a Principal Investigator at the Instituto de Física, Universidade Federal do Rio de Janeiro (IF/UFRJ), where he leads the metaBIO lab (experimental mathematics and theoretical biology). Born and raised in Belo Horizonte, he completed his undergraduate and master's degrees in physics at the Federal University of Minas Gerais (UFMG), followed by a PhD in physics at the Centro Brasileiro de Pesquisas Físicas (CBPF), with a thesis on the detection and detectability of cosmic topology.
+Prof. Bruno Mota is a Principal Investigator at the Instituto de Física, Universidade Federal do Rio de Janeiro (IF/UFRJ), where he leads the metaBIO lab (experimental mathematics and theoretical biology). Born and raised in Belo Horizonte, he trained originally as a cosmologist before a postdoctoral detour into comparative neuroanatomy, applying techniques from theoretical physics to problems in neuroscience, became the focus of his research career.
 
-What began as a postdoctoral detour into comparative neuroanatomy at UFRJ, applying techniques from theoretical physics to problems in neuroscience, became the focus of his research career. He has been a professor at IF/UFRJ since 2013 and has led the metaBIO lab since 2019. His work asks why the brain has the shape it does, using tools from physics to uncover the physical laws governing the development and morphology of the nervous system, and looking for regularities that cut across species and scales. Among his best-known contributions is a widely cited 2015 Science paper showing that cortical folding scales universally with brain surface area and thickness rather than neuron number, a line of work he has continued to develop with collaborators including Prof. Yujiang Wang.
+His work asks why the brain has the shape it does, using tools from physics to uncover the physical laws governing the development and morphology of the nervous system, and looking for regularities that cut across species and scales. Among his best-known contributions is a widely cited 2015 *Science* paper showing that cortical folding scales universally with brain surface area and thickness rather than neuron number, a line of work he has continued to develop with collaborators including Prof. Yujiang Wang.
 
 Prof. Mota is a grantee of the Instituto Serrapilheira, which supports his research applying physics-derived models to the origins of biological form in neuroscience. Outside the lab, he is an enthusiastic cyclist and cook.
+
+## Education
+
+{{< fa graduation-cap >}} PhD in Physics - *Detecção e detectabilidade da topologia cósmica* (Detection and detectability of cosmic topology) - Centro Brasileiro de Pesquisas Físicas (Rio de Janeiro, Brazil - 2007)
+
+{{< fa graduation-cap >}} MSc in Physics - Federal University of Minas Gerais (Belo Horizonte, Brazil - 2001)
+
+{{< fa graduation-cap >}} BSc in Physics - Federal University of Minas Gerais (Belo Horizonte, Brazil - 1999)
+
+## Experience
+
+{{< fa vial >}} Professor - Instituto de Física, Federal University of Rio de Janeiro (Rio de Janeiro, Brazil \| 2013 - Current)
+
+{{< fa vial >}} Principal Investigator, metaBIO Lab - Instituto de Física, Federal University of Rio de Janeiro (Rio de Janeiro, Brazil \| 2019 - Current)
+
+{{< fa vial >}} Postdoctoral Researcher - Comparative Neuroanatomy Lab, Federal University of Rio de Janeiro (Rio de Janeiro, Brazil)
+
+## Selected Publications
+
+{{< fa file-lines >}} Mota, B. & Herculano-Houzel, S. (2015). Cortical folding scales universally with surface area and thickness, not number of neurons. *Science*, 349(6243).
+
+{{< fa file-lines >}} Wang, Y., Necus, J., Kaiser, M. & Mota, B. (2016). Universality in human cortical folding in health and disease. *Proceedings of the National Academy of Sciences*, 113(45).
+
+{{< fa file-lines >}} Wang, Y., Necus, J., Rodriguez, L.P., Taylor, P.N. & Mota, B. (2019). Human cortical folding across regions within individual brains follows universal scaling law. *Communications Biology*, 2, 191.
+
+{{< fa file-lines >}} Mota, B., Dos Santos, S.E., Ventura-Antunes, L., et al. & Herculano-Houzel, S. (2019). White matter volume and white/gray matter ratio in mammalian species as a consequence of the universal scaling of cortical folding. *Proceedings of the National Academy of Sciences*, 116(30).
+
+{{< fa file-lines >}} de Moraes, F.H.P., Mello, V.B.B., Tovar-Moll, F. & Mota, B. (2022). Establishing a Baseline for Human Cortical Folding Morphological Variables: A Multisite Study. *Frontiers in Neuroscience*, 16.
+
+{{< fa file-lines >}} Mynssen, H., Avelino-de-Souza, K., Chaim, K., Ribeiro, V.L., Patzke, N. & Mota, B. (2024). Stitcher: A Surface Reconstruction Tool for Highly Gyrified Brains. *Neuroinformatics*, 22.
+
+{{< fa file-lines >}} Wang, Y., Leiberg, K., Kindred, N., Madan, C.R., Poirier, C., Petkov, C.I., Taylor, P.N. & Mota, B. (2024). Neuro-evolutionary evidence for a universal fractal primate brain shape. *eLife*, 12.
 
 :::
