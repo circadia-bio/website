@@ -6,24 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Billy C. Smith">
-<meta name="author" content="Zeel Pansara">
-<meta name="author" content="Rosanne H. Timmerman">
-<meta name="author" content="Emmanuel Molefi">
-<meta name="author" content="Tiago Da Silva Costa">
-<meta name="author" content="Christopher Thornton">
-<meta name="author" content="Lucas G. S. França">
-<meta name="author" content="Rachel E. Stirling">
-<meta name="author" content="Sarah E. Heaps">
-<meta name="author" content="Philippa J. Karoly">
-<meta name="author" content="Mario Leocadio-Miguel">
-<meta name="author" content="Peter N. Taylor">
-<meta name="author" content="Karoline Leiberg">
-<meta name="author" content="Yujiang Wang">
-<meta name="dcterms.date" content="2026-06-26">
-<meta name="description" content="Using up to four weeks of free-living wearable data (smartwatch and continuous glucose monitor) from 105 healthy adults across nearly 2000 person-days, this study asks whether the timing of the circadian heart-rate rhythm is better explained by people’s habitual lifestyle patterns or by their day-to-day deviations from those patterns. Habitual traits, such as typical wake time, accounted for the large majority of between-person variation in circadian phase, while daily fluctuations in sleep, food, and activity timing explained comparatively little within-person variation, pointing to sustained changes in lifestyle timing, rather than one-off adjustments, as the more promising chronotherapy target.">
+<meta name="dcterms.date" content="2026-07-03">
+<meta name="description" content="An R package that transforms standard data frames into publication-ready tables for biomedical and neuroscience manuscripts — descriptive/Table 1, heritability, correlation, and regression archetypes — with consistent theming and a unified rendering pipeline for Word/PDF, HTML, and LaTeX.">
 
-<title>Habitual lifestyle timing explains circadian timing, but daily lifestyle changes do not, in free-living humans across 2000 days – Circadia</title>
+<title>clerkR – Circadia</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -38,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -96,18 +117,18 @@ ul.task-list li input[type="checkbox"] {
 <!-- / Fathom -->
 
 
-<meta property="og:title" content="Habitual lifestyle timing explains circadian timing, but daily lifestyle changes do not, in free-living humans across 2000 days – Circadia">
-<meta property="og:description" content="Using up to four weeks of free-living wearable data (smartwatch and continuous glucose monitor) from 105 healthy adults across nearly 2000 person-days, this study asks whether the timing of the circadian heart-rate rhythm is better explained by people’s habitual lifestyle patterns or by their day-to-day deviations from those patterns. Habitual traits, such as typical wake time, accounted for the large majority of between-person variation in circadian phase, while daily fluctuations in sleep, food, and activity timing explained comparatively little within-person variation, pointing to sustained changes in lifestyle timing, rather than one-off adjustments, as the more promising chronotherapy target.">
-<meta property="og:image" content="https://circadia-lab.uk/publications/smith2026/featured.png">
+<meta property="og:title" content="clerkR – Circadia">
+<meta property="og:description" content="An R package that transforms standard data frames into publication-ready tables for biomedical and neuroscience manuscripts — descriptive/Table 1, heritability, correlation, and regression archetypes — with consistent theming and a unified rendering pipeline for Word/PDF, HTML, and LaTeX.">
+<meta property="og:image" content="https://circadia-lab.uk/projects/images/clerkr_logo.png">
 <meta property="og:site_name" content="Circadia">
 <meta property="og:locale" content="en_GB">
-<meta property="og:image:height" content="1198">
-<meta property="og:image:width" content="1653">
-<meta name="twitter:title" content="Habitual lifestyle timing explains circadian timing, but daily lifestyle changes do not, in free-living humans across 2000 days – Circadia">
-<meta name="twitter:description" content="Using up to four weeks of free-living wearable data (smartwatch and continuous glucose monitor) from 105 healthy adults across nearly 2000 person-days, this study asks whether the timing of the circadian heart-rate rhythm is better explained by people’s habitual lifestyle patterns or by their day-to-day deviations from those patterns. Habitual traits, such as typical wake time, accounted for the large majority of between-person variation in circadian phase, while daily fluctuations in sleep, food, and activity timing explained comparatively little within-person variation, pointing to sustained changes in lifestyle timing, rather than one-off adjustments, as the more promising chronotherapy target.">
-<meta name="twitter:image" content="https://circadia-lab.uk/publications/smith2026/featured.png">
-<meta name="twitter:image-height" content="1198">
-<meta name="twitter:image-width" content="1653">
+<meta property="og:image:height" content="512">
+<meta property="og:image:width" content="512">
+<meta name="twitter:title" content="clerkR – Circadia">
+<meta name="twitter:description" content="An R package that transforms standard data frames into publication-ready tables for biomedical and neuroscience manuscripts — descriptive/Table 1, heritability, correlation, and regression archetypes — with consistent theming and a unified rendering pipeline for Word/PDF, HTML, and LaTeX.">
+<meta name="twitter:image" content="https://circadia-lab.uk/projects/images/clerkr_logo.png">
+<meta name="twitter:image-height" content="512">
+<meta name="twitter:image-width" content="512">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -364,62 +385,34 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Habitual lifestyle timing explains circadian timing, but daily lifestyle changes do not, in free-living humans across 2000 days</h1>
-<p class="subtitle lead"><em>arXiv preprint</em></p>
+<h1 class="title">clerkR</h1>
+<p class="subtitle lead">Publication-ready tables for biomedical research in R</p>
   <div class="quarto-categories">
-    <div class="quarto-category">Preprint</div>
-    <div class="quarto-category">circadian</div>
-    <div class="quarto-category">wearables</div>
-    <div class="quarto-category">heart rate</div>
-    <div class="quarto-category">chronotherapy</div>
+    <div class="quarto-category">R Package</div>
+    <div class="quarto-category">Tables</div>
+    <div class="quarto-category">Reproducible Research</div>
+    <div class="quarto-category">Open Source</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Using up to four weeks of free-living wearable data (smartwatch and continuous glucose monitor) from 105 healthy adults across nearly 2000 person-days, this study asks whether the timing of the circadian heart-rate rhythm is better explained by people’s habitual lifestyle patterns or by their day-to-day deviations from those patterns. Habitual traits, such as typical wake time, accounted for the large majority of between-person variation in circadian phase, while daily fluctuations in sleep, food, and activity timing explained comparatively little within-person variation, pointing to sustained changes in lifestyle timing, rather than one-off adjustments, as the more promising chronotherapy target.
+    An R package that transforms standard data frames into publication-ready tables for biomedical and neuroscience manuscripts — descriptive/Table 1, heritability, correlation, and regression archetypes — with consistent theming and a unified rendering pipeline for Word/PDF, HTML, and LaTeX.
   </div>
 </div>
 
 
 <div class="quarto-title-meta column-page">
 
-    <div>
-    <div class="quarto-title-meta-heading">Authors</div>
-    <div class="quarto-title-meta-contents">
-             <p>Billy C. Smith </p>
-             <p>Zeel Pansara </p>
-             <p>Rosanne H. Timmerman </p>
-             <p>Emmanuel Molefi </p>
-             <p>Tiago Da Silva Costa </p>
-             <p>Christopher Thornton </p>
-             <p>Lucas G. S. França <a href="https://orcid.org/0000-0003-0853-1319" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-             <p>Rachel E. Stirling </p>
-             <p>Sarah E. Heaps </p>
-             <p>Philippa J. Karoly </p>
-             <p>Mario Leocadio-Miguel <a href="https://orcid.org/0000-0002-7248-3529" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-             <p>Peter N. Taylor </p>
-             <p>Karoline Leiberg </p>
-             <p>Yujiang Wang <a href="https://orcid.org/0000-0002-4847-6273" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-          </div>
-  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 26, 2026</p>
+      <p class="date">July 3, 2026</p>
     </div>
   </div>
   
     
-    <div>
-    <div class="quarto-title-meta-heading">Doi</div>
-    <div class="quarto-title-meta-contents">
-      <p class="doi">
-        <a href="https://doi.org/10.48550/arXiv.2606.28261">10.48550/arXiv.2606.28261</a>
-      </p>
-    </div>
-  </div>
   </div>
   
 
@@ -427,12 +420,106 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="abstract" class="level1">
-<h1>Abstract</h1>
-<p>Background: Both between- and within-subject variations in circadian timing matter for health. If lifestyle changes could be used to regulate circadian timing, they would offer accessible and scalable routes to chronotherapy, but this link remains unclear under real-life conditions. Here, we explore how lifestyle ‘traits’ (such as typical wake time) and ‘states’ (day-to-day deviations from traits, such as waking up later than typical) explain between- and within-subject variation in acrophase (peak time) of the circadian rhythm of heart rate (CRHR).</p>
-<p>Methods: We collected free-living wearable data (smartwatch, continuous glucose monitor) from healthy volunteers for up to 4 weeks. The CRHR was derived from activity-adjusted heart rate, and acrophase was defined as time-of-day at daily CRHR peak. Sleep, food, and physical activity ‘factors’ were calculated and split into traits and states. Using a linear mixed-effects model, we tested how traits and states associate with between- and within-subject acrophase variance.</p>
-<p>Findings: Data from 105 healthy volunteers (66 female, age = 42.5 ± 15.7 years) spanning ~2000 days (18.8 ± 8.30 days each) were analysed. Traits were substantially more influential than states, explaining 42.3% versus 0.9% of total acrophase variance. Accordingly, traits explained 86.5% of between-subject variance, whereas states explained only 1.8% of within-subject variance. Sleep, food and physical activity factors contributed both jointly and uniquely, and lifestyle timing mattered most.</p>
-<p>Interpretation: Between-subject lifestyle traits explained acrophase better than within-subject lifestyle states. This asymmetry, alongside the considerable overlap between factors, supports sustained, holistic, timing-focused lifestyle adjustments as chronotherapy targets, testable through future interventional studies.</p>
+<section id="about" class="level2">
+<h2 class="anchored" data-anchor-id="about">About</h2>
+<p>clerkR transforms standard R data frames into publication-ready tables for biomedical and neuroscience manuscripts. Rather than wrestling with formatting each time, clerkR reduces the most common table types to a handful of opinionated constructor functions that share consistent theming, domain grouping, footnote handling, and a unified rendering pipeline for Word/PDF (<code>gt</code>), interactive HTML (<code>reactable</code>), and LaTeX output.</p>
+<p><em>A clerk keeps tabs — clerkR keeps yours publication-ready.</em></p>
+</section>
+<section id="table-archetypes" class="level2">
+<h2 class="anchored" data-anchor-id="table-archetypes">Table Archetypes</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Use case</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>tbl_descriptive()</code></td>
+<td>Sample characteristics by group, mean ± SD, t/χ²</td>
+<td>Table 1</td>
+</tr>
+<tr class="even">
+<td><code>tbl_simple()</code></td>
+<td>Descriptive summary, no inferential test</td>
+<td>Supplementary table</td>
+</tr>
+<tr class="odd">
+<td><code>tbl_correlation()</code></td>
+<td>Partial correlations, r, p, p†</td>
+<td>Correlation results</td>
+</tr>
+<tr class="even">
+<td><code>tbl_regression()</code></td>
+<td>β, SE, 95% CI, p, FDR — accepts <code>broom::tidy()</code></td>
+<td>Linear/logistic models</td>
+</tr>
+<tr class="odd">
+<td><code>tbl_heritability()</code></td>
+<td>h², 95% CI, LRT p, σ²a/σ²e — accepts <code>herit_batch()</code></td>
+<td>Heritability results</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="quick-example" class="level2">
+<h2 class="anchored" data-anchor-id="quick-example">Quick Example</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(clerkR)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tbl_descriptive</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  clerk_example,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">group   =</span> sex,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">domains =</span> <span class="fu">list</span>(</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Metabolic"</span>      <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"hdl"</span>, <span class="st">"glucose"</span>, <span class="st">"bmi"</span>),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Anthropometric"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"waist"</span>, <span class="st">"systolic_bp"</span>),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cognitive"</span>      <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"tmt_time"</span>, <span class="st">"verbal_fluency"</span>),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Mental health"</span>  <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"bdi"</span>, <span class="st">"panas_neg"</span>, <span class="st">"life_satisfaction"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_vars =</span> <span class="st">"tmt_time"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">fdr      =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">output   =</span> <span class="st">"gt"</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clerk_render</span>(<span class="at">title =</span> <span class="st">"Table 1. Sample characteristics by sex"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>clerkR is R-itable compatible — the output of <code>herit_batch()</code> pipes straight into <code>tbl_heritability()</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">herit_batch</span>(traits, <span class="at">grm =</span> A, <span class="at">data =</span> dat, <span class="at">covs_list =</span> covs_list) <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_heritability</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">model    =</span> <span class="st">"covariates"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">sigma2_a =</span> <span class="st">"sigma2_a"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">sigma2_e =</span> <span class="st">"sigma2_e"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">fdr      =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">output   =</span> <span class="st">"gt"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clerk_render</span>(<span class="at">title =</span> <span class="st">"Heritability estimates"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="features" class="level2">
+<h2 class="anchored" data-anchor-id="features">Features</h2>
+<ul>
+<li>Five table archetypes covering ~90% of what appears in a biomed paper</li>
+<li>The clerkR theme — light teal headers, navy text, clean borders, consistent throughout</li>
+<li>Domain/section grouping — organise rows under labelled section headers</li>
+<li>Automatic footnotes for log-transformed variables and FDR correction</li>
+<li>Three render targets — <code>gt</code> for Word/PDF, <code>reactable</code> for HTML, LaTeX for manuscripts</li>
+<li>Output baked in at construction — set <code>output = "gt"</code> once, then just <code>|&gt; clerk_render()</code></li>
+<li>All constructors return a composable <code>clerk_tbl</code> S3 object</li>
+</ul>
+</section>
+<section id="links" class="level2">
+<h2 class="anchored" data-anchor-id="links">Links</h2>
+<ul>
+<li>🌐 <a href="https://clerkr.circadia-lab.uk">Documentation</a></li>
+<li>💻 <a href="https://github.com/circadia-bio/clerkR">GitHub</a></li>
+<li>🧬 <a href="https://r-itable.circadia-lab.uk">R-itable</a> — pedigree-based heritability estimation, feeds <code>tbl_heritability()</code></li>
+<li>🕐 <a href="https://zeitr.circadia-lab.uk">zeitR</a> — actigraphy analysis and circadian metrics</li>
+<li>📓 slumbR — sleep diary processing</li>
+<li>📋 tallieR — questionnaire and sociodemographic data</li>
+</ul>
 
 
 </section>

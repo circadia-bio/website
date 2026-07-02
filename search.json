@@ -133,53 +133,88 @@
     "text": "Links\n\n💻 GitHub\n📄 Published paper (PLOS ONE)\n🗄️ Data (OSF)\n🔗 maxEntropy — entropy computation script"
   },
   {
-    "objectID": "projects/actigraphy-clustering/index.html",
-    "href": "projects/actigraphy-clustering/index.html",
-    "title": "Circadian Phenotyping in Visual Impairment",
+    "objectID": "projects/r-itable/index.html",
+    "href": "projects/r-itable/index.html",
+    "title": "R-itable",
     "section": "",
-    "text": "This repository contains three integrated Jupyter notebooks implementing a modular Python pipeline for extracting, contextualising, and clustering circadian and sleep features from wrist actigraphy data. The pipeline was developed for a study of blind adults living near the equator in northeastern Brazil, and is readily adaptable to other actigraphy datasets.\n\nPugliane KC, França LGS, Leocadio-Miguel M, Araújo JF (2026). Low-latitude environmental regularity sustains non-photic entrainment in blind adults. bioRxiv. doi:10.64898/2026.03.19.712663"
+    "text": "R-itable (library(Ritable)) estimates narrow-sense heritability (h²) for quantitative traits in pedigree-based family cohort studies. It implements a profile-likelihood variance-components approach equivalent to SOLAR Eclipse — without any proprietary dependencies, compiled code, or external binaries.\nBuilt for neuroimaging and biomedical cohorts where you need to run heritability across dozens of traits and multiple covariate models, and get results you can trace back to first principles."
   },
   {
-    "objectID": "projects/actigraphy-clustering/index.html#about",
-    "href": "projects/actigraphy-clustering/index.html#about",
-    "title": "Circadian Phenotyping in Visual Impairment",
+    "objectID": "projects/r-itable/index.html#about",
+    "href": "projects/r-itable/index.html#about",
+    "title": "R-itable",
     "section": "",
-    "text": "This repository contains three integrated Jupyter notebooks implementing a modular Python pipeline for extracting, contextualising, and clustering circadian and sleep features from wrist actigraphy data. The pipeline was developed for a study of blind adults living near the equator in northeastern Brazil, and is readily adaptable to other actigraphy datasets.\n\nPugliane KC, França LGS, Leocadio-Miguel M, Araújo JF (2026). Low-latitude environmental regularity sustains non-photic entrainment in blind adults. bioRxiv. doi:10.64898/2026.03.19.712663"
+    "text": "R-itable (library(Ritable)) estimates narrow-sense heritability (h²) for quantitative traits in pedigree-based family cohort studies. It implements a profile-likelihood variance-components approach equivalent to SOLAR Eclipse — without any proprietary dependencies, compiled code, or external binaries.\nBuilt for neuroimaging and biomedical cohorts where you need to run heritability across dozens of traits and multiple covariate models, and get results you can trace back to first principles."
   },
   {
-    "objectID": "projects/actigraphy-clustering/index.html#scientific-context",
-    "href": "projects/actigraphy-clustering/index.html#scientific-context",
-    "title": "Circadian Phenotyping in Visual Impairment",
-    "section": "Scientific Context",
-    "text": "Scientific Context\nMost research on circadian rhythms in blind individuals has been conducted at high latitudes (North America, Europe), where pronounced seasonal variation in photoperiod may compound the loss of photic entrainment cues. This study asked whether the exceptionally stable environmental conditions near the equator (~5°S, Rio Grande do Norte, Brazil) — minimal photoperiod variation (~44 min annual amplitude) and stable temperature (~27°C year-round) — could sustain circadian entrainment even in the absence of light perception."
+    "objectID": "projects/r-itable/index.html#features",
+    "href": "projects/r-itable/index.html#features",
+    "title": "R-itable",
+    "section": "Features",
+    "text": "Features\n\nProfile-likelihood VC estimator — eigendecomposition of the GRM, 1-D optimisation, exact LRT with one-sided χ²(1) boundary correction matching SOLAR.\nProfile-likelihood CIs — proper asymmetric intervals via uniroot(), not Wald ±1.96 SE.\nINT transformation — inverse-normal transform applied internally; also exported as int_transform() for use in other pipelines.\nBatch mode — herit_batch() iterates over traits × covariate models and returns a tidy data frame ready for tables and figures.\nForest plots — plot_forest() for immediate visualisation of batch output.\nMinimal dependencies — core functions require only base R, kinship2, rlang, and cli."
   },
   {
-    "objectID": "projects/actigraphy-clustering/index.html#study-design",
-    "href": "projects/actigraphy-clustering/index.html#study-design",
-    "title": "Circadian Phenotyping in Visual Impairment",
-    "section": "Study Design",
-    "text": "Study Design\n58 blind adults (21–77 years; 43.1% female) wore wrist actigraphy continuously for four weeks. Pupillary light reflex (PLR) was used as a proxy for intact ipRGC photoreception (22 reactive, 36 non-reactive). A semi-supervised machine learning approach — combining PCA, KMeans clustering, and SHAP feature importance — was applied to 23 non-parametric actigraphy variables.\nTwo distinct circadian phenotypes emerged:\n\n\n\n\n\n\n\n\nPhenotype\nn\nKey characteristics\n\n\n\n\nHigher Circadian Stability (HCS)\n42 (72%)\nHigh RA, IS, QPActivity, LRI; consolidated rhythms\n\n\nLower Circadian Stability (LCS)\n16 (28%)\nFragmented rhythms, lower regularity and amplitude\n\n\n\nNotably, 64% of PLR-non-reactive individuals fell in the HCS group — approximately 1.6× higher than previously reported for blind cohorts at higher latitudes. Cluster membership explained substantially more variance in circadian metrics than PLR status alone (e.g., RA: R² = 0.61 for cluster vs R² = 0.15 for PLR)."
+    "objectID": "projects/r-itable/index.html#basic-usage",
+    "href": "projects/r-itable/index.html#basic-usage",
+    "title": "R-itable",
+    "section": "Basic Usage",
+    "text": "Basic Usage\nlibrary(Ritable)\n\n# 1. Build GRM from pedigree\nA &lt;- build_grm(my_pedigree, study_ids = my_data$IID)\n\n# 2. Single trait\nherit_vc(\"bmi\", grm = A, data = my_data, covs = c(\"age\", \"sex\"))\n\n# 3. Many traits × models → tidy data frame\nres &lt;- herit_batch(\n  traits    = c(\"bmi\", \"hdl\", \"systolic_bp\"),\n  grm       = A,\n  data      = my_data,\n  covs_list = list(\n    unadj = NULL,\n    cov1  = c(\"age\", \"sex\"),\n    cov2  = c(\"age\", \"sex\", \"age2\")\n  )\n)\n\n# 4. Forest plot\nplot_forest(res, model_filter = \"cov2\")"
   },
   {
-    "objectID": "projects/actigraphy-clustering/index.html#pipeline-structure",
-    "href": "projects/actigraphy-clustering/index.html#pipeline-structure",
-    "title": "Circadian Phenotyping in Visual Impairment",
-    "section": "Pipeline Structure",
-    "text": "Pipeline Structure\n\n\n\n\n\n\n\nNotebook\nDescription\n\n\n\n\ngeographical_and_seasonal_context\nMaps participant location, estimates photoperiod via astral, retrieves NASA POWER temperature and radiation data\n\n\nnonparametric_actigraphy_feature_extraction\nLoads actigraphy files, applies off-wrist masks, extracts 23 non-parametric circadian and sleep variables via pyActigraphy\n\n\nnonparametric_actigraphy_clustering\nZ-score normalisation → multicollinearity screening → PCA → KMeans → Random Forest + SHAP feature importance → between-group comparisons"
+    "objectID": "projects/r-itable/index.html#status",
+    "href": "projects/r-itable/index.html#status",
+    "title": "R-itable",
+    "section": "Status",
+    "text": "Status\nR-itable is in early development. The API may change without notice and estimation results have not yet been validated against SOLAR Eclipse. Use with caution and verify outputs independently before using in any research context."
   },
   {
-    "objectID": "projects/actigraphy-clustering/index.html#actigraphy-features",
-    "href": "projects/actigraphy-clustering/index.html#actigraphy-features",
-    "title": "Circadian Phenotyping in Visual Impairment",
-    "section": "Actigraphy Features",
-    "text": "Actigraphy Features\nThe pipeline extracts variables spanning four circadian domains:\nStability — IS (interdaily stability), SRI (sleep regularity index)\nFragmentation — IV (intradaily variability), kRA (rest-to-activity probability), kAR (activity-to-rest probability), FSoD\nAmplitude — RA (relative amplitude), M10, L5, ADAT\nPhase — sleep midpoint, M10 onset, L5 onset, centre of gravity\nLight exposure — LRI (light regularity index), M10/L5 light onset\nFrequency domain — QP statistic and period estimate for activity, light, and temperature"
-  },
-  {
-    "objectID": "projects/actigraphy-clustering/index.html#links",
-    "href": "projects/actigraphy-clustering/index.html#links",
-    "title": "Circadian Phenotyping in Visual Impairment",
+    "objectID": "projects/r-itable/index.html#links",
+    "href": "projects/r-itable/index.html#links",
+    "title": "R-itable",
     "section": "Links",
-    "text": "Links\n\n💻 GitHub\n📄 Preprint (bioRxiv)\n🗄️ Software archive (Zenodo)\n☁️ Run in Google Colab"
+    "text": "Links\n\n🌐 Documentation\n📖 Getting started vignette\n💻 GitHub"
+  },
+  {
+    "objectID": "projects/clerkr/index.html",
+    "href": "projects/clerkr/index.html",
+    "title": "clerkR",
+    "section": "",
+    "text": "clerkR transforms standard R data frames into publication-ready tables for biomedical and neuroscience manuscripts. Rather than wrestling with formatting each time, clerkR reduces the most common table types to a handful of opinionated constructor functions that share consistent theming, domain grouping, footnote handling, and a unified rendering pipeline for Word/PDF (gt), interactive HTML (reactable), and LaTeX output.\nA clerk keeps tabs — clerkR keeps yours publication-ready."
+  },
+  {
+    "objectID": "projects/clerkr/index.html#about",
+    "href": "projects/clerkr/index.html#about",
+    "title": "clerkR",
+    "section": "",
+    "text": "clerkR transforms standard R data frames into publication-ready tables for biomedical and neuroscience manuscripts. Rather than wrestling with formatting each time, clerkR reduces the most common table types to a handful of opinionated constructor functions that share consistent theming, domain grouping, footnote handling, and a unified rendering pipeline for Word/PDF (gt), interactive HTML (reactable), and LaTeX output.\nA clerk keeps tabs — clerkR keeps yours publication-ready."
+  },
+  {
+    "objectID": "projects/clerkr/index.html#table-archetypes",
+    "href": "projects/clerkr/index.html#table-archetypes",
+    "title": "clerkR",
+    "section": "Table Archetypes",
+    "text": "Table Archetypes\n\n\n\n\n\n\n\n\nFunction\nUse case\nExample\n\n\n\n\ntbl_descriptive()\nSample characteristics by group, mean ± SD, t/χ²\nTable 1\n\n\ntbl_simple()\nDescriptive summary, no inferential test\nSupplementary table\n\n\ntbl_correlation()\nPartial correlations, r, p, p†\nCorrelation results\n\n\ntbl_regression()\nβ, SE, 95% CI, p, FDR — accepts broom::tidy()\nLinear/logistic models\n\n\ntbl_heritability()\nh², 95% CI, LRT p, σ²a/σ²e — accepts herit_batch()\nHeritability results"
+  },
+  {
+    "objectID": "projects/clerkr/index.html#quick-example",
+    "href": "projects/clerkr/index.html#quick-example",
+    "title": "clerkR",
+    "section": "Quick Example",
+    "text": "Quick Example\nlibrary(clerkR)\n\ntbl_descriptive(\n  clerk_example,\n  group   = sex,\n  domains = list(\n    \"Metabolic\"      = c(\"hdl\", \"glucose\", \"bmi\"),\n    \"Anthropometric\" = c(\"waist\", \"systolic_bp\"),\n    \"Cognitive\"      = c(\"tmt_time\", \"verbal_fluency\"),\n    \"Mental health\"  = c(\"bdi\", \"panas_neg\", \"life_satisfaction\")\n  ),\n  log_vars = \"tmt_time\",\n  fdr      = TRUE,\n  output   = \"gt\"\n) |&gt;\n  clerk_render(title = \"Table 1. Sample characteristics by sex\")\nclerkR is R-itable compatible — the output of herit_batch() pipes straight into tbl_heritability():\nherit_batch(traits, grm = A, data = dat, covs_list = covs_list) |&gt;\n  tbl_heritability(\n    model    = \"covariates\",\n    sigma2_a = \"sigma2_a\",\n    sigma2_e = \"sigma2_e\",\n    fdr      = TRUE,\n    output   = \"gt\"\n  ) |&gt;\n  clerk_render(title = \"Heritability estimates\")"
+  },
+  {
+    "objectID": "projects/clerkr/index.html#features",
+    "href": "projects/clerkr/index.html#features",
+    "title": "clerkR",
+    "section": "Features",
+    "text": "Features\n\nFive table archetypes covering ~90% of what appears in a biomed paper\nThe clerkR theme — light teal headers, navy text, clean borders, consistent throughout\nDomain/section grouping — organise rows under labelled section headers\nAutomatic footnotes for log-transformed variables and FDR correction\nThree render targets — gt for Word/PDF, reactable for HTML, LaTeX for manuscripts\nOutput baked in at construction — set output = \"gt\" once, then just |&gt; clerk_render()\nAll constructors return a composable clerk_tbl S3 object"
+  },
+  {
+    "objectID": "projects/clerkr/index.html#links",
+    "href": "projects/clerkr/index.html#links",
+    "title": "clerkR",
+    "section": "Links",
+    "text": "Links\n\n🌐 Documentation\n💻 GitHub\n🧬 R-itable — pedigree-based heritability estimation, feeds tbl_heritability()\n🕐 zeitR — actigraphy analysis and circadian metrics\n📓 slumbR — sleep diary processing\n📋 tallieR — questionnaire and sociodemographic data"
   },
   {
     "objectID": "projects/circadiabase-docker/index.html",
@@ -599,7 +634,7 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "zeitR\n\n\nActigraphy parsing and sleep pipeline analysis for R\n\n\nAn R package for importing raw actigraphy recordings and running a complete rest–activity pipeline — off-wrist detection, sleep period identification, WASO computation, and non-parametric circadian rhythm analysis.\n\n\n\n\n\nJun 1, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nPineTime Research Platform\n\n\nOpen-source wearable platform for research\n\n\nA custom InfiniTime firmware fork and companion web app for the PineTime smartwatch, optimised for research data collection. Currently in active development.\n\n\n\n\n\nJun 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nR-itable\n\n\nPedigree-based heritability estimation\n\n\nAn R package for profile-likelihood variance-components heritability estimation in family cohort studies. No SOLAR Eclipse required.\n\n\n\n\n\nJun 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nScoreMe\n\n\nResearch questionnaire scorer\n\n\nA lightweight web app for scoring validated research questionnaires in the browser. No installation required.\n\n\n\n\n\nMar 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\ntallieR\n\n\nR tools for ScoreMe questionnaire data\n\n\nAn R package for importing, re-scoring, and tidying questionnaire data collected with the ScoreMe app.\n\n\n\n\n\nMar 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nCircadian Phenotyping in Visual Impairment\n\n\nLow-latitude environmental regularity sustains non-photic entrainment in blind adults\n\n\nA data-driven framework for identifying circadian phenotypes in visually impaired participants using non-parametric actigraphy metrics, dimensionality reduction, clustering, and SHAP-based interpretation.\n\n\n\n\n\nFeb 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nSleep Diaries\n\n\nOpen-source sleep diary app for clinical research\n\n\nAn open-source mobile app for collecting sleep diary data in clinical and research settings, built with React Native & Expo.\n\n\n\n\n\nJan 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nslumbR\n\n\nR tools for sleep diary research\n\n\nAn R package for processing, scoring, and visualising sleep diary data collected with the Sleep Diaries app.\n\n\n\n\n\nJan 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nACTT Validation Study\n\n\nFrom Movement to METs: Validating the ActTrust® actigraphy device\n\n\nA fully reproducible R/Quarto pipeline validating the ActTrust® device for energy expenditure and physical activity classification, benchmarked against the ActiGraph® GT3X+ and indirect calorimetry.\n\n\n\n\n\nSep 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\ncircadiaBase Docker\n\n\nReproducible research environment for chronobiology\n\n\nA Docker template bundling a full chronobiology and actigraphy analysis stack — Jupyter + RStudio — launchable with a single command.\n\n\n\n\n\nJun 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nCycling & EEG Entropy\n\n\nCycling reduces the entropy of neuronal activity in the human adult cortex\n\n\nAn R analysis pipeline examining recurrence-matrix entropy in scalp EEG signals recorded during cycling and rest across four behavioural conditions in healthy adults.\n\n\n\n\n\nApr 1, 2024\n\n\n\n\n\nNo matching items"
+    "text": "clerkR\n\n\nPublication-ready tables for biomedical research in R\n\n\nAn R package that transforms standard data frames into publication-ready tables for biomedical and neuroscience manuscripts — descriptive/Table 1, heritability, correlation, and regression archetypes — with consistent theming and a unified…\n\n\n\n\n\nJul 3, 2026\n\n\n\n\n\n\n\n\n\n\n\n\ndynR\n\n\nDynamic connectivity analysis for neurophysiological timeseries in R\n\n\nAn R port of the Python dynfc library for computing dynamic connectivity (dynFC) representations — phase-based (LEiDA, Kuramoto) and correlation-based (sliding-window, edge-centric cofluctuation) methods — from multivariate neurophysiological…\n\n\n\n\n\nJul 3, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nzeitR\n\n\nActigraphy parsing and sleep pipeline analysis for R\n\n\nAn R package for importing raw actigraphy recordings and running a complete rest–activity pipeline — off-wrist detection, sleep period identification, WASO computation, and non-parametric circadian rhythm analysis.\n\n\n\n\n\nJun 1, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nPineTime Research Platform\n\n\nOpen-source wearable platform for research\n\n\nA custom InfiniTime firmware fork and companion web app for the PineTime smartwatch, optimised for research data collection. Currently in active development.\n\n\n\n\n\nJun 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nR-itable\n\n\nPedigree-based heritability estimation\n\n\nAn R package for profile-likelihood variance-components heritability estimation in family cohort studies. No SOLAR Eclipse required.\n\n\n\n\n\nJun 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nScoreMe\n\n\nResearch questionnaire scorer\n\n\nA lightweight web app for scoring validated research questionnaires in the browser. No installation required.\n\n\n\n\n\nMar 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\ntallieR\n\n\nR tools for ScoreMe questionnaire data\n\n\nAn R package for importing, re-scoring, and tidying questionnaire data collected with the ScoreMe app.\n\n\n\n\n\nMar 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nCircadian Phenotyping in Visual Impairment\n\n\nLow-latitude environmental regularity sustains non-photic entrainment in blind adults\n\n\nA data-driven framework for identifying circadian phenotypes in visually impaired participants using non-parametric actigraphy metrics, dimensionality reduction, clustering, and SHAP-based interpretation.\n\n\n\n\n\nFeb 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nSleep Diaries\n\n\nOpen-source sleep diary app for clinical research\n\n\nAn open-source mobile app for collecting sleep diary data in clinical and research settings, built with React Native & Expo.\n\n\n\n\n\nJan 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nslumbR\n\n\nR tools for sleep diary research\n\n\nAn R package for processing, scoring, and visualising sleep diary data collected with the Sleep Diaries app.\n\n\n\n\n\nJan 1, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nACTT Validation Study\n\n\nFrom Movement to METs: Validating the ActTrust® actigraphy device\n\n\nA fully reproducible R/Quarto pipeline validating the ActTrust® device for energy expenditure and physical activity classification, benchmarked against the ActiGraph® GT3X+ and indirect calorimetry.\n\n\n\n\n\nSep 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\ncircadiaBase Docker\n\n\nReproducible research environment for chronobiology\n\n\nA Docker template bundling a full chronobiology and actigraphy analysis stack — Jupyter + RStudio — launchable with a single command.\n\n\n\n\n\nJun 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nCycling & EEG Entropy\n\n\nCycling reduces the entropy of neuronal activity in the human adult cortex\n\n\nAn R analysis pipeline examining recurrence-matrix entropy in scalp EEG signals recorded during cycling and rest across four behavioural conditions in healthy adults.\n\n\n\n\n\nApr 1, 2024\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "design.html",
@@ -1169,46 +1204,102 @@
     "text": "Links\n\n💻 GitHub\n📄 Preprint (bioRxiv)\n🗄️ Data (Zenodo)"
   },
   {
-    "objectID": "projects/r-itable/index.html",
-    "href": "projects/r-itable/index.html",
-    "title": "R-itable",
+    "objectID": "projects/actigraphy-clustering/index.html",
+    "href": "projects/actigraphy-clustering/index.html",
+    "title": "Circadian Phenotyping in Visual Impairment",
     "section": "",
-    "text": "R-itable (library(Ritable)) estimates narrow-sense heritability (h²) for quantitative traits in pedigree-based family cohort studies. It implements a profile-likelihood variance-components approach equivalent to SOLAR Eclipse — without any proprietary dependencies, compiled code, or external binaries.\nBuilt for neuroimaging and biomedical cohorts where you need to run heritability across dozens of traits and multiple covariate models, and get results you can trace back to first principles."
+    "text": "This repository contains three integrated Jupyter notebooks implementing a modular Python pipeline for extracting, contextualising, and clustering circadian and sleep features from wrist actigraphy data. The pipeline was developed for a study of blind adults living near the equator in northeastern Brazil, and is readily adaptable to other actigraphy datasets.\n\nPugliane KC, França LGS, Leocadio-Miguel M, Araújo JF (2026). Low-latitude environmental regularity sustains non-photic entrainment in blind adults. bioRxiv. doi:10.64898/2026.03.19.712663"
   },
   {
-    "objectID": "projects/r-itable/index.html#about",
-    "href": "projects/r-itable/index.html#about",
-    "title": "R-itable",
+    "objectID": "projects/actigraphy-clustering/index.html#about",
+    "href": "projects/actigraphy-clustering/index.html#about",
+    "title": "Circadian Phenotyping in Visual Impairment",
     "section": "",
-    "text": "R-itable (library(Ritable)) estimates narrow-sense heritability (h²) for quantitative traits in pedigree-based family cohort studies. It implements a profile-likelihood variance-components approach equivalent to SOLAR Eclipse — without any proprietary dependencies, compiled code, or external binaries.\nBuilt for neuroimaging and biomedical cohorts where you need to run heritability across dozens of traits and multiple covariate models, and get results you can trace back to first principles."
+    "text": "This repository contains three integrated Jupyter notebooks implementing a modular Python pipeline for extracting, contextualising, and clustering circadian and sleep features from wrist actigraphy data. The pipeline was developed for a study of blind adults living near the equator in northeastern Brazil, and is readily adaptable to other actigraphy datasets.\n\nPugliane KC, França LGS, Leocadio-Miguel M, Araújo JF (2026). Low-latitude environmental regularity sustains non-photic entrainment in blind adults. bioRxiv. doi:10.64898/2026.03.19.712663"
   },
   {
-    "objectID": "projects/r-itable/index.html#features",
-    "href": "projects/r-itable/index.html#features",
-    "title": "R-itable",
-    "section": "Features",
-    "text": "Features\n\nProfile-likelihood VC estimator — eigendecomposition of the GRM, 1-D optimisation, exact LRT with one-sided χ²(1) boundary correction matching SOLAR.\nProfile-likelihood CIs — proper asymmetric intervals via uniroot(), not Wald ±1.96 SE.\nINT transformation — inverse-normal transform applied internally; also exported as int_transform() for use in other pipelines.\nBatch mode — herit_batch() iterates over traits × covariate models and returns a tidy data frame ready for tables and figures.\nForest plots — plot_forest() for immediate visualisation of batch output.\nMinimal dependencies — core functions require only base R, kinship2, rlang, and cli."
+    "objectID": "projects/actigraphy-clustering/index.html#scientific-context",
+    "href": "projects/actigraphy-clustering/index.html#scientific-context",
+    "title": "Circadian Phenotyping in Visual Impairment",
+    "section": "Scientific Context",
+    "text": "Scientific Context\nMost research on circadian rhythms in blind individuals has been conducted at high latitudes (North America, Europe), where pronounced seasonal variation in photoperiod may compound the loss of photic entrainment cues. This study asked whether the exceptionally stable environmental conditions near the equator (~5°S, Rio Grande do Norte, Brazil) — minimal photoperiod variation (~44 min annual amplitude) and stable temperature (~27°C year-round) — could sustain circadian entrainment even in the absence of light perception."
   },
   {
-    "objectID": "projects/r-itable/index.html#basic-usage",
-    "href": "projects/r-itable/index.html#basic-usage",
-    "title": "R-itable",
-    "section": "Basic Usage",
-    "text": "Basic Usage\nlibrary(Ritable)\n\n# 1. Build GRM from pedigree\nA &lt;- build_grm(my_pedigree, study_ids = my_data$IID)\n\n# 2. Single trait\nherit_vc(\"bmi\", grm = A, data = my_data, covs = c(\"age\", \"sex\"))\n\n# 3. Many traits × models → tidy data frame\nres &lt;- herit_batch(\n  traits    = c(\"bmi\", \"hdl\", \"systolic_bp\"),\n  grm       = A,\n  data      = my_data,\n  covs_list = list(\n    unadj = NULL,\n    cov1  = c(\"age\", \"sex\"),\n    cov2  = c(\"age\", \"sex\", \"age2\")\n  )\n)\n\n# 4. Forest plot\nplot_forest(res, model_filter = \"cov2\")"
+    "objectID": "projects/actigraphy-clustering/index.html#study-design",
+    "href": "projects/actigraphy-clustering/index.html#study-design",
+    "title": "Circadian Phenotyping in Visual Impairment",
+    "section": "Study Design",
+    "text": "Study Design\n58 blind adults (21–77 years; 43.1% female) wore wrist actigraphy continuously for four weeks. Pupillary light reflex (PLR) was used as a proxy for intact ipRGC photoreception (22 reactive, 36 non-reactive). A semi-supervised machine learning approach — combining PCA, KMeans clustering, and SHAP feature importance — was applied to 23 non-parametric actigraphy variables.\nTwo distinct circadian phenotypes emerged:\n\n\n\n\n\n\n\n\nPhenotype\nn\nKey characteristics\n\n\n\n\nHigher Circadian Stability (HCS)\n42 (72%)\nHigh RA, IS, QPActivity, LRI; consolidated rhythms\n\n\nLower Circadian Stability (LCS)\n16 (28%)\nFragmented rhythms, lower regularity and amplitude\n\n\n\nNotably, 64% of PLR-non-reactive individuals fell in the HCS group — approximately 1.6× higher than previously reported for blind cohorts at higher latitudes. Cluster membership explained substantially more variance in circadian metrics than PLR status alone (e.g., RA: R² = 0.61 for cluster vs R² = 0.15 for PLR)."
   },
   {
-    "objectID": "projects/r-itable/index.html#status",
-    "href": "projects/r-itable/index.html#status",
-    "title": "R-itable",
-    "section": "Status",
-    "text": "Status\nR-itable is in early development. The API may change without notice and estimation results have not yet been validated against SOLAR Eclipse. Use with caution and verify outputs independently before using in any research context."
+    "objectID": "projects/actigraphy-clustering/index.html#pipeline-structure",
+    "href": "projects/actigraphy-clustering/index.html#pipeline-structure",
+    "title": "Circadian Phenotyping in Visual Impairment",
+    "section": "Pipeline Structure",
+    "text": "Pipeline Structure\n\n\n\n\n\n\n\nNotebook\nDescription\n\n\n\n\ngeographical_and_seasonal_context\nMaps participant location, estimates photoperiod via astral, retrieves NASA POWER temperature and radiation data\n\n\nnonparametric_actigraphy_feature_extraction\nLoads actigraphy files, applies off-wrist masks, extracts 23 non-parametric circadian and sleep variables via pyActigraphy\n\n\nnonparametric_actigraphy_clustering\nZ-score normalisation → multicollinearity screening → PCA → KMeans → Random Forest + SHAP feature importance → between-group comparisons"
   },
   {
-    "objectID": "projects/r-itable/index.html#links",
-    "href": "projects/r-itable/index.html#links",
-    "title": "R-itable",
+    "objectID": "projects/actigraphy-clustering/index.html#actigraphy-features",
+    "href": "projects/actigraphy-clustering/index.html#actigraphy-features",
+    "title": "Circadian Phenotyping in Visual Impairment",
+    "section": "Actigraphy Features",
+    "text": "Actigraphy Features\nThe pipeline extracts variables spanning four circadian domains:\nStability — IS (interdaily stability), SRI (sleep regularity index)\nFragmentation — IV (intradaily variability), kRA (rest-to-activity probability), kAR (activity-to-rest probability), FSoD\nAmplitude — RA (relative amplitude), M10, L5, ADAT\nPhase — sleep midpoint, M10 onset, L5 onset, centre of gravity\nLight exposure — LRI (light regularity index), M10/L5 light onset\nFrequency domain — QP statistic and period estimate for activity, light, and temperature"
+  },
+  {
+    "objectID": "projects/actigraphy-clustering/index.html#links",
+    "href": "projects/actigraphy-clustering/index.html#links",
+    "title": "Circadian Phenotyping in Visual Impairment",
     "section": "Links",
-    "text": "Links\n\n🌐 Documentation\n📖 Getting started vignette\n💻 GitHub"
+    "text": "Links\n\n💻 GitHub\n📄 Preprint (bioRxiv)\n🗄️ Software archive (Zenodo)\n☁️ Run in Google Colab"
+  },
+  {
+    "objectID": "projects/dynr/index.html",
+    "href": "projects/dynr/index.html",
+    "title": "dynR",
+    "section": "",
+    "text": "dynR computes dynFC representations from preprocessed multivariate timeseries, providing the upstream computation layer for dynamic connectivity analysis. It is a full R port of the Python dynfc library, motivated by reproducibility: R + renv provides a more stable long-term environment than Python dependency chains for research pipelines.\nAlthough the bundled example data and several vignettes use BOLD fMRI, all methods are applicable to any band-limited neurophysiological signal where phase relationships or pairwise correlations carry meaningful information — including EEG, LFP, and MEG.\nThe outputs of dynR feed directly into stateR for brain state quantification (fractional occupancy, dwell time, Markov transitions)."
+  },
+  {
+    "objectID": "projects/dynr/index.html#about",
+    "href": "projects/dynr/index.html#about",
+    "title": "dynR",
+    "section": "",
+    "text": "dynR computes dynFC representations from preprocessed multivariate timeseries, providing the upstream computation layer for dynamic connectivity analysis. It is a full R port of the Python dynfc library, motivated by reproducibility: R + renv provides a more stable long-term environment than Python dependency chains for research pipelines.\nAlthough the bundled example data and several vignettes use BOLD fMRI, all methods are applicable to any band-limited neurophysiological signal where phase relationships or pairwise correlations carry meaningful information — including EEG, LFP, and MEG.\nThe outputs of dynR feed directly into stateR for brain state quantification (fractional occupancy, dwell time, Markov transitions)."
+  },
+  {
+    "objectID": "projects/dynr/index.html#pipeline-position",
+    "href": "projects/dynr/index.html#pipeline-position",
+    "title": "dynR",
+    "section": "Pipeline Position",
+    "text": "Pipeline Position\nMultivariate timeseries  [N × Tmax]\n        │\n        ▼\n     dynR                 ← this package\n  (dynFC representations)\n        │\n        ▼\n     stateR\n  (brain state metrics: FO, dwell time, Markov transitions)"
+  },
+  {
+    "objectID": "projects/dynr/index.html#quick-example",
+    "href": "projects/dynr/index.html#quick-example",
+    "title": "dynR",
+    "section": "Quick Example",
+    "text": "Quick Example\nlibrary(dynR)\n\n# Simulated timeseries: 80 channels, 300 timepoints\nset.seed(42)\nts &lt;- matrix(rnorm(80 * 300), nrow = 80, ncol = 300)\n\n# 1. Bandpass filter (e.g. fMRI: TR = 2 s, 0.01–0.1 Hz)\nts_filt &lt;- apply(ts, 1, bandpass_filter, flp = 0.01, fhi = 0.1, delt = 2)\nts_filt &lt;- t(ts_filt)\n\n# 2. Phase-based: LEiDA + Kuramoto\nphases &lt;- hilbert_phases(ts_filt)\ndpl    &lt;- dyn_phase_lock(phases)   # dpl$leida: [280 × 80] LEiDA eigenvectors\nkop    &lt;- kuramoto(phases)         # kop$metastability, kop$entropy\n\n# 3. Cluster LEiDA vectors → feed into stateR\nkm &lt;- kmeans(dpl$leida, centers = 5, nstart = 100)\n\n# 4. Correlation-based: sliding-window FC + cofluctuations\nsw &lt;- corr_slide(ts_filt, window = 30, step = 5)\nec &lt;- cofluct(ts_filt)             # ec$edge_ts, ec$rss"
+  },
+  {
+    "objectID": "projects/dynr/index.html#features",
+    "href": "projects/dynr/index.html#features",
+    "title": "dynR",
+    "section": "Features",
+    "text": "Features\n\n\n\n\n\n\n\nFunction\nDescription\n\n\n\n\nhilbert_phases()\nInstantaneous phase extraction via the analytic signal\n\n\ndyn_phase_lock()\nDynamic phase-locking matrices (dPL) + LEiDA eigenvectors\n\n\nget_leida()\nLeading eigenvector decomposition (LEiDA)\n\n\nkuramoto()\nKuramoto order parameter, metastability, Shannon entropy\n\n\ncorr_slide()\nSliding-window Pearson correlation matrices\n\n\ncofluct()\nEdge-centric cofluctuation time series + RSS\n\n\ncorr_corr()\nCorrelation-of-correlations (FC recurrence) matrix\n\n\nbandpass_filter()\nZero-phase Butterworth bandpass filter\n\n\nshannon_entropy()\nShannon entropy with optional bit-depth discretisation\n\n\ndyn_transitions()\nFirst-order Markov transition probabilities between brain states\n\n\n\nAll timeseries inputs follow the [N, Tmax] convention (rows = channels/parcels, columns = timepoints), matching the original Python dynfc package."
+  },
+  {
+    "objectID": "projects/dynr/index.html#status",
+    "href": "projects/dynr/index.html#status",
+    "title": "dynR",
+    "section": "Status",
+    "text": "Status\ndynR is in early development. The API may change without notice, estimation results have not yet been validated against a reference implementation, and the package has not undergone peer review. Use with caution and verify outputs independently before using in any research context."
+  },
+  {
+    "objectID": "projects/dynr/index.html#links",
+    "href": "projects/dynr/index.html#links",
+    "title": "dynR",
+    "section": "Links",
+    "text": "Links\n\n🌐 Documentation\n💻 GitHub\n🧪 stateR — brain state metrics, consumes dynR output\n🕐 zeitR — wrist actigraphy analysis"
   },
   {
     "objectID": "publications.html",
@@ -1285,6 +1376,6 @@
     "href": "index.html#news",
     "title": "Circadia",
     "section": "News",
-    "text": "News\n\n\n\n  \n    \n\n      \n        \n        \n          TutorialsSee all\n          Setting up circadiaBase Docker\n          A step-by-step guide to spinning up the Circadia Lab's reproducible research environment — JupyterLab and RStudio Server in a single Docker Compose stack — for chronobiology and actigraphy research.\n        \n      \n\n      \n        \n        \n          TutorialsSee all\n          Introducing Sleep Diaries: an open-source sleep diary app for research\n          We are releasing Sleep Diaries — a free, open-source, research-grade sleep diary app built with React Native and Expo. It runs on iOS, Android, and the web, and is designed to be easily adapted for clinical sleep research and personal use.\n        \n      \n\n      \n        \n        \n          TutorialsSee all\n          Sleep PSG validation\n          This post presents an analysis of sleep stage\n        \n      \n\n    \n    \n      \n      \n      \n    \n  \n\n  \n    \n\n      \n        \n        \n          PublicationsSee all\n          Low-latitude environmental regularity supports circadian organisation in blind adults\n          Chronobiology International · 2026\n          Using wrist actigraphy and machine learning in 58 blind adults living near the equator in Brazil, this study shows that circadian rest–activity rhythms can remain stably entrained even without photic input. Two distinct circadian phenotypes were identified: 72% of participants showed Higher Circadian Stability, a proportion far exceeding previous reports in blind cohorts, suggesting that environmental regularity at low latitudes supports non-photic circadian entrainment.\n        \n      \n\n      \n        \n        \n          PublicationsSee all\n          L5 onset as a proxy for circadian phase in infants\n          Chronobiology International · 2026\n          This study examined whether L5 onset — the start of the least active 5-hour period derived from rest–activity rhythms — can serve as a proxy for circadian phase in six-month-old infants, where standard sleep-scoring algorithms validated for adults have limited applicability. Analysing 502 nights from 81 infants, a significant positive correlation was found between mid-sleep point and L5 onset, supporting L5 onset as a practical, non-invasive circadian phase marker in early childhood.\n        \n      \n\n      \n        \n        \n          PublicationsSee all\n          From Movement to METs: A Validation of ActTrust® for Energy Expenditure Estimation and Physical Activity Classification in Young Adults\n          PLOS ONE · 2026\n          Validation of the ActTrust® actigraphy device against the ActiGraph® GT3X+ and indirect calorimetry in 56 young adults. Derives the first published cut-points for physical activity intensity classification using ActTrust® at hip and wrist placements.\n        \n      \n\n      \n        \n        \n          PublicationsSee all\n          Chronotype Profile in Children: A Systematic Review\n          Sleep and Vigilance · 2025\n          The first systematic review of chronotype profiling in children aged 0–10 years, conducted following PRISMA guidelines across five databases. The review finds inconsistent evidence on whether morning chronotype predominates in children, highlights the heterogeneity of measurement approaches used across studies, and identifies key gaps in the literature on circadian preference in early childhood.\n        \n      \n\n      \n        \n        \n          PublicationsSee all\n          Heritability of sleep architecture based on home polysomnography\n          Journal of Sleep Research · 2024\n          This study assessed the heritability of polysomnography sleep measures in 648 participants from the Baependi Heart Study in Brazil. It found that genetic factors influence total sleep time, non-REM sleep stages (especially N3), and the apnea-hypopnea index, but not REM sleep. These findings support the feasibility of future genetic studies on sleep traits.\n        \n      \n\n      \n        \n        \n          PublicationsSee all\n          2024 Standardization of Polysomnography Reports — A Consensus of the Brazilian Sleep Association\n          Sleep Science · 2024\n          A consensus document from the Brazilian Sleep Association establishing standardised reporting guidelines for polysomnography, covering scoring rules, technical specifications, and reporting conventions to improve consistency and comparability of sleep studies across Brazilian clinical and research settings.\n        \n      \n\n      \n        \n        \n          PublicationsSee all\n          Cycling reduces the entropy of neuronal activity in the human adult cortex\n          Plos One · 2024\n          This study used recurrence entropy to assess brain complexity (BC) in EEG signals during rest and cycling in 24 healthy adults. Results showed lower entropy during cycling, suggesting that repetitive movement reduces brain complexity due to continuous sensory feedback and streamlined sensorimotor processing.\n        \n      \n\n      \n        \n        \n          PublicationsSee all\n          Neonatal brain dynamic functional connectivity in term and preterm infants and its association with early childhood neurodevelopment\n          Nature Communications · 2024\n          This study examines dynamic functional connectivity in newborns using fMRI, revealing six transient brain connectivity states present at birth. It finds that preterm infants exhibit atypical connectivity patterns, which are linked to social, sensory, and repetitive behaviors at 18 months, suggesting early neurodevelopmental differences.\n        \n      \n\n      \n        \n        \n          PublicationsSee all\n          Hemodialysis-induced chronodisruption and chronotype distribution in patients with chronic kidney disease\n          The Journal of Biological and Medical Rhythm Research · 2024\n          This study examined circadian rhythm disruptions in 165 hemodialysis patients, finding that 40.6% experienced hemodialysis-induced chronodisruption (HIC). A morning chronotype was more prevalent in CKD patients than in the general population. HIC and chronotype were linked to quality of life but not sleep quality, highlighting potential implications for patient well-being.\n        \n      \n\n      \n        \n        \n          PublicationsSee all\n          Use of sleep quality questionary and cortisol awakening response as complementary tools for the evaluation of major depression progression\n          Current Psychology · 2024\n          This study examined the relationship between sleep quality and cortisol awakening response (CAR) across major depression severity. Patients with treatment-resistant depression had poorer sleep and a blunted CAR, while those with mild depression showed worse sleep but an elevated CAR compared to healthy controls. Sleep quality, particularly sleep medication use and sleep efficiency, was a strong predictor of depression severity, highlighting its clinical relevance for assessing and managing major depressive disorder.\n        \n      \n\n      \n        \n        \n          PublicationsSee all\n          Blue light exposure-dependent improvement in robustness of circadian rest-activity rhythm in aged rats\n          Plos One · 2023\n          This study investigated the effects of blue light therapy on circadian rhythms in aging rats. Exposure to blue light for 14 days improved locomotor rhythmicity, increasing amplitude, robustness, and phase advance while enhancing rest-phase consolidation. However, these benefits required continuous exposure. The findings suggest that blue light may help mitigate age-related circadian dysfunctions, though further research is needed to understand the underlying neural mechanisms."
+    "text": "News\n\n\n\n  \n    \n\n      \n        \n        \n          TutorialsSee all\n          Setting up circadiaBase Docker\n          A step-by-step guide to spinning up the Circadia Lab's reproducible research environment — JupyterLab and RStudio Server in a single Docker Compose stack — for chronobiology and actigraphy research.\n        \n      \n\n      \n        \n        \n          TutorialsSee all\n          Introducing Sleep Diaries: an open-source sleep diary app for research\n          We are releasing Sleep Diaries — a free, open-source, research-grade sleep diary app built with React Native and Expo. It runs on iOS, Android, and the web, and is designed to be easily adapted for clinical sleep research and personal use.\n        \n      \n\n      \n        \n        \n          TutorialsSee all\n          Sleep PSG validation\n          This post presents an analysis of sleep stage\n        \n      \n\n    \n    \n      \n      \n      \n    \n  \n\n  \n    \n\n      \n        \n        \n          PublicationsSee all\n          Habitual lifestyle timing explains circadian timing, but daily lifestyle changes do not, in free-living humans across 2000 days\n          arXiv preprint · 2026\n          Using up to four weeks of free-living wearable data (smartwatch and continuous glucose monitor) from 105 healthy adults across nearly 2000 person-days, this study asks whether the timing of the circadian heart-rate rhythm is better explained by people's habitual lifestyle patterns or by their day-to-day deviations from those patterns. Habitual traits, such as typical wake time, accounted for the large majority of between-person variation in circadian phase, while daily fluctuations in sleep, food, and activity timing explained comparatively little within-person variation, pointing to sustained changes in lifestyle timing, rather than one-off adjustments, as the more promising chronotherapy target.\n        \n      \n\n      \n        \n        \n          PublicationsSee all\n          Low-latitude environmental regularity supports circadian organisation in blind adults\n          Chronobiology International · 2026\n          Using wrist actigraphy and machine learning in 58 blind adults living near the equator in Brazil, this study shows that circadian rest–activity rhythms can remain stably entrained even without photic input. Two distinct circadian phenotypes were identified: 72% of participants showed Higher Circadian Stability, a proportion far exceeding previous reports in blind cohorts, suggesting that environmental regularity at low latitudes supports non-photic circadian entrainment.\n        \n      \n\n      \n        \n        \n          PublicationsSee all\n          L5 onset as a proxy for circadian phase in infants\n          Chronobiology International · 2026\n          This study examined whether L5 onset — the start of the least active 5-hour period derived from rest–activity rhythms — can serve as a proxy for circadian phase in six-month-old infants, where standard sleep-scoring algorithms validated for adults have limited applicability. Analysing 502 nights from 81 infants, a significant positive correlation was found between mid-sleep point and L5 onset, supporting L5 onset as a practical, non-invasive circadian phase marker in early childhood.\n        \n      \n\n      \n        \n        \n          PublicationsSee all\n          From Movement to METs: A Validation of ActTrust® for Energy Expenditure Estimation and Physical Activity Classification in Young Adults\n          PLOS ONE · 2026\n          Validation of the ActTrust® actigraphy device against the ActiGraph® GT3X+ and indirect calorimetry in 56 young adults. Derives the first published cut-points for physical activity intensity classification using ActTrust® at hip and wrist placements.\n        \n      \n\n      \n        \n        \n          PublicationsSee all\n          Chronotype Profile in Children: A Systematic Review\n          Sleep and Vigilance · 2025\n          The first systematic review of chronotype profiling in children aged 0–10 years, conducted following PRISMA guidelines across five databases. The review finds inconsistent evidence on whether morning chronotype predominates in children, highlights the heterogeneity of measurement approaches used across studies, and identifies key gaps in the literature on circadian preference in early childhood.\n        \n      \n\n      \n        \n        \n          PublicationsSee all\n          Heritability of sleep architecture based on home polysomnography\n          Journal of Sleep Research · 2024\n          This study assessed the heritability of polysomnography sleep measures in 648 participants from the Baependi Heart Study in Brazil. It found that genetic factors influence total sleep time, non-REM sleep stages (especially N3), and the apnea-hypopnea index, but not REM sleep. These findings support the feasibility of future genetic studies on sleep traits.\n        \n      \n\n      \n        \n        \n          PublicationsSee all\n          2024 Standardization of Polysomnography Reports — A Consensus of the Brazilian Sleep Association\n          Sleep Science · 2024\n          A consensus document from the Brazilian Sleep Association establishing standardised reporting guidelines for polysomnography, covering scoring rules, technical specifications, and reporting conventions to improve consistency and comparability of sleep studies across Brazilian clinical and research settings.\n        \n      \n\n      \n        \n        \n          PublicationsSee all\n          Cycling reduces the entropy of neuronal activity in the human adult cortex\n          Plos One · 2024\n          This study used recurrence entropy to assess brain complexity (BC) in EEG signals during rest and cycling in 24 healthy adults. Results showed lower entropy during cycling, suggesting that repetitive movement reduces brain complexity due to continuous sensory feedback and streamlined sensorimotor processing.\n        \n      \n\n      \n        \n        \n          PublicationsSee all\n          Neonatal brain dynamic functional connectivity in term and preterm infants and its association with early childhood neurodevelopment\n          Nature Communications · 2024\n          This study examines dynamic functional connectivity in newborns using fMRI, revealing six transient brain connectivity states present at birth. It finds that preterm infants exhibit atypical connectivity patterns, which are linked to social, sensory, and repetitive behaviors at 18 months, suggesting early neurodevelopmental differences.\n        \n      \n\n      \n        \n        \n          PublicationsSee all\n          Hemodialysis-induced chronodisruption and chronotype distribution in patients with chronic kidney disease\n          The Journal of Biological and Medical Rhythm Research · 2024\n          This study examined circadian rhythm disruptions in 165 hemodialysis patients, finding that 40.6% experienced hemodialysis-induced chronodisruption (HIC). A morning chronotype was more prevalent in CKD patients than in the general population. HIC and chronotype were linked to quality of life but not sleep quality, highlighting potential implications for patient well-being.\n        \n      \n\n      \n        \n        \n          PublicationsSee all\n          Use of sleep quality questionary and cortisol awakening response as complementary tools for the evaluation of major depression progression\n          Current Psychology · 2024\n          This study examined the relationship between sleep quality and cortisol awakening response (CAR) across major depression severity. Patients with treatment-resistant depression had poorer sleep and a blunted CAR, while those with mild depression showed worse sleep but an elevated CAR compared to healthy controls. Sleep quality, particularly sleep medication use and sleep efficiency, was a strong predictor of depression severity, highlighting its clinical relevance for assessing and managing major depressive disorder.\n        \n      \n\n      \n        \n        \n          PublicationsSee all\n          Blue light exposure-dependent improvement in robustness of circadian rest-activity rhythm in aged rats\n          Plos One · 2023\n          This study investigated the effects of blue light therapy on circadian rhythms in aging rats. Exposure to blue light for 14 days improved locomotor rhythmicity, increasing amplitude, robustness, and phase advance while enhancing rest-phase consolidation. However, these benefits required continuous exposure. The findings suggest that blue light may help mitigate age-related circadian dysfunctions, though further research is needed to understand the underlying neural mechanisms."
   }
 ]

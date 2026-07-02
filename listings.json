@@ -20,6 +20,8 @@
   {
     "listing": "/projects.html",
     "items": [
+      "/projects/clerkr/index.html",
+      "/projects/dynr/index.html",
       "/projects/zeitr/index.html",
       "/projects/pinetime/index.html",
       "/projects/r-itable/index.html",
