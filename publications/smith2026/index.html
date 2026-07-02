@@ -6,8 +6,24 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Billy C. Smith">
+<meta name="author" content="Zeel Pansara">
+<meta name="author" content="Rosanne H. Timmerman">
+<meta name="author" content="Emmanuel Molefi">
+<meta name="author" content="Tiago Da Silva Costa">
+<meta name="author" content="Christopher Thornton">
+<meta name="author" content="Lucas G. S. França">
+<meta name="author" content="Rachel E. Stirling">
+<meta name="author" content="Sarah E. Heaps">
+<meta name="author" content="Philippa J. Karoly">
+<meta name="author" content="Mario Leocadio-Miguel">
+<meta name="author" content="Peter N. Taylor">
+<meta name="author" content="Karoline Leiberg">
+<meta name="author" content="Yujiang Wang">
+<meta name="dcterms.date" content="2026-06-26">
+<meta name="description" content="Using up to four weeks of free-living wearable data (smartwatch and continuous glucose monitor) from 105 healthy adults across nearly 2000 person-days, this study asks whether the timing of the circadian heart-rate rhythm is better explained by people’s habitual lifestyle patterns or by their day-to-day deviations from those patterns. Habitual traits, such as typical wake time, accounted for the large majority of between-person variation in circadian phase, while daily fluctuations in sleep, food, and activity timing explained comparatively little within-person variation, pointing to sustained changes in lifestyle timing, rather than one-off adjustments, as the more promising chronotherapy target.">
 
-<title>Prof.&nbsp;Bruno Mota – Circadia</title>
+<title>Habitual lifestyle timing explains circadian timing, but daily lifestyle changes do not, in free-living humans across 2000 days – Circadia</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -38,6 +54,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
@@ -47,8 +64,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/bootstrap/bootstrap-681ebcd6bbd855087cd434c31b5a7695.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/bootstrap/bootstrap-dark-b930bda4e217681943592ad1fa8f41c1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../../site_libs/bootstrap/bootstrap-681ebcd6bbd855087cd434c31b5a7695.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -81,16 +96,14 @@ ul.task-list li input[type="checkbox"] {
 <!-- / Fathom -->
 
 
-<meta property="og:title" content="Prof.&nbsp;Bruno Mota – Circadia">
-<meta property="og:description" content="Federal University of Rio de Janeiro">
-<meta property="og:image" content="https://circadia-lab.uk/people/collaborators/bruno_mota.jpg">
+<meta property="og:title" content="Habitual lifestyle timing explains circadian timing, but daily lifestyle changes do not, in free-living humans across 2000 days – Circadia">
+<meta property="og:description" content="Using up to four weeks of free-living wearable data (smartwatch and continuous glucose monitor) from 105 healthy adults across nearly 2000 person-days, this study asks whether the timing of the circadian heart-rate rhythm is better explained by people’s habitual lifestyle patterns or by their day-to-day deviations from those patterns. Habitual traits, such as typical wake time, accounted for the large majority of between-person variation in circadian phase, while daily fluctuations in sleep, food, and activity timing explained comparatively little within-person variation, pointing to sustained changes in lifestyle timing, rather than one-off adjustments, as the more promising chronotherapy target.">
+<meta property="og:image" content="https://circadia-lab.uk/publications/smith2026/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
 <meta property="og:site_name" content="Circadia">
 <meta property="og:locale" content="en_GB">
-<meta property="og:image:alt" content="Photo of Bruno Mota">
-<meta name="twitter:title" content="Prof.&nbsp;Bruno Mota – Circadia">
-<meta name="twitter:description" content="Federal University of Rio de Janeiro">
-<meta name="twitter:image" content="https://circadia-lab.uk/people/collaborators/bruno_mota.jpg">
-<meta name="twitter:image:alt" content="Photo of Bruno Mota">
+<meta name="twitter:title" content="Habitual lifestyle timing explains circadian timing, but daily lifestyle changes do not, in free-living humans across 2000 days – Circadia">
+<meta name="twitter:description" content="Using up to four weeks of free-living wearable data (smartwatch and continuous glucose monitor) from 105 healthy adults across nearly 2000 person-days, this study asks whether the timing of the circadian heart-rate rhythm is better explained by people’s habitual lifestyle patterns or by their day-to-day deviations from those patterns. Habitual traits, such as typical wake time, accounted for the large majority of between-person variation in circadian phase, while daily fluctuations in sleep, food, and activity timing explained comparatively little within-person variation, pointing to sustained changes in lifestyle timing, rather than one-off adjustments, as the more promising chronotherapy target.">
+<meta name="twitter:image" content="https://circadia-lab.uk/publications/smith2026/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -345,74 +358,80 @@ ul.task-list li input[type="checkbox"] {
 <main class="content column-page" id="quarto-document-content">
 
 
-
-
-
-<div class="quarto-about-trestles column-page">
-  <div class="about-entity">
-    <img src="bruno_mota.jpg" alt="Photo of Bruno Mota" class="about-image
-  rounded " style="width: 20em;">
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Prof.&nbsp;Bruno Mota</h1>
-<p class="subtitle lead">Federal University of Rio de Janeiro</p>
+<h1 class="title">Habitual lifestyle timing explains circadian timing, but daily lifestyle changes do not, in free-living humans across 2000 days</h1>
+<p class="subtitle lead"><em>arXiv preprint</em></p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Preprint</div>
+    <div class="quarto-category">circadian</div>
+    <div class="quarto-category">wearables</div>
+    <div class="quarto-category">heart rate</div>
+    <div class="quarto-category">chronotherapy</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Using up to four weeks of free-living wearable data (smartwatch and continuous glucose monitor) from 105 healthy adults across nearly 2000 person-days, this study asks whether the timing of the circadian heart-rate rhythm is better explained by people’s habitual lifestyle patterns or by their day-to-day deviations from those patterns. Habitual traits, such as typical wake time, accounted for the large majority of between-person variation in circadian phase, while daily fluctuations in sleep, food, and activity timing explained comparatively little within-person variation, pointing to sustained changes in lifestyle timing, rather than one-off adjustments, as the more promising chronotherapy target.
+  </div>
 </div>
+
+
 <div class="quarto-title-meta column-page">
+
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+             <p>Billy C. Smith </p>
+             <p>Zeel Pansara </p>
+             <p>Rosanne H. Timmerman </p>
+             <p>Emmanuel Molefi </p>
+             <p>Tiago Da Silva Costa </p>
+             <p>Christopher Thornton </p>
+             <p>Lucas G. S. França <a href="https://orcid.org/0000-0003-0853-1319" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+             <p>Rachel E. Stirling </p>
+             <p>Sarah E. Heaps </p>
+             <p>Philippa J. Karoly </p>
+             <p>Mario Leocadio-Miguel <a href="https://orcid.org/0000-0002-7248-3529" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+             <p>Peter N. Taylor </p>
+             <p>Karoline Leiberg </p>
+             <p>Yujiang Wang <a href="https://orcid.org/0000-0002-4847-6273" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+          </div>
   </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 26, 2026</p>
+    </div>
+  </div>
+  
+    
+    <div>
+    <div class="quarto-title-meta-heading">Doi</div>
+    <div class="quarto-title-meta-contents">
+      <p class="doi">
+        <a href="https://doi.org/10.48550/arXiv.2606.28261">10.48550/arXiv.2606.28261</a>
+      </p>
+    </div>
+  </div>
+  </div>
+  
+
+
 </header>
-    <div class="about-links">
-  <a href="http://ml42.blogspot.com/" class="about-link" rel="" target="">
-    <i class="bi bi-link"></i>
-     <span class="about-link-text">Website</span>
-  </a>
-  <a href="https://scholar.google.com.br/citations?user=Q40IwXQAAAAJ&amp;hl=pt-BR&amp;oi=ao" class="about-link" rel="" target="">
-    <i class="bi bi-mortarboard"></i>
-     <span class="about-link-text">Scholar</span>
-  </a>
-  <a href="http://lattes.cnpq.br/4356558822177287" class="about-link" rel="" target="">
-    <i class="bi bi-link"></i>
-     <span class="about-link-text">Lattes</span>
-  </a>
-  <a href="https://orcid.org/0000-0002-6950-4106" class="about-link" rel="" target="">
-     <span class="about-link-text"><i class="fa-brands fa-orcid" aria-label="orcid"></i> ORCID</span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><div id="person-profile">
-<section id="biography" class="level2">
-<h2 data-anchor-id="biography">Biography</h2>
-<p>Prof.&nbsp;Bruno Mota is a Principal Investigator at the Instituto de Física, Universidade Federal do Rio de Janeiro (IF/UFRJ), where he leads the metaBIO lab (experimental mathematics and theoretical biology). Born and raised in Belo Horizonte, he trained originally as a cosmologist before a postdoctoral detour into comparative neuroanatomy, applying techniques from theoretical physics to problems in neuroscience, became the focus of his research career.</p>
-<p>His work asks why the brain has the shape it does, using tools from physics to uncover the physical laws governing the development and morphology of the nervous system, and looking for regularities that cut across species and scales. Among his best-known contributions is a widely cited 2015 <em>Science</em> paper showing that cortical folding scales universally with brain surface area and thickness rather than neuron number, a line of work he has continued to develop with collaborators including Prof.&nbsp;Yujiang Wang.</p>
-<p>Prof.&nbsp;Mota is a grantee of the Instituto Serrapilheira, which supports his research applying physics-derived models to the origins of biological form in neuroscience. Outside the lab, he is an enthusiastic cyclist and cook.</p>
-</section>
-<section id="education" class="level2">
-<h2 data-anchor-id="education">Education</h2>
-<p><i class="fa-solid fa-graduation-cap" aria-label="graduation-cap"></i> PhD in Physics - <em>Detecção e detectabilidade da topologia cósmica</em> (Detection and detectability of cosmic topology) - Centro Brasileiro de Pesquisas Físicas (Rio de Janeiro, Brazil - 2007)</p>
-<p><i class="fa-solid fa-graduation-cap" aria-label="graduation-cap"></i> MSc in Physics - Federal University of Minas Gerais (Belo Horizonte, Brazil - 2001)</p>
-<p><i class="fa-solid fa-graduation-cap" aria-label="graduation-cap"></i> BSc in Physics - Federal University of Minas Gerais (Belo Horizonte, Brazil - 1999)</p>
-</section>
-<section id="experience" class="level2">
-<h2 data-anchor-id="experience">Experience</h2>
-<p><i class="fa-solid fa-vial" aria-label="vial"></i> Professor - Instituto de Física, Federal University of Rio de Janeiro (Rio de Janeiro, Brazil | 2013 - Current)</p>
-<p><i class="fa-solid fa-vial" aria-label="vial"></i> Principal Investigator, metaBIO Lab - Instituto de Física, Federal University of Rio de Janeiro (Rio de Janeiro, Brazil | 2019 - Current)</p>
-<p><i class="fa-solid fa-vial" aria-label="vial"></i> Postdoctoral Researcher - Comparative Neuroanatomy Lab, Federal University of Rio de Janeiro (Rio de Janeiro, Brazil)</p>
-</section>
-<section id="selected-publications" class="level2">
-<h2 data-anchor-id="selected-publications">Selected Publications</h2>
-<p><i class="fa-solid fa-file-lines" aria-label="file-lines"></i> Mota, B. &amp; Herculano-Houzel, S. (2015). Cortical folding scales universally with surface area and thickness, not number of neurons. <em>Science</em>, 349(6243).</p>
-<p><i class="fa-solid fa-file-lines" aria-label="file-lines"></i> Wang, Y., Necus, J., Kaiser, M. &amp; Mota, B. (2016). Universality in human cortical folding in health and disease. <em>Proceedings of the National Academy of Sciences</em>, 113(45).</p>
-<p><i class="fa-solid fa-file-lines" aria-label="file-lines"></i> Wang, Y., Necus, J., Rodriguez, L.P., Taylor, P.N. &amp; Mota, B. (2019). Human cortical folding across regions within individual brains follows universal scaling law. <em>Communications Biology</em>, 2, 191.</p>
-<p><i class="fa-solid fa-file-lines" aria-label="file-lines"></i> Mota, B., Dos Santos, S.E., Ventura-Antunes, L., et al.&nbsp;&amp; Herculano-Houzel, S. (2019). White matter volume and white/gray matter ratio in mammalian species as a consequence of the universal scaling of cortical folding. <em>Proceedings of the National Academy of Sciences</em>, 116(30).</p>
-<p><i class="fa-solid fa-file-lines" aria-label="file-lines"></i> de Moraes, F.H.P., Mello, V.B.B., Tovar-Moll, F. &amp; Mota, B. (2022). Establishing a Baseline for Human Cortical Folding Morphological Variables: A Multisite Study. <em>Frontiers in Neuroscience</em>, 16.</p>
-<p><i class="fa-solid fa-file-lines" aria-label="file-lines"></i> Mynssen, H., Avelino-de-Souza, K., Chaim, K., Ribeiro, V.L., Patzke, N. &amp; Mota, B. (2024). Stitcher: A Surface Reconstruction Tool for Highly Gyrified Brains. <em>Neuroinformatics</em>, 22.</p>
-<p><i class="fa-solid fa-file-lines" aria-label="file-lines"></i> Wang, Y., Leiberg, K., Kindred, N., Madan, C.R., Poirier, C., Petkov, C.I., Taylor, P.N. &amp; Mota, B. (2024). Neuro-evolutionary evidence for a universal fractal primate brain shape. <em>eLife</em>, 12.</p>
-</section>
-</div></div>
-</div>
 
 
+<section id="abstract" class="level1">
+<h1>Abstract</h1>
+<p>Background: Both between- and within-subject variations in circadian timing matter for health. If lifestyle changes could be used to regulate circadian timing, they would offer accessible and scalable routes to chronotherapy, but this link remains unclear under real-life conditions. Here, we explore how lifestyle ‘traits’ (such as typical wake time) and ‘states’ (day-to-day deviations from traits, such as waking up later than typical) explain between- and within-subject variation in acrophase (peak time) of the circadian rhythm of heart rate (CRHR).</p>
+<p>Methods: We collected free-living wearable data (smartwatch, continuous glucose monitor) from healthy volunteers for up to 4 weeks. The CRHR was derived from activity-adjusted heart rate, and acrophase was defined as time-of-day at daily CRHR peak. Sleep, food, and physical activity ‘factors’ were calculated and split into traits and states. Using a linear mixed-effects model, we tested how traits and states associate with between- and within-subject acrophase variance.</p>
+<p>Findings: Data from 105 healthy volunteers (66 female, age = 42.5 ± 15.7 years) spanning ~2000 days (18.8 ± 8.30 days each) were analysed. Traits were substantially more influential than states, explaining 42.3% versus 0.9% of total acrophase variance. Accordingly, traits explained 86.5% of between-subject variance, whereas states explained only 1.8% of within-subject variance. Sleep, food and physical activity factors contributed both jointly and uniquely, and lifestyle timing mattered most.</p>
+<p>Interpretation: Between-subject lifestyle traits explained acrophase better than within-subject lifestyle states. This asymmetry, alongside the considerable overlap between factors, supports sustained, holistic, timing-focused lifestyle adjustments as chronotherapy targets, testable through future interventional studies.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -430,6 +449,13 @@ ul.task-list li input[type="checkbox"] {
       window.document.body.appendChild(a);
     }
     setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     

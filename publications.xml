@@ -17,7 +17,49 @@
 <width>144</width>
 </image>
 <generator>quarto-1.9.38</generator>
-<lastBuildDate>Tue, 23 Jun 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 26 Jun 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Habitual lifestyle timing explains circadian timing, but daily lifestyle changes do not, in free-living humans across 2000 days</title>
+  <dc:creator>Billy C. Smith</dc:creator>
+  <dc:creator>Zeel Pansara</dc:creator>
+  <dc:creator>Rosanne H. Timmerman</dc:creator>
+  <dc:creator>Emmanuel Molefi</dc:creator>
+  <dc:creator>Tiago Da Silva Costa</dc:creator>
+  <dc:creator>Christopher Thornton</dc:creator>
+  <dc:creator>Lucas G. S. França</dc:creator>
+  <dc:creator>Rachel E. Stirling</dc:creator>
+  <dc:creator>Sarah E. Heaps</dc:creator>
+  <dc:creator>Philippa J. Karoly</dc:creator>
+  <dc:creator>Mario Leocadio-Miguel</dc:creator>
+  <dc:creator>Peter N. Taylor</dc:creator>
+  <dc:creator>Karoline Leiberg</dc:creator>
+  <dc:creator>Yujiang Wang</dc:creator>
+  <link>https://circadia-lab.uk/publications/smith2026/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="abstract" class="level1">
+<h1>Abstract</h1>
+<p>Background: Both between- and within-subject variations in circadian timing matter for health. If lifestyle changes could be used to regulate circadian timing, they would offer accessible and scalable routes to chronotherapy, but this link remains unclear under real-life conditions. Here, we explore how lifestyle ‘traits’ (such as typical wake time) and ‘states’ (day-to-day deviations from traits, such as waking up later than typical) explain between- and within-subject variation in acrophase (peak time) of the circadian rhythm of heart rate (CRHR).</p>
+<p>Methods: We collected free-living wearable data (smartwatch, continuous glucose monitor) from healthy volunteers for up to 4 weeks. The CRHR was derived from activity-adjusted heart rate, and acrophase was defined as time-of-day at daily CRHR peak. Sleep, food, and physical activity ‘factors’ were calculated and split into traits and states. Using a linear mixed-effects model, we tested how traits and states associate with between- and within-subject acrophase variance.</p>
+<p>Findings: Data from 105 healthy volunteers (66 female, age = 42.5 ± 15.7 years) spanning ~2000 days (18.8 ± 8.30 days each) were analysed. Traits were substantially more influential than states, explaining 42.3% versus 0.9% of total acrophase variance. Accordingly, traits explained 86.5% of between-subject variance, whereas states explained only 1.8% of within-subject variance. Sleep, food and physical activity factors contributed both jointly and uniquely, and lifestyle timing mattered most.</p>
+<p>Interpretation: Between-subject lifestyle traits explained acrophase better than within-subject lifestyle states. This asymmetry, alongside the considerable overlap between factors, supports sustained, holistic, timing-focused lifestyle adjustments as chronotherapy targets, testable through future interventional studies.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Preprint</category>
+  <category>circadian</category>
+  <category>wearables</category>
+  <category>heart rate</category>
+  <category>chronotherapy</category>
+  <guid>https://circadia-lab.uk/publications/smith2026/</guid>
+  <pubDate>Fri, 26 Jun 2026 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Low-latitude environmental regularity supports circadian organisation in blind adults</title>
   <dc:creator>Karen C. Pugliane</dc:creator>
