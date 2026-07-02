@@ -1,0 +1,37 @@
+---
+title: "Prof. Bruno Mota"
+sortby: "Mota, Bruno"
+subtitle: "Federal University of Rio de Janeiro"
+image: bruno_mota.jpg
+image-alt: "Photo of Bruno Mota"
+toc: false
+about:
+  id: person-profile
+  template: trestles
+  image-width: 20em
+  links:
+    - icon: link
+      text: Website
+      href: http://ml42.blogspot.com/
+    - icon: mortarboard
+      text: Scholar
+      href: https://scholar.google.com.br/citations?user=Q40IwXQAAAAJ&hl=pt-BR&oi=ao
+    - icon: link
+      text: Lattes
+      href: http://lattes.cnpq.br/4356558822177287
+    - text: "{{< fa brands orcid >}} ORCID"
+      href: https://orcid.org/0000-0002-6950-4106
+---
+
+
+:::{#person-profile}
+
+## Biography
+
+Prof. Bruno Mota is a Principal Investigator at the Instituto de Física, Universidade Federal do Rio de Janeiro (IF/UFRJ), where he leads the metaBIO lab (experimental mathematics and theoretical biology). Born and raised in Belo Horizonte, he completed his undergraduate and master's degrees in physics at the Federal University of Minas Gerais (UFMG), followed by a PhD in physics at the Centro Brasileiro de Pesquisas Físicas (CBPF), with a thesis on the detection and detectability of cosmic topology.
+
+What began as a postdoctoral detour into comparative neuroanatomy at UFRJ, applying techniques from theoretical physics to problems in neuroscience, became the focus of his research career. He has been a professor at IF/UFRJ since 2013 and has led the metaBIO lab since 2019. His work asks why the brain has the shape it does, using tools from physics to uncover the physical laws governing the development and morphology of the nervous system, and looking for regularities that cut across species and scales. Among his best-known contributions is a widely cited 2015 Science paper showing that cortical folding scales universally with brain surface area and thickness rather than neuron number, a line of work he has continued to develop with collaborators including Prof. Yujiang Wang.
+
+Prof. Mota is a grantee of the Instituto Serrapilheira, which supports his research applying physics-derived models to the origins of biological form in neuroscience. Outside the lab, he is an enthusiastic cyclist and cook.
+
+:::
