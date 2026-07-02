@@ -29,6 +29,28 @@
   categories: [R Package, Actigraphy, Sleep, Open Source]
   date: 2026-06-01
 
+- title: "dynR"
+  path: projects/dynr/index.qmd
+  image: projects/images/dynr_logo.png
+  description: >
+    An R port of the Python dynfc library for computing dynamic connectivity (dynFC)
+    representations — phase-based (LEiDA, Kuramoto) and correlation-based
+    (sliding-window, edge-centric cofluctuation) methods — from multivariate
+    neurophysiological timeseries such as BOLD fMRI, EEG, and LFP.
+  categories: [R Package, Neuroimaging, Connectivity, Open Source]
+  date: 2026-07-03
+
+- title: "clerkR"
+  path: projects/clerkr/index.qmd
+  image: projects/images/clerkr_logo.png
+  description: >
+    An R package that transforms standard data frames into publication-ready tables
+    for biomedical and neuroscience manuscripts — descriptive/Table 1, heritability,
+    correlation, and regression archetypes — with consistent theming and a unified
+    rendering pipeline for Word/PDF, HTML, and LaTeX.
+  categories: [R Package, Tables, Reproducible Research, Open Source]
+  date: 2026-07-03
+
 - title: "ScoreMe"
   path: projects/scoreme/index.qmd
   image: projects/images/scoreme_og.png
