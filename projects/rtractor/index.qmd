@@ -1,0 +1,48 @@
+---
+title: "Rtractor"
+subtitle: "Complexity and nonlinear time series analysis for physiological signals"
+description: "A shared complexity toolkit for the Circadia Lab / CoDe-Neuro Lab ecosystem — entropy, fractal/multifractal measures, Lyapunov exponents, multiscale metrics, and recurrence quantification analysis for any numeric time series."
+date: "2026-07-22"
+image: ../images/rtractor_logo.png
+categories: [R Package, Signal Processing, Open Source]
+---
+
+## About
+
+Rtractor is a shared "complexity toolkit" for the Circadia Lab / CoDe-Neuro Lab ecosystem: a single home for the nonlinear dynamics and complex-systems measures (entropy, fractal dimension, Lyapunov exponents, multiscale entropy, recurrence quantification) that otherwise get reimplemented piecemeal inside signal-specific packages like mrpheus, zeitR, and dynR.
+
+Like hypnoR, Rtractor is **signal-agnostic**: every metric accepts a plain numeric time series regardless of where it came from — EEG, actigraphy, BOLD, HRV, or anything else — rather than assuming a specific data source or staging scheme.
+
+Where possible, Rtractor wraps existing, well-validated C/C++/Fortran reference implementations via Rcpp rather than reimplementing algorithms from scratch in R, to preserve numerical parity with the original methods literature.
+
+## Features
+
+Currently implemented:
+
+- **Fractal & multifractal** — `dfa()`, `higuchi_fd()`, `mfdma()`, `chhabra_jensen()`, `petrosian_fd()`, `hjorth_parameters()`, `num_zerocross()`
+- **Entropy** — `perm_entropy()`, `sample_entropy()`
+- **Multiscale metrics** — `multiscale_entropy()`
+- **Recurrence quantification** — `recurrence_microstate_entropy()`
+- **Simulation** — `pmodel()`, for generating synthetic multifractal test signals
+- A dedicated Rtractor colour palette, ggplot2 scales, and `theme_rtractor()`
+
+Planned: Lyapunov exponents (Rosenstein and Wolf methods), phase-space embedding, and the remaining recurrence quantification measures (determinism, laminarity).
+
+## Design Principles
+
+- **Signal-agnostic** — every function operates on a plain numeric vector or matrix; no assumptions about acquisition modality
+- **Isolation principle** — Rtractor runs standalone with no dependency on any other Circadia Lab / CoDe-Neuro Lab package, so it can be adopted independently as a leaf dependency
+- **Wrap, don't reimplement** — canonical C/C++/Fortran reference code is wrapped via Rcpp wherever a solid reference implementation exists
+
+## Status
+
+> **Rtractor is in early development and several planned families are not yet implemented** (Lyapunov exponents, phase-space embedding, general recurrence quantification measures). Implemented functions have been validated against reference implementations or ground-truth synthetic data where one exists, but the package as a whole has not undergone peer review and the API may change without notice. Verify outputs independently before using in any research context.
+
+## Links
+
+- 🌐 [Documentation](https://rtractor.circadia-lab.uk)
+- 💻 [GitHub](https://github.com/circadia-bio/Rtractor)
+- 🌙 [mrpheus](https://mrpheus.circadia-lab.uk) — raw PSG/EEG signal analysis
+- 🕐 [zeitR](https://zeitr.circadia-lab.uk) — wrist actigraphy pipeline
+- 🔄 [hypnoR](https://hypnor.circadia-lab.uk) — staging-agnostic hypnogram analysis
+- 🌀 [dynR](https://dynr.circadia-lab.uk) — dynamic functional connectivity

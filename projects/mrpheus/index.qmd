@@ -1,0 +1,53 @@
+---
+title: "mrpheus"
+subtitle: "Raw physiological signal analysis for biological rhythms research"
+description: "Ingests and processes multi-modal physiological recordings — polysomnography (EDF/EDF+), MRI-concurrent physiological logs, and EEG — extracting cardiac, respiratory, and neural rhythm features, including automatic AASM sleep staging."
+date: "2026-07-22"
+image: ../images/mrpheus_logo.png
+categories: [R Package, Sleep, Neuroimaging, Open Source]
+---
+
+## About
+
+mrpheus is the raw signal layer of the Circadia Lab R ecosystem. It ingests and processes multi-modal physiological recordings — polysomnography (EDF/EDF+), MRI-concurrent physiological logs (Philips PMU), and EEG — and extracts features across three biological rhythm domains: **cardiac** (QRS detection, HRV), **respiratory** (apnoea detection, respiratory metrics), and **neural** (sleep spindles, slow oscillations, automatic AASM sleep staging).
+
+Staged hypnograms and derived metrics pass downstream to [hypnoR](https://hypnor.circadia-lab.uk) and [syncR](https://syncr.circadia-lab.uk) for cross-modal linking.
+
+The name is spelled as *Morpheus* but carries a silent **m**, pronounced as *Orpheus* — carrying both myths at once. Morpheus, god of dreams, gives the package its subject; Orpheus, who descended into the underworld to navigate the unconscious, gives it its spirit.
+
+## Features
+
+- **EDF/EDF+ ingestion** — `read_edf()`, `prepare_psg()`: channel inventory, epoch segmentation, bad-channel flagging
+- **Preprocessing pipeline** — `preprocess_psg()`: channel renaming, DC removal, powerline notch, per-channel-type bandpass filtering
+- **EOG artefact correction** — regression-based and ICA-based
+- **Spectral analysis** — band power, temporal band power, spectrograms (YASA-validated Welch PSD)
+- **Sleep event detection** — spindles and slow oscillations
+- **Automatic AASM staging** — `stage_epochs()`: pre-trained LightGBM model ported from [YASA](https://github.com/raphaelvallat/yasa) (Vallat & Walker, 2021), 77.8% epoch accuracy on Sleep-EDF Cassette
+- **Respiratory metrics** — apnoea detection, AHI, ODI
+- **Cardiac rhythm** — QRS detection (Pan-Tompkins), heart rate signal, HRV during sleep
+- **Philips PMU ingestion** — `read_philips_physlog()`, with event markers and scan-window alignment
+- **Ecosystem handoffs** — `export_hypnogram()` feeds directly into hypnoR
+
+## Workflow
+
+```r
+library(mrpheus)
+
+rec <- read_edf("psg_001.edf")
+psg <- prepare_psg(rec)
+psg <- preprocess_psg(psg)
+psg <- correct_eog_regression(psg)
+
+stages <- stage_epochs(psg)
+bp     <- compute_band_power(psg, relative = TRUE)
+sp     <- compute_spindles(psg)
+
+hypnogram <- export_hypnogram(stages, start_time = rec$header$startTime)
+```
+
+## Links
+
+- 💻 [GitHub](https://github.com/circadia-bio/mrpheus)
+- 😴 [hypnoR](https://hypnor.circadia-lab.uk) — hypnogram handling and sleep architecture metrics
+- 🔗 [syncR](https://syncr.circadia-lab.uk) — unified participant-indexed database
+- ⛏️ [axR](https://axr.circadia-lab.uk) — accelerometer device interfacing

@@ -48,6 +48,10 @@ Interested in working with us? Visit our [Join us](/join.html) page.
     { href: "https://tallier.circadia-lab.uk",     img: "https://tallier.circadia-lab.uk/logo.svg",  name: "tallieR",      desc: "R package for ScoreMe questionnaire data",                  tag: "R pkg" },
     { href: "https://syncr.circadia-lab.uk",       img: "https://syncr.circadia-lab.uk/logo.svg",    name: "syncR",        desc: "Integrates and coordinates the Circadia R ecosystem",         tag: "R pkg" },
     { href: "https://r-itable.circadia-lab.uk",    img: "https://r-itable.circadia-lab.uk/logo.svg", name: "R-itable",     desc: "Pedigree-based heritability estimation",                    tag: "R pkg" },
+    { href: "https://axr.circadia-lab.uk",         img: "https://axr.circadia-lab.uk/logo.svg",      name: "axR",          desc: "Interfacing and retrieving data from accelerometer devices", tag: "R pkg" },
+    { href: "https://mrpheus.circadia-lab.uk",     img: "https://mrpheus.circadia-lab.uk/logo.svg", name: "mrpheus",     desc: "Raw physiological signal analysis (PSG/EEG)",              tag: "R pkg" },
+    { href: "https://hypnor.circadia-lab.uk",      img: "https://hypnor.circadia-lab.uk/logo.svg",   name: "hypnoR",       desc: "Hypnogram handling and sleep architecture metrics",         tag: "R pkg" },
+    { href: "https://rtractor.circadia-lab.uk",    img: "https://rtractor.circadia-lab.uk/logo.svg", name: "Rtractor",     desc: "Complexity and nonlinear time series analysis",             tag: "R pkg" },
     { href: "https://github.com/circadia-bio/circadiaBase_Docker", img: null, emoji: "&#x1F433;", name: "Circadia Docker", desc: "Reproducible research environment for chronobiology", tag: "Infra" }
   ];
 

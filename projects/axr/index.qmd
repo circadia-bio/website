@@ -1,0 +1,37 @@
+---
+title: "axR"
+subtitle: "Interfacing and retrieving data from accelerometer devices in R"
+description: "Device discovery, status, settings, and data download for Axivity AX3/AX6 accelerometer devices, plus direct parsing of .cwa files and Condor Instruments ActTrust .txt exports into a tidy epoch shape."
+date: "2026-07-22"
+image: ../images/axr_logo.png
+categories: [R Package, Actigraphy, Hardware, Open Source]
+---
+
+## About
+
+axR talks to Axivity AX3/AX6 accelerometers over USB: discovering connected devices, querying and setting status/configuration, and downloading recorded `.cwa` files. It also parses those `.cwa` files directly, and Condor Instruments ActTrust `.txt` actigraphy exports, into the same tidy epoch shape.
+
+Rather than reimplementing the Axivity serial protocol directly, axR wraps the Open Movement Project's [OMAPI](https://github.com/openmovementproject/libomapi) C library — the same library behind Axivity's own OmGui software — giving it maintained, platform-specific device discovery (IOKit/DiskArbitration on macOS, SetupAPI on Windows, udev on Linux) rather than a hand-rolled equivalent.
+
+axR is deliberately mostly a "dumb pipe": it talks to the device and moves bytes, leaving higher-level actigraphy analysis to downstream packages such as [mrpheus](https://mrpheus.circadia-lab.uk) or [zeitR](https://zeitr.circadia-lab.uk).
+
+## Features
+
+- **Discovery** — `axivity_discover()`
+- **Status** — battery, self-test, memory health, live accelerometer reading, RTC get/set, LED colour, anti-tamper lock, ECC flag
+- **Settings** — delayed activation window, session ID, metadata scratch buffer, accelerometer rate/range
+- **`axivity_stage_device()`** — one-call deployment staging: config, deployment window, session ID, and metadata, committed via `axivity_reset()`
+- **Download** — `axivity_download()`, backed by OMAPI's own background download thread, with a plain-file-copy fallback via `axivity_copy_data()`
+- **`axivity_read_cwa()`** — parse a `.cwa`/AX6 file directly into a tibble, no live device required
+- **`read_acttrust()`** — parse a Condor Instruments ActTrust `.txt` export into the same tidy epoch shape, as a device-agnostic actigraphy import layer
+
+## Status
+
+> **axR has not been fully verified against real hardware.** Live-device testing was performed on macOS and a real AX3. `timestamp`/`x`/`y`/`z`/`device_id` from `axivity_read_cwa()` have been verified correct against a real recording; `temperature_c` has not, and is likely wrong on at least some hardware revisions. Not tested against an AX6.
+
+## Links
+
+- 🌐 [Documentation](https://axr.circadia-lab.uk)
+- 💻 [GitHub](https://github.com/circadia-bio/axR)
+- 🧪 [mrpheus](https://mrpheus.circadia-lab.uk) — raw PSG/EEG signal analysis
+- 🕐 [zeitR](https://zeitr.circadia-lab.uk) — wrist actigraphy analysis and circadian metrics
