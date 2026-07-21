@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-07-22">
+<meta name="description" content="Ingests and processes multi-modal physiological recordings — polysomnography (EDF/EDF+), MRI-concurrent physiological logs, and EEG — extracting cardiac, respiratory, and neural rhythm features, including automatic AASM sleep staging.">
 
-<title>Prof.&nbsp;Matthew Walker – Circadia</title>
+<title>mrpheus – Circadia</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -38,6 +75,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
@@ -47,8 +85,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/bootstrap/bootstrap-5a6e0949482e2650e698599b3bd18698.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/bootstrap/bootstrap-dark-8fadc3d2f4497c3ca62ec04ac7189305.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../../site_libs/bootstrap/bootstrap-5a6e0949482e2650e698599b3bd18698.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -81,20 +117,18 @@ ul.task-list li input[type="checkbox"] {
 <!-- / Fathom -->
 
 
-<meta property="og:title" content="Prof.&nbsp;Matthew Walker – Circadia">
-<meta property="og:description" content="University College London">
-<meta property="og:image" content="https://circadia-lab.uk/people/collaborators/matthew.png">
+<meta property="og:title" content="mrpheus – Circadia">
+<meta property="og:description" content="Ingests and processes multi-modal physiological recordings — polysomnography (EDF/EDF+), MRI-concurrent physiological logs, and EEG — extracting cardiac, respiratory, and neural rhythm features, including automatic AASM sleep staging.">
+<meta property="og:image" content="https://circadia-lab.uk/projects/images/mrpheus_logo.png">
 <meta property="og:site_name" content="Circadia">
 <meta property="og:locale" content="en_GB">
-<meta property="og:image:height" content="1528">
-<meta property="og:image:width" content="1527">
-<meta property="og:image:alt" content="Photo of Matthew Walker">
-<meta name="twitter:title" content="Prof.&nbsp;Matthew Walker – Circadia">
-<meta name="twitter:description" content="University College London">
-<meta name="twitter:image" content="https://circadia-lab.uk/people/collaborators/matthew.png">
-<meta name="twitter:image-height" content="1528">
-<meta name="twitter:image-width" content="1527">
-<meta name="twitter:image:alt" content="Photo of Matthew Walker">
+<meta property="og:image:height" content="374">
+<meta property="og:image:width" content="326">
+<meta name="twitter:title" content="mrpheus – Circadia">
+<meta name="twitter:description" content="Ingests and processes multi-modal physiological recordings — polysomnography (EDF/EDF+), MRI-concurrent physiological logs, and EEG — extracting cardiac, respiratory, and neural rhythm features, including automatic AASM sleep staging.">
+<meta name="twitter:image" content="https://circadia-lab.uk/projects/images/mrpheus_logo.png">
+<meta name="twitter:image-height" content="374">
+<meta name="twitter:image-width" content="326">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -349,50 +383,90 @@ ul.task-list li input[type="checkbox"] {
 <main class="content column-page" id="quarto-document-content">
 
 
-
-
-
-<div class="quarto-about-trestles column-page">
-  <div class="about-entity">
-    <img src="matthew.png" alt="Photo of Matthew Walker" class="about-image
-  rounded " style="width: 20em;">
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Prof.&nbsp;Matthew Walker</h1>
-<p class="subtitle lead">University College London</p>
+<h1 class="title">mrpheus</h1>
+<p class="subtitle lead">Raw physiological signal analysis for biological rhythms research</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">R Package</div>
+    <div class="quarto-category">Sleep</div>
+    <div class="quarto-category">Neuroimaging</div>
+    <div class="quarto-category">Open Source</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Ingests and processes multi-modal physiological recordings — polysomnography (EDF/EDF+), MRI-concurrent physiological logs, and EEG — extracting cardiac, respiratory, and neural rhythm features, including automatic AASM sleep staging.
+  </div>
 </div>
+
+
 <div class="quarto-title-meta column-page">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 22, 2026</p>
+    </div>
   </div>
+  
+    
+  </div>
+  
+
+
 </header>
-    <div class="about-links">
-  <a href="https://scholar.google.com/citations?hl=en&amp;user=2TlAx6cAAAAJ" class="about-link" rel="" target="">
-    <i class="bi bi-mortarboard"></i>
-     <span class="about-link-text">Scholar</span>
-  </a>
-  <a href="https://orcid.org/0000-0002-0812-0352" class="about-link" rel="" target="">
-     <span class="about-link-text"><i class="fa-brands fa-orcid" aria-label="orcid"></i> ORCID</span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><div id="person-profile">
-<section id="biography" class="level2">
-<h2 data-anchor-id="biography">Biography</h2>
-<p>Professor Matthew Walker is a distinguished neurologist specialising in epilepsy and neurological sleep disorders. He holds the position of Professor of Neurology at the UCL Queen Square Institute of Neurology and serves as a Consultant Neurologist at the National Hospital for Neurology and Neurosurgery in London.</p>
-<p>Professor Walker completed his medical studies at Cambridge University and St Thomas’ Hospital. He earned a PhD from University College London, focusing on the treatment of status epilepticus. His research interests encompass the mechanisms, diagnosis, and treatment of epilepsy, and he has published over 200 scientific articles, chapters, and books.</p>
-<p>In addition to his clinical and research roles, Professor Walker has held several prominent positions:</p>
-<ul>
-<li>President of the British Branch of the International League Against Epilepsy (ILAE).</li>
-<li>Secretary of ILAE-Europe.</li>
-<li>Chair of the Trustees of Epilepsy Research UK.</li>
-</ul>
-<p>He was honored with the ILAE Ambassador for Epilepsy award in 2013. Professor Walker is a Fellow of the Royal College of Physicians and the American Epilepsy Society. He is an associate editor of Therapeutic Advances in Neurological Disorders and was previously an associate editor for the journals, Epilepsia and Brain.</p>
+
+
+<section id="about" class="level2">
+<h2 class="anchored" data-anchor-id="about">About</h2>
+<p>mrpheus is the raw signal layer of the Circadia Lab R ecosystem. It ingests and processes multi-modal physiological recordings — polysomnography (EDF/EDF+), MRI-concurrent physiological logs (Philips PMU), and EEG — and extracts features across three biological rhythm domains: <strong>cardiac</strong> (QRS detection, HRV), <strong>respiratory</strong> (apnoea detection, respiratory metrics), and <strong>neural</strong> (sleep spindles, slow oscillations, automatic AASM sleep staging).</p>
+<p>Staged hypnograms and derived metrics pass downstream to <a href="https://hypnor.circadia-lab.uk">hypnoR</a> and <a href="https://syncr.circadia-lab.uk">syncR</a> for cross-modal linking.</p>
+<p>The name is spelled as <em>Morpheus</em> but carries a silent <strong>m</strong>, pronounced as <em>Orpheus</em> — carrying both myths at once. Morpheus, god of dreams, gives the package its subject; Orpheus, who descended into the underworld to navigate the unconscious, gives it its spirit.</p>
 </section>
-</div></div>
-</div>
+<section id="features" class="level2">
+<h2 class="anchored" data-anchor-id="features">Features</h2>
+<ul>
+<li><strong>EDF/EDF+ ingestion</strong> — <code>read_edf()</code>, <code>prepare_psg()</code>: channel inventory, epoch segmentation, bad-channel flagging</li>
+<li><strong>Preprocessing pipeline</strong> — <code>preprocess_psg()</code>: channel renaming, DC removal, powerline notch, per-channel-type bandpass filtering</li>
+<li><strong>EOG artefact correction</strong> — regression-based and ICA-based</li>
+<li><strong>Spectral analysis</strong> — band power, temporal band power, spectrograms (YASA-validated Welch PSD)</li>
+<li><strong>Sleep event detection</strong> — spindles and slow oscillations</li>
+<li><strong>Automatic AASM staging</strong> — <code>stage_epochs()</code>: pre-trained LightGBM model ported from <a href="https://github.com/raphaelvallat/yasa">YASA</a> (Vallat &amp; Walker, 2021), 77.8% epoch accuracy on Sleep-EDF Cassette</li>
+<li><strong>Respiratory metrics</strong> — apnoea detection, AHI, ODI</li>
+<li><strong>Cardiac rhythm</strong> — QRS detection (Pan-Tompkins), heart rate signal, HRV during sleep</li>
+<li><strong>Philips PMU ingestion</strong> — <code>read_philips_physlog()</code>, with event markers and scan-window alignment</li>
+<li><strong>Ecosystem handoffs</strong> — <code>export_hypnogram()</code> feeds directly into hypnoR</li>
+</ul>
+</section>
+<section id="workflow" class="level2">
+<h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mrpheus)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>rec <span class="ot">&lt;-</span> <span class="fu">read_edf</span>(<span class="st">"psg_001.edf"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>psg <span class="ot">&lt;-</span> <span class="fu">prepare_psg</span>(rec)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>psg <span class="ot">&lt;-</span> <span class="fu">preprocess_psg</span>(psg)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>psg <span class="ot">&lt;-</span> <span class="fu">correct_eog_regression</span>(psg)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>stages <span class="ot">&lt;-</span> <span class="fu">stage_epochs</span>(psg)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>bp     <span class="ot">&lt;-</span> <span class="fu">compute_band_power</span>(psg, <span class="at">relative =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>sp     <span class="ot">&lt;-</span> <span class="fu">compute_spindles</span>(psg)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>hypnogram <span class="ot">&lt;-</span> <span class="fu">export_hypnogram</span>(stages, <span class="at">start_time =</span> rec<span class="sc">$</span>header<span class="sc">$</span>startTime)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="links" class="level2">
+<h2 class="anchored" data-anchor-id="links">Links</h2>
+<ul>
+<li>💻 <a href="https://github.com/circadia-bio/mrpheus">GitHub</a></li>
+<li>😴 <a href="https://hypnor.circadia-lab.uk">hypnoR</a> — hypnogram handling and sleep architecture metrics</li>
+<li>🔗 <a href="https://syncr.circadia-lab.uk">syncR</a> — unified participant-indexed database</li>
+<li>⛏️ <a href="https://axr.circadia-lab.uk">axR</a> — accelerometer device interfacing</li>
+</ul>
 
 
-
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -410,6 +484,13 @@ ul.task-list li input[type="checkbox"] {
       window.document.body.appendChild(a);
     }
     setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
