@@ -566,6 +566,37 @@ hr {
   color: rgba(255, 220, 180, 0.6) !important;
 }
 
+/* Lab Outputs page — dark mode */
+.lo-card {
+  @include glass-dark(0.45, 12px, 0.15);
+  &:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+}
+
+.lo-type {
+  background: rgba(155, 223, 226, 0.12);
+  color: $body-color;
+}
+
+.lo-type-software { background: rgba($link-color, 0.15); color: $link-color; }
+
+.lo-title { color: $body-color; }
+
+.lo-meta { color: rgba(255, 220, 180, 0.7); }
+
+.lo-doi {
+  color: $link-color !important;
+  border-color: rgba($link-color, 0.3);
+  background: rgba(1, 43, 70, 0.55);
+  &:hover {
+    background: rgba(1, 43, 70, 0.85);
+    border-color: $link-color;
+  }
+}
+
+.lo-empty {
+  color: rgba(255, 220, 180, 0.6);
+}
+
 .pc-btn {
   background: rgba(1, 43, 70, 0.6);
   border-color: rgba(155, 223, 226, 0.2);
