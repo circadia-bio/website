@@ -39,6 +39,7 @@ Interested in working with us? Visit our [Join us](/join.html) page.
 <script>
 (function(){
   var products = [
+    // PRODUCTS:START
     { href: "https://sleepdiaries.circadia-lab.uk", img: "sleepdiaries-icon.png",             name: "Sleep Diaries", desc: "Digital sleep diary for research and clinical use",             tag: "App" },
     { href: "https://scoreme.circadia-lab.uk",     img: "scoreme-icon.svg",                   name: "ScoreMe",      desc: "Scoring and interpretation of sleep questionnaires",         tag: "App" },
     { href: "https://slumbr.circadia-lab.uk",      img: "https://slumbr.circadia-lab.uk/logo.svg",   name: "slumbR",       desc: "R package for sleep data analysis and visualisation",        tag: "R pkg" },
@@ -53,6 +54,7 @@ Interested in working with us? Visit our [Join us](/join.html) page.
     { href: "https://hypnor.circadia-lab.uk",      img: "https://hypnor.circadia-lab.uk/logo.svg",   name: "hypnoR",       desc: "Hypnogram handling and sleep architecture metrics",         tag: "R pkg" },
     { href: "https://rtractor.circadia-lab.uk",    img: "https://rtractor.circadia-lab.uk/logo.svg", name: "Rtractor",     desc: "Complexity and nonlinear time series analysis",             tag: "R pkg" },
     { href: "https://github.com/circadia-bio/circadiaBase_Docker", img: null, emoji: "&#x1F433;", name: "Circadia Docker", desc: "Reproducible research environment for chronobiology", tag: "Infra" }
+    // PRODUCTS:END
   ];
 
   var VISIBLE = window.innerWidth < 600 ? 1 : 5;
@@ -91,6 +93,62 @@ Interested in working with us? Visit our [Join us](/join.html) page.
     tag.textContent = p.tag + ' →';
     a.appendChild(name);
     a.appendChild(desc);
+
+    // Zenodo/CITATION.cff footer strip — only for tracked packages.
+    // p.zenodoTracked / p.version / p.doiUrl / p.releasedDate / p.citationUrl
+    // are injected by generate_zenodo_badges.py.
+    if (p.zenodoTracked) {
+      var meta = document.createElement('span');
+      meta.className = 'pc-meta';
+      meta.setAttribute('onclick', 'event.stopPropagation()');
+
+      if (p.version) {
+        var version = document.createElement('span');
+        version.className = 'pc-version';
+        version.textContent = 'v' + p.version;
+        meta.appendChild(version);
+
+        var links = document.createElement('span');
+        links.className = 'pc-links';
+
+        var doiLink = document.createElement('a');
+        doiLink.href = p.doiUrl;
+        doiLink.target = '_blank';
+        doiLink.rel = 'noopener';
+        doiLink.textContent = 'DOI';
+        links.appendChild(doiLink);
+
+        if (p.citationUrl) {
+          links.appendChild(document.createTextNode(' · '));
+          var citeLink = document.createElement('a');
+          citeLink.href = p.citationUrl;
+          citeLink.target = '_blank';
+          citeLink.rel = 'noopener';
+          citeLink.textContent = 'Cite';
+          links.appendChild(citeLink);
+        }
+
+        meta.appendChild(links);
+      } else {
+        var archived = document.createElement('span');
+        archived.className = 'pc-archived';
+        archived.textContent = 'Not yet archived';
+        meta.appendChild(archived);
+
+        if (p.citationUrl) {
+          var citeOnly = document.createElement('a');
+          citeOnly.className = 'pc-cite-only';
+          citeOnly.href = p.citationUrl;
+          citeOnly.target = '_blank';
+          citeOnly.rel = 'noopener';
+          citeOnly.textContent = 'Cite';
+          meta.appendChild(citeOnly);
+        }
+      }
+
+      a.appendChild(meta);
+    }
+
     a.appendChild(tag);
     return a;
   }

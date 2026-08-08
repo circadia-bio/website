@@ -3,6 +3,7 @@ project:
   pre-render:
     - generate_carousel.py
     - generate_people.py
+    - generate_zenodo_badges.py
   resources:
     - sleepdiaries-icon.png
     - scoreme-icon.svg

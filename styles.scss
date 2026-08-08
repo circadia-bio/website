@@ -300,6 +300,49 @@ hr {
   transition: opacity 0.18s;
 }
 
+.pc-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding-top: 6px;
+  margin-top: 4px;
+  border-top: 1px solid rgba(27, 103, 153, 0.12);
+  font-size: 0.6rem;
+  line-height: 1.2;
+}
+
+.pc-version {
+  font-weight: 700;
+  color: $body-color;
+  opacity: 0.8;
+}
+
+.pc-links {
+  display: inline-flex;
+  gap: 4px;
+  a {
+    color: $link-color !important;
+    text-decoration: none !important;
+    opacity: 0.8;
+    &:hover { opacity: 1; text-decoration: underline !important; }
+  }
+}
+
+.pc-archived {
+  color: lighten($body-color, 25%);
+  font-style: italic;
+  opacity: 0.75;
+}
+
+.pc-cite-only {
+  color: $link-color !important;
+  text-decoration: none !important;
+  opacity: 0.8;
+  &:hover { opacity: 1; text-decoration: underline !important; }
+}
+
 .pc-btn {
   background: rgba(255,236,212,0.55);
   border: 1px solid rgba(255,255,255,0.35);
