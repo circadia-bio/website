@@ -39,6 +39,7 @@
   zenodo_tracked: true
   zenodo_concept_doi: null
   license: "MIT"
+  runiverse: true
   title: "slumbR: Sleep Diaries Helper Package for R"
   authors: "França, Lucas; Leocadio-Miguel, Mario"
 
@@ -47,6 +48,7 @@
   zenodo_tracked: true
   zenodo_concept_doi: "10.5281/zenodo.21315925"
   license: "MIT"
+  runiverse: true
   title: "zeitR: Actigraphy Data Parsing and Analysis for R"
   authors: "França, Lucas; Leocadio-Miguel, Mario; Vallim, Julia Ribeiro da Silva"
 
@@ -55,6 +57,7 @@
   zenodo_tracked: true
   zenodo_concept_doi: null
   license: "MIT"
+  runiverse: true
   title: "dynR: Dynamic Connectivity Analysis for Neurophysiological Timeseries"
   authors: "França, Lucas; Leocadio-Miguel, Mario; Batallé, Dafnis"
 
@@ -63,6 +66,7 @@
   zenodo_tracked: true
   zenodo_concept_doi: "10.5281/zenodo.21574765"
   license: "MIT"
+  runiverse: true
   title: "clerkR: Publication-Ready Tables for Biomedical Research"
   authors: "França, Lucas; Leocadio-Miguel, Mario"
 
@@ -71,6 +75,7 @@
   zenodo_tracked: true
   zenodo_concept_doi: null
   license: "MIT"
+  runiverse: true
   title: "tallieR: Import and Score ScoreMe App Questionnaire Data"
   authors: "França, Lucas; Leocadio-Miguel, Mario"
 
@@ -79,6 +84,7 @@
   zenodo_tracked: true
   zenodo_concept_doi: null
   license: "MIT"
+  runiverse: true
   title: "syncR: Integrate and Coordinate Data Across the Circadia Lab Package Ecosystem"
   authors: "França, Lucas; Leocadio-Miguel, Mario"
 
@@ -87,6 +93,8 @@
   zenodo_tracked: true
   zenodo_concept_doi: null
   license: "MIT"
+  runiverse: true
+  runiverse_pkg: "Ritable"
   title: "Ritable: Pedigree-Based Heritability Estimation for Family Cohort Studies"
   authors: "França, Lucas; Leocadio-Miguel, Mario"
 
@@ -95,6 +103,7 @@
   zenodo_tracked: true
   zenodo_concept_doi: "10.5281/zenodo.21393892"
   license: "MIT"
+  runiverse: true
   title: "axR: Interfacing and Retrieving Data from Accelerometer Devices"
   authors: "França, Lucas; Leocadio-Miguel, Mario; Jackson, Daniel"
 
@@ -103,6 +112,7 @@
   zenodo_tracked: true
   zenodo_concept_doi: null
   license: "MIT"
+  runiverse: true
   title: "mrpheus: Raw Physiological Signal Analysis for Biological Rhythms Research"
   authors: "França, Lucas; Leocadio-Miguel, Mario"
 
@@ -111,6 +121,7 @@
   zenodo_tracked: true
   zenodo_concept_doi: "10.5281/zenodo.21309263"
   license: "MIT"
+  runiverse: true
   title: "hypnoR: Hypnogram Handling, Plotting, and Sleep Architecture Metrics"
   authors: "França, Lucas; Leocadio-Miguel, Mario"
 
@@ -119,6 +130,7 @@
   zenodo_tracked: true
   zenodo_concept_doi: "10.5281/zenodo.21328630"
   license: "GPL-2.0-or-later"
+  runiverse: true
   title: "Rtractor: Complexity and Nonlinear Time Series Analysis for Physiological Signals"
   authors: "França, Lucas; Leocadio-Miguel, Mario"
 

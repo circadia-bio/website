@@ -244,6 +244,17 @@ Interested in working with us? Visit our [Join us](/join.html) page.
         badges.appendChild(doiLink);
       }
 
+      if (p.rUniverseUrl) {
+        var runivLink = document.createElement('a');
+        runivLink.className = 'pc-badge pc-badge-runiverse';
+        runivLink.href = p.rUniverseUrl;
+        runivLink.target = '_blank';
+        runivLink.rel = 'noopener';
+        runivLink.title = 'View on r-universe.dev';
+        runivLink.innerHTML = '<svg viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="4.2"/><circle cx="12" cy="12" r="2.3" fill="currentColor" stroke="none"/></svg>r∪';
+        badges.appendChild(runivLink);
+      }
+
       if (p.citationBibtex) {
         var citeBtn = document.createElement('button');
         citeBtn.type = 'button';

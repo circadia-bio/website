@@ -237,6 +237,12 @@ def build_product_data(entries, cache):
             released_date=released_date,
         )
 
+        runiverse_pkg = entry.get("runiverse_pkg") or repo
+        runiverse_url = (
+            f"https://circadia-bio.r-universe.dev/{runiverse_pkg}"
+            if entry.get("runiverse") and runiverse_pkg else None
+        )
+
         result[name] = {
             "version": version,
             "doi_url": doi_url,
@@ -245,6 +251,7 @@ def build_product_data(entries, cache):
             "citation_bibtex": citation_bibtex,
             "license_label": license_label(entry_license),
             "license_url": license_url if entry_license else None,
+            "runiverse_url": runiverse_url,
         }
     return result
 
@@ -285,6 +292,7 @@ def inject_fields(match, product_data):
         f", citationBibtex: {js_string(data['citation_bibtex'])}"
         f", licenseLabel: {js_string(data['license_label'])}"
         f", licenseUrl: {js_string(data['license_url'])}"
+        f", rUniverseUrl: {js_string(data['runiverse_url'])}"
     )
     return obj_text[:-1].rstrip() + fields + " }"
 
