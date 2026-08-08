@@ -579,7 +579,7 @@ hr {
 
 .lo-type-software { background: rgba($link-color, 0.15); color: $link-color; }
 
-.lo-title { color: $body-color; }
+.lo-title { color: $body-color; &:hover { color: $link-color !important; } }
 
 .lo-meta { color: rgba(255, 220, 180, 0.7); }
 

@@ -512,10 +512,13 @@ hr {
   line-height: 1.4;
   margin: 0.1rem 0 0;
   color: $body-color;
+  text-decoration: none !important;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
+
+  &:hover { color: $link-color; }
 }
 
 .lo-meta {

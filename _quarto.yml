@@ -35,7 +35,7 @@ website:
       - text: Projects
         icon: folder-fill
         href: projects.qmd
-      - text: Lab Outputs
+      - text: Outputs
         icon: cloud-arrow-up-fill
         href: lab-outputs.qmd
       - text: Tutorials

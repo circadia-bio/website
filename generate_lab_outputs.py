@@ -152,13 +152,17 @@ def card_html(record):
         )
 
     url = record["url"] or "#"
+    # NOTE: lo-card is a <div>, not an <a> -- the clickable link lives on
+    # lo-title instead. Nested <a> tags are invalid HTML; browsers silently
+    # auto-close the outer anchor when they hit the inner one, which strands
+    # the DOI badge as a bare sibling and breaks the CSS grid layout.
     return (
-        '<a class="lo-card" href="{url}" target="_blank" rel="noopener">'
+        '<div class="lo-card">'
         '<span class="lo-type lo-type-{rtype}">{rlabel}</span>'
-        '<p class="lo-title">{title}</p>'
+        '<a class="lo-title" href="{url}" target="_blank" rel="noopener">{title}</a>'
         '<p class="lo-meta">{authors}{sep}{date}</p>'
         '<span class="lo-footer">{doi_badge}</span>'
-        '</a>'
+        '</div>'
     ).format(
         url=esc(url),
         rtype=esc(rtype),
