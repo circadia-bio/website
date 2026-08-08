@@ -2,14 +2,17 @@
 # Keyed by the product's "name" field in the carousel's JS array.
 #
 # zenodo_tracked: false  -> apps/infra not part of the Zenodo rollout;
-#                           card keeps its current footer, no version/DOI/cite row.
+#                           card keeps its current footer, no version/DOI/cite/license row.
 # zenodo_tracked: true, zenodo_concept_doi: null
 #                        -> package has .zenodo.json + CITATION.cff committed,
-#                           but no release yet. Card shows "not yet archived".
+#                           but no release yet. Card shows "not yet archived"
+#                           (license still shown — it doesn't depend on a release existing).
 # zenodo_tracked: true, zenodo_concept_doi: "10.5281/zenodo.XXXXXXX"
 #                        -> fill this in after the first GitHub release triggers
 #                           the Zenodo archive. Script resolves it to get the
 #                           current version + release date automatically.
+#
+# license: SPDX identifier, matching each repo's DESCRIPTION/.zenodo.json.
 
 - name: "Sleep Diaries"
   zenodo_tracked: false
@@ -21,58 +24,70 @@
   repo: "slumbR"
   zenodo_tracked: true
   zenodo_concept_doi: null
+  license: "MIT"
 
 - name: "zeitR"
   repo: "zeitR"
   zenodo_tracked: true
   zenodo_concept_doi: "10.5281/zenodo.21315925"
+  license: "MIT"
 
 - name: "dynR"
   repo: "dynR"
   zenodo_tracked: true
   zenodo_concept_doi: null
+  license: "MIT"
 
 - name: "clerkR"
   repo: "clerkR"
   zenodo_tracked: true
   zenodo_concept_doi: null
+  license: "MIT"
 
 - name: "tallieR"
   repo: "tallieR"
   zenodo_tracked: true
   zenodo_concept_doi: null
+  license: "MIT"
 
 - name: "syncR"
   repo: "syncR"
   zenodo_tracked: true
   zenodo_concept_doi: null
+  license: "MIT"
 
 - name: "R-itable"
   repo: "R-itable"
   zenodo_tracked: true
   zenodo_concept_doi: null
+  license: "MIT"
 
 - name: "axR"
   repo: "axR"
   zenodo_tracked: true
   zenodo_concept_doi: "10.5281/zenodo.21393892"
+  license: "MIT"
 
 - name: "mrpheus"
   repo: "mrpheus"
   zenodo_tracked: true
   zenodo_concept_doi: null
+  license: "MIT"
 
 - name: "hypnoR"
   repo: "hypnoR"
   zenodo_tracked: true
   zenodo_concept_doi: "10.5281/zenodo.21309263"
+  license: "MIT"
 
 - name: "Rtractor"
   repo: "Rtractor"
   zenodo_tracked: true
   zenodo_concept_doi: "10.5281/zenodo.21328630"
+  license: "GPL-2.0-or-later"
 
 - name: "Circadia Docker"
   repo: "circadiaBase_Docker"
   zenodo_tracked: true
   zenodo_concept_doi: null
+  license: "MIT"

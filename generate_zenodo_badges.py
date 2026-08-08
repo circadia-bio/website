@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Pre-render script: resolves Zenodo concept DOIs for tracked packages and
-injects version/DOI/release-date/citation fields into the products carousel
-array in index.qmd, between the `// PRODUCTS:START` / `// PRODUCTS:END`
-sentinels inside the <script> block.
+injects version/DOI/release-date/citation/license fields into the products
+carousel array in index.qmd, between the `// PRODUCTS:START` /
+`// PRODUCTS:END` sentinels inside the <script> block.
 
 Data flow:
-  projects/zenodo.yml    -> which packages are tracked, their repo + concept DOI
+  projects/zenodo.yml    -> which packages are tracked, their repo, concept
+                            DOI, and SPDX license id
   doi.org redirect + Zenodo REST API -> current version + publication date
   .zenodo_cache.json     -> last-known-good fallback if the network call fails
   index.qmd              -> products array gets extra fields injected in place
@@ -155,6 +156,27 @@ def save_cache(cache):
         f.write("\n")
 
 
+# ── License display ─────────────────────────────────────────────────────────
+
+# SPDX identifier -> short label shown on the pill. Falls back to the raw
+# SPDX id (truncated) for anything not in this table, so an unrecognised
+# license still renders something reasonable rather than breaking the build.
+LICENSE_LABELS = {
+    "MIT": "MIT",
+    "GPL-2.0-or-later": "GPL-2.0+",
+    "GPL-3.0-or-later": "GPL-3.0+",
+    "Apache-2.0": "Apache 2.0",
+    "BSD-2-Clause": "BSD-2",
+    "BSD-3-Clause": "BSD-3",
+}
+
+
+def license_label(spdx_id):
+    if not spdx_id:
+        return None
+    return LICENSE_LABELS.get(spdx_id, spdx_id[:12])
+
+
 # ── Build per-product data ──────────────────────────────────────────────────
 
 def build_product_data(entries, cache):
@@ -169,6 +191,10 @@ def build_product_data(entries, cache):
         repo = entry.get("repo")
         citation_url = (
             f"https://github.com/{GITHUB_ORG}/{repo}/blob/main/CITATION.cff"
+            if repo else None
+        )
+        license_url = (
+            f"https://github.com/{GITHUB_ORG}/{repo}/blob/main/LICENSE"
             if repo else None
         )
         concept_doi = entry.get("zenodo_concept_doi")
@@ -190,11 +216,14 @@ def build_product_data(entries, cache):
                 released_date = resolved.get("released_date")
                 cache[name] = resolved
 
+        entry_license = entry.get("license")
         result[name] = {
             "version": version,
             "doi_url": doi_url,
             "released_date": relative_date(released_date),
             "citation_url": citation_url,
+            "license_label": license_label(entry_license),
+            "license_url": license_url if entry_license else None,
         }
     return result
 
@@ -231,6 +260,8 @@ def inject_fields(match, product_data):
         f", doiUrl: {js_string(data['doi_url'])}"
         f", releasedDate: {js_string(data['released_date'])}"
         f", citationUrl: {js_string(data['citation_url'])}"
+        f", licenseLabel: {js_string(data['license_label'])}"
+        f", licenseUrl: {js_string(data['license_url'])}"
     )
     # Insert right before the closing brace.
     return obj_text[:-1].rstrip() + fields + " }"
