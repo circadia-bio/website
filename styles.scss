@@ -466,6 +466,96 @@ hr {
   }
 }
 
+/* Lab Outputs page */
+.lo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+  margin: 1.5rem 0 2rem;
+}
+
+.lo-card {
+  @include glass-light(0.5, 12px, 0.3);
+  border-radius: 18px;
+  padding: 1.1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-decoration: none !important;
+  color: $body-color;
+  transition: box-shadow 0.2s, background 0.2s;
+
+  &:hover {
+    box-shadow: 0 8px 32px rgba(27,103,153,0.14);
+    background: rgba(255, 236, 212, 0.72);
+  }
+}
+
+.lo-type {
+  align-self: flex-start;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: rgba(27, 103, 153, 0.1);
+  color: $body-color;
+}
+
+.lo-type-software { background: rgba($link-color, 0.12); color: $link-color; }
+
+.lo-title {
+  font-family: "Playfair Display", serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0.1rem 0 0;
+  color: $body-color;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.lo-meta {
+  font-size: 0.68rem;
+  color: lighten($body-color, 20%);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.lo-footer {
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+.lo-doi {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none !important;
+  color: $link-color !important;
+  border: 1px solid rgba($link-color, 0.35);
+  background: rgba(255, 236, 212, 0.55);
+
+  &:hover {
+    background: rgba(255, 236, 212, 0.8);
+    border-color: $link-color;
+  }
+}
+
+.lo-empty {
+  color: lighten($body-color, 20%);
+  font-style: italic;
+  margin: 1.5rem 0;
+}
+
 .pc-btn {
   background: rgba(255,236,212,0.55);
   border: 1px solid rgba(255,255,255,0.35);

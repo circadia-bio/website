@@ -32,14 +32,6 @@
     ]
   },
   {
-    "listing": "/blog.html",
-    "items": [
-      "/blog/circadiabase_docker/index.html",
-      "/blog/sleep_diaries_app/index.html",
-      "/blog/sleep_PSG/index.html"
-    ]
-  },
-  {
     "listing": "/publications.html",
     "items": [
       "/publications/diogo2026/index.html",
@@ -55,6 +47,14 @@
       "/publications/nunes2024/index.html",
       "/publications/torres2024/index.html",
       "/publications/silva2023/index.html"
+    ]
+  },
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/blog/circadiabase_docker/index.html",
+      "/blog/sleep_diaries_app/index.html",
+      "/blog/sleep_PSG/index.html"
     ]
   }
 ]
