@@ -336,7 +336,9 @@ hr {
 
 .pc-badges {
   display: flex;
-  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 6px;
 }
 
 .pc-badge {
@@ -348,28 +350,119 @@ hr {
   font-size: 0.56rem;
   font-weight: 700;
   letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex: 0 0 auto;
   text-decoration: none !important;
   color: $link-color !important;
   border: 1px solid rgba($link-color, 0.35);
-  background: rgba($link-color, 0.06);
-  transition: background 0.15s, border-color 0.15s;
+  background: rgba(255, 236, 212, 0.55);
+  backdrop-filter: blur(8px) saturate(1.3);
+  -webkit-backdrop-filter: blur(8px) saturate(1.3);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset, 0 2px 8px rgba(27,103,153,0.06);
+  transition: background 0.18s, border-color 0.18s, box-shadow 0.18s;
 
   svg { flex-shrink: 0; }
 
   &:hover {
-    background: rgba($link-color, 0.16);
+    background: rgba(255, 236, 212, 0.8);
     border-color: $link-color;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 4px 16px rgba($link-color, 0.15);
   }
 }
 
 .pc-badge-license {
   color: lighten($body-color, 12%) !important;
   border-color: rgba(27, 103, 153, 0.25);
-  background: rgba(27, 103, 153, 0.05);
+
+  &:hover {
+    border-color: rgba(27, 103, 153, 0.5);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 4px 16px rgba(27,103,153,0.12);
+  }
+}
+
+/* Cite popover */
+.pc-cite-popover {
+  position: fixed;
+  z-index: 1000;
+  @include glass-light(0.92, 16px, 0.35);
+  border-radius: 14px;
+  padding: 0.9rem 0.9rem 0.75rem;
+  text-align: left;
+}
+
+.pc-cite-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: lighten($body-color, 15%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.15s, color 0.15s;
 
   &:hover {
     background: rgba(27, 103, 153, 0.1);
-    border-color: rgba(27, 103, 153, 0.4);
+    color: $link-color;
+  }
+}
+
+.pc-cite-bibtex {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.62rem;
+  line-height: 1.55;
+  color: $body-color;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(27, 103, 153, 0.12);
+  border-radius: 8px;
+  padding: 0.6rem 0.7rem;
+  margin: 1.1rem 0 0.6rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.pc-cite-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.pc-cite-copy {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba($link-color, 0.4);
+  background: rgba($link-color, 0.08);
+  color: $link-color;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+
+  &:hover {
+    background: rgba($link-color, 0.18);
+    border-color: $link-color;
+  }
+}
+
+.pc-cite-more {
+  font-size: 0.58rem;
+  color: lighten($body-color, 20%) !important;
+  text-decoration: none !important;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+    text-decoration: underline !important;
   }
 }
 
