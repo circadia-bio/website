@@ -47,9 +47,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-43fb3be442ac40d12fe499fe67006a23.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-bf4974281829fee31710d52442a76444.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-43fb3be442ac40d12fe499fe67006a23.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-e1b0307118927ae1209a5fdfb0d090f9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-1834419e8be646b31a6f7425283830e2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-e1b0307118927ae1209a5fdfb0d090f9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -385,20 +385,22 @@ ul.task-list li input[type="checkbox"] {
 <script>
 (function(){
   var products = [
+    // PRODUCTS:START
     { href: "https://sleepdiaries.circadia-lab.uk", img: "sleepdiaries-icon.png",             name: "Sleep Diaries", desc: "Digital sleep diary for research and clinical use",             tag: "App" },
     { href: "https://scoreme.circadia-lab.uk",     img: "scoreme-icon.svg",                   name: "ScoreMe",      desc: "Scoring and interpretation of sleep questionnaires",         tag: "App" },
-    { href: "https://slumbr.circadia-lab.uk",      img: "https://slumbr.circadia-lab.uk/logo.svg",   name: "slumbR",       desc: "R package for sleep data analysis and visualisation",        tag: "R pkg" },
-    { href: "https://zeitr.circadia-lab.uk",       img: "https://zeitr.circadia-lab.uk/logo.svg",    name: "zeitR",        desc: "R package for actigraphy parsing and sleep pipeline analysis", tag: "R pkg" },
-    { href: "https://dynr.circadia-lab.uk",        img: "https://dynr.circadia-lab.uk/logo.svg",     name: "dynR",         desc: "R package for dynamic functional connectivity analysis",      tag: "R pkg" },
-    { href: "https://clerkr.circadia-lab.uk",      img: "https://clerkr.circadia-lab.uk/logo.svg",   name: "clerkR",       desc: "R package for publication-ready tables",                    tag: "R pkg" },
-    { href: "https://tallier.circadia-lab.uk",     img: "https://tallier.circadia-lab.uk/logo.svg",  name: "tallieR",      desc: "R package for ScoreMe questionnaire data",                  tag: "R pkg" },
-    { href: "https://syncr.circadia-lab.uk",       img: "https://syncr.circadia-lab.uk/logo.svg",    name: "syncR",        desc: "Integrates and coordinates the Circadia R ecosystem",         tag: "R pkg" },
-    { href: "https://r-itable.circadia-lab.uk",    img: "https://r-itable.circadia-lab.uk/logo.svg", name: "R-itable",     desc: "Pedigree-based heritability estimation",                    tag: "R pkg" },
-    { href: "https://axr.circadia-lab.uk",         img: "https://axr.circadia-lab.uk/logo.svg",      name: "axR",          desc: "Interfacing and retrieving data from accelerometer devices", tag: "R pkg" },
-    { href: "https://mrpheus.circadia-lab.uk",     img: "https://mrpheus.circadia-lab.uk/logo.svg", name: "mrpheus",     desc: "Raw physiological signal analysis (PSG/EEG)",              tag: "R pkg" },
-    { href: "https://hypnor.circadia-lab.uk",      img: "https://hypnor.circadia-lab.uk/logo.svg",   name: "hypnoR",       desc: "Hypnogram handling and sleep architecture metrics",         tag: "R pkg" },
-    { href: "https://rtractor.circadia-lab.uk",    img: "https://rtractor.circadia-lab.uk/logo.svg", name: "Rtractor",     desc: "Complexity and nonlinear time series analysis",             tag: "R pkg" },
-    { href: "https://github.com/circadia-bio/circadiaBase_Docker", img: null, emoji: "&#x1F433;", name: "Circadia Docker", desc: "Reproducible research environment for chronobiology", tag: "Infra" }
+    { href: "https://slumbr.circadia-lab.uk",      img: "https://slumbr.circadia-lab.uk/logo.svg",   name: "slumbR",       desc: "R package for sleep data analysis and visualisation",        tag: "R pkg", zenodoTracked: true, version: null, doiUrl: null, releasedDate: null, citationUrl: "https://github.com/circadia-bio/slumbR/blob/main/CITATION.cff" },
+    { href: "https://zeitr.circadia-lab.uk",       img: "https://zeitr.circadia-lab.uk/logo.svg",    name: "zeitR",        desc: "R package for actigraphy parsing and sleep pipeline analysis", tag: "R pkg", zenodoTracked: true, version: null, doiUrl: null, releasedDate: null, citationUrl: "https://github.com/circadia-bio/zeitR/blob/main/CITATION.cff" },
+    { href: "https://dynr.circadia-lab.uk",        img: "https://dynr.circadia-lab.uk/logo.svg",     name: "dynR",         desc: "R package for dynamic functional connectivity analysis",      tag: "R pkg", zenodoTracked: true, version: null, doiUrl: null, releasedDate: null, citationUrl: "https://github.com/circadia-bio/dynR/blob/main/CITATION.cff" },
+    { href: "https://clerkr.circadia-lab.uk",      img: "https://clerkr.circadia-lab.uk/logo.svg",   name: "clerkR",       desc: "R package for publication-ready tables",                    tag: "R pkg", zenodoTracked: true, version: null, doiUrl: null, releasedDate: null, citationUrl: "https://github.com/circadia-bio/clerkR/blob/main/CITATION.cff" },
+    { href: "https://tallier.circadia-lab.uk",     img: "https://tallier.circadia-lab.uk/logo.svg",  name: "tallieR",      desc: "R package for ScoreMe questionnaire data",                  tag: "R pkg", zenodoTracked: true, version: null, doiUrl: null, releasedDate: null, citationUrl: "https://github.com/circadia-bio/tallieR/blob/main/CITATION.cff" },
+    { href: "https://syncr.circadia-lab.uk",       img: "https://syncr.circadia-lab.uk/logo.svg",    name: "syncR",        desc: "Integrates and coordinates the Circadia R ecosystem",         tag: "R pkg", zenodoTracked: true, version: null, doiUrl: null, releasedDate: null, citationUrl: "https://github.com/circadia-bio/syncR/blob/main/CITATION.cff" },
+    { href: "https://r-itable.circadia-lab.uk",    img: "https://r-itable.circadia-lab.uk/logo.svg", name: "R-itable",     desc: "Pedigree-based heritability estimation",                    tag: "R pkg", zenodoTracked: true, version: null, doiUrl: null, releasedDate: null, citationUrl: "https://github.com/circadia-bio/R-itable/blob/main/CITATION.cff" },
+    { href: "https://axr.circadia-lab.uk",         img: "https://axr.circadia-lab.uk/logo.svg",      name: "axR",          desc: "Interfacing and retrieving data from accelerometer devices", tag: "R pkg", zenodoTracked: true, version: null, doiUrl: null, releasedDate: null, citationUrl: "https://github.com/circadia-bio/axR/blob/main/CITATION.cff" },
+    { href: "https://mrpheus.circadia-lab.uk",     img: "https://mrpheus.circadia-lab.uk/logo.svg", name: "mrpheus",     desc: "Raw physiological signal analysis (PSG/EEG)",              tag: "R pkg", zenodoTracked: true, version: null, doiUrl: null, releasedDate: null, citationUrl: "https://github.com/circadia-bio/mrpheus/blob/main/CITATION.cff" },
+    { href: "https://hypnor.circadia-lab.uk",      img: "https://hypnor.circadia-lab.uk/logo.svg",   name: "hypnoR",       desc: "Hypnogram handling and sleep architecture metrics",         tag: "R pkg", zenodoTracked: true, version: null, doiUrl: null, releasedDate: null, citationUrl: "https://github.com/circadia-bio/hypnoR/blob/main/CITATION.cff" },
+    { href: "https://rtractor.circadia-lab.uk",    img: "https://rtractor.circadia-lab.uk/logo.svg", name: "Rtractor",     desc: "Complexity and nonlinear time series analysis",             tag: "R pkg", zenodoTracked: true, version: null, doiUrl: null, releasedDate: null, citationUrl: "https://github.com/circadia-bio/Rtractor/blob/main/CITATION.cff" },
+    { href: "https://github.com/circadia-bio/circadiaBase_Docker", img: null, emoji: "&#x1F433;", name: "Circadia Docker", desc: "Reproducible research environment for chronobiology", tag: "Infra", zenodoTracked: true, version: null, doiUrl: null, releasedDate: null, citationUrl: "https://github.com/circadia-bio/circadiaBase_Docker/blob/main/CITATION.cff" }
+    // PRODUCTS:END
   ];
 
   var VISIBLE = window.innerWidth < 600 ? 1 : 5;
@@ -437,6 +439,62 @@ ul.task-list li input[type="checkbox"] {
     tag.textContent = p.tag + ' →';
     a.appendChild(name);
     a.appendChild(desc);
+
+    // Zenodo/CITATION.cff footer strip — only for tracked packages.
+    // p.zenodoTracked / p.version / p.doiUrl / p.releasedDate / p.citationUrl
+    // are injected by generate_zenodo_badges.py.
+    if (p.zenodoTracked) {
+      var meta = document.createElement('span');
+      meta.className = 'pc-meta';
+      meta.setAttribute('onclick', 'event.stopPropagation()');
+
+      if (p.version) {
+        var version = document.createElement('span');
+        version.className = 'pc-version';
+        version.textContent = 'v' + p.version;
+        meta.appendChild(version);
+
+        var links = document.createElement('span');
+        links.className = 'pc-links';
+
+        var doiLink = document.createElement('a');
+        doiLink.href = p.doiUrl;
+        doiLink.target = '_blank';
+        doiLink.rel = 'noopener';
+        doiLink.textContent = 'DOI';
+        links.appendChild(doiLink);
+
+        if (p.citationUrl) {
+          links.appendChild(document.createTextNode(' · '));
+          var citeLink = document.createElement('a');
+          citeLink.href = p.citationUrl;
+          citeLink.target = '_blank';
+          citeLink.rel = 'noopener';
+          citeLink.textContent = 'Cite';
+          links.appendChild(citeLink);
+        }
+
+        meta.appendChild(links);
+      } else {
+        var archived = document.createElement('span');
+        archived.className = 'pc-archived';
+        archived.textContent = 'Not yet archived';
+        meta.appendChild(archived);
+
+        if (p.citationUrl) {
+          var citeOnly = document.createElement('a');
+          citeOnly.className = 'pc-cite-only';
+          citeOnly.href = p.citationUrl;
+          citeOnly.target = '_blank';
+          citeOnly.rel = 'noopener';
+          citeOnly.textContent = 'Cite';
+          meta.appendChild(citeOnly);
+        }
+      }
+
+      a.appendChild(meta);
+    }
+
     a.appendChild(tag);
     return a;
   }
