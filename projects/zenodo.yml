@@ -61,7 +61,7 @@
 - name: "clerkR"
   repo: "clerkR"
   zenodo_tracked: true
-  zenodo_concept_doi: null
+  zenodo_concept_doi: "10.5281/zenodo.21574765"
   license: "MIT"
   title: "clerkR: Publication-Ready Tables for Biomedical Research"
   authors: "França, Lucas; Leocadio-Miguel, Mario"

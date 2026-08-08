@@ -1,0 +1,72 @@
+name: Zenodo DOI lookup
+
+# Reusable workflow, called from each package repo's own
+# .github/workflows/notify-website.yml on `release: published`.
+#
+# Looks up the newly-archived Zenodo record for that release and, if
+# projects/zenodo.yml's entry for the package still has
+# zenodo_concept_doi: null, opens a PR here setting it. If a concept DOI
+# is already set, or the record isn't found yet (Zenodo archiving can lag
+# a release by a minute or two), this is a no-op -- safe to call on every
+# release without any manual bookkeeping.
+
+on:
+  workflow_call:
+    inputs:
+      package-name:
+        description: >
+          The `name:` field of this package's entry in projects/zenodo.yml
+          (e.g. "zeitR", "ScoreMe" -- must match exactly).
+        required: true
+        type: string
+      repo:
+        description: >
+          The bare GitHub repo name (e.g. "zeitR"), used to match the
+          Zenodo record's related_identifiers back to this repository.
+        required: true
+        type: string
+    secrets:
+      website-pat:
+        description: >
+          Personal access token with repo write access to
+          circadia-bio/website, used to push a branch and open the PR.
+        required: true
+
+jobs:
+  update-doi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout website repo
+        uses: actions/checkout@v4
+        with:
+          repository: circadia-bio/website
+          token: ${{ secrets.website-pat }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Resolve concept DOI and update projects/zenodo.yml
+        id: resolve
+        run: |
+          python3 scripts/resolve_zenodo_doi.py "${{ inputs.package-name }}" "${{ inputs.repo }}" | tee /tmp/resolve.log
+          echo "changed=$(grep -o 'CHANGED=[01]' /tmp/resolve.log | cut -d= -f2)" >> "$GITHUB_OUTPUT"
+
+      - name: Open PR
+        if: steps.resolve.outputs.changed == '1'
+        env:
+          GH_TOKEN: ${{ secrets.website-pat }}
+        run: |
+          git config user.name "circadia-bot"
+          git config user.email "actions@circadia-lab.uk"
+          BRANCH="zenodo-doi/${{ inputs.repo }}-$(date +%s)"
+          git checkout -b "$BRANCH"
+          git add projects/zenodo.yml
+          git commit -m "🔧 chore(zenodo): set ${{ inputs.package-name }} concept DOI"
+          git push origin "$BRANCH"
+          gh pr create \
+            --title "Set ${{ inputs.package-name }} Zenodo concept DOI" \
+            --body "Auto-filled after a GitHub release of [${{ inputs.repo }}](https://github.com/circadia-bio/${{ inputs.repo }}) was archived to Zenodo. Review and merge to make the products carousel pick up the live version/DOI." \
+            --base main \
+            --head "$BRANCH"
