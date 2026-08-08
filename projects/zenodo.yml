@@ -19,10 +19,20 @@
 #          CITATION.cff authors, in order.
 
 - name: "Sleep Diaries"
-  zenodo_tracked: false
+  repo: "SleepDiaries"
+  zenodo_tracked: true
+  zenodo_concept_doi: "10.5281/zenodo.19683378"
+  license: "MIT"
+  title: "Sleep Diaries"
+  authors: "França, Lucas G. S.; Leocadio-Miguel, Mario; Baehl, Bri; Howard, Jacob; Kussow, Frederic; Luna Colón, Yuliana"
 
 - name: "ScoreMe"
-  zenodo_tracked: false
+  repo: "ScoreMe"
+  zenodo_tracked: true
+  zenodo_concept_doi: null
+  license: "MIT"
+  title: "ScoreMe"
+  authors: "França, Lucas; Leocadio-Miguel, Mario"
 
 - name: "slumbR"
   repo: "slumbR"
