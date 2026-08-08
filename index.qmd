@@ -251,7 +251,7 @@ Interested in working with us? Visit our [Join us](/join.html) page.
         runivLink.target = '_blank';
         runivLink.rel = 'noopener';
         runivLink.title = 'View on r-universe.dev';
-        runivLink.textContent = 'r∪';
+        runivLink.textContent = '⊙rU';
         badges.appendChild(runivLink);
       }
 
