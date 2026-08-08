@@ -507,16 +507,18 @@ hr {
   color: $body-color;
 }
 
-.pc-links a {
-  color: $link-color !important;
-}
-
 .pc-archived {
   color: rgba(255, 220, 180, 0.6);
 }
 
-.pc-cite-only {
+.pc-badge {
   color: $link-color !important;
+  border-color: rgba($link-color, 0.3);
+  background: rgba($link-color, 0.08);
+  &:hover {
+    background: rgba($link-color, 0.2);
+    border-color: $link-color;
+  }
 }
 
 .pc-btn {

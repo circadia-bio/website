@@ -94,9 +94,14 @@ Interested in working with us? Visit our [Join us](/join.html) page.
     a.appendChild(name);
     a.appendChild(desc);
 
-    // Zenodo/CITATION.cff footer strip — only for tracked packages.
-    // p.zenodoTracked / p.version / p.doiUrl / p.releasedDate / p.citationUrl
-    // are injected by generate_zenodo_badges.py.
+    // Footer is pinned to the bottom of the card via margin-top:auto,
+    // so its vertical position is consistent regardless of description
+    // length. Zenodo/CITATION.cff fields (p.zenodoTracked / p.version /
+    // p.doiUrl / p.releasedDate / p.citationUrl) are injected by
+    // generate_zenodo_badges.py.
+    var footer = document.createElement('span');
+    footer.className = 'pc-footer';
+
     if (p.zenodoTracked) {
       var meta = document.createElement('span');
       meta.className = 'pc-meta';
@@ -105,51 +110,44 @@ Interested in working with us? Visit our [Join us](/join.html) page.
       if (p.version) {
         var version = document.createElement('span');
         version.className = 'pc-version';
-        version.textContent = 'v' + p.version;
+        version.textContent = 'v' + String(p.version).replace(/^[vV]/, '');
         meta.appendChild(version);
-
-        var links = document.createElement('span');
-        links.className = 'pc-links';
-
-        var doiLink = document.createElement('a');
-        doiLink.href = p.doiUrl;
-        doiLink.target = '_blank';
-        doiLink.rel = 'noopener';
-        doiLink.textContent = 'DOI';
-        links.appendChild(doiLink);
-
-        if (p.citationUrl) {
-          links.appendChild(document.createTextNode(' · '));
-          var citeLink = document.createElement('a');
-          citeLink.href = p.citationUrl;
-          citeLink.target = '_blank';
-          citeLink.rel = 'noopener';
-          citeLink.textContent = 'Cite';
-          links.appendChild(citeLink);
-        }
-
-        meta.appendChild(links);
       } else {
         var archived = document.createElement('span');
         archived.className = 'pc-archived';
         archived.textContent = 'Not yet archived';
         meta.appendChild(archived);
-
-        if (p.citationUrl) {
-          var citeOnly = document.createElement('a');
-          citeOnly.className = 'pc-cite-only';
-          citeOnly.href = p.citationUrl;
-          citeOnly.target = '_blank';
-          citeOnly.rel = 'noopener';
-          citeOnly.textContent = 'Cite';
-          meta.appendChild(citeOnly);
-        }
       }
 
-      a.appendChild(meta);
+      var badges = document.createElement('span');
+      badges.className = 'pc-badges';
+
+      if (p.doiUrl) {
+        var doiLink = document.createElement('a');
+        doiLink.className = 'pc-badge';
+        doiLink.href = p.doiUrl;
+        doiLink.target = '_blank';
+        doiLink.rel = 'noopener';
+        doiLink.innerHTML = '<svg viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>DOI';
+        badges.appendChild(doiLink);
+      }
+
+      if (p.citationUrl) {
+        var citeLink = document.createElement('a');
+        citeLink.className = 'pc-badge';
+        citeLink.href = p.citationUrl;
+        citeLink.target = '_blank';
+        citeLink.rel = 'noopener';
+        citeLink.innerHTML = '<svg viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h4v6H7a4 4 0 0 1 0-8zM15 7h4v6h-4a4 4 0 0 1 0-8z"/></svg>Cite';
+        badges.appendChild(citeLink);
+      }
+
+      if (badges.childNodes.length) meta.appendChild(badges);
+      footer.appendChild(meta);
     }
 
-    a.appendChild(tag);
+    footer.appendChild(tag);
+    a.appendChild(footer);
     return a;
   }
 

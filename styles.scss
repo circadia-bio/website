@@ -294,53 +294,72 @@ hr {
   letter-spacing: 0.5px;
   text-transform: uppercase;
   color: $link-color;
-  margin-top: auto;
-  padding-top: 6px;
   opacity: 0.65;
   transition: opacity 0.18s;
 }
 
+.pc-card:hover .pc-tag { opacity: 1; }
+
+.pc-footer {
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding-top: 8px;
+}
+
 .pc-meta {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
+  gap: 5px;
   width: 100%;
-  padding-top: 6px;
-  margin-top: 4px;
+  padding-top: 8px;
   border-top: 1px solid rgba(27, 103, 153, 0.12);
-  font-size: 0.6rem;
-  line-height: 1.2;
 }
 
 .pc-version {
+  font-size: 0.6rem;
   font-weight: 700;
   color: $body-color;
-  opacity: 0.8;
-}
-
-.pc-links {
-  display: inline-flex;
-  gap: 4px;
-  a {
-    color: $link-color !important;
-    text-decoration: none !important;
-    opacity: 0.8;
-    &:hover { opacity: 1; text-decoration: underline !important; }
-  }
-}
-
-.pc-archived {
-  color: lighten($body-color, 25%);
-  font-style: italic;
   opacity: 0.75;
 }
 
-.pc-cite-only {
-  color: $link-color !important;
+.pc-archived {
+  font-size: 0.58rem;
+  font-style: italic;
+  color: lighten($body-color, 25%);
+  opacity: 0.75;
+}
+
+.pc-badges {
+  display: flex;
+  gap: 6px;
+}
+
+.pc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   text-decoration: none !important;
-  opacity: 0.8;
-  &:hover { opacity: 1; text-decoration: underline !important; }
+  color: $link-color !important;
+  border: 1px solid rgba($link-color, 0.35);
+  background: rgba($link-color, 0.06);
+  transition: background 0.15s, border-color 0.15s;
+
+  svg { flex-shrink: 0; }
+
+  &:hover {
+    background: rgba($link-color, 0.16);
+    border-color: $link-color;
+  }
 }
 
 .pc-btn {
