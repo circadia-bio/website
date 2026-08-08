@@ -13,6 +13,10 @@
 #                           current version + release date automatically.
 #
 # license: SPDX identifier, matching each repo's DESCRIPTION/.zenodo.json.
+# title: full package title, matching CITATION.cff, used to build the BibTeX shown
+#        in the "Cite" popover.
+# authors: "Family, Given; Family, Given; ..." — semicolon-separated, matching
+#          CITATION.cff authors, in order.
 
 - name: "Sleep Diaries"
   zenodo_tracked: false
@@ -25,69 +29,93 @@
   zenodo_tracked: true
   zenodo_concept_doi: null
   license: "MIT"
+  title: "slumbR: Sleep Diaries Helper Package for R"
+  authors: "França, Lucas; Leocadio-Miguel, Mario"
 
 - name: "zeitR"
   repo: "zeitR"
   zenodo_tracked: true
   zenodo_concept_doi: "10.5281/zenodo.21315925"
   license: "MIT"
+  title: "zeitR: Actigraphy Data Parsing and Analysis for R"
+  authors: "França, Lucas; Leocadio-Miguel, Mario; Vallim, Julia Ribeiro da Silva"
 
 - name: "dynR"
   repo: "dynR"
   zenodo_tracked: true
   zenodo_concept_doi: null
   license: "MIT"
+  title: "dynR: Dynamic Connectivity Analysis for Neurophysiological Timeseries"
+  authors: "França, Lucas; Leocadio-Miguel, Mario; Batallé, Dafnis"
 
 - name: "clerkR"
   repo: "clerkR"
   zenodo_tracked: true
   zenodo_concept_doi: null
   license: "MIT"
+  title: "clerkR: Publication-Ready Tables for Biomedical Research"
+  authors: "França, Lucas; Leocadio-Miguel, Mario"
 
 - name: "tallieR"
   repo: "tallieR"
   zenodo_tracked: true
   zenodo_concept_doi: null
   license: "MIT"
+  title: "tallieR: Import and Score ScoreMe App Questionnaire Data"
+  authors: "França, Lucas; Leocadio-Miguel, Mario"
 
 - name: "syncR"
   repo: "syncR"
   zenodo_tracked: true
   zenodo_concept_doi: null
   license: "MIT"
+  title: "syncR: Integrate and Coordinate Data Across the Circadia Lab Package Ecosystem"
+  authors: "França, Lucas; Leocadio-Miguel, Mario"
 
 - name: "R-itable"
   repo: "R-itable"
   zenodo_tracked: true
   zenodo_concept_doi: null
   license: "MIT"
+  title: "Ritable: Pedigree-Based Heritability Estimation for Family Cohort Studies"
+  authors: "França, Lucas; Leocadio-Miguel, Mario"
 
 - name: "axR"
   repo: "axR"
   zenodo_tracked: true
   zenodo_concept_doi: "10.5281/zenodo.21393892"
   license: "MIT"
+  title: "axR: Interfacing and Retrieving Data from Accelerometer Devices"
+  authors: "França, Lucas; Leocadio-Miguel, Mario; Jackson, Daniel"
 
 - name: "mrpheus"
   repo: "mrpheus"
   zenodo_tracked: true
   zenodo_concept_doi: null
   license: "MIT"
+  title: "mrpheus: Raw Physiological Signal Analysis for Biological Rhythms Research"
+  authors: "França, Lucas; Leocadio-Miguel, Mario"
 
 - name: "hypnoR"
   repo: "hypnoR"
   zenodo_tracked: true
   zenodo_concept_doi: "10.5281/zenodo.21309263"
   license: "MIT"
+  title: "hypnoR: Hypnogram Handling, Plotting, and Sleep Architecture Metrics"
+  authors: "França, Lucas; Leocadio-Miguel, Mario"
 
 - name: "Rtractor"
   repo: "Rtractor"
   zenodo_tracked: true
   zenodo_concept_doi: "10.5281/zenodo.21328630"
   license: "GPL-2.0-or-later"
+  title: "Rtractor: Complexity and Nonlinear Time Series Analysis for Physiological Signals"
+  authors: "França, Lucas; Leocadio-Miguel, Mario"
 
 - name: "Circadia Docker"
   repo: "circadiaBase_Docker"
   zenodo_tracked: true
   zenodo_concept_doi: null
   license: "MIT"
+  title: "circadiaBase_Docker: Reproducible Docker Environment for Circadia Lab Actigraphy Analysis"
+  authors: "França, Lucas; Leocadio-Miguel, Mario"

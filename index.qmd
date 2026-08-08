@@ -63,6 +63,103 @@ Interested in working with us? Visit our [Join us](/join.html) page.
   var dotsEl = document.getElementById('pc-dots');
   var current = 0;
 
+  // ── Cite popover ─────────────────────────────────────────────────────────
+  // A single shared popover, appended to <body> (not inside the card) so it
+  // is never clipped by #pc-viewport's overflow:hidden, and repositioned
+  // near whichever Cite button was clicked.
+  var citePopover = document.createElement('div');
+  citePopover.className = 'pc-cite-popover';
+  citePopover.setAttribute('role', 'dialog');
+  citePopover.style.display = 'none';
+  document.body.appendChild(citePopover);
+
+  function closeCitePopover() {
+    citePopover.style.display = 'none';
+  }
+
+  function showCitePopover(triggerEl, bibtex, fallbackUrl) {
+    citePopover.innerHTML = '';
+
+    var closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'pc-cite-close';
+    closeBtn.setAttribute('aria-label', 'Close');
+    closeBtn.innerHTML = '<svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+    closeBtn.onclick = function(e) { e.stopPropagation(); closeCitePopover(); };
+
+    var pre = document.createElement('pre');
+    pre.className = 'pc-cite-bibtex';
+    pre.textContent = bibtex;
+
+    var actions = document.createElement('div');
+    actions.className = 'pc-cite-actions';
+
+    var copyBtn = document.createElement('button');
+    copyBtn.type = 'button';
+    copyBtn.className = 'pc-cite-copy';
+    copyBtn.textContent = 'Copy BibTeX';
+    copyBtn.onclick = function(e) {
+      e.stopPropagation();
+      var done = function() {
+        copyBtn.textContent = 'Copied';
+        setTimeout(function() { copyBtn.textContent = 'Copy BibTeX'; }, 1500);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(bibtex).then(done, done);
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = bibtex;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (err) {}
+        document.body.removeChild(ta);
+        done();
+      }
+    };
+    actions.appendChild(copyBtn);
+
+    if (fallbackUrl) {
+      var moreLink = document.createElement('a');
+      moreLink.className = 'pc-cite-more';
+      moreLink.href = fallbackUrl;
+      moreLink.target = '_blank';
+      moreLink.rel = 'noopener';
+      moreLink.textContent = 'Full CITATION.cff';
+      actions.appendChild(moreLink);
+    }
+
+    citePopover.appendChild(closeBtn);
+    citePopover.appendChild(pre);
+    citePopover.appendChild(actions);
+    citePopover.style.display = 'block';
+
+    var rect = triggerEl.getBoundingClientRect();
+    var popW = 280;
+    var left = Math.min(
+      Math.max(8, rect.left + rect.width / 2 - popW / 2),
+      window.innerWidth - popW - 8
+    );
+    citePopover.style.width = popW + 'px';
+    citePopover.style.left = left + 'px';
+
+    var popH = citePopover.getBoundingClientRect().height;
+    var top = rect.bottom + 8;
+    if (top + popH > window.innerHeight - 8) {
+      top = rect.top - popH - 8;
+    }
+    citePopover.style.top = Math.max(8, top) + 'px';
+  }
+
+  document.addEventListener('click', function(e) {
+    if (citePopover.style.display !== 'none' && !citePopover.contains(e.target)) {
+      closeCitePopover();
+    }
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeCitePopover();
+  });
+  window.addEventListener('scroll', closeCitePopover, true);
+
   function makeCard(p, isClone) {
     var a = document.createElement('a');
     a.className = 'pc-card';
@@ -147,7 +244,18 @@ Interested in working with us? Visit our [Join us](/join.html) page.
         badges.appendChild(doiLink);
       }
 
-      if (p.citationUrl) {
+      if (p.citationBibtex) {
+        var citeBtn = document.createElement('button');
+        citeBtn.type = 'button';
+        citeBtn.className = 'pc-badge';
+        citeBtn.innerHTML = '<svg viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h4v6H7a4 4 0 0 1 0-8zM15 7h4v6h-4a4 4 0 0 1 0-8z"/></svg>Cite';
+        citeBtn.onclick = function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          showCitePopover(citeBtn, p.citationBibtex, p.citationUrl);
+        };
+        badges.appendChild(citeBtn);
+      } else if (p.citationUrl) {
         var citeLink = document.createElement('a');
         citeLink.className = 'pc-badge';
         citeLink.href = p.citationUrl;

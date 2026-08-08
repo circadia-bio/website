@@ -16,6 +16,7 @@ import json
 import os
 import re
 import sys
+import unicodedata
 import urllib.request
 import urllib.error
 from datetime import datetime, date
@@ -28,10 +29,6 @@ GITHUB_ORG = "circadia-bio"
 START_MARKER = "// PRODUCTS:START"
 END_MARKER = "// PRODUCTS:END"
 
-
-# ── Minimal YAML reading (avoids adding a PyYAML dependency to CI) ─────────────
-# projects/zenodo.yml is a flat list of simple key: value maps, so a small
-# hand-rolled parser is enough and keeps this script dependency-free.
 
 def parse_zenodo_yml(path):
     entries = []
@@ -66,24 +63,10 @@ def parse_zenodo_yml(path):
     return entries
 
 
-# ── Zenodo / DOI resolution ─────────────────────────────────────────────────
-
 RECORD_ID_RE = re.compile(r"/records?/(\d+)")
 
 
 def resolve_concept_doi(doi):
-    """Resolve a Zenodo concept DOI to {version, doi_url, released_date}.
-
-    Two steps, no Zenodo API key needed:
-      1. Follow the doi.org redirect for the concept DOI to find the latest
-         version's record ID (Zenodo always redirects concept DOIs to the
-         current latest record's landing page).
-      2. Call the plain Zenodo REST API for that record, which exposes
-         metadata.version (the free-text version string, usually matching
-         the git tag) and metadata.publication_date.
-
-    Returns None on any failure so the caller falls back to cache.
-    """
     doi_url = f"https://doi.org/{doi}"
     try:
         req = urllib.request.Request(doi_url, method="HEAD")
@@ -138,8 +121,6 @@ def relative_date(iso_date):
     return f"released {years} year{'s' if years != 1 else ''} ago"
 
 
-# ── Load cache ───────────────────────────────────────────────────────────────
-
 def load_cache():
     if os.path.exists(CACHE_PATH):
         try:
@@ -156,11 +137,6 @@ def save_cache(cache):
         f.write("\n")
 
 
-# ── License display ─────────────────────────────────────────────────────────
-
-# SPDX identifier -> short label shown on the pill. Falls back to the raw
-# SPDX id (truncated) for anything not in this table, so an unrecognised
-# license still renders something reasonable rather than breaking the build.
 LICENSE_LABELS = {
     "MIT": "MIT",
     "GPL-2.0-or-later": "GPL-2.0+",
@@ -177,7 +153,41 @@ def license_label(spdx_id):
     return LICENSE_LABELS.get(spdx_id, spdx_id[:12])
 
 
-# ── Build per-product data ──────────────────────────────────────────────────
+def slugify_ascii(s):
+    nfkd = unicodedata.normalize("NFKD", s)
+    ascii_str = nfkd.encode("ascii", "ignore").decode("ascii")
+    return re.sub(r"[^a-z0-9]", "", ascii_str.lower())
+
+
+def build_bibtex(name, repo, title, authors_str, version, doi_url, released_date):
+    if not authors_str:
+        return None
+
+    authors = [a.strip() for a in authors_str.split(";") if a.strip()]
+    if not authors:
+        return None
+    author_field = " and ".join(authors)
+
+    first_family = authors[0].split(",")[0].strip()
+    key = f"{slugify_ascii(first_family)}_{slugify_ascii(name)}_"
+    year = released_date[:4] if released_date else str(date.today().year)
+    key += year
+
+    lines = [f"@software{{{key},"]
+    lines.append(f"  author  = {{{author_field}}},")
+    lines.append(f"  title   = {{{{{title or name}}}}},")
+    lines.append(f"  year    = {{{year}}},")
+    if version:
+        v = version if str(version).lower().startswith("v") else f"v{version}"
+        lines.append(f"  version = {{{v}}},")
+    if doi_url:
+        doi_bare = doi_url.replace("https://doi.org/", "")
+        lines.append(f"  doi     = {{{doi_bare}}},")
+    if repo:
+        lines.append(f"  url     = {{https://github.com/{GITHUB_ORG}/{repo}}}")
+    lines.append("}")
+    return "\n".join(lines)
+
 
 def build_product_data(entries, cache):
     result = {}
@@ -217,27 +227,40 @@ def build_product_data(entries, cache):
                 cache[name] = resolved
 
         entry_license = entry.get("license")
+        citation_bibtex = build_bibtex(
+            name=name,
+            repo=repo,
+            title=entry.get("title"),
+            authors_str=entry.get("authors"),
+            version=version,
+            doi_url=doi_url,
+            released_date=released_date,
+        )
+
         result[name] = {
             "version": version,
             "doi_url": doi_url,
             "released_date": relative_date(released_date),
             "citation_url": citation_url,
+            "citation_bibtex": citation_bibtex,
             "license_label": license_label(entry_license),
             "license_url": license_url if entry_license else None,
         }
     return result
 
 
-# ── Inject fields into the existing product object literals in index.qmd ────
-
-# Matches one product literal like: { href: "...", ..., tag: "R pkg" }
 OBJECT_RE = re.compile(r"\{[^{}]*\bname:\s*\"([^\"]+)\"[^{}]*\}")
 
 
 def js_string(value):
     if value is None:
         return "null"
-    escaped = value.replace("\\", "\\\\").replace('"', '\\"')
+    escaped = (
+        value.replace("\\", "\\\\")
+        .replace('"', '\\"')
+        .replace("\r\n", "\\n")
+        .replace("\n", "\\n")
+    )
     return f'"{escaped}"'
 
 
@@ -246,7 +269,6 @@ def inject_fields(match, product_data):
     name = match.group(1)
     data = product_data.get(name)
 
-    # Strip any previously-injected fields so re-runs are idempotent.
     obj_text = re.sub(
         r",\s*zenodoTracked:.*?(?=\})", "", obj_text, flags=re.DOTALL
     )
@@ -260,10 +282,10 @@ def inject_fields(match, product_data):
         f", doiUrl: {js_string(data['doi_url'])}"
         f", releasedDate: {js_string(data['released_date'])}"
         f", citationUrl: {js_string(data['citation_url'])}"
+        f", citationBibtex: {js_string(data['citation_bibtex'])}"
         f", licenseLabel: {js_string(data['license_label'])}"
         f", licenseUrl: {js_string(data['license_url'])}"
     )
-    # Insert right before the closing brace.
     return obj_text[:-1].rstrip() + fields + " }"
 
 
@@ -287,8 +309,6 @@ def update_index_qmd(product_data):
     with open(INDEX_QMD, "w", encoding="utf-8") as f:
         f.write(before + new_block + after)
 
-
-# ── Main ─────────────────────────────────────────────────────────────────────
 
 def main():
     if not os.path.exists(ZENODO_YML):
