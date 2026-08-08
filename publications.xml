@@ -16,8 +16,43 @@
 <height>144</height>
 <width>144</width>
 </image>
-<generator>quarto-1.9.38</generator>
-<lastBuildDate>Fri, 26 Jun 2026 00:00:00 GMT</lastBuildDate>
+<generator>quarto-1.10.18</generator>
+<lastBuildDate>Fri, 07 Aug 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Menstrual cycle irregularity is a biological determinant of mental health independent of sleep in adolescents</title>
+  <dc:creator>Fernanda Mayara Crispim Diogo</dc:creator>
+  <dc:creator>Lucas G. S. França</dc:creator>
+  <dc:creator>Mario André Leocadio-Miguel</dc:creator>
+  <dc:creator>Maricele Nascimento Barbosa</dc:creator>
+  <dc:creator>Carolina Virginia Macêdo de Azevedo</dc:creator>
+  <link>https://circadia-lab.uk/publications/diogo2026/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="abstract" class="level1">
+<h1>Abstract</h1>
+<p>INTRODUCTION: Sex differences in mental health emerge during adolescence, a period marked by the onset and the establishment of menstrual cycle. However, is rarely examined how menstrual cycle regularity, a marker of hormonal function, modulates mental health.</p>
+<p>OBJECTIVE: to analyse sex differences in mental health symptoms among adolescents considering the menstrual cycle regularity and sleep.</p>
+<p>METHODS: A three-group design (female students with regular cycles/FR, n=77; with irregular cycles/FI, n=59; and male students/M, n=76) in a sample of Brazilian high-school adolescents (n=212; 14–18 years) enrolled in morning and full-time classes was used to test the hypothesis that mental health symptoms follow a graded pattern across these groups.</p>
+<p>RESULTS: Mean DASS-21 scores across all groups fell at or above the Mild severity threshold for mental health subscales. GLMs confirmed a monotonic gradient increase in group order (M→FR→FI) which was associated with higher scores on all outcomes (stress β/step=4.33, p&lt;.001; anxiety β/step=4.08, p&lt;.001; and depression β/step=2.34, p=.010; model R²=.16, .13, .08 respectively). However, no differences were observed in sleep duration, social jetlag, chronotype, sleep quality, or sleep-debt. Then, a secondary analysis assessed sex-specific associations between socioeconomic status (SES) and mental health; higher SES was inversely related to stress, anxiety, and depression, being protective only in males (stress Males β=−2.68, p=.011/Females β=0.46, p=.614).</p>
+<p>CONCLUSION: These findings support the reframing of menstrual irregularity not only as a reproductive health concern but also as a biological determinant of mental health risk in female adolescents, a vulnerability that sleep disruption and socioeconomic resources do not adequately explain.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Preprint</category>
+  <category>mental health</category>
+  <category>adolescents</category>
+  <category>menstrual cycle</category>
+  <category>sleep</category>
+  <guid>https://circadia-lab.uk/publications/diogo2026/</guid>
+  <pubDate>Fri, 07 Aug 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://circadia-lab.uk/publications/diogo2026/featured.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
 <item>
   <title>Habitual lifestyle timing explains circadian timing, but daily lifestyle changes do not, in free-living humans across 2000 days</title>
   <dc:creator>Billy C. Smith</dc:creator>
