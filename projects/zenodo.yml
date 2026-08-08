@@ -25,7 +25,7 @@
 - name: "zeitR"
   repo: "zeitR"
   zenodo_tracked: true
-  zenodo_concept_doi: null
+  zenodo_concept_doi: "10.5281/zenodo.21315925"
 
 - name: "dynR"
   repo: "dynR"
@@ -55,7 +55,7 @@
 - name: "axR"
   repo: "axR"
   zenodo_tracked: true
-  zenodo_concept_doi: null
+  zenodo_concept_doi: "10.5281/zenodo.21393892"
 
 - name: "mrpheus"
   repo: "mrpheus"
@@ -65,12 +65,12 @@
 - name: "hypnoR"
   repo: "hypnoR"
   zenodo_tracked: true
-  zenodo_concept_doi: null
+  zenodo_concept_doi: "10.5281/zenodo.21309263"
 
 - name: "Rtractor"
   repo: "Rtractor"
   zenodo_tracked: true
-  zenodo_concept_doi: null
+  zenodo_concept_doi: "10.5281/zenodo.21328630"
 
 - name: "Circadia Docker"
   repo: "circadiaBase_Docker"
