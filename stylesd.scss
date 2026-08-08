@@ -514,21 +514,22 @@ hr {
 .pc-badge {
   color: $link-color !important;
   border-color: rgba($link-color, 0.3);
-  background: rgba($link-color, 0.08);
+  background: rgba(1, 43, 70, 0.55);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 2px 8px rgba(0,0,0,0.2);
   &:hover {
-    background: rgba($link-color, 0.2);
+    background: rgba(1, 43, 70, 0.85);
     border-color: $link-color;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 4px 16px rgba($link-color, 0.2);
   }
 }
 
 .pc-badge-license {
   color: rgba(255, 220, 180, 0.75) !important;
   border-color: rgba(155, 223, 226, 0.2);
-  background: rgba(155, 223, 226, 0.06);
 
   &:hover {
-    background: rgba(155, 223, 226, 0.14);
-    border-color: rgba(155, 223, 226, 0.35);
+    border-color: rgba(155, 223, 226, 0.45);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 4px 16px rgba(0,0,0,0.25);
   }
 }
 
