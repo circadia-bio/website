@@ -47,9 +47,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-071747dab9f2a6332814f30a56302918.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-d7ab1546418d179a115ad69f99ed9e36.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-8b3f50f91dd331c1c8bc0552da3d2b73.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-071747dab9f2a6332814f30a56302918.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-d7ab1546418d179a115ad69f99ed9e36.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -602,7 +602,7 @@ ul.task-list li input[type="checkbox"] {
         runivLink.target = '_blank';
         runivLink.rel = 'noopener';
         runivLink.title = 'View on r-universe.dev';
-        runivLink.innerHTML = '<svg viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="4.2"/><circle cx="12" cy="12" r="2.3" fill="currentColor" stroke="none"/></svg>r∪';
+        runivLink.textContent = 'r∪';
         badges.appendChild(runivLink);
       }
 
@@ -610,7 +610,7 @@ ul.task-list li input[type="checkbox"] {
         var citeBtn = document.createElement('button');
         citeBtn.type = 'button';
         citeBtn.className = 'pc-badge';
-        citeBtn.innerHTML = '<svg viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h4v6H7a4 4 0 0 1 0-8zM15 7h4v6h-4a4 4 0 0 1 0-8z"/></svg>Cite';
+        citeBtn.innerHTML = '<span class="pc-badge-quote">\u201C</span>Cite';
         citeBtn.onclick = function(e) {
           e.preventDefault();
           e.stopPropagation();
@@ -623,7 +623,7 @@ ul.task-list li input[type="checkbox"] {
         citeLink.href = p.citationUrl;
         citeLink.target = '_blank';
         citeLink.rel = 'noopener';
-        citeLink.innerHTML = '<svg viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h4v6H7a4 4 0 0 1 0-8zM15 7h4v6h-4a4 4 0 0 1 0-8z"/></svg>Cite';
+        citeLink.innerHTML = '<span class="pc-badge-quote">\u201C</span>Cite';
         badges.appendChild(citeLink);
       }
 
