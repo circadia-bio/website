@@ -363,6 +363,15 @@ hr {
 
   svg { flex-shrink: 0; }
 
+  .pc-badge-quote {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.15em;
+    font-weight: 700;
+    line-height: 0;
+    position: relative;
+    top: 1px;
+  }
+
   &:hover {
     background: rgba(255, 236, 212, 0.8);
     border-color: $link-color;

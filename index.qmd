@@ -251,7 +251,7 @@ Interested in working with us? Visit our [Join us](/join.html) page.
         runivLink.target = '_blank';
         runivLink.rel = 'noopener';
         runivLink.title = 'View on r-universe.dev';
-        runivLink.innerHTML = '<svg viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="4.2"/><circle cx="12" cy="12" r="2.3" fill="currentColor" stroke="none"/></svg>r∪';
+        runivLink.textContent = 'r∪';
         badges.appendChild(runivLink);
       }
 
@@ -259,7 +259,7 @@ Interested in working with us? Visit our [Join us](/join.html) page.
         var citeBtn = document.createElement('button');
         citeBtn.type = 'button';
         citeBtn.className = 'pc-badge';
-        citeBtn.innerHTML = '<svg viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h4v6H7a4 4 0 0 1 0-8zM15 7h4v6h-4a4 4 0 0 1 0-8z"/></svg>Cite';
+        citeBtn.innerHTML = '<span class="pc-badge-quote">\u201C</span>Cite';
         citeBtn.onclick = function(e) {
           e.preventDefault();
           e.stopPropagation();
@@ -272,7 +272,7 @@ Interested in working with us? Visit our [Join us](/join.html) page.
         citeLink.href = p.citationUrl;
         citeLink.target = '_blank';
         citeLink.rel = 'noopener';
-        citeLink.innerHTML = '<svg viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h4v6H7a4 4 0 0 1 0-8zM15 7h4v6h-4a4 4 0 0 1 0-8z"/></svg>Cite';
+        citeLink.innerHTML = '<span class="pc-badge-quote">\u201C</span>Cite';
         badges.appendChild(citeLink);
       }
 
