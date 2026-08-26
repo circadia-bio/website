@@ -20,6 +20,24 @@ jobs:
       - name: Render site
         run: quarto render --output-dir _site  # Force output to _site/
 
+      - name: Commit updated Zenodo cache
+        # generate_zenodo_badges.py (a quarto pre-render hook) may have
+        # refreshed .zenodo_cache.json with newly-resolved version data.
+        # Persisting it back to main means a future transient Zenodo
+        # outage falls back to last-known-good data instead of blanking
+        # every version badge. [skip ci] prevents this commit from
+        # re-triggering this same workflow.
+        run: |
+          if ! git diff --quiet -- .zenodo_cache.json; then
+            git config user.name "circadia-bot"
+            git config user.email "actions@circadia-lab.uk"
+            git add .zenodo_cache.json
+            git commit -m "🔧 chore(zenodo): update version cache [skip ci]"
+            git push origin HEAD:main
+          else
+            echo "No cache changes to commit"
+          fi
+
       - name: Ensure CNAME is added
         run: echo "circadia-lab.uk" > _site/CNAME  # Add CNAME inside _site/
       

@@ -16,6 +16,7 @@ import json
 import os
 import re
 import sys
+import time
 import unicodedata
 import urllib.request
 import urllib.error
@@ -28,6 +29,10 @@ GITHUB_ORG = "circadia-bio"
 
 START_MARKER = "// PRODUCTS:START"
 END_MARKER = "// PRODUCTS:END"
+
+FETCH_ATTEMPTS = 3
+FETCH_RETRY_DELAY_SECONDS = 4
+FETCH_TIMEOUT_SECONDS = 10
 
 
 def parse_zenodo_yml(path):
@@ -66,14 +71,41 @@ def parse_zenodo_yml(path):
 RECORD_ID_RE = re.compile(r"/records?/(\d+)")
 
 
+def _fetch_with_retry(url, description, method=None):
+    """GET/HEAD a URL with a few retries on transient network errors
+    (timeouts, connection resets). Does not retry on HTTP errors with a
+    definite status code (404, etc.) since those won't resolve on retry.
+    Returns the urllib response object's relevant data via the passed
+    reader callback would be nicer, but callers just need geturl()/read()
+    so we return the opened response object -- caller is responsible for
+    consuming it immediately (it's not kept open across retries).
+    """
+    last_err = None
+    for attempt in range(1, FETCH_ATTEMPTS + 1):
+        try:
+            req = urllib.request.Request(url, method=method) if method else url
+            with urllib.request.urlopen(req, timeout=FETCH_TIMEOUT_SECONDS) as resp:
+                return resp.geturl(), resp.read()
+        except urllib.error.HTTPError as e:
+            # A definite HTTP status (404, 410, etc.) won't change on retry.
+            print(f"  ! {description}: HTTP {e.code}", file=sys.stderr)
+            return None, None
+        except (urllib.error.URLError, TimeoutError, OSError) as e:
+            last_err = e
+            if attempt < FETCH_ATTEMPTS:
+                print(
+                    f"  ! {description}: {e} (attempt {attempt}/{FETCH_ATTEMPTS}, retrying in {FETCH_RETRY_DELAY_SECONDS}s)",
+                    file=sys.stderr,
+                )
+                time.sleep(FETCH_RETRY_DELAY_SECONDS)
+    print(f"  ! {description}: {last_err} (gave up after {FETCH_ATTEMPTS} attempts)", file=sys.stderr)
+    return None, None
+
+
 def resolve_concept_doi(doi):
     doi_url = f"https://doi.org/{doi}"
-    try:
-        req = urllib.request.Request(doi_url, method="HEAD")
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            landing_url = resp.geturl()
-    except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError) as e:
-        print(f"  ! could not resolve {doi}: {e}", file=sys.stderr)
+    landing_url, _ = _fetch_with_retry(doi_url, f"could not resolve {doi}", method="HEAD")
+    if landing_url is None:
         return None
 
     match = RECORD_ID_RE.search(landing_url)
@@ -83,11 +115,13 @@ def resolve_concept_doi(doi):
     record_id = match.group(1)
 
     api_url = f"https://zenodo.org/api/records/{record_id}"
+    _, body = _fetch_with_retry(api_url, f"could not fetch Zenodo record {record_id}")
+    if body is None:
+        return None
     try:
-        with urllib.request.urlopen(api_url, timeout=10) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-    except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, ValueError) as e:
-        print(f"  ! could not fetch Zenodo record {record_id}: {e}", file=sys.stderr)
+        data = json.loads(body.decode("utf-8"))
+    except ValueError as e:
+        print(f"  ! could not parse Zenodo record {record_id}: {e}", file=sys.stderr)
         return None
 
     metadata = data.get("metadata", {})
