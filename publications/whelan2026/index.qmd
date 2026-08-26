@@ -1,0 +1,38 @@
+---
+title: "Distinct response of resting-state brain networks to psilocybin in autism"
+subtitle: "medRxiv preprint"
+author:
+- name: Tobias P. Whelan
+- name: Mihail Dimitrov
+- name: Lucas G. S. França
+  orcid: 0000-0003-0853-1319
+- name: Claire L. Ellis
+- name: Francesca Moruzzi
+- name: Francesca M. Ponteduro
+- name: Johanna Kangas
+- name: Nermin Khalil
+- name: Yan Ge
+- name: Naoise Mulcrone
+- name: Glynis Ivin
+- name: Dafnis Batallé
+- name: Eileen Daly
+- name: Ekaterina Malievskaia
+- name: Nicolaas A. Puts
+- name: Declan G. M. Murphy
+- name: Gráinne M. McAlonan
+description: "In the 'PSILAUT' study, 67 adults (30 non-autistic, 37 autistic) received single low oral doses of psilocybin (2 mg, 5 mg) or placebo in a double-blind, cross-over design, with resting-state fMRI acquired at each visit. Low-dose psilocybin shifted resting-state network connectivity differently by group: 5 mg decreased within-network connectivity (frontoparietal, limbic) in non-autistic participants, while increasing between-network connectivity across higher-order and attentional networks in autistic participants — a pattern usually associated with higher doses and with therapeutic benefit in other conditions. These shifts correlated with the extent of core autistic traits across the whole cohort, despite comparable subjective drug effects between groups."
+date: '2026-08-22'
+slug: psilocybin-autism-connectivity
+image: featured.png
+categories:
+  - Preprint
+  - psilocybin
+  - autism
+  - fMRI
+  - functional connectivity
+doi: 10.64898/2026.08.19.26360794
+---
+
+# Abstract
+
+There is increasing interest in the potential of psilocybin to treat mental health and neurodevelopmental conditions. At high doses, the therapeutic benefit of psilocybin is linked to greater functional connectivity or integration between large-scale brain networks which underpin mood, emotion and cognition. However, it is unknown how the brain responds to psilocybin in autism – a condition characterised by both altered functional connectivity and differential response to drugs. Thus, a first step before clinical trials of psilocybin involving autistic people, is to evaluate the response of the autistic brain to psilocybin, initially at low dose. Low doses of psilocybin were used to test the hypothesis that the functional connectivity of large-scale resting-state brain networks respond differently in autistic and non-autistic adults. The 'PSILAUT' study had a pseudo-randomised, cross-over, double-blind, case-control design, conducted at the Institute of Psychiatry, Psychology & Neuroscience, King's College London. Adult participants with and without an autism spectrum disorder (ASD) diagnosis were recruited and matched for age, sex and IQ, and received a single oral dose of 2 or 5 mg psilocybin or (inactive) placebo on separate visits. Resting-state fMRI was acquired to investigate the change in functional connectivity within and between brain networks, as measures of network integrity and integration, respectively. A total of 67 participants were recruited (30 non-autistic, 37 autistic). We report for the first time that the autistic brain responds differently to low doses of psilocybin, despite no group differences in network connectivity in the baseline placebo condition. 5 mg psilocybin elicited the greatest shifts in functional connectivity in both groups, but in different directions: in non-autistic participants, within-network connectivity of the frontoparietal and limbic networks decreased, whereas in autistic participants, between-network connectivity (integration) of higher-order and attentional networks increased. Across the whole sample, the extent to which psilocybin elicited an increase in connectivity between higher-order and attentional networks was positively correlated with core autistic traits quantified using the Autism Quotient. Functional brain networks that support mood, emotion and cognition are more responsive to low dose psilocybin in autistic adults compared to non-autistic adults. Given that increased network integration is associated with clinical utility, future applications of psilocybin in autistic people should include the evaluation of low doses.

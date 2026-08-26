@@ -91,7 +91,7 @@
 - name: "R-itable"
   repo: "R-itable"
   zenodo_tracked: true
-  zenodo_concept_doi: null
+  zenodo_concept_doi: "10.5281/zenodo.22068455"
   license: "MIT"
   runiverse: true
   runiverse_pkg: "Ritable"
