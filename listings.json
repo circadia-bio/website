@@ -1,5 +1,15 @@
 [
   {
+    "listing": "/people.html",
+    "items": [
+      "/people/students/karen_pugliane.html",
+      "/people/students/rebeca_buest.html",
+      "/people/former/fernanda_diogo.html",
+      "/people/former/malcolm_schantz.html",
+      "/people/former/josh_penrhyn-jones.html"
+    ]
+  },
+  {
     "listing": "/projects.html",
     "items": [
       "/projects/axr/index.html",
@@ -22,18 +32,17 @@
     ]
   },
   {
-    "listing": "/people.html",
+    "listing": "/blog.html",
     "items": [
-      "/people/students/karen_pugliane.html",
-      "/people/students/rebeca_buest.html",
-      "/people/former/fernanda_diogo.html",
-      "/people/former/malcolm_schantz.html",
-      "/people/former/josh_penrhyn-jones.html"
+      "/blog/circadiabase_docker/index.html",
+      "/blog/sleep_diaries_app/index.html",
+      "/blog/sleep_PSG/index.html"
     ]
   },
   {
     "listing": "/publications.html",
     "items": [
+      "/publications/whelan2026/index.html",
       "/publications/diogo2026/index.html",
       "/publications/smith2026/index.html",
       "/publications/pugliane2026/index.html",
@@ -47,14 +56,6 @@
       "/publications/nunes2024/index.html",
       "/publications/torres2024/index.html",
       "/publications/silva2023/index.html"
-    ]
-  },
-  {
-    "listing": "/blog.html",
-    "items": [
-      "/blog/circadiabase_docker/index.html",
-      "/blog/sleep_diaries_app/index.html",
-      "/blog/sleep_PSG/index.html"
     ]
   }
 ]
