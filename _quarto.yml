@@ -3,6 +3,8 @@ project:
   pre-render:
     - generate_carousel.py
     - generate_people.py
+    - generate_zenodo_badges.py
+    - generate_lab_outputs.py
   resources:
     - sleepdiaries-icon.png
     - scoreme-icon.svg
@@ -33,6 +35,9 @@ website:
       - text: Projects
         icon: folder-fill
         href: projects.qmd
+      - text: Outputs
+        icon: cloud-arrow-up-fill
+        href: lab-outputs.qmd
       - text: Tutorials
         icon: file-earmark-richtext
         href: blog.qmd

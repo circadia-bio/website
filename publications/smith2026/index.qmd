@@ -1,0 +1,44 @@
+---
+title: "Habitual lifestyle timing explains circadian timing, but daily lifestyle changes do not, in free-living humans across 2000 days"
+subtitle: "*arXiv preprint*"
+author:
+- Billy C. Smith
+- Zeel Pansara
+- Rosanne H. Timmerman
+- Emmanuel Molefi
+- Tiago Da Silva Costa
+- Christopher Thornton
+- name: Lucas G. S. França
+  orcid: 0000-0003-0853-1319
+- Rachel E. Stirling
+- Sarah E. Heaps
+- Philippa J. Karoly
+- name: Mario Leocadio-Miguel
+  orcid: 0000-0002-7248-3529
+- Peter N. Taylor
+- Karoline Leiberg
+- name: Yujiang Wang
+  orcid: 0000-0002-4847-6273
+description: "Using up to four weeks of free-living wearable data (smartwatch and continuous glucose monitor) from 105 healthy adults across nearly 2000 person-days, this study asks whether the timing of the circadian heart-rate rhythm is better explained by people's habitual lifestyle patterns or by their day-to-day deviations from those patterns. Habitual traits, such as typical wake time, accounted for the large majority of between-person variation in circadian phase, while daily fluctuations in sleep, food, and activity timing explained comparatively little within-person variation, pointing to sustained changes in lifestyle timing, rather than one-off adjustments, as the more promising chronotherapy target."
+date: '2026-06-26'
+slug: lifestyle-timing-circadian-acrophase
+image: featured.png
+categories:
+  - Preprint
+  - circadian
+  - wearables
+  - heart rate
+  - chronotherapy
+doi: 10.48550/arXiv.2606.28261
+materials: https://arxiv.org/abs/2606.28261
+---
+
+# Abstract
+
+Background: Both between- and within-subject variations in circadian timing matter for health. If lifestyle changes could be used to regulate circadian timing, they would offer accessible and scalable routes to chronotherapy, but this link remains unclear under real-life conditions. Here, we explore how lifestyle 'traits' (such as typical wake time) and 'states' (day-to-day deviations from traits, such as waking up later than typical) explain between- and within-subject variation in acrophase (peak time) of the circadian rhythm of heart rate (CRHR).
+
+Methods: We collected free-living wearable data (smartwatch, continuous glucose monitor) from healthy volunteers for up to 4 weeks. The CRHR was derived from activity-adjusted heart rate, and acrophase was defined as time-of-day at daily CRHR peak. Sleep, food, and physical activity 'factors' were calculated and split into traits and states. Using a linear mixed-effects model, we tested how traits and states associate with between- and within-subject acrophase variance.
+
+Findings: Data from 105 healthy volunteers (66 female, age = 42.5 ± 15.7 years) spanning ~2000 days (18.8 ± 8.30 days each) were analysed. Traits were substantially more influential than states, explaining 42.3% versus 0.9% of total acrophase variance. Accordingly, traits explained 86.5% of between-subject variance, whereas states explained only 1.8% of within-subject variance. Sleep, food and physical activity factors contributed both jointly and uniquely, and lifestyle timing mattered most.
+
+Interpretation: Between-subject lifestyle traits explained acrophase better than within-subject lifestyle states. This asymmetry, alongside the considerable overlap between factors, supports sustained, holistic, timing-focused lifestyle adjustments as chronotherapy targets, testable through future interventional studies.

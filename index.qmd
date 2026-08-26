@@ -39,13 +39,22 @@ Interested in working with us? Visit our [Join us](/join.html) page.
 <script>
 (function(){
   var products = [
+    // PRODUCTS:START
     { href: "https://sleepdiaries.circadia-lab.uk", img: "sleepdiaries-icon.png",             name: "Sleep Diaries", desc: "Digital sleep diary for research and clinical use",             tag: "App" },
     { href: "https://scoreme.circadia-lab.uk",     img: "scoreme-icon.svg",                   name: "ScoreMe",      desc: "Scoring and interpretation of sleep questionnaires",         tag: "App" },
     { href: "https://slumbr.circadia-lab.uk",      img: "https://slumbr.circadia-lab.uk/logo.svg",   name: "slumbR",       desc: "R package for sleep data analysis and visualisation",        tag: "R pkg" },
     { href: "https://zeitr.circadia-lab.uk",       img: "https://zeitr.circadia-lab.uk/logo.svg",    name: "zeitR",        desc: "R package for actigraphy parsing and sleep pipeline analysis", tag: "R pkg" },
+    { href: "https://dynr.circadia-lab.uk",        img: "https://dynr.circadia-lab.uk/logo.svg",     name: "dynR",         desc: "R package for dynamic functional connectivity analysis",      tag: "R pkg" },
+    { href: "https://clerkr.circadia-lab.uk",      img: "https://clerkr.circadia-lab.uk/logo.svg",   name: "clerkR",       desc: "R package for publication-ready tables",                    tag: "R pkg" },
     { href: "https://tallier.circadia-lab.uk",     img: "https://tallier.circadia-lab.uk/logo.svg",  name: "tallieR",      desc: "R package for ScoreMe questionnaire data",                  tag: "R pkg" },
+    { href: "https://syncr.circadia-lab.uk",       img: "https://syncr.circadia-lab.uk/logo.svg",    name: "syncR",        desc: "Integrates and coordinates the Circadia R ecosystem",         tag: "R pkg" },
     { href: "https://r-itable.circadia-lab.uk",    img: "https://r-itable.circadia-lab.uk/logo.svg", name: "R-itable",     desc: "Pedigree-based heritability estimation",                    tag: "R pkg" },
+    { href: "https://axr.circadia-lab.uk",         img: "https://axr.circadia-lab.uk/logo.svg",      name: "axR",          desc: "Interfacing and retrieving data from accelerometer devices", tag: "R pkg" },
+    { href: "https://mrpheus.circadia-lab.uk",     img: "https://mrpheus.circadia-lab.uk/logo.svg", name: "mrpheus",     desc: "Raw physiological signal analysis (PSG/EEG)",              tag: "R pkg" },
+    { href: "https://hypnor.circadia-lab.uk",      img: "https://hypnor.circadia-lab.uk/logo.svg",   name: "hypnoR",       desc: "Hypnogram handling and sleep architecture metrics",         tag: "R pkg" },
+    { href: "https://rtractor.circadia-lab.uk",    img: "https://rtractor.circadia-lab.uk/logo.svg", name: "Rtractor",     desc: "Complexity and nonlinear time series analysis",             tag: "R pkg" },
     { href: "https://github.com/circadia-bio/circadiaBase_Docker", img: null, emoji: "&#x1F433;", name: "Circadia Docker", desc: "Reproducible research environment for chronobiology", tag: "Infra" }
+    // PRODUCTS:END
   ];
 
   var VISIBLE = window.innerWidth < 600 ? 1 : 5;
@@ -53,6 +62,103 @@ Interested in working with us? Visit our [Join us](/join.html) page.
   var track = document.getElementById('pc-track');
   var dotsEl = document.getElementById('pc-dots');
   var current = 0;
+
+  // ── Cite popover ─────────────────────────────────────────────────────────
+  // A single shared popover, appended to <body> (not inside the card) so it
+  // is never clipped by #pc-viewport's overflow:hidden, and repositioned
+  // near whichever Cite button was clicked.
+  var citePopover = document.createElement('div');
+  citePopover.className = 'pc-cite-popover';
+  citePopover.setAttribute('role', 'dialog');
+  citePopover.style.display = 'none';
+  document.body.appendChild(citePopover);
+
+  function closeCitePopover() {
+    citePopover.style.display = 'none';
+  }
+
+  function showCitePopover(triggerEl, bibtex, fallbackUrl) {
+    citePopover.innerHTML = '';
+
+    var closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'pc-cite-close';
+    closeBtn.setAttribute('aria-label', 'Close');
+    closeBtn.innerHTML = '<svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+    closeBtn.onclick = function(e) { e.stopPropagation(); closeCitePopover(); };
+
+    var pre = document.createElement('pre');
+    pre.className = 'pc-cite-bibtex';
+    pre.textContent = bibtex;
+
+    var actions = document.createElement('div');
+    actions.className = 'pc-cite-actions';
+
+    var copyBtn = document.createElement('button');
+    copyBtn.type = 'button';
+    copyBtn.className = 'pc-cite-copy';
+    copyBtn.textContent = 'Copy BibTeX';
+    copyBtn.onclick = function(e) {
+      e.stopPropagation();
+      var done = function() {
+        copyBtn.textContent = 'Copied';
+        setTimeout(function() { copyBtn.textContent = 'Copy BibTeX'; }, 1500);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(bibtex).then(done, done);
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = bibtex;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (err) {}
+        document.body.removeChild(ta);
+        done();
+      }
+    };
+    actions.appendChild(copyBtn);
+
+    if (fallbackUrl) {
+      var moreLink = document.createElement('a');
+      moreLink.className = 'pc-cite-more';
+      moreLink.href = fallbackUrl;
+      moreLink.target = '_blank';
+      moreLink.rel = 'noopener';
+      moreLink.textContent = 'Full CITATION.cff';
+      actions.appendChild(moreLink);
+    }
+
+    citePopover.appendChild(closeBtn);
+    citePopover.appendChild(pre);
+    citePopover.appendChild(actions);
+    citePopover.style.display = 'block';
+
+    var rect = triggerEl.getBoundingClientRect();
+    var popW = 280;
+    var left = Math.min(
+      Math.max(8, rect.left + rect.width / 2 - popW / 2),
+      window.innerWidth - popW - 8
+    );
+    citePopover.style.width = popW + 'px';
+    citePopover.style.left = left + 'px';
+
+    var popH = citePopover.getBoundingClientRect().height;
+    var top = rect.bottom + 8;
+    if (top + popH > window.innerHeight - 8) {
+      top = rect.top - popH - 8;
+    }
+    citePopover.style.top = Math.max(8, top) + 'px';
+  }
+
+  document.addEventListener('click', function(e) {
+    if (citePopover.style.display !== 'none' && !citePopover.contains(e.target)) {
+      closeCitePopover();
+    }
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeCitePopover();
+  });
+  window.addEventListener('scroll', closeCitePopover, true);
 
   function makeCard(p, isClone) {
     var a = document.createElement('a');
@@ -84,7 +190,98 @@ Interested in working with us? Visit our [Join us](/join.html) page.
     tag.textContent = p.tag + ' →';
     a.appendChild(name);
     a.appendChild(desc);
-    a.appendChild(tag);
+
+    // Footer is pinned to the bottom of the card via margin-top:auto,
+    // so its vertical position is consistent regardless of description
+    // length. Zenodo/CITATION.cff fields (p.zenodoTracked / p.version /
+    // p.doiUrl / p.releasedDate / p.citationUrl) are injected by
+    // generate_zenodo_badges.py.
+    var footer = document.createElement('span');
+    footer.className = 'pc-footer';
+
+    if (p.zenodoTracked) {
+      var meta = document.createElement('span');
+      meta.className = 'pc-meta';
+      meta.setAttribute('onclick', 'event.stopPropagation()');
+
+      if (p.version) {
+        var version = document.createElement('span');
+        version.className = 'pc-version';
+        version.textContent = 'v' + String(p.version).replace(/^[vV]/, '');
+        meta.appendChild(version);
+      } else {
+        var archived = document.createElement('span');
+        archived.className = 'pc-archived';
+        archived.textContent = 'Not yet archived';
+        meta.appendChild(archived);
+      }
+
+      var badges = document.createElement('span');
+      badges.className = 'pc-badges';
+
+      if (p.licenseLabel) {
+        var licenseBadge = document.createElement('a');
+        licenseBadge.className = 'pc-badge pc-badge-license';
+        if (p.licenseUrl) {
+          licenseBadge.href = p.licenseUrl;
+          licenseBadge.target = '_blank';
+          licenseBadge.rel = 'noopener';
+        } else {
+          licenseBadge.href = '#';
+          licenseBadge.setAttribute('onclick', 'return false');
+        }
+        licenseBadge.innerHTML = '<svg viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>' + p.licenseLabel;
+        badges.appendChild(licenseBadge);
+      }
+
+      if (p.doiUrl) {
+        var doiLink = document.createElement('a');
+        doiLink.className = 'pc-badge';
+        doiLink.href = p.doiUrl;
+        doiLink.target = '_blank';
+        doiLink.rel = 'noopener';
+        doiLink.innerHTML = '<svg viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>DOI';
+        badges.appendChild(doiLink);
+      }
+
+      if (p.rUniverseUrl) {
+        var runivLink = document.createElement('a');
+        runivLink.className = 'pc-badge pc-badge-runiverse';
+        runivLink.href = p.rUniverseUrl;
+        runivLink.target = '_blank';
+        runivLink.rel = 'noopener';
+        runivLink.title = 'View on r-universe.dev';
+        runivLink.textContent = '⊙ rU';
+        badges.appendChild(runivLink);
+      }
+
+      if (p.citationBibtex) {
+        var citeBtn = document.createElement('button');
+        citeBtn.type = 'button';
+        citeBtn.className = 'pc-badge';
+        citeBtn.innerHTML = '<span class="pc-badge-quote">\u201C</span>Cite';
+        citeBtn.onclick = function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          showCitePopover(citeBtn, p.citationBibtex, p.citationUrl);
+        };
+        badges.appendChild(citeBtn);
+      } else if (p.citationUrl) {
+        var citeLink = document.createElement('a');
+        citeLink.className = 'pc-badge';
+        citeLink.href = p.citationUrl;
+        citeLink.target = '_blank';
+        citeLink.rel = 'noopener';
+        citeLink.innerHTML = '<span class="pc-badge-quote">\u201C</span>Cite';
+        badges.appendChild(citeLink);
+      }
+
+      if (badges.childNodes.length) meta.appendChild(badges);
+      footer.appendChild(meta);
+    }
+
+    footer.appendChild(tag);
+    a.appendChild(footer);
     return a;
   }
 
@@ -342,4 +539,3 @@ Interested in working with us? Visit our [Join us](/join.html) page.
 </script>
 ```
 <!-- NEWS:END -->
-

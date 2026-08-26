@@ -1,0 +1,12 @@
+---
+title: "Lab Outputs"
+description: "A live feed of everything the Circadia Lab has published to our Zenodo Community — software, datasets, and papers."
+---
+
+Everything below is pulled automatically from our [Zenodo Community](https://zenodo.org/communities/circadia-lab) at build time — software releases, datasets, and papers all show up here as soon as they're added, no manual upkeep required.
+
+<!-- LAB_OUTPUTS:START -->
+```{=html}
+<p class="lo-empty">This page will populate automatically once the Circadia Lab Zenodo Community is set up and records are added to it.</p>
+```
+<!-- LAB_OUTPUTS:END -->

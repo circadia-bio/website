@@ -4,3 +4,7 @@ _site/*
 .Rproj.user
 
 /.quarto/
+*.qmd.json
+_news-carousel.html
+_quarto_internal_scss_error.scss
+* 2.*

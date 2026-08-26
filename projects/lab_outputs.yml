@@ -1,0 +1,15 @@
+# Zenodo Community configuration for the "Lab Outputs" page.
+#
+# Once you've created the community on Zenodo (Zenodo -> Communities -> New
+# community), set community_slug to its slug (the last segment of the
+# community's URL, e.g. https://zenodo.org/communities/circadia-lab -> "circadia-lab").
+#
+# Until this is set, generate_lab_outputs.py leaves lab-outputs.qmd's
+# fallback message untouched — no error, just nothing to show yet.
+#
+# Adding existing records to the community: as the record owner, edit each
+# record on Zenodo and add it to the community under "Communities" in the
+# metadata form. Since you'll own both the records and the community,
+# additions are auto-accepted with no curator approval step needed.
+
+community_slug: "circadia-lab"

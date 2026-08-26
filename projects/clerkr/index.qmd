@@ -1,0 +1,78 @@
+---
+title: "clerkR"
+subtitle: "Publication-ready tables for biomedical research in R"
+description: "An R package that transforms standard data frames into publication-ready tables for biomedical and neuroscience manuscripts — descriptive/Table 1, heritability, correlation, and regression archetypes — with consistent theming and a unified rendering pipeline for Word/PDF, HTML, and LaTeX."
+date: "2026-07-03"
+image: ../images/clerkr_logo.png
+categories: [R Package, Tables, Reproducible Research, Open Source]
+---
+
+## About
+
+clerkR transforms standard R data frames into publication-ready tables for biomedical and neuroscience manuscripts. Rather than wrestling with formatting each time, clerkR reduces the most common table types to a handful of opinionated constructor functions that share consistent theming, domain grouping, footnote handling, and a unified rendering pipeline for Word/PDF (`gt`), interactive HTML (`reactable`), and LaTeX output.
+
+*A clerk keeps tabs — clerkR keeps yours publication-ready.*
+
+## Table Archetypes
+
+| Function | Use case | Example |
+|---|---|---|
+| `tbl_descriptive()` | Sample characteristics by group, mean ± SD, t/χ² | Table 1 |
+| `tbl_simple()` | Descriptive summary, no inferential test | Supplementary table |
+| `tbl_correlation()` | Partial correlations, r, p, p† | Correlation results |
+| `tbl_regression()` | β, SE, 95% CI, p, FDR — accepts `broom::tidy()` | Linear/logistic models |
+| `tbl_heritability()` | h², 95% CI, LRT p, σ²a/σ²e — accepts `herit_batch()` | Heritability results |
+
+## Quick Example
+
+```r
+library(clerkR)
+
+tbl_descriptive(
+  clerk_example,
+  group   = sex,
+  domains = list(
+    "Metabolic"      = c("hdl", "glucose", "bmi"),
+    "Anthropometric" = c("waist", "systolic_bp"),
+    "Cognitive"      = c("tmt_time", "verbal_fluency"),
+    "Mental health"  = c("bdi", "panas_neg", "life_satisfaction")
+  ),
+  log_vars = "tmt_time",
+  fdr      = TRUE,
+  output   = "gt"
+) |>
+  clerk_render(title = "Table 1. Sample characteristics by sex")
+```
+
+clerkR is R-itable compatible — the output of `herit_batch()` pipes straight into `tbl_heritability()`:
+
+```r
+herit_batch(traits, grm = A, data = dat, covs_list = covs_list) |>
+  tbl_heritability(
+    model    = "covariates",
+    sigma2_a = "sigma2_a",
+    sigma2_e = "sigma2_e",
+    fdr      = TRUE,
+    output   = "gt"
+  ) |>
+  clerk_render(title = "Heritability estimates")
+```
+
+## Features
+
+- Five table archetypes covering ~90% of what appears in a biomed paper
+- The clerkR theme — light teal headers, navy text, clean borders, consistent throughout
+- Domain/section grouping — organise rows under labelled section headers
+- Automatic footnotes for log-transformed variables and FDR correction
+- Three render targets — `gt` for Word/PDF, `reactable` for HTML, LaTeX for manuscripts
+- Output baked in at construction — set `output = "gt"` once, then just `|> clerk_render()`
+- All constructors return a composable `clerk_tbl` S3 object
+
+## Links
+
+- 🌐 [Documentation](https://clerkr.circadia-lab.uk)
+- 💻 [GitHub](https://github.com/circadia-bio/clerkR)
+- 🧬 [R-itable](https://r-itable.circadia-lab.uk) — pedigree-based heritability estimation, feeds `tbl_heritability()`
+- 🕐 [zeitR](https://zeitr.circadia-lab.uk) — actigraphy analysis and circadian metrics
+- 📓 slumbR — sleep diary processing
+- 📋 tallieR — questionnaire and sociodemographic data

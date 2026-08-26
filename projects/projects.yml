@@ -29,6 +29,68 @@
   categories: [R Package, Actigraphy, Sleep, Open Source]
   date: 2026-06-01
 
+- title: "dynR"
+  path: projects/dynr/index.qmd
+  image: projects/images/dynr_logo.png
+  description: >
+    An R port of the Python dynfc library for computing dynamic connectivity (dynFC)
+    representations — phase-based (LEiDA, Kuramoto) and correlation-based
+    (sliding-window, edge-centric cofluctuation) methods — from multivariate
+    neurophysiological timeseries such as BOLD fMRI, EEG, and LFP.
+  categories: [R Package, Neuroimaging, Connectivity, Open Source]
+  date: 2026-07-03
+
+- title: "clerkR"
+  path: projects/clerkr/index.qmd
+  image: projects/images/clerkr_logo.png
+  description: >
+    An R package that transforms standard data frames into publication-ready tables
+    for biomedical and neuroscience manuscripts — descriptive/Table 1, heritability,
+    correlation, and regression archetypes — with consistent theming and a unified
+    rendering pipeline for Word/PDF, HTML, and LaTeX.
+  categories: [R Package, Tables, Reproducible Research, Open Source]
+  date: 2026-07-03
+
+- title: "axR"
+  path: projects/axr/index.qmd
+  image: projects/images/axr_logo.png
+  description: >
+    An R package for interfacing with Axivity AX3/AX6 accelerometer devices — discovery,
+    status, settings, and data download — plus direct parsing of .cwa files and Condor
+    Instruments ActTrust exports into a tidy epoch shape.
+  categories: [R Package, Actigraphy, Hardware, Open Source]
+  date: 2026-07-22
+
+- title: "mrpheus"
+  path: projects/mrpheus/index.qmd
+  image: projects/images/mrpheus_logo.png
+  description: >
+    An R package for raw physiological signal analysis, ingesting polysomnography
+    (EDF/EDF+), MRI-concurrent physiological logs, and EEG, and extracting cardiac,
+    respiratory, and neural rhythm features, including automatic AASM sleep staging.
+  categories: [R Package, Sleep, Neuroimaging, Open Source]
+  date: 2026-07-22
+
+- title: "hypnoR"
+  path: projects/hypnor/index.qmd
+  image: projects/images/hypnor_logo.png
+  description: >
+    A staging-agnostic R package for hypnogram handling, sleep architecture metrics,
+    cycle segmentation, and transition analysis, accepting both full AASM and coarse
+    actigraphy-derived staging.
+  categories: [R Package, Sleep, Open Source]
+  date: 2026-07-22
+
+- title: "Rtractor"
+  path: projects/rtractor/index.qmd
+  image: projects/images/rtractor_logo.png
+  description: >
+    A complexity and nonlinear time series toolkit for physiological signals — entropy,
+    fractal/multifractal measures, multiscale metrics, and recurrence quantification —
+    usable on any numeric time series regardless of source.
+  categories: [R Package, Signal Processing, Open Source]
+  date: 2026-07-22
+
 - title: "ScoreMe"
   path: projects/scoreme/index.qmd
   image: projects/images/scoreme_og.png

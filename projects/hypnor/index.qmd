@@ -1,0 +1,54 @@
+---
+title: "hypnoR"
+subtitle: "Staging-agnostic hypnogram handling and sleep architecture metrics"
+description: "Hypnogram ingestion, sleep architecture metric computation, cycle segmentation, and transition analysis for both full AASM and coarse actigraphy-derived staging, with publication-ready plotting."
+date: "2026-07-22"
+image: ../images/hypnor_logo.png
+categories: [R Package, Sleep, Open Source]
+---
+
+## About
+
+hypnoR is the hypnogram layer of the Circadia Lab R ecosystem. It sits between raw signal sources and the integrated participant database, providing a common interface for sleep staging regardless of where the staging came from.
+
+It accepts two staging resolutions — full AASM (5-state: W / N1 / N2 / N3 / REM) supplied by [mrpheus](https://mrpheus.circadia-lab.uk), and coarse (3-state: W / Sleep / Quiet sleep) supplied by [zeitR](https://zeitr.circadia-lab.uk). All metric and plotting functions are resolution-agnostic: they compute every metric possible given the available stages and return `NA` for metrics that need finer staging than what's available.
+
+Downstream, hypnoR feeds into `syncR::sync()` as part of the unified participant-indexed database.
+
+## Features
+
+- **`new_hypnogram()`** — constructor accepting a bare tibble or an `mrpheus_hypnogram` object, auto-detecting AASM vs coarse resolution
+- **`smooth_hypnogram()`** — cleans up isolated single-epoch stage flips from raw classifiers
+- **`window_hypnogram()`** — restricts a hypnogram to a time or epoch window before any metric sees it
+- **`compute_sleep_architecture()`** — TST, TIB, SE, SOL, WASO, REM/SWS latency, and stage percentages
+- **`compute_cycles()`** — NREM/REM cycle segmentation (Feinberg & Floyd, 1979, or a gap-tolerant variant); full AASM staging only
+- **`compute_transitions()`** — stage-to-stage transition matrix, fragmentation index, and wake-transition count
+- **`plot_hypnogram()`, `plot_architecture()`, `plot_transition_matrix()`** — publication-ready plots with a shared Circadia Lab colour palette
+
+## Workflow
+
+```r
+library(hypnoR)
+
+# From mrpheus (full AASM) or zeitR (coarse) — same functions from here on
+hyp <- new_hypnogram(mrpheus::export_hypnogram(staging, epoch_s = 30))
+
+hyp   <- smooth_hypnogram(hyp)
+arch  <- compute_sleep_architecture(hyp)
+trans <- compute_transitions(hyp)
+cyc   <- compute_cycles(hyp)
+
+plot_hypnogram(hyp, cycles = cyc)
+```
+
+## Status
+
+> **hypnoR is in early development and has not been formally tested.** The API may change without notice, estimation results have not yet been validated against a reference implementation, and the package has not undergone peer review. Use with caution and verify outputs independently before using in any research context.
+
+## Links
+
+- 🌐 [Documentation](https://hypnor.circadia-lab.uk)
+- 💻 [GitHub](https://github.com/circadia-bio/hypnoR)
+- 🌙 [mrpheus](https://mrpheus.circadia-lab.uk) — PSG signal analysis, upstream source of full AASM hypnograms
+- 🕐 [zeitR](https://zeitr.circadia-lab.uk) — wrist actigraphy pipeline, upstream source of coarse hypnograms
+- 🔗 [syncR](https://syncr.circadia-lab.uk) — unified participant-indexed database

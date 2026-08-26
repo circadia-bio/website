@@ -499,6 +499,114 @@ hr {
   color: $link-color;
 }
 
+.pc-meta {
+  border-top: 1px solid rgba(155, 223, 226, 0.15);
+}
+
+.pc-version {
+  color: $body-color;
+}
+
+.pc-archived {
+  color: rgba(255, 220, 180, 0.6);
+}
+
+.pc-badge {
+  color: $link-color !important;
+  border-color: rgba($link-color, 0.3);
+  background: rgba(1, 43, 70, 0.55);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 2px 8px rgba(0,0,0,0.2);
+  &:hover {
+    background: rgba(1, 43, 70, 0.85);
+    border-color: $link-color;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 4px 16px rgba($link-color, 0.2);
+  }
+}
+
+.pc-badge-license {
+  color: rgba(255, 220, 180, 0.75) !important;
+  border-color: rgba(155, 223, 226, 0.2);
+
+  &:hover {
+    border-color: rgba(155, 223, 226, 0.45);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 4px 16px rgba(0,0,0,0.25);
+  }
+}
+
+.pc-badge-runiverse {
+  color: #b39ddb !important;
+  border-color: rgba(179, 157, 219, 0.4);
+
+  &:hover {
+    border-color: #b39ddb;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 4px 16px rgba(179, 157, 219, 0.25);
+  }
+}
+
+/* Cite popover — dark mode */
+.pc-cite-popover {
+  @include glass-dark(0.94, 16px, 0.18);
+}
+
+.pc-cite-close {
+  color: rgba(255, 220, 180, 0.6);
+  &:hover {
+    background: rgba(155, 223, 226, 0.12);
+    color: $link-color;
+  }
+}
+
+.pc-cite-bibtex {
+  color: $body-color;
+  background: rgba(1, 43, 70, 0.5);
+  border-color: rgba(155, 223, 226, 0.15);
+}
+
+.pc-cite-copy {
+  border-color: rgba($link-color, 0.35);
+  background: rgba($link-color, 0.12);
+  color: $link-color;
+  &:hover {
+    background: rgba($link-color, 0.25);
+    border-color: $link-color;
+  }
+}
+
+.pc-cite-more {
+  color: rgba(255, 220, 180, 0.6) !important;
+}
+
+/* Lab Outputs page — dark mode */
+.lo-card {
+  @include glass-dark(0.45, 12px, 0.15);
+  &:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+}
+
+.lo-type {
+  background: rgba(155, 223, 226, 0.12);
+  color: $body-color;
+}
+
+.lo-type-software { background: rgba($link-color, 0.15); color: $link-color; }
+
+.lo-title { color: $body-color; &:hover { color: $link-color !important; } }
+
+.lo-meta { color: rgba(255, 220, 180, 0.7); }
+
+.lo-doi {
+  color: $link-color !important;
+  border-color: rgba($link-color, 0.3);
+  background: rgba(1, 43, 70, 0.55);
+  &:hover {
+    background: rgba(1, 43, 70, 0.85);
+    border-color: $link-color;
+  }
+}
+
+.lo-empty {
+  color: rgba(255, 220, 180, 0.6);
+}
+
 .pc-btn {
   background: rgba(1, 43, 70, 0.6);
   border-color: rgba(155, 223, 226, 0.2);
