@@ -16,7 +16,7 @@
 <height>144</height>
 <width>144</width>
 </image>
-<generator>quarto-1.10.18</generator>
+<generator>quarto-1.11.9</generator>
 <lastBuildDate>Sat, 22 Aug 2026 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Distinct response of resting-state brain networks to psilocybin in autism</title>
@@ -195,7 +195,7 @@
   <category>chronotype</category>
   <guid>https://circadia-lab.uk/publications/buest2026/</guid>
   <pubDate>Fri, 05 Jun 2026 00:00:00 GMT</pubDate>
-  <media:content url="https://circadia-lab.uk/publications/buest2026/featured.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://circadia-lab.uk/publications/buest2026/featured.jpg" medium="image" type="image/jpeg" height="87" width="144"/>
 </item>
 <item>
   <title>From Movement to METs: A Validation of ActTrust® for Energy Expenditure Estimation and Physical Activity Classification in Young Adults</title>
@@ -227,7 +227,7 @@
   <category>activity intensity</category>
   <guid>https://circadia-lab.uk/publications/batista2026/</guid>
   <pubDate>Wed, 06 May 2026 00:00:00 GMT</pubDate>
-  <media:content url="https://circadia-lab.uk/publications/batista2026/featured.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://circadia-lab.uk/publications/batista2026/featured.jpg" medium="image" type="image/jpeg" height="96" width="144"/>
 </item>
 <item>
   <title>Chronotype Profile in Children: A Systematic Review</title>
@@ -287,7 +287,7 @@
   <category>PSG</category>
   <guid>https://circadia-lab.uk/publications/miguel2024/</guid>
   <pubDate>Sun, 29 Dec 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://circadia-lab.uk/publications/miguel2024/featured.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://circadia-lab.uk/publications/miguel2024/featured.jpg" medium="image" type="image/jpeg" height="108" width="144"/>
 </item>
 <item>
   <title>2024 Standardization of Polysomnography Reports — A Consensus of the Brazilian Sleep Association</title>
@@ -339,7 +339,7 @@
   <category>standards</category>
   <guid>https://circadia-lab.uk/publications/palombini2024/</guid>
   <pubDate>Tue, 17 Dec 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://circadia-lab.uk/publications/palombini2024/featured.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://circadia-lab.uk/publications/palombini2024/featured.jpg" medium="image" type="image/jpeg" height="96" width="144"/>
 </item>
 <item>
   <title>Cycling reduces the entropy of neuronal activity in the human adult cortex</title>
@@ -454,7 +454,7 @@
   <category>sleep</category>
   <guid>https://circadia-lab.uk/publications/nunes2024/</guid>
   <pubDate>Thu, 01 Feb 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://circadia-lab.uk/publications/nunes2024/featured.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://circadia-lab.uk/publications/nunes2024/featured.jpg" medium="image" type="image/jpeg" height="111" width="144"/>
 </item>
 <item>
   <title>Use of sleep quality questionary and cortisol awakening response as complementary tools for the evaluation of major depression progression</title>
@@ -490,7 +490,7 @@
   <category>major depression</category>
   <guid>https://circadia-lab.uk/publications/torres2024/</guid>
   <pubDate>Thu, 01 Feb 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://circadia-lab.uk/publications/torres2024/featured.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://circadia-lab.uk/publications/torres2024/featured.jpg" medium="image" type="image/jpeg" height="82" width="144"/>
 </item>
 <item>
   <title>Blue light exposure-dependent improvement in robustness of circadian rest-activity rhythm in aged rats</title>

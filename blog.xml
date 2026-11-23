@@ -16,7 +16,7 @@
 <height>144</height>
 <width>144</width>
 </image>
-<generator>quarto-1.10.18</generator>
+<generator>quarto-1.11.9</generator>
 <lastBuildDate>Thu, 21 May 2026 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Setting up circadiaBase Docker</title>
@@ -3934,7 +3934,7 @@ font-style: inherit;"># Print AUC on the plot</span></span>
   <category>PSD</category>
   <guid>https://circadia-lab.uk/blog/sleep_PSG/</guid>
   <pubDate>Tue, 11 Mar 2025 00:00:00 GMT</pubDate>
-  <media:content url="https://circadia-lab.uk/blog/sleep_PSG/cover.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://circadia-lab.uk/blog/sleep_PSG/cover.jpg" medium="image" type="image/jpeg" height="89" width="144"/>
 </item>
 </channel>
 </rss>
