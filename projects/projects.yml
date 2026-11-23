@@ -81,6 +81,16 @@
   categories: [R Package, Sleep, Open Source]
   date: 2026-07-22
 
+- title: "hypnos"
+  path: projects/hypnos/index.qmd
+  image: projects/images/hypnos_logo.svg
+  description: >
+    A web app that turns an EDF polysomnography recording into stage composition, a
+    hypnogram, a spectrogram and sleep architecture markers, computed entirely in the
+    browser with mrpheus and hypnoR compiled to WebAssembly. No data leaves the device.
+  categories: [Web App, Sleep, Open Source]
+  date: 2026-11-23
+
 - title: "Rtractor"
   path: projects/rtractor/index.qmd
   image: projects/images/rtractor_logo.png

@@ -31,6 +31,7 @@ LOCAL_SVGS = [
     "actt_validation",
     "cycling_entropy",
     "pinetime_research",
+    "hypnos_logo",
 ]
 
 # External SVGs: (output_stem, url)

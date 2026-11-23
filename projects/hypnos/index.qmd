@@ -1,0 +1,42 @@
+---
+title: "hypnos"
+subtitle: "Polysomnography metrics in your browser"
+description: "A web app that turns an EDF polysomnography recording into stage composition, a hypnogram, a spectrogram and sleep architecture markers, computed entirely in the browser with mrpheus and hypnoR."
+date: "2026-11-23"
+image: ../images/hypnos_logo_og.png
+categories: [Web App, Sleep, Open Source]
+---
+
+## About
+
+hypnos is a web app for getting standard polysomnography (PSG) metrics from an EDF file without installing anything. You select a recording, and the page returns the stage composition of the night, a hypnogram, a spectrogram of the staging EEG channel, and the usual sleep architecture markers.
+
+Everything runs in the browser. The recording is processed on your device and is never uploaded: there is no account and no server holding your data. The analysis is done by R packages from the Circadia Lab ecosystem, compiled to WebAssembly with [webR](https://docs.r-wasm.org/webr/latest/).
+
+## How it works
+
+1. **Pick an EDF file.** The page reads the header and only the EEG, EOG and EMG channels that staging needs, so a night-long file of several hundred MB is practical.
+2. **R runs in the browser.** [mrpheus](https://mrpheus.circadia-lab.uk) segments the recording and stages each 30 s epoch, and [hypnoR](https://hypnor.circadia-lab.uk) computes the sleep architecture from the resulting hypnogram.
+3. **Explore and export.** The hypnogram and spectrogram can be zoomed, with their time axes linked, and the markers and the hypnogram can be downloaded as CSV.
+
+## What it shows
+
+- **Stage composition** across the night
+- **Hypnogram**, with hover and zoom
+- **Spectrogram** of the staging EEG channel, 0 to 30 Hz
+- **Clinical markers:** total sleep time, time in bed, sleep efficiency, sleep onset latency, wake after sleep onset, REM and N3 latency, and stage percentages
+
+## Ecosystem
+
+hypnos is a front end to two of the lab's R packages. [mrpheus](https://mrpheus.circadia-lab.uk) provides EDF ingestion, feature extraction and automatic AASM staging, using a pre-trained model ported from [YASA](https://github.com/raphaelvallat/yasa) (Vallat & Walker, 2021). [hypnoR](https://hypnor.circadia-lab.uk) provides hypnogram handling and sleep architecture metrics.
+
+## Status
+
+> **hypnos is in early development.** Sleep stages are scored automatically and the markers have not been validated against manually scored hypnograms. hypnos is independent of the YASA authors and is not endorsed by them. It is a research tool, not a medical device, and is not intended for diagnosis or treatment. Check the output independently before using it in any research context.
+
+## Links
+
+- 🌐 [Web app](https://hypnos.circadia-lab.uk)
+- 💻 [GitHub](https://github.com/circadia-bio/hypnos)
+- 🌙 [mrpheus](https://mrpheus.circadia-lab.uk) — PSG signal analysis and automatic staging
+- 😴 [hypnoR](https://hypnor.circadia-lab.uk) — hypnogram handling and sleep architecture metrics

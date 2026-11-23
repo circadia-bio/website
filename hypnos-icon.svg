@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="462" viewBox="177 14 326 374" role="img">
+  <title>hypnos</title>
+  <desc>hypnos hex sticker: a stepped hypnogram trace over stage bands on a deep blue background, with a crescent moon, amber border and the hypnos title.</desc>
+
+  <defs>
+    <clipPath id="hclip">
+      <polygon points="340,22 495,114 495,288 340,380 185,288 185,114"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#hclip)">
+    <!-- Background -->
+    <rect x="177" y="14" width="326" height="374" fill="#014370"/>
+
+    <!-- Stage bands: W, REM, N1, N2, N3 -->
+    <rect x="185" y="120" width="310" height="26" fill="#ffa75d" opacity="0.18"/>
+    <rect x="185" y="146" width="310" height="26" fill="#fc544a" opacity="0.14"/>
+    <rect x="185" y="172" width="310" height="26" fill="#9bdfe2" opacity="0.14"/>
+    <rect x="185" y="198" width="310" height="26" fill="#1b6799" opacity="0.45"/>
+    <rect x="185" y="224" width="310" height="26" fill="#1b6799" opacity="0.8"/>
+  </g>
+
+  <!-- Hypnogram trace -->
+  <polyline
+    points="215,133 245,133 245,185 275,185 275,211 305,211 305,237 335,237 335,211 355,211 355,159 380,159 380,211 405,211 405,237 425,237 425,185 450,185 450,133 465,133"
+    fill="none" stroke="#9bdfe2" stroke-width="4" stroke-linejoin="miter"/>
+  <circle cx="465" cy="133" r="6" fill="#fc544a"/>
+
+  <!-- Crescent moon -->
+  <path d="M 342.7 56.2 A 22 22 0 1 0 360.9 84.8 A 17 17 0 0 1 342.7 56.2 Z" fill="#ffa75d"/>
+
+  <!-- Hex border -->
+  <polygon points="340,22 495,114 495,288 340,380 185,288 185,114"
+           fill="none" stroke="#ffa75d" stroke-width="8"/>
+
+  <!-- Package name -->
+  <text x="340" y="326" text-anchor="middle"
+        font-family="'Playfair Display', Georgia, 'Times New Roman', serif"
+        font-size="52" font-weight="700" fill="#ffecd4">hypnos</text>
+</svg>

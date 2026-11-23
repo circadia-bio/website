@@ -8,6 +8,7 @@ project:
   resources:
     - sleepdiaries-icon.png
     - scoreme-icon.svg
+    - hypnos-icon.svg
 
 website:
   title: "Circadia"
