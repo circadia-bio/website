@@ -1,41 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="462" viewBox="177 14 326 374" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img">
   <title>hypnos</title>
-  <desc>hypnos hex sticker: a stepped hypnogram trace over stage bands on a deep blue background, with a crescent moon, amber border and the hypnos title.</desc>
-
+  <desc>hypnos logo: a pocket watch swinging on a thin chain like a pendulum, with a soft motion trail, on a deep blue gradient.</desc>
   <defs>
-    <clipPath id="hclip">
-      <polygon points="340,22 495,114 495,288 340,380 185,288 185,114"/>
-    </clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1f74a8"/><stop offset="0.55" stop-color="#014370"/><stop offset="1" stop-color="#012c4d"/>
+    </linearGradient>
+    <linearGradient id="case" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd9a8"/><stop offset="0.5" stop-color="#ffa75d"/><stop offset="1" stop-color="#e57f3a"/>
+    </linearGradient>
+    <radialGradient id="face" cx="0.4" cy="0.35" r="0.8">
+      <stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#ffe9cf"/>
+    </radialGradient>
+    <linearGradient id="trail" gradientUnits="userSpaceOnUse" x1="69.0" y1="128.2" x2="154.5" y2="141.0">
+      <stop offset="0" stop-color="#9bdfe2" stop-opacity="0"/><stop offset="1" stop-color="#9bdfe2" stop-opacity="0.85"/>
+    </linearGradient>
   </defs>
-
-  <g clip-path="url(#hclip)">
-    <!-- Background -->
-    <rect x="177" y="14" width="326" height="374" fill="#014370"/>
-
-    <!-- Stage bands: W, REM, N1, N2, N3 -->
-    <rect x="185" y="120" width="310" height="26" fill="#ffa75d" opacity="0.18"/>
-    <rect x="185" y="146" width="310" height="26" fill="#fc544a" opacity="0.14"/>
-    <rect x="185" y="172" width="310" height="26" fill="#9bdfe2" opacity="0.14"/>
-    <rect x="185" y="198" width="310" height="26" fill="#1b6799" opacity="0.45"/>
-    <rect x="185" y="224" width="310" height="26" fill="#1b6799" opacity="0.8"/>
+  <rect width="256" height="256" rx="58" fill="url(#bg)"/>
+  <path d="M 69.0 128.2 A 118 118 0 0 0 154.5 141.0" fill="none" stroke="url(#trail)" stroke-width="12.0" stroke-linecap="round"/>
+  <path d="M 73.8 160.1 A 144.7 144.7 0 0 0 140.6 170.1" fill="none" stroke="url(#trail)" stroke-width="4.0" stroke-linecap="round" opacity="0.55"/>
+  <line x1="128" y1="26" x2="137.1" y2="65.6" stroke="#ffecd4" stroke-width="3.5" stroke-linecap="round" opacity="0.9"/>
+  <circle cx="128" cy="26" r="12.0" fill="none" stroke="#ffecd4" stroke-width="2" opacity="0.3"/>
+  <circle cx="128" cy="26" r="6.7" fill="#ffecd4"/>
+  <ellipse cx="158.5" cy="207.6" rx="44.8" ry="6.7" fill="#000" opacity="0.18"/>
+  <g transform="rotate(-13 154.5 141.0)">
+    <rect x="146.5" y="73.0" width="16.0" height="14.7" rx="4.0" fill="#e9893a"/>
+    <circle cx="154.5" cy="65.0" r="9.3" fill="none" stroke="#ffa75d" stroke-width="4.5"/>
+    <circle cx="154.5" cy="141.0" r="56" fill="url(#case)"/>
+    <circle cx="154.5" cy="141.0" r="46.7" fill="url(#face)"/>
+    <circle cx="154.5" cy="179.6" r="3.1" fill="#014370" opacity="0.9"/>
+    <circle cx="173.9" cy="174.5" r="1.7" fill="#014370" opacity="0.45"/>
+    <circle cx="188.0" cy="160.3" r="1.7" fill="#014370" opacity="0.45"/>
+    <circle cx="193.2" cy="141.0" r="3.1" fill="#014370" opacity="0.9"/>
+    <circle cx="188.0" cy="121.6" r="1.7" fill="#014370" opacity="0.45"/>
+    <circle cx="173.9" cy="107.5" r="1.7" fill="#014370" opacity="0.45"/>
+    <circle cx="154.5" cy="102.3" r="3.1" fill="#014370" opacity="0.9"/>
+    <circle cx="135.2" cy="107.5" r="1.7" fill="#014370" opacity="0.45"/>
+    <circle cx="121.1" cy="121.6" r="1.7" fill="#014370" opacity="0.45"/>
+    <circle cx="115.9" cy="141.0" r="3.1" fill="#014370" opacity="0.9"/>
+    <circle cx="121.1" cy="160.3" r="1.7" fill="#014370" opacity="0.45"/>
+    <circle cx="135.2" cy="174.5" r="1.7" fill="#014370" opacity="0.45"/>
+    <line x1="154.5" y1="141.0" x2="137.2" y2="131.0" stroke="#014370" stroke-width="5.3" stroke-linecap="round"/>
+    <line x1="154.5" y1="141.0" x2="183.4" y2="124.3" stroke="#014370" stroke-width="4.0" stroke-linecap="round"/>
+    <circle cx="154.5" cy="141.0" r="5.1" fill="#fc544a"/>
+    <path d="M 136.5 102.3 A 42.7 42.7 0 0 0 113.3 129.9" fill="none" stroke="#fff" stroke-width="4.0" stroke-linecap="round" opacity="0.7"/>
   </g>
-
-  <!-- Hypnogram trace -->
-  <polyline
-    points="215,133 245,133 245,185 275,185 275,211 305,211 305,237 335,237 335,211 355,211 355,159 380,159 380,211 405,211 405,237 425,237 425,185 450,185 450,133 465,133"
-    fill="none" stroke="#9bdfe2" stroke-width="4" stroke-linejoin="miter"/>
-  <circle cx="465" cy="133" r="6" fill="#fc544a"/>
-
-  <!-- Crescent moon -->
-  <path d="M 342.7 56.2 A 22 22 0 1 0 360.9 84.8 A 17 17 0 0 1 342.7 56.2 Z" fill="#ffa75d"/>
-
-  <!-- Hex border -->
-  <polygon points="340,22 495,114 495,288 340,380 185,288 185,114"
-           fill="none" stroke="#ffa75d" stroke-width="8"/>
-
-  <!-- Package name -->
-  <text x="340" y="326" text-anchor="middle"
-        font-family="'Playfair Display', Georgia, 'Times New Roman', serif"
-        font-size="52" font-weight="700" fill="#ffecd4">hypnos</text>
 </svg>
